@@ -1,0 +1,54 @@
+{
+    "project_info": {
+        "project_number": "948382471750",
+        "project_id": "tickt-90f02",
+        "storage_bucket": "tickt-90f02.firebasestorage.app"
+    },
+    "client": [
+        {
+            "client_info": {
+                "mobilesdk_app_id": "1:948382471750:android:25faa96d36420284555c47",
+                "android_client_info": {
+                    "package_name": "io.tickt.mealtickt"
+                }
+            },
+            "oauth_client": [
+                {
+                    "client_id": "948382471750-bukursn9kvsbl7fl33m1t9lj4upbi7t7.apps.googleusercontent.com",
+                    "client_type": 1,
+                    "android_info": {
+                        "package_name": "io.tickt.mealtickt",
+                        "certificate_hash": "55e99ba5810c45c8f6b56b0e1c383f5a78f6b896"
+                    }
+                },
+                {
+                    "client_id": "948382471750-3e4o3v053724vb7rlsbgj6e5183r37uq.apps.googleusercontent.com",
+                    "client_type": 3
+                }
+            ],
+            "api_key": [
+                {
+                    "current_key": "AIzaSyAZDGWcgmGA8MAgmWV03TwIWyIUODuRJZg"
+                }
+            ],
+            "services": {
+                "appinvite_service": {
+                    "other_platform_oauth_client": [
+                        {
+                            "client_id": "948382471750-3e4o3v053724vb7rlsbgj6e5183r37uq.apps.googleusercontent.com",
+                            "client_type": 3
+                        },
+                        {
+                            "client_id": "948382471750-v7lueforcnb1mbh6ar3fo9o5mdbkl4pn.apps.googleusercontent.com",
+                            "client_type": 2,
+                            "ios_info": {
+                                "bundle_id": "io.tickt.mealtickt"
+                            }
+                        }
+                    ]
+                }
+            }
+        }
+    ],
+    "configuration_version": "1"
+}

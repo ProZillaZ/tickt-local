@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <!-- FavIcon Linkup -->
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
+
+    <!-- Font Awesome Icon Pack CDN -->
+    <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+            integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+    />
+
+    <!-- AOS Library CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"/>
+
+    <!-- Page Title -->
+    <title>MealTickt</title>
+
+    <!-- CSS File Linkup -->
+    <link rel="stylesheet" href="./css/style.css"/>
+    <link rel="stylesheet" href="./css/responsive.css"/>
+
+    <!-- Javascript file linkup -->
+    <script src="./js/app.js" defer></script>
+</head>
+<body>
+<!-- Content starts from here -->
+<main>
+    <!-- Header Part Start -->
+    <section class="header__box">
+        <div class="container">
+            <!-- navbar start -->
+            <nav class="site__nav">
+                <!-- left -->
+                <div class="nav__left">
+                    <a href="#">
+                        <img src="./assets/logo.svg" alt="site_logo"/>
+                    </a>
+                </div>
+
+                <!-- Right -->
+                <div class="nav__right">
+                    <ul class="navlinks">
+                        <li>
+                            <a href="#features">features</a>
+                        </li>
+                        <li>
+                            <a href="#how-it-works">how it works</a>
+                        </li>
+                        <li>
+                            <a href="#pricing">pricing</a>
+                        </li>
+                        <li>
+                            <a href="#download">download</a>
+                        </li>
+                    </ul>
+
+                    <!-- Hamburger Menu For mobile -->
+                    <div class="menu_for__mobile">
+                        <i
+                                class="fa-solid fa-bars-staggered"
+                                id="open-popup"
+                                style="font-size: 20px"
+                        ></i>
+
+                        <i
+                                class="fa-solid fa-xmark"
+                                id="close-popup"
+                                style="font-size: 20px"
+                        ></i>
+
+                        <!-- Popup -->
+                        <div class="navbar__popup">
+                            <ul class="navlinks__mobile">
+                                <li>
+                                    <a href="#features">features</a>
+                                </li>
+                                <li>
+                                    <a href="#how-it-works">how it works</a>
+                                </li>
+                                <li>
+                                    <a href="#pricing">pricing</a>
+                                </li>
+                                <li>
+                                    <a href="#download">download</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            <!-- navbar end -->
+
+            <!-- Banner Section Start -->
+            <div class="banner__section">
+                <!-- left -->
+                <div class="banner__section__left">
+                    <h1 class="banner__heading" data-aos="fade-up">
+                        your <span>personalised</span> ticket <br/>
+                        to healthier eating
+                    </h1>
+
+                    <h2
+                            class="banner__subheading"
+                            data-aos="fade-up"
+                            data-aos-delay="200"
+                    >
+                        custom meal plans and <br/>
+                        nutrition guidance tailored to <br/>
+                        your lifestyle and goals
+                    </h2>
+
+                    <div class="banner__btn__group">
+                        <a
+                                href="#"
+                                class="banner__btn"
+                                data-aos="fade-right"
+                                data-aos-delay="300"
+                        >
+                            Download on IOS
+                        </a>
+                        <a
+                                href="#"
+                                class="banner__btn"
+                                data-aos="fade-right"
+                                data-aos-delay="400"
+                        >
+                            Download on Android
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right -->
+                <div class="banner__section__right">
+                    <img src="./assets/banner-image.png" alt="banner_image"/>
+                </div>
+            </div>
+            <!-- Banner Section End -->
+        </div>
+    </section>
+    <!-- Header Part End -->
+
+    <!-- Features Section Start -->
+    <section class="feature__section" id="features">
+        <div class="container">
+            <!-- Heading Start -->
+            <div class="feature__heading">
+                <!-- left -->
+                <div class="feature__heading__left">
+                    <p class="fhl__title" data-aos="fade-up">features</p>
+                    <h2 class="fhl_desc" data-aos="fade-up" data-aos-delay="200">
+                        why you’ll love <br/>
+                        <strong> mealtickt </strong>
+                    </h2>
+                </div>
+
+                <!-- right -->
+                <div class="feature__heading__right">
+                    <img
+                            src="./assets/quote.svg"
+                            alt="quote-item"
+                            data-aos="fade-right"
+                            data-aos-delay="100"
+                    />
+
+                    <div>
+                        <h4
+                                class="quote__desc"
+                                data-aos="fade-right"
+                                data-aos-delay="200"
+                        >
+                            using mealtickt helped be <br/>
+                            develop a new relationship <br/>
+                            with healthy eating.”
+                        </h4>
+
+                        <p
+                                class="quote__title"
+                                data-aos="fade-down"
+                                data-aos-delay="200"
+                        >
+                            janet, 46
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!-- Heading End -->
+
+            <!-- Feature Content Start -->
+            <div class="feature__content">
+                <!-- Item -->
+                <div class="fc__card">
+                    <img
+                            src="./assets/img/homepage.png"
+                            alt="feature__image"
+                            data-aos="fade-up"
+                    />
+
+                    <h3
+                            class="fc__card__title"
+                            data-aos="fade-up"
+                            data-aos-delay="100"
+                    >
+                        tailored and adaptive meal plans just for you
+                    </h3>
+
+                    <h4
+                            class="fc__card__desc"
+                            data-aos="fade-up"
+                            data-aos-delay="200"
+                    >
+                        we create meal plans that fit your life, your tastes, and your
+                        goals.
+                    </h4>
+
+                    <h4
+                            class="great__heading"
+                            data-aos="fade-up"
+                            data-aos-delay="300"
+                    >
+                        why it’s great
+                    </h4>
+
+                    <p class="great__desc" data-aos="fade-up" data-aos-delay="400">
+                        unlike other apps, our plans evolve with you—adjusting as your
+                        needs change, so you’re always on track.
+                    </p>
+                </div>
+
+                <!-- Item -->
+                <div class="fc__card">
+                    <img
+                            src="./assets/img/coach.png"
+                            alt="feature__image"
+                            data-aos="fade-up"
+                    />
+
+                    <h3
+                            class="fc__card__title"
+                            data-aos="fade-up"
+                            data-aos-delay="100"
+                    >
+                        interactive ai coach to guide you
+                    </h3>
+
+                    <h4
+                            class="fc__card__desc"
+                            data-aos="fade-up"
+                            data-aos-delay="200"
+                    >
+                        our ai coach is here to help you stay motivated and on track
+                        with personalised advice, tips, and reminders based on your
+                        progress.
+                    </h4>
+
+                    <h4
+                            class="great__heading"
+                            data-aos="fade-up"
+                            data-aos-delay="300"
+                    >
+                        why it’s great
+                    </h4>
+
+                    <p class="great__desc" data-aos="fade-up" data-aos-delay="400">
+                        it’s like having a personal coach in your pocket, always ready
+                        to help you make healthier choices and adjust your plan as
+                        needed.
+                    </p>
+                </div>
+
+                <!-- Item -->
+                <div class="fc__card">
+                    <img
+                            src="./assets/img/recipes.png"
+                            alt="feature__image"
+                            data-aos="fade-up"
+                    />
+
+                    <h3
+                            class="fc__card__title"
+                            data-aos="fade-up"
+                            data-aos-delay="100"
+                    >
+                        tasty, easy recipes
+                    </h3>
+
+                    <h4
+                            class="fc__card__desc"
+                            data-aos="fade-up"
+                            data-aos-delay="200"
+                    >
+                        delicious meals that are easy to make, no matter your cooking
+                        skills.
+                    </h4>
+
+                    <h4
+                            class="great__heading"
+                            data-aos="fade-up"
+                            data-aos-delay="300"
+                    >
+                        why it’s great
+                    </h4>
+
+                    <p class="great__desc" data-aos="fade-up" data-aos-delay="400">
+                        healthy eating doesn’t have to be hard. we make it simple with
+                        quick, easy-to-follow recipes that fit your schedule.
+                    </p>
+                </div>
+
+                <!-- Item -->
+                <div class="fc__card">
+                    <img
+                            src="./assets/img/gamification.png"
+                            alt="feature__image"
+                            data-aos="fade-up"
+                    />
+
+                    <h3
+                            class="fc__card__title"
+                            data-aos="fade-up"
+                            data-aos-delay="100"
+                    >
+                        fun with gamification
+                    </h3>
+
+                    <h4
+                            class="fc__card__desc"
+                            data-aos="fade-up"
+                            data-aos-delay="200"
+                    >
+                        make progress while having fun! earn rewards, badges, and unlock
+                        achievements as you hit your health milestones.
+                    </h4>
+
+                    <h4
+                            class="great__heading"
+                            data-aos="fade-up"
+                            data-aos-delay="300"
+                    >
+                        why it’s great
+                    </h4>
+
+                    <p class="great__desc" data-aos="fade-up" data-aos-delay="400">
+                        gamification turns healthy habits into a fun journey, motivating
+                        you to stay on track while enjoying the process.
+                    </p>
+                </div>
+            </div>
+            <!-- Feature Content End -->
+        </div>
+    </section>
+    <!-- Features Section End -->
+
+    <!-- Combined Section (How It Works & Pricing) Start -->
+    <div class="combined__section">
+        <!-- how it works section start -->
+        <section class="how_it__works" id="how-it-works">
+            <div class="container">
+                <!-- Heading Start -->
+                <div class="hiw__heading">
+                    <p class="hiw_heading__desc" data-aos="fade-up">how it works</p>
+
+                    <h2
+                            class="hiw_heading__title"
+                            data-aos="fade-down"
+                            data-aos-delay="100"
+                    >
+                        getting started <br/>
+                        <strong>is easy</strong>
+                    </h2>
+                </div>
+                <!-- Heading End -->
+
+                <!-- Content Start -->
+                <div class="hiw__content">
+                    <!-- left -->
+                    <div class="hiw__content__left">
+                        <div class="hiw__content__left__img">
+                            <img
+                                    src="assets/img/homepage-tablet.png"
+                                    alt="how_it_works_Image"
+                                    data-aos="fade-right"
+                            />
+                        </div>
+
+                        <!-- Content -->
+                        <div class="hiw__content__left__content">
+                            <!-- Item -->
+                            <div class="hiw_clc__card">
+                                <h3 class="hiw_clc__card__title" data-aos="fade-up">
+                                    tailored and adaptive meal plans just for you
+                                </h3>
+
+                                <p
+                                        class="hiw_clc__card__desc"
+                                        data-aos="fade-up"
+                                        data-aos-delay="100"
+                                >
+                                    we create meal plans that fit your life, your tastes, and
+                                    your goals.
+                                </p>
+                            </div>
+
+                            <!-- Item -->
+                            <div class="hiw_clc__card">
+                                <h3
+                                        class="hiw_clc__card__title"
+                                        data-aos="fade-right"
+                                        data-aos-delay="200"
+                                >
+                                    interactive ai coach to guide you
+                                </h3>
+
+                                <p
+                                        class="hiw_clc__card__desc"
+                                        data-aos="fade-right"
+                                        data-aos-delay="300"
+                                >
+                                    our ai coach is here to help you stay motivated and on
+                                    track with personalised advice, tips, and reminders based
+                                    on your progress.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right -->
+                    <div class="hiw__content__right">
+                        <!-- Item -->
+                        <div class="hiw__content__right__card">
+                            <div class="hiw__content__left__img">
+                                <img
+                                        src="./assets/img/recipe.png"
+                                        alt="recipes_img"
+                                        data-aos="fade-down"
+                                />
+                            </div>
+
+                            <div class="hiw_clc__card">
+                                <h3
+                                        class="hiw_clc__card__title"
+                                        data-aos="fade-up"
+                                        data-aos-delay="100"
+                                >
+                                    tasty, easy recipes
+                                </h3>
+
+                                <p
+                                        class="hiw_clc__card__desc"
+                                        data-aos="fade-up"
+                                        data-aos-delay="200"
+                                >
+                                    delicious meals that are easy to make, no matter your
+                                    cooking skills.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Item -->
+                        <div class="hiw__content__right__card">
+                            <div class="hiw__content__left__img">
+                                <img
+                                        src="./assets/img/gamification2.png"
+                                        alt="gamification-img_img"
+                                        data-aos="fade-down"
+                                />
+                            </div>
+
+                            <div
+                                    class="hiw_clc__card hasPadding"
+                                    data-aos="fade-up"
+                                    data-aos-delay="100"
+                            >
+                                <h3 class="hiw_clc__card__title">fun with gamification</h3>
+
+                                <p
+                                        class="hiw_clc__card__desc"
+                                        data-aos="fade-up"
+                                        data-aos-delay="200"
+                                >
+                                    make progress while having fun! earn rewards, badges, and
+                                    unlock achievements as you hit your health milestones.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Content End -->
+            </div>
+        </section>
+        <!-- how it works section end -->
+
+        <!-- Pricing Section Start -->
+        <div class="container">
+            <section class="pricing__section" id="pricing">
+                <!-- left -->
+                <div class="pricing__left">
+                    <!-- Heading start -->
+                    <div class="hiw__heading">
+                        <p class="hiw_heading__desc" data-aos="fade-up">pricing</p>
+
+                        <h2
+                                class="hiw_heading__title"
+                                data-aos="fade-down"
+                                data-aos-delay="100"
+                        >
+                            flexible plans <br/>
+                            <strong>that fit your life</strong>
+                        </h2>
+                    </div>
+                    <!-- Heading end -->
+
+                    <!-- content start -->
+                    <div class="pricing__left__content">
+                        <!-- left (Basic Plan) -->
+                        <div class="plc__left">
+                            <!-- Heading -->
+                            <div class="plc__left__heading">
+                                <h3 class="plc__lh__title" data-aos="fade-up">
+                                    basic plan
+                                </h3>
+
+                                <p
+                                        class="plc__lh__pricebox"
+                                        data-aos="fade-up"
+                                        data-aos-delay="100"
+                                >
+                                    £0 / month
+                                </p>
+                            </div>
+
+                            <!-- Contnet -->
+                            <p
+                                    class="plc__left__desc hasMargin"
+                                    data-aos="fade-right"
+                                    data-aos-delay="200"
+                            >
+                                get started at no cost! enjoy access to basic meal plans and
+                                simple recipes tailored to your preferences.
+                            </p>
+
+                            <!-- Perfect Heading -->
+                            <h3
+                                    class="perfect__heading"
+                                    data-aos="fade-up"
+                                    data-aos-delay="300"
+                            >
+                                perfect for
+                            </h3>
+
+                            <p
+                                    class="plc__left__desc"
+                                    data-aos="fade-up"
+                                    data-aos-delay="400"
+                            >
+                                anyone looking to dip their toes into healthier eating.
+                            </p>
+                        </div>
+
+                        <!-- right (Premium Plan)-->
+                        <div class="plc__right">
+                            <!-- Heading -->
+                            <div class="plc__left__heading">
+                                <h3 class="plc__lh__title" data-aos="fade-up">
+                                    premium plan
+                                </h3>
+
+                                <p
+                                        class="plc__lh__pricebox"
+                                        data-aos="fade-up"
+                                        data-aos-delay="100"
+                                >
+                                    £14.99 / month
+                                </p>
+                            </div>
+
+                            <!-- Contnet -->
+                            <p
+                                    class="plc__left__desc hasMargin"
+                                    data-aos="fade-right"
+                                    data-aos-delay="200"
+                            >
+                                unlock personalised meal plans, advanced nutrition <br/>
+                                tracking, and interactive ai coaching to help <br/>
+                                you reach your goals faster.
+                            </p>
+
+                            <!-- content -->
+                            <div class="plc__right__contnet">
+                                <!-- Item -->
+                                <div>
+                                    <!-- Heading -->
+                                    <h3
+                                            class="perfect__heading"
+                                            data-aos="fade-up"
+                                            data-aos-delay="300"
+                                    >
+                                        includes
+                                    </h3>
+
+                                    <!-- List -->
+                                    <ul class="includes__list">
+                                        <li data-aos="fade-up" data-aos-delay="400">
+                                            dynamic, personalised meal plans that adapt as you
+                                            progress.
+                                        </li>
+                                        <li data-aos="fade-up" data-aos-delay="500">
+                                            advanced tracking tools to monitor your nutrition and
+                                            goals.
+                                        </li>
+                                        <li data-aos="fade-up" data-aos-delay="600">
+                                            access to the interactive ai coach so that progress is
+                                            always on hand.
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <!-- Item -->
+                                <div>
+                                    <!-- Heading -->
+                                    <h3
+                                            class="perfect__heading"
+                                            data-aos="fade-up"
+                                            data-aos-delay="700"
+                                    >
+                                        why it’s great
+                                    </h3>
+
+                                    <p
+                                            class="plc__left__desc"
+                                            data-aos="fade-up"
+                                            data-aos-delay="800"
+                                    >
+                                        no hidden fees, just everything you need to thrive on
+                                        your health journey, all in one app!
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- content end -->
+                </div>
+
+                <!-- Right -->
+                <div class="pricing__right">
+                    <img src="./assets/pricing-img.png" alt="pricing_image"/>
+                </div>
+            </section>
+        </div>
+        <!-- Pricing Section End -->
+    </div>
+    <!-- Combined Section (How It Works & Pricing) End -->
+
+    <!-- Journey Section Start -->
+    <section class="journey__section" id="download">
+        <div class="container">
+            <div class="journey__content">
+                <!-- left -->
+                <div>
+                    <img
+                            src="assets/img/footer.png"
+                            alt="joruney__image"
+                    />
+                </div>
+
+                <!-- Right -->
+                <div class="journey__content__right">
+                    <!-- Title -->
+                    <h2 class="jcr__heading" data-aos="fade-down">
+                        ready to begin with your health journey?
+                    </h2>
+
+                    <!-- Desc -->
+                    <p class="jcr__desc" data-aos="fade-up" data-aos-delay="200">
+                        we’re here to help you reach your health goals one tickt at a
+                        time.
+                    </p>
+
+                    <a
+                            href="#how-it-works"
+                            class="banner__btn"
+                            data-aos="fade-up"
+                            data-aos-delay="300"
+                    >
+                        Get started for free
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Journey Section End -->
+
+    <!-- Footer Start -->
+    <footer class="site__footer">
+        <div class="container">
+            <div class="site__footer__content">
+                <!-- left -->
+                <div class="site__footer__content__left">
+                    <a href="#" class="site__footer__logo">
+                        <img src="./assets/footer-logo.svg" alt="footer_logo_image"/>
+                    </a>
+                </div>
+
+                <!-- Right -->
+                <div class="site__footer__content__right">
+                    <!-- Social Links -->
+                    <ul class="footer__social">
+                        <li>
+                            <a href="https://www.facebook.com">
+                                <img
+                                        src="./assets/facebook.svg"
+                                        alt="facebook__icon"
+                                        width="28"
+                                />
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="https://www.instagram.com">
+                                <img
+                                        src="./assets/instagram.svg"
+                                        alt="instagram__icon"
+                                        width="28"
+                                />
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="https://www.twitter.com">
+                                <img
+                                        src="./assets/twitter.svg"
+                                        alt="twitter__icon"
+                                        width="28"
+                                />
+                            </a>
+                        </li>
+                    </ul>
+
+                    <!-- Links and sub box -->
+                    <div style="width: 100%">
+                        <!-- Links -->
+                        <ul class="navlinks">
+                            <li>
+                                <a href="#">about us</a>
+                            </li>
+                            <li>
+                                <a href="#">blog</a>
+                            </li>
+                            <li>
+                                <a href="#">terms & privacy</a>
+                            </li>
+                            <li>
+                                <a href="#">support</a>
+                            </li>
+                            <li>
+                                <a href="#">contact</a>
+                            </li>
+                        </ul>
+
+                        <!-- Sub Box -->
+                        <form class="sub__box">
+                            <input
+                                    type="email"
+                                    placeholder="join our mailing list for tips and updates"
+                            />
+
+                            <button type="submit">submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer End -->
+</main>
+<!-- Content ends here -->
+
+<!-- Animation Library -->
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+</body>
+</html>

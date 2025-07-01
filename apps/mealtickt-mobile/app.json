@@ -1,0 +1,146 @@
+{
+  "expo": {
+    "name": "mealtickt",
+    "slug": "mealtickt",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/android.png",
+    "userInterfaceStyle": "light",
+    "newArchEnabled": true,
+    "ios": {
+      "icon": "./assets/ios.png",
+      "supportsTablet": true,
+      "bundleIdentifier": "io.tickt.mealtickt",
+      "usesAppleSignIn": true,
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false,
+        "NSUserTrackingUsageDescription": "This identifier will be used to deliver personalized ads to you.",
+        "SKAdNetworkItems": [
+          {
+            "SKAdNetworkIdentifier": "v9wttpbfk9.skadnetwork"
+          },
+          {
+            "SKAdNetworkIdentifier": "n38lu8286q.skadnetwork"
+          }
+        ]
+      },
+      "googleServicesFile": "./GoogleService-Info.plist",
+      "appleTeamId": "UBJCT37KJN"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/android.png",
+        "backgroundColor": "#000000"
+      },
+      "package": "io.tickt.mealtickt",
+      "googleServicesFile": "./google-services.json",
+      "permissions": [
+        "android.permission.INTERNET",
+        "android.permission.RECORD_AUDIO"
+      ]
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "cb5a4284-ac5d-4d34-a975-76e1d9b70884"
+      }
+    },
+    "owner": "mealtickt",
+    "plugins": [
+      "expo-font",
+      "@react-native-firebase/app",
+      "@react-native-firebase/crashlytics",
+      "@react-native-firebase/auth",
+      "expo-apple-authentication",
+      [
+        "@react-native-google-signin/google-signin",
+        {
+          "iosUrlScheme": "com.googleusercontent.apps.948382471750-v7lueforcnb1mbh6ar3fo9o5mdbkl4pn"
+        }
+      ],
+      [
+        "expo-build-properties",
+        {
+          "ios": {
+            "useFrameworks": "static"
+          }
+        }
+      ],
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "The app accesses your photos to let you share them with your friends."
+        }
+      ],
+      [
+        "expo-splash-screen",
+        {
+          "backgroundColor": "#F7F5EE",
+          "image": "./assets/splash-icon.png",
+          "imageWidth": 200
+        }
+      ],
+      [
+        "react-native-google-mobile-ads",
+        {
+          "androidAppId": "ca-app-pub-2914732759227890~6922951207",
+          "iosAppId": "ca-app-pub-2914732759227890~9660795187",
+          "skAdNetworkItems": [
+            "cstr6suwn9.skadnetwork",
+            "4fzdc2evr5.skadnetwork",
+            "2fnua5tdw4.skadnetwork",
+            "ydx93a7ass.skadnetwork",
+            "p78axxw29g.skadnetwork",
+            "v72qych5uu.skadnetwork",
+            "ludvb6z3bs.skadnetwork",
+            "cp8zw746q7.skadnetwork",
+            "3sh42y64q3.skadnetwork",
+            "c6k4g5qg8m.skadnetwork",
+            "s39g8k73mm.skadnetwork",
+            "3qy4746246.skadnetwork",
+            "f38h382jlk.skadnetwork",
+            "hs6bdukanm.skadnetwork",
+            "mlmmfzh3r3.skadnetwork",
+            "v4nxqhlyqp.skadnetwork",
+            "wzmmz9fp6w.skadnetwork",
+            "su67r6k2v3.skadnetwork",
+            "yclnxrl5pm.skadnetwork",
+            "t38b2kh725.skadnetwork",
+            "7ug5zh24hu.skadnetwork",
+            "gta9lk7p23.skadnetwork",
+            "vutu7akeur.skadnetwork",
+            "y5ghdn5j9k.skadnetwork",
+            "v9wttpbfk9.skadnetwork",
+            "n38lu8286q.skadnetwork",
+            "47vhws6wlr.skadnetwork",
+            "kbd757ywx3.skadnetwork",
+            "9t245vhmpl.skadnetwork",
+            "a2p9lx4jpn.skadnetwork",
+            "22mmun2rn5.skadnetwork",
+            "44jx6755aq.skadnetwork",
+            "k674qkevps.skadnetwork",
+            "4468km3ulz.skadnetwork",
+            "2u9pt9hc89.skadnetwork",
+            "8s468mfl3y.skadnetwork",
+            "klf5c3l5u5.skadnetwork",
+            "ppxm28t8ap.skadnetwork",
+            "kbmxgpxpgc.skadnetwork",
+            "uw77j35x4d.skadnetwork",
+            "578prtvx9j.skadnetwork",
+            "4dzt52r2t5.skadnetwork",
+            "tl55sbb4fm.skadnetwork",
+            "c3frkrj4fj.skadnetwork",
+            "e5fvkxwrpn.skadnetwork",
+            "8c4e2ghe7u.skadnetwork",
+            "3rd42ekr43.skadnetwork",
+            "97r2b46745.skadnetwork",
+            "3qcr597p9d.skadnetwork"
+          ]
+        }
+      ],
+      "expo-tracking-transparency"
+    ]
+  }
+}

@@ -1,0 +1,43 @@
+{
+    "extends": "../../tsconfig.json",
+    "compilerOptions": {
+        "declarationMap": true,
+        "sourceMap": true,
+        "moduleResolution": "node",
+        "baseUrl": "./src",
+        "target": "ES2018",
+        "module": "commonjs",
+        "strict": true,
+        "esModuleInterop": true,
+        "skipLibCheck": true,
+        "forceConsistentCasingInFileNames": true,
+        "lib": [
+            "ES2018",
+            "ES2019.Array",
+            "ES2020.Promise",
+            "ES2020.String",
+            "ES2020.Symbol.wellknown"
+        ],
+        "declaration": true,
+        "declarationDir": "./dist/types",
+        "outDir": "./dist",
+        "rootDir": "./src",
+        "preserveConstEnums": true,
+        "removeComments": true,
+        "stripInternal": true,
+        "strictNullChecks": true,
+        "strictFunctionTypes": true,
+        "strictBindCallApply": true,
+        "strictPropertyInitialization": true,
+        "useUnknownInCatchVariables": true,
+        "tsBuildInfoFile": "./.tsbuildinfo"
+    },
+    "include": [
+        "src/**/*"
+    ],
+    "exclude": [
+        "node_modules",
+        "dist",
+        "tests"
+    ]
+}

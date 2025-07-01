@@ -1,0 +1,9 @@
+src/
+tests/
+.idea/
+.vscode/
+.gitignore
+.eslintrc.js
+.prettierrc
+jest.config.js
+tsconfig.json

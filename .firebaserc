@@ -1,0 +1,7 @@
+{
+  "projects": {
+    "default": "tickt-90f02",
+    "development": "tickt-90f02",
+    "production": "tickt-prod"
+  }
+}

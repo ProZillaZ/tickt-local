@@ -1,0 +1,77 @@
+{
+    "indexes": [
+    {
+        "collectionGroup": "recipes",
+        "queryScope": "COLLECTION",
+        "fields": [
+            {"fieldPath": "mealTypes", "arrayConfig": "CONTAINS"},
+            {"fieldPath": "createdAt", "order": "DESCENDING"}
+            ]
+    },
+    {
+        "collectionGroup": "recipes",
+        "queryScope": "COLLECTION",
+        "fields": [
+            {"fieldPath": "dietTypes", "arrayConfig": "CONTAINS"},
+            {"fieldPath": "createdAt", "order": "DESCENDING"}
+            ]
+    },
+    {
+        "collectionGroup": "recipes",
+        "queryScope": "COLLECTION",
+        "fields": [
+            {"fieldPath": "cuisines", "arrayConfig": "CONTAINS"},
+            {"fieldPath": "createdAt", "order": "DESCENDING"}
+            ]
+    },
+    {
+        "collectionGroup": "recipes",
+        "queryScope": "COLLECTION",
+        "fields": [
+            {"fieldPath": "createdBy", "order": "ASCENDING"},
+            {"fieldPath": "createdAt", "order": "DESCENDING"}
+            ]
+    },
+    {
+        "collectionGroup": "recipes",
+        "queryScope": "COLLECTION",
+        "fields": [
+            {"fieldPath": "difficulty", "order": "ASCENDING"},
+            {"fieldPath": "createdAt", "order": "DESCENDING"}
+            ]
+    },
+    {
+        "collectionGroup": "recipes",
+        "queryScope": "COLLECTION",
+        "fields": [
+            {"fieldPath": "cookTime", "order": "ASCENDING"},
+            {"fieldPath": "createdAt", "order": "DESCENDING"}
+            ]
+    },
+    {
+        "collectionGroup": "users",
+        "queryScope": "COLLECTION",
+        "fields": [
+            {"fieldPath": "activityLevel", "order": "ASCENDING"},
+            {"fieldPath": "createdAt", "order": "DESCENDING"}
+            ]
+    },
+    {
+        "collectionGroup": "meal_plans",
+        "queryScope": "COLLECTION",
+        "fields": [
+            {"fieldPath": "userId", "order": "ASCENDING"},
+            {"fieldPath": "startDate", "order": "ASCENDING"}
+            ]
+    },
+    {
+        "collectionGroup": "meal_plans",
+        "queryScope": "COLLECTION",
+        "fields": [
+            {"fieldPath": "userId", "order": "ASCENDING"},
+            {"fieldPath": "createdAt", "order": "DESCENDING"}
+            ]
+    }
+    ],
+    "fieldOverrides": []
+}

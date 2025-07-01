@@ -1,0 +1,36 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "target": "es2022",
+        "lib": [
+            "es2022"
+        ],
+        "declaration": true,
+        "declarationMap": true,
+        "sourceMap": true,
+        "outDir": "./lib",
+        "rootDir": "./src",
+        "strict": true,
+        "noImplicitReturns": true,
+        "noFallthroughCasesInSwitch": true,
+        "noUnusedLocals": false,
+        "noUnusedParameters": false,
+        "moduleResolution": "node",
+        "allowSyntheticDefaultImports": true,
+        "esModuleInterop": true,
+        "skipLibCheck": true,
+        "forceConsistentCasingInFileNames": true,
+        "resolveJsonModule": true,
+        "exactOptionalPropertyTypes": false,
+        "useUnknownInCatchVariables": false
+    },
+    "include": [
+        "src/**/*"
+    ],
+    "exclude": [
+        "node_modules",
+        "lib",
+        "**/*.spec.ts",
+        "**/*.test.ts"
+    ]
+}

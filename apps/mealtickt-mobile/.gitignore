@@ -1,0 +1,102 @@
+/android
+/ios
+package-lock.json
+yarn.lock
+.expo
+.vscode
+node_modules
+# iOS specific
+ios/Pods/
+ios/build/
+ios/Podfile.lock
+ios/xcuserdata/
+ios/*.xcworkspace/xcshareddata/
+ios/*.xcodeproj/xcuserdata/
+ios/*.xcworkspace/xcuserdata/
+ios/.xcode.env.local
+ios/Frameworks/
+ios/assets/
+ios/Index/
+ios/DerivedData/
+ios/Carthage/
+ios/Pods/Manifest.lock
+*.mobileprovision
+*.cer
+
+# Android specific
+android/app/build/
+android/.gradle/
+android/build/
+android/local.properties
+android/gradle-wrapper.jar
+android/captures/
+android/gradlew
+android/gradlew.bat
+android/*.keystore
+android/app/release/
+!android/debug.keystore
+android/.settings/
+android/app/.settings/
+android/app/bin/
+android/app/gen/
+android/app/out/
+android/app/src/main/assets/index.android.bundle
+android/app/src/main/gen/
+android/app/src/main/res/drawable-*/
+!android/app/src/main/res/drawable-*/*.png
+android/keystore.properties
+
+# React Native specific
+*.jsbundle
+vendor/bundle/
+*.bundle
+*.bundle.map
+__MACOSX/
+.flipper/
+*.flipper-plugin
+
+# React Native specific logs
+*.hprof
+metro-*.json
+
+# Expo
+.expo/
+web-build/
+
+# Fastlane
+**/fastlane/report.xml
+**/fastlane/Preview.html
+**/fastlane/screenshots
+**/fastlane/test_output
+
+# Cache files
+.cache/
+.eslintcache
+.babel-cache/
+
+# Hermes engine
+android/app/src/main/assets/index.android.bundle.hbc
+android/app/src/main/assets/index.android.bundle.meta
+android/app/src/main/jniLibs/
+ios/Pods/hermes-engine/
+
+# Detox (if using for E2E testing)
+artifacts/
+.detoxrc.json
+
+# Code push (if using)
+.codepush/
+android/app/src/main/assets/CodePush/
+ios/assets/CodePush/
+
+# Realm database files (if using)
+*.realm
+*.realm.lock
+*.realm.management/
+*.realm.note
+
+# Temporary files from bundling
+.metro-health-check*
+
+# Web build output
+dist/

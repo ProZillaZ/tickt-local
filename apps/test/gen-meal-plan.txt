@@ -1,0 +1,2947 @@
+{
+  "breakfasts": [
+    {
+      "id": "9c026ccd-fc69-48e2-b6b6-c70b206bc19e",
+      "name": "Protein-Packed Breakfast Scramble",
+      "description": "A high-protein, satisfying breakfast scramble with eggs, turkey, spinach, and cheese.",
+      "prepTime": 5,
+      "cookTime": 15,
+      "servings": 1,
+      "mealTypes": [
+        "breakfast"
+      ],
+      "dietTypes": [
+        "omnivore"
+      ],
+      "difficulty": "easy",
+      "instructions": [
+        {
+          "id": "fd6ef2b6-d35e-4d37-98af-41ce3f86509f",
+          "stepNumber": 7,
+          "description": "Serve the breakfast scramble hot."
+        },
+        {
+          "id": "666b93d2-5842-4016-a77e-2906ab7dec48",
+          "stepNumber": 6,
+          "description": "Sprinkle shredded cheddar cheese over the scramble and cook until melted, about 1 minute."
+        },
+        {
+          "id": "3f1fc4dd-884a-4b9a-a37f-362f39181fa9",
+          "stepNumber": 5,
+          "description": "Pour the egg mixture into the skillet with the turkey and spinach. Cook, stirring occasionally, until the eggs are set, about 3-4 minutes."
+        },
+        {
+          "id": "7be617a8-9934-41b7-b702-b37c1cdfc3de",
+          "stepNumber": 4,
+          "description": "In a bowl, whisk together eggs, salt, and pepper."
+        },
+        {
+          "id": "713b7208-7e9e-4aab-a151-a2fd858d9846",
+          "stepNumber": 3,
+          "description": "Add spinach to the skillet and cook until wilted, about 1-2 minutes."
+        },
+        {
+          "id": "4ab08864-62e6-4893-8aaa-4efd52e003c8",
+          "stepNumber": 2,
+          "description": "Add ground turkey to the skillet and cook, breaking it up with a spatula, until browned and no longer pink, about 5 minutes."
+        },
+        {
+          "id": "2a2ac9f1-cfe5-47a8-a260-31f645b123ac",
+          "stepNumber": 1,
+          "description": "Heat olive oil in a non-stick skillet over medium heat."
+        }
+      ],
+      "nutritionalInfo": {
+        "calories": 344,
+        "protein": 34,
+        "carbohydrates": 2,
+        "fat": 20,
+        "fiber": 1
+      },
+      "ingredients": [
+        {
+          "id": "cca13380-1aa1-4d9b-aad6-b4b97ca84bfe",
+          "name": "eggs",
+          "amount": 2,
+          "unit": "large"
+        },
+        {
+          "id": "11a1fd42-71af-431e-a322-bb866abd6ea1",
+          "name": "lean ground turkey",
+          "amount": 57,
+          "unit": "g"
+        },
+        {
+          "id": "02bf566b-8477-41ff-8d58-d786198901a0",
+          "name": "baby spinach",
+          "amount": 1,
+          "unit": "cup"
+        },
+        {
+          "id": "f60e1db8-b082-4f38-826d-8f54316f5d0a",
+          "name": "shredded cheddar cheese",
+          "amount": 0,
+          "unit": "cup"
+        },
+        {
+          "id": "4bef2dc6-5c99-40ae-9c8f-907c6eb651d5",
+          "name": "olive oil",
+          "amount": 1,
+          "unit": "tsp"
+        },
+        {
+          "id": "731ba34f-15ab-4d29-a971-a778d694f8ca",
+          "name": "salt",
+          "amount": 0,
+          "unit": "tsp"
+        },
+        {
+          "id": "88ef6fef-54c9-4bc1-b693-9912d654d3b3",
+          "name": "black pepper",
+          "amount": 0,
+          "unit": "tsp"
+        }
+      ]
+    },
+    {
+      "id": "b5e31ec5-5ca2-4b97-98b9-9db3dd0a9f7b",
+      "name": "Veggie Protein Power Scramble",
+      "description": "A high-protein, veggie-packed breakfast scramble to fuel your day",
+      "prepTime": 10,
+      "cookTime": 10,
+      "servings": 1,
+      "mealTypes": [
+        "breakfast"
+      ],
+      "dietTypes": [
+        "omnivore"
+      ],
+      "difficulty": "easy",
+      "instructions": [
+        {
+          "id": "179151f0-5595-4bfa-8398-2dd9bc4cc371",
+          "stepNumber": 5,
+          "description": "Season with salt and pepper to taste. Serve hot."
+        },
+        {
+          "id": "5940fc03-f9e9-45b5-abd7-2f690e413c6c",
+          "stepNumber": 4,
+          "description": "Crack the eggs into a bowl and beat with a fork. Pour into the skillet with the vegetables. Scramble until the eggs are cooked through, about 3-4 minutes."
+        },
+        {
+          "id": "48678f35-61d0-48e1-b888-38569e7e9ed3",
+          "stepNumber": 3,
+          "description": "Heat the olive oil in a non-stick skillet over medium heat. Add the tofu and vegetables and sauté for 5 minutes until softened."
+        },
+        {
+          "id": "c3b9a27b-0b11-4dc1-bf6a-072a9c5fd1bd",
+          "stepNumber": 2,
+          "description": "Wash and chop the spinach, mushrooms and bell pepper."
+        },
+        {
+          "id": "de553ddf-0ef9-470e-8b08-c19d540cd9b1",
+          "stepNumber": 1,
+          "description": "Drain the tofu and press between two plates with a weight on top for 10 minutes to remove excess liquid. Crumble into small pieces."
+        }
+      ],
+      "nutritionalInfo": {
+        "calories": 344,
+        "protein": 35,
+        "carbohydrates": 25,
+        "fat": 12,
+        "fiber": 6
+      },
+      "ingredients": [
+        {
+          "id": "4b8ee866-cda6-47a2-9d2a-d326892594c4",
+          "name": "eggs",
+          "amount": 2,
+          "unit": "large"
+        },
+        {
+          "id": "6687ac9b-6297-4eaf-9aa6-468b3d13b925",
+          "name": "firm tofu",
+          "amount": 58,
+          "unit": "g"
+        },
+        {
+          "id": "024dd455-ddbf-4736-972f-ba7b22d4c184",
+          "name": "spinach",
+          "amount": 1,
+          "unit": "cups"
+        },
+        {
+          "id": "9d6fea7a-f05a-4b4f-b537-206f3e4e85e9",
+          "name": "mushrooms",
+          "amount": 1,
+          "unit": "cup"
+        },
+        {
+          "id": "3356dec8-d259-4dd8-b08f-1d4e3406846b",
+          "name": "red bell pepper",
+          "amount": 0,
+          "unit": "medium"
+        },
+        {
+          "id": "169805de-b7a7-4e98-b109-f71d8b08aaed",
+          "name": "olive oil",
+          "amount": 1,
+          "unit": "tbsp"
+        },
+        {
+          "id": "0fb0bf6a-0f94-40cb-b90e-04e7a3bc9f91",
+          "name": "salt",
+          "amount": 0,
+          "unit": "tsp"
+        },
+        {
+          "id": "34790d65-b54e-4999-a030-1946ddeca803",
+          "name": "black pepper",
+          "amount": 0,
+          "unit": "tsp"
+        }
+      ]
+    },
+    {
+      "id": "9f861479-21d7-40ca-9754-15ee3f7a5670",
+      "name": "High-Protein Breakfast Scramble",
+      "description": "A filling, protein-packed breakfast scramble with eggs, turkey, spinach and avocado.",
+      "prepTime": 5,
+      "cookTime": 15,
+      "servings": 1,
+      "mealTypes": [
+        "breakfast"
+      ],
+      "dietTypes": [
+        "omnivore"
+      ],
+      "difficulty": "easy",
+      "instructions": [
+        {
+          "id": "d5efecf1-3a17-472e-91fb-54e4d9d706b7",
+          "stepNumber": 6,
+          "description": "Transfer the scramble to a plate. Top with sliced avocado and serve immediately."
+        },
+        {
+          "id": "dc953d40-31b7-4b85-9bae-5ffdc0f1becb",
+          "stepNumber": 5,
+          "description": "Pour the whisked eggs into the skillet. Scramble everything together until the eggs are cooked through, about 3-4 minutes."
+        },
+        {
+          "id": "ef8b1805-f00d-4e73-85a9-77da4f19dd31",
+          "stepNumber": 4,
+          "description": "Add the spinach to the skillet with the turkey and cook until just wilted, about 1-2 minutes."
+        },
+        {
+          "id": "0b0d3920-aac9-4c91-9c5d-c43b1bc56715",
+          "stepNumber": 3,
+          "description": "Crack the eggs into a bowl and whisk together with salt and pepper."
+        },
+        {
+          "id": "4bcf278d-5d12-4e4a-b614-972113bbb58d",
+          "stepNumber": 2,
+          "description": "Add the ground turkey to the skillet. Cook for 5-6 minutes until browned, breaking it up with a spatula as it cooks."
+        },
+        {
+          "id": "134fd328-554a-4cb0-b2ae-90a3113b5875",
+          "stepNumber": 1,
+          "description": "Heat olive oil in a non-stick skillet over medium heat."
+        }
+      ],
+      "nutritionalInfo": {
+        "calories": 344,
+        "protein": 36,
+        "carbohydrates": 7,
+        "fat": 23,
+        "fiber": 5
+      },
+      "ingredients": [
+        {
+          "id": "1d0a89cf-39ae-4eee-97f7-472b53fbb72c",
+          "name": "eggs",
+          "amount": 2,
+          "unit": "large"
+        },
+        {
+          "id": "8607d669-20b7-4925-a883-50b67cae195f",
+          "name": "ground turkey",
+          "amount": 58,
+          "unit": "g"
+        },
+        {
+          "id": "c13109aa-44a7-4811-b4f8-1ea6c60b606f",
+          "name": "spinach",
+          "amount": 1,
+          "unit": "cup"
+        },
+        {
+          "id": "4b53a1c0-cb6a-49e1-8aed-fe6f1b9625df",
+          "name": "avocado",
+          "amount": 0,
+          "unit": "medium"
+        },
+        {
+          "id": "7e48210f-9cec-4a16-95d4-40aa4db12f77",
+          "name": "olive oil",
+          "amount": 1,
+          "unit": "tbsp"
+        },
+        {
+          "id": "832a37b5-9d1e-4bef-84ee-c593bea7870b",
+          "name": "salt",
+          "amount": 0,
+          "unit": "tsp"
+        },
+        {
+          "id": "1403dcc5-5712-4b4c-8b5f-a116fd40b52c",
+          "name": "black pepper",
+          "amount": 0,
+          "unit": "tsp"
+        }
+      ]
+    },
+    {
+      "id": "63493bf1-7ba6-41f1-8434-12f45a11dd88",
+      "name": "Spinach and Feta Egg White Wrap",
+      "description": "A protein-packed breakfast wrap with spinach, feta, and egg whites in a whole wheat tortilla.",
+      "prepTime": 5,
+      "cookTime": 15,
+      "servings": 1,
+      "mealTypes": [
+        "breakfast"
+      ],
+      "dietTypes": [
+        "omnivore"
+      ],
+      "difficulty": "easy",
+      "instructions": [
+        {
+          "id": "356e3a4e-8878-499d-ba12-5f222348be3f",
+          "stepNumber": 5,
+          "description": "Place the cooked spinach, scrambled egg whites, and crumbled feta cheese in the center of the tortilla. Fold the sides of the tortilla over the filling, then roll up tightly to form a wrap."
+        },
+        {
+          "id": "295efb58-fccd-46c2-9d0c-1428ed90b0fa",
+          "stepNumber": 4,
+          "description": "Warm the tortilla in the microwave for 15-20 seconds until pliable."
+        },
+        {
+          "id": "5e5dbc3f-a6bf-43ce-8e77-b6eeaf7a2f94",
+          "stepNumber": 3,
+          "description": "Spray the skillet with olive oil spray again. Pour in the egg whites and scramble until cooked through, about 3-4 minutes. Season with salt and pepper."
+        },
+        {
+          "id": "531ce9e3-32b8-43ea-a9b8-1de8421ffe52",
+          "stepNumber": 2,
+          "description": "Add the baby spinach to the skillet and cook until just wilted, about 1-2 minutes. Transfer to a bowl and set aside."
+        },
+        {
+          "id": "19731bb9-068e-4299-96b5-f2860667b6bb",
+          "stepNumber": 1,
+          "description": "Heat a medium non-stick skillet over medium heat and spray with olive oil spray."
+        }
+      ],
+      "nutritionalInfo": {
+        "calories": 344,
+        "protein": 35,
+        "carbohydrates": 27,
+        "fat": 12,
+        "fiber": 6
+      },
+      "ingredients": [
+        {
+          "id": "3410939d-6750-4af2-b231-5fb58d1b5370",
+          "name": "Liquid egg whites",
+          "amount": 1,
+          "unit": "cup"
+        },
+        {
+          "id": "f6ca0036-9bb6-44a7-af14-159ba5d00b73",
+          "name": "Baby spinach",
+          "amount": 1,
+          "unit": "cup"
+        },
+        {
+          "id": "4ca27705-83b1-4c87-9105-43fe805a12e5",
+          "name": "Feta cheese",
+          "amount": 1,
+          "unit": "oz"
+        },
+        {
+          "id": "38c7eb11-a28b-4017-94f5-eb00db4c0600",
+          "name": "Whole wheat tortilla",
+          "amount": 1,
+          "unit": "large"
+        },
+        {
+          "id": "31f4f437-0d36-4eb1-a43a-b4474b7f8350",
+          "name": "Olive oil spray",
+          "amount": 1,
+          "unit": "spray"
+        },
+        {
+          "id": "434df447-229b-4c07-b006-3b7afd0084bc",
+          "name": "Salt",
+          "amount": 0,
+          "unit": "tsp"
+        },
+        {
+          "id": "7045f14c-ec6b-4631-b140-c290db26b25a",
+          "name": "Black pepper",
+          "amount": 0,
+          "unit": "tsp"
+        }
+      ]
+    },
+    {
+      "id": "77f67ff0-c8ec-4eb0-8c32-61d7bd7bd2a8",
+      "name": "Protein-Packed Breakfast Scramble",
+      "description": "A high-protein, nutrient-dense breakfast scramble with eggs, turkey, spinach, and cheese.",
+      "prepTime": 5,
+      "cookTime": 15,
+      "servings": 1,
+      "mealTypes": [
+        "breakfast"
+      ],
+      "dietTypes": [
+        "omnivore"
+      ],
+      "difficulty": "easy",
+      "instructions": [
+        {
+          "id": "e094fbb2-0c65-4443-af4c-68cd9c7af3a3",
+          "stepNumber": 7,
+          "description": "Transfer to a plate and serve hot."
+        },
+        {
+          "id": "ababcdda-9e91-4312-9fee-80d7d3220286",
+          "stepNumber": 6,
+          "description": "Sprinkle shredded cheddar cheese on top and let it melt for about 1 minute."
+        },
+        {
+          "id": "ddb011c1-748c-4db7-9c9d-4a82e2fd0c3f",
+          "stepNumber": 5,
+          "description": "Pour the whisked eggs into the skillet with the turkey and spinach. Scramble until the eggs are cooked through, about 3-4 minutes."
+        },
+        {
+          "id": "a0ac2939-fac6-402a-a687-f2d35b65c0f4",
+          "stepNumber": 4,
+          "description": "In a bowl, whisk the eggs with salt and pepper."
+        },
+        {
+          "id": "ab03efd7-4039-4e71-b943-b0fd41857a54",
+          "stepNumber": 3,
+          "description": "Add spinach to the skillet and cook until wilted, about 2 minutes."
+        },
+        {
+          "id": "4d509cf7-fa56-42c4-8529-075e85fa5556",
+          "stepNumber": 2,
+          "description": "Add ground turkey to the skillet and cook, breaking it up with a spatula, until no longer pink, about 5 minutes."
+        },
+        {
+          "id": "fac7c4fc-3d37-405d-8458-284f1d254198",
+          "stepNumber": 1,
+          "description": "Heat olive oil in a non-stick skillet over medium heat."
+        }
+      ],
+      "nutritionalInfo": {
+        "calories": 344,
+        "protein": 36,
+        "carbohydrates": 3,
+        "fat": 22,
+        "fiber": 1
+      },
+      "ingredients": [
+        {
+          "id": "d4f9c79a-2c53-4f57-81f7-c55bb450f6e7",
+          "name": "eggs",
+          "amount": 2,
+          "unit": "large"
+        },
+        {
+          "id": "bac43baa-17f8-4e9b-b04e-afe30cd02b28",
+          "name": "lean ground turkey",
+          "amount": 2,
+          "unit": "oz"
+        },
+        {
+          "id": "ef1021ea-2123-4765-98d6-5f497e1c4535",
+          "name": "spinach",
+          "amount": 1,
+          "unit": "cups"
+        },
+        {
+          "id": "5352d61b-8d47-4cd6-938f-e34482dba36d",
+          "name": "shredded cheddar cheese",
+          "amount": 1,
+          "unit": "oz"
+        },
+        {
+          "id": "9c27bd38-a939-44fc-8f4d-50b2cfb7696a",
+          "name": "olive oil",
+          "amount": 1,
+          "unit": "tsp"
+        },
+        {
+          "id": "25294d8e-53f3-408a-91ee-aa11be413c1b",
+          "name": "salt",
+          "amount": 0,
+          "unit": "tsp"
+        },
+        {
+          "id": "8672b5a5-3fd3-4779-8d11-5b42b7f2b3b1",
+          "name": "black pepper",
+          "amount": 0,
+          "unit": "tsp"
+        }
+      ]
+    },
+    {
+      "id": "a0f55a59-2bbc-47a2-8a97-2966b53a93aa",
+      "name": "Thai Basil Tofu Scramble with Sticky Rice",
+      "description": "A flavorful and protein-packed Thai-style tofu scramble served with sticky rice for a satisfying breakfast.",
+      "prepTime": 15,
+      "cookTime": 28,
+      "servings": 2,
+      "mealTypes": [
+        "breakfast"
+      ],
+      "dietTypes": [
+        "omnivore"
+      ],
+      "difficulty": "medium",
+      "instructions": [
+        {
+          "id": "4de7971b-243d-4931-a435-b550dbb50e64",
+          "stepNumber": 7,
+          "description": "Serve the tofu scramble alongside the steamed sticky rice. Enjoy!"
+        },
+        {
+          "id": "604948e5-dfbd-4551-a733-bfa23a55b6f5",
+          "stepNumber": 6,
+          "description": "Stir in the chopped Thai basil leaves and cook for another minute. Remove from heat."
+        },
+        {
+          "id": "617a3589-a2af-411e-9e19-5a4e2186ddb5",
+          "stepNumber": 5,
+          "description": "Add crumbled tofu, red bell pepper, soy sauce, sriracha, salt, and pepper. Cook for 5-7 minutes, stirring occasionally."
+        },
+        {
+          "id": "fbc25f16-a81c-40cd-bb05-8492073b4129",
+          "stepNumber": 4,
+          "description": "Heat oil in a pan over medium heat. Sauté shallot and garlic for 1-2 minutes until fragrant."
+        },
+        {
+          "id": "6c7edd8b-2ba7-4eb0-a7f8-371d07e4930e",
+          "stepNumber": 3,
+          "description": "Mince the shallot and garlic. Slice the red bell pepper into thin strips. Roughly chop the Thai basil leaves."
+        },
+        {
+          "id": "9156ef46-b70b-4043-9301-7de86360877d",
+          "stepNumber": 2,
+          "description": "Drain the tofu and press between paper towels to remove excess moisture. Crumble into small pieces."
+        },
+        {
+          "id": "ee8478f6-a1c9-4e7c-91fb-f99b2221f5f8",
+          "stepNumber": 1,
+          "description": "Soak the sticky rice in water for 30 minutes. Drain and steam for 20 minutes until cooked."
+        }
+      ],
+      "nutritionalInfo": {
+        "calories": 344,
+        "protein": 46,
+        "carbohydrates": 106,
+        "fat": 9,
+        "fiber": 7
+      },
+      "ingredients": [
+        {
+          "id": "6b030a11-8919-4e40-90d9-3b20f3e65f7d",
+          "name": "firm tofu",
+          "amount": 219,
+          "unit": "g"
+        },
+        {
+          "id": "1c0be25c-a2c3-42ed-b142-aa7d679895d0",
+          "name": "Thai basil leaves",
+          "amount": 22,
+          "unit": "g"
+        },
+        {
+          "id": "83dcd439-1a12-4b96-b224-7d6649642e8a",
+          "name": "shallot",
+          "amount": 1,
+          "unit": "piece"
+        },
+        {
+          "id": "1430a303-563c-402e-a0b5-f059719301f9",
+          "name": "garlic",
+          "amount": 2,
+          "unit": "cloves"
+        },
+        {
+          "id": "ef1409b6-25bd-4064-9100-79fc58375944",
+          "name": "red bell pepper",
+          "amount": 1,
+          "unit": "piece"
+        },
+        {
+          "id": "213720a9-f41a-439e-822c-ff01c8ef5ccd",
+          "name": "soy sauce",
+          "amount": 1,
+          "unit": "tbsp"
+        },
+        {
+          "id": "97e2f9af-4c81-4a58-bf67-69e60f385322",
+          "name": "sriracha sauce",
+          "amount": 1,
+          "unit": "tsp"
+        },
+        {
+          "id": "c21c74bc-7d38-4a63-a227-b75571e7560f",
+          "name": "sticky rice",
+          "amount": 164,
+          "unit": "g"
+        },
+        {
+          "id": "5af66414-fe9b-4831-ae53-c0892ba988da",
+          "name": "vegetable oil",
+          "amount": 1,
+          "unit": "tbsp"
+        },
+        {
+          "id": "128e1e58-0bcb-45e6-8866-2f78479a2ae4",
+          "name": "salt",
+          "amount": 1,
+          "unit": "tsp"
+        },
+        {
+          "id": "53afc10f-51b0-4f3a-8f79-5b64511faf4e",
+          "name": "black pepper",
+          "amount": 0,
+          "unit": "tsp"
+        }
+      ]
+    },
+    {
+      "id": "022afab5-6668-4e60-97c3-85fa32eee451",
+      "name": "Hearty English Breakfast Skillet",
+      "description": "A satisfying and nutritious one-pan breakfast featuring classic British ingredients with a healthy twist.",
+      "prepTime": 15,
+      "cookTime": 25,
+      "servings": 2,
+      "mealTypes": [
+        "breakfast"
+      ],
+      "dietTypes": [
+        "omnivore"
+      ],
+      "difficulty": "medium",
+      "instructions": [
+        {
+          "id": "5d419294-fbd0-455a-a28f-83ac2b47b7f0",
+          "stepNumber": 8,
+          "description": "Remove the skillet from the oven, divide the breakfast mixture and eggs onto plates. Serve with the toasted bread on the side. Enjoy!"
+        },
+        {
+          "id": "c613fb49-4b55-4fe4-95f0-8f8fb6f87837",
+          "stepNumber": 7,
+          "description": "While the skillet is in the oven, toast the whole grain bread slices."
+        },
+        {
+          "id": "ccafb6a6-1d1e-4816-b991-59843ab724ec",
+          "stepNumber": 6,
+          "description": "Transfer the skillet to the preheated oven and bake for 8-10 minutes, or until egg whites are set and yolks reach desired doneness."
+        },
+        {
+          "id": "f960748b-4e28-4474-9e6e-7c4a68c14dbb",
+          "stepNumber": 5,
+          "description": "Create 5 wells in the sausage-vegetable mixture and crack an egg into each well. Season with salt and pepper."
+        },
+        {
+          "id": "c0158dc3-4b8e-4919-aa23-c74469ee0d28",
+          "stepNumber": 4,
+          "description": "Stir in the spinach and cook until just wilted, about 2 minutes."
+        },
+        {
+          "id": "0fd44bc2-b350-44d9-8b9e-56a4cc69d2c4",
+          "stepNumber": 3,
+          "description": "Add sliced mushrooms and halved cherry tomatoes to the skillet. Sauté for another 5 minutes until vegetables are softened."
+        },
+        {
+          "id": "2188aed1-f160-4872-a948-ec182734c60f",
+          "stepNumber": 2,
+          "description": "Heat olive oil in a large oven-safe skillet over medium heat. Add sausage pieces and cook until lightly browned, about 5 minutes."
+        },
+        {
+          "id": "962642e8-3e23-4058-a67b-0ba90802c1ff",
+          "stepNumber": 1,
+          "description": "Preheat oven to 200°C (400°F). Cut the sausages into bite-sized pieces."
+        }
+      ],
+      "nutritionalInfo": {
+        "calories": 344,
+        "protein": 15,
+        "carbohydrates": 12,
+        "fat": 7,
+        "fiber": 2
+      },
+      "ingredients": [
+        {
+          "id": "6e509219-d545-4b79-9d03-8434d1816cda",
+          "name": "Eggs",
+          "amount": 2,
+          "unit": "large"
+        },
+        {
+          "id": "7906769a-71fa-4672-b77a-38311d07440f",
+          "name": "Lean turkey sausage",
+          "amount": 100,
+          "unit": "g"
+        },
+        {
+          "id": "c05c2c20-bcb5-46d4-9873-808ee815f907",
+          "name": "Cherry tomatoes",
+          "amount": 100,
+          "unit": "g"
+        },
+        {
+          "id": "92284718-8f4f-4d95-8ddd-d0855ce27082",
+          "name": "Mushrooms",
+          "amount": 75,
+          "unit": "g"
+        },
+        {
+          "id": "08424d14-9955-40c9-a650-3f7c47442941",
+          "name": "Spinach",
+          "amount": 50,
+          "unit": "g"
+        },
+        {
+          "id": "5d3c311d-91a6-4974-ae2e-a858ae51ac5d",
+          "name": "Whole grain bread",
+          "amount": 2,
+          "unit": "slices"
+        },
+        {
+          "id": "e3cd351f-45a6-480f-9931-ffb996655e86",
+          "name": "Olive oil",
+          "amount": 0,
+          "unit": "tbsp"
+        }
+      ]
+    }
+  ],
+  "lunches": [
+    {
+      "id": "260cc45a-93b8-4193-9e81-3b457b2e8800",
+      "name": "Chicken and Quinoa Bowl",
+      "description": "A high-protein, nutritious lunch bowl with quinoa, chicken, and vegetables.",
+      "prepTime": 5,
+      "cookTime": 15,
+      "servings": 1,
+      "mealTypes": [
+        "lunch"
+      ],
+      "dietTypes": [
+        "omnivore"
+      ],
+      "difficulty": "easy",
+      "instructions": [
+        {
+          "id": "08d2a9b7-1c17-4d53-81e8-c41a645777e8",
+          "stepNumber": 6,
+          "description": "In a bowl, combine cooked quinoa, chicken strips, and mixed vegetables. Season with additional salt and pepper if desired."
+        },
+        {
+          "id": "8643270b-20f8-4986-93d7-b77f0bb4f43d",
+          "stepNumber": 5,
+          "description": "Slice cooked chicken into strips."
+        },
+        {
+          "id": "a4d15222-96ae-468d-824e-868b0957b1d5",
+          "stepNumber": 4,
+          "description": "Microwave mixed vegetables according to package instructions."
+        },
+        {
+          "id": "8120735c-7514-4914-86c1-0913b26d7284",
+          "stepNumber": 3,
+          "description": "Heat olive oil in a pan over medium heat. Add chicken and cook for 6-8 minutes per side, or until cooked through."
+        },
+        {
+          "id": "4ae0e0b3-746c-40b6-a3bf-e49689a3756d",
+          "stepNumber": 2,
+          "description": "Season chicken breast with salt and pepper."
+        },
+        {
+          "id": "41ec2f39-0c82-49a9-aa12-5194d84108c0",
+          "stepNumber": 1,
+          "description": "Cook quinoa according to package instructions."
+        }
+      ],
+      "nutritionalInfo": {
+        "calories": 344,
+        "protein": 35,
+        "carbohydrates": 26,
+        "fat": 11,
+        "fiber": 4
+      },
+      "ingredients": [
+        {
+          "id": "6f7ca863-7de1-419a-bc4f-5db0454a33cd",
+          "name": "Quinoa",
+          "amount": 0,
+          "unit": "cup"
+        },
+        {
+          "id": "85879aec-3019-4519-81d8-b16335c35946",
+          "name": "Chicken breast",
+          "amount": 3,
+          "unit": "oz"
+        },
+        {
+          "id": "7b5a37e3-84ee-4821-a83f-8027b4c45494",
+          "name": "Mixed vegetables (such as carrots, peas, corn)",
+          "amount": 1,
+          "unit": "cup"
+        },
+        {
+          "id": "dfc810e5-b834-47e8-8b70-c6725da8cb86",
+          "name": "Olive oil",
+          "amount": 1,
+          "unit": "tbsp"
+        },
+        {
+          "id": "daf0a214-5b79-4949-93cc-4b9248225413",
+          "name": "Salt",
+          "amount": 0,
+          "unit": "tsp"
+        },
+        {
+          "id": "ea49902e-845c-4daa-a8fe-712403af9510",
+          "name": "Black pepper",
+          "amount": 0,
+          "unit": "tsp"
+        }
+      ]
+    },
+    {
+      "id": "29f19811-0e7f-4221-a7b4-109e49e1ba3b",
+      "name": "Chicken Quinoa Bowl",
+      "description": "A protein-packed and flavorful bowl with grilled chicken, quinoa, and veggies.",
+      "prepTime": 10,
+      "cookTime": 10,
+      "servings": 1,
+      "mealTypes": [
+        "lunch"
+      ],
+      "dietTypes": [
+        "omnivore"
+      ],
+      "difficulty": "easy",
+      "instructions": [
+        {
+          "id": "98402841-ef37-4685-a8c6-f984fb1ebda4",
+          "stepNumber": 6,
+          "description": "Drizzle with olive oil and lemon juice. Toss to combine."
+        },
+        {
+          "id": "3a29bd4f-cfce-4cf8-b46d-f63092f2041f",
+          "stepNumber": 5,
+          "description": "In a bowl, combine cooked quinoa, grilled chicken, and chopped veggies."
+        },
+        {
+          "id": "f4fcd3b3-195f-4a87-bd2e-8f8ffeb4b5bf",
+          "stepNumber": 4,
+          "description": "Chop spinach, tomatoes, and cucumber into bite-sized pieces."
+        },
+        {
+          "id": "5bd4133d-3385-4e2d-a0f8-10a7fd36afb4",
+          "stepNumber": 3,
+          "description": "Grill chicken for 6-8 minutes per side or until cooked through."
+        },
+        {
+          "id": "4d478458-6dad-4570-bf77-23c4bbcbe503",
+          "stepNumber": 2,
+          "description": "Season chicken with garlic powder, salt, and black pepper."
+        },
+        {
+          "id": "9716ff4a-feae-4ffb-875c-2be4e4c5577d",
+          "stepNumber": 1,
+          "description": "Cook quinoa according to package instructions."
+        }
+      ],
+      "nutritionalInfo": {
+        "calories": 344,
+        "protein": 35,
+        "carbohydrates": 26,
+        "fat": 12,
+        "fiber": 4
+      },
+      "ingredients": [
+        {
+          "id": "b93632dc-339c-4a84-a175-15ca3f53a23e",
+          "name": "Chicken breast",
+          "amount": 87,
+          "unit": "g"
+        },
+        {
+          "id": "0b32c47c-4432-4b59-9135-85dd675de911",
+          "name": "Quinoa",
+          "amount": 23,
+          "unit": "g"
+        },
+        {
+          "id": "5a0b4a02-4bf4-4e35-a0d7-93bb787309a3",
+          "name": "Spinach",
+          "amount": 29,
+          "unit": "g"
+        },
+        {
+          "id": "e3e72863-e5cb-4f86-90e1-881151d6b84c",
+          "name": "Cherry tomatoes",
+          "amount": 29,
+          "unit": "g"
+        },
+        {
+          "id": "631d2e64-6664-438d-8927-fcf2cd1f4a9d",
+          "name": "Cucumber",
+          "amount": 29,
+          "unit": "g"
+        },
+        {
+          "id": "2f5a0c6e-27d1-4c84-9f19-7eb4af6fd223",
+          "name": "Olive oil",
+          "amount": 1,
+          "unit": "tbsp"
+        },
+        {
+          "id": "1e1bf31f-d578-4868-a11a-b11134a11654",
+          "name": "Lemon juice",
+          "amount": 1,
+          "unit": "tbsp"
+        },
+        {
+          "id": "2a21a750-a315-4f87-b950-588e2f58be8a",
+          "name": "Garlic powder",
+          "amount": 1,
+          "unit": "tsp"
+        },
+        {
+          "id": "1515dbd2-11c3-42e7-a836-3ea9acd348ae",
+          "name": "Salt",
+          "amount": 0,
+          "unit": "tsp"
+        },
+        {
+          "id": "19e95714-ef76-4d3f-9703-8119ea57fb6f",
+          "name": "Black pepper",
+          "amount": 0,
+          "unit": "tsp"
+        }
+      ]
+    },
+    {
+      "id": "18f35ae1-53ff-4847-beb9-c3b0f8925ad4",
+      "name": "Grilled Chicken and Quinoa Salad",
+      "description": "A protein-packed salad with grilled chicken, quinoa, and fresh veggies.",
+      "prepTime": 10,
+      "cookTime": 10,
+      "servings": 1,
+      "mealTypes": [
+        "lunch"
+      ],
+      "dietTypes": [
+        "omnivore"
+      ],
+      "difficulty": "easy",
+      "instructions": [
+        {
+          "id": "4ca5cd4b-19f0-43ef-a9f4-fd083088fc34",
+          "stepNumber": 6,
+          "description": "Drizzle the dressing over the salad and toss to combine. Serve immediately."
+        },
+        {
+          "id": "057064f7-ec00-4d31-8a6b-20492d12273d",
+          "stepNumber": 5,
+          "description": "In a small bowl, whisk together lemon juice, olive oil, salt, and black pepper for the dressing."
+        },
+        {
+          "id": "d3aae202-b05e-4cf4-a7d8-5574088b6ee9",
+          "stepNumber": 4,
+          "description": "Add cooled quinoa and sliced chicken to the salad bowl."
+        },
+        {
+          "id": "9e2818e0-b5a6-4a15-b35d-f40edc4555ef",
+          "stepNumber": 3,
+          "description": "In a large bowl, combine mixed greens, cherry tomatoes, cucumber, and red onion."
+        },
+        {
+          "id": "36c5d5ff-1410-4759-9599-666744ac5579",
+          "stepNumber": 2,
+          "description": "Season chicken breast with salt and pepper, then grill until cooked through. Let cool and slice."
+        },
+        {
+          "id": "466e813e-3321-4751-acf0-6b1c0c8a7a01",
+          "stepNumber": 1,
+          "description": "Cook quinoa according to package instructions and set aside to cool."
+        }
+      ],
+      "nutritionalInfo": {
+        "calories": 344,
+        "protein": 35,
+        "carbohydrates": 25,
+        "fat": 12,
+        "fiber": 5
+      },
+      "ingredients": [
+        {
+          "id": "2a4c85f5-d905-4847-8948-68cb9964853c",
+          "name": "Chicken breast",
+          "amount": 116,
+          "unit": "g"
+        },
+        {
+          "id": "4929a09e-9e2a-41ef-b866-aa7d17500bbe",
+          "name": "Quinoa",
+          "amount": 29,
+          "unit": "g"
+        },
+        {
+          "id": "152e57d1-f640-4bc1-b787-1ba219886904",
+          "name": "Mixed greens",
+          "amount": 58,
+          "unit": "g"
+        },
+        {
+          "id": "4bbf4773-3d6a-4ebc-9899-4247207233ea",
+          "name": "Cherry tomatoes",
+          "amount": 29,
+          "unit": "g"
+        },
+        {
+          "id": "40d394e4-4b1c-49fa-a89e-296b348d0c3d",
+          "name": "Cucumber",
+          "amount": 29,
+          "unit": "g"
+        },
+        {
+          "id": "931574f0-5162-44ab-a3c9-c47a5fc66b71",
+          "name": "Red onion",
+          "amount": 14,
+          "unit": "g"
+        },
+        {
+          "id": "f62a86d5-e9a1-48d8-b222-30d2b71dd2aa",
+          "name": "Lemon juice",
+          "amount": 1,
+          "unit": "tbsp"
+        },
+        {
+          "id": "f17afac2-c7c0-4521-8383-4b7163ebfa7f",
+          "name": "Olive oil",
+          "amount": 1,
+          "unit": "tbsp"
+        },
+        {
+          "id": "a937cdd0-92eb-411c-b603-90224d617038",
+          "name": "Salt",
+          "amount": 0,
+          "unit": "tsp"
+        },
+        {
+          "id": "ee64deb0-2235-454c-851f-977f157e2de8",
+          "name": "Black pepper",
+          "amount": 0,
+          "unit": "tsp"
+        }
+      ]
+    },
+    {
+      "id": "20a22a25-47e7-44e4-bf01-4a73b62c917a",
+      "name": "Thai Peanut Tofu Stir-Fry",
+      "description": "A flavorful and protein-packed stir-fry with crispy tofu, vegetables, and a creamy peanut sauce.",
+      "prepTime": 10,
+      "cookTime": 15,
+      "servings": 1,
+      "mealTypes": [
+        "lunch"
+      ],
+      "dietTypes": [
+        "omnivore"
+      ],
+      "difficulty": "easy",
+      "instructions": [
+        {
+          "id": "c0c693f7-05c1-400f-9395-ff8a584aecf3",
+          "stepNumber": 6,
+          "description": "Serve hot, garnished with sliced green onions."
+        },
+        {
+          "id": "8a3979bc-8c4b-4221-bd2c-c12fc1124cba",
+          "stepNumber": 5,
+          "description": "Return tofu to the skillet. Pour in the peanut sauce and toss to coat. Cook for 1-2 minutes until heated through."
+        },
+        {
+          "id": "06ce5ece-7bbd-42a8-977b-8fab80a9cfb1",
+          "stepNumber": 4,
+          "description": "In the same skillet, stir-fry the garlic and ginger for 30 seconds. Add bell pepper, broccoli, and carrot. Cook until vegetables are crisp-tender, about 5 minutes."
+        },
+        {
+          "id": "00287e24-9ed0-47e7-84a8-92a7f6edb9a4",
+          "stepNumber": 3,
+          "description": "Heat oil in a large skillet over medium-high heat. Add tofu and cook until golden and crispy, about 5 minutes. Transfer to a plate."
+        },
+        {
+          "id": "ef024b21-d7f4-4ed2-9aa7-783535c09391",
+          "stepNumber": 2,
+          "description": "In a small bowl, whisk together peanut butter, soy sauce, rice vinegar, sriracha, and 2 tbsp water."
+        },
+        {
+          "id": "d2e5d1d0-2c8b-47d2-85fa-a3b5b1b5461d",
+          "stepNumber": 1,
+          "description": "Press the tofu between paper towels to remove excess moisture. Cut into 1-inch cubes."
+        }
+      ],
+      "nutritionalInfo": {
+        "calories": 344,
+        "protein": 35,
+        "carbohydrates": 33,
+        "fat": 8,
+        "fiber": 7
+      },
+      "ingredients": [
+        {
+          "id": "8e747fb2-2e14-4c36-ade1-ad2e691f07c5",
+          "name": "Extra-firm tofu",
+          "amount": 85,
+          "unit": "g"
+        },
+        {
+          "id": "c43f19b5-ec01-42bb-8d3d-1cb0a073302f",
+          "name": "Red bell pepper",
+          "amount": 1,
+          "unit": "medium"
+        },
+        {
+          "id": "a1246b79-c3ff-417a-91e6-1e896c6c6513",
+          "name": "Broccoli florets",
+          "amount": 85,
+          "unit": "g"
+        },
+        {
+          "id": "2d758b56-fe91-4009-8a93-21e34e82062f",
+          "name": "Carrot",
+          "amount": 1,
+          "unit": "medium"
+        },
+        {
+          "id": "34229296-0305-4d54-b0c9-ad0aeddfc8f6",
+          "name": "Green onions",
+          "amount": 1,
+          "unit": "stalks"
+        },
+        {
+          "id": "d584e549-d635-439b-90ec-f47583296529",
+          "name": "Garlic",
+          "amount": 1,
+          "unit": "cloves"
+        },
+        {
+          "id": "7163612d-38e8-418b-bb2b-1df288fbd133",
+          "name": "Ginger",
+          "amount": 1,
+          "unit": "tsp"
+        },
+        {
+          "id": "f0a2bf78-52af-4f67-b3e0-050f49360b8a",
+          "name": "Peanut butter",
+          "amount": 1,
+          "unit": "tbsp"
+        },
+        {
+          "id": "ff53bdd2-da3e-4297-ac0a-b92a89a6c51c",
+          "name": "Soy sauce",
+          "amount": 1,
+          "unit": "tbsp"
+        },
+        {
+          "id": "fd6cc9f3-dfd2-4f30-b971-21157cf2ad65",
+          "name": "Rice vinegar",
+          "amount": 1,
+          "unit": "tbsp"
+        },
+        {
+          "id": "9b885d5c-5df3-4333-a1a5-360772a7f9f9",
+          "name": "Sriracha sauce",
+          "amount": 1,
+          "unit": "tsp"
+        },
+        {
+          "id": "9d668300-c8ed-461b-9c97-d3c973a4f196",
+          "name": "Vegetable oil",
+          "amount": 1,
+          "unit": "tbsp"
+        }
+      ]
+    },
+    {
+      "id": "1f3e4535-c875-4715-8767-6055c377ff86",
+      "name": "Tuna Quinoa Power Bowl",
+      "description": "A protein-packed quinoa bowl with tuna, avocado, and mixed veggies for a satisfying and nutritious lunch.",
+      "prepTime": 10,
+      "cookTime": 15,
+      "servings": 1,
+      "mealTypes": [
+        "lunch"
+      ],
+      "dietTypes": [
+        "omnivore"
+      ],
+      "difficulty": "easy",
+      "instructions": [
+        {
+          "id": "b1b766fc-fc44-4ae7-8c4f-b66b09378af2",
+          "stepNumber": 4,
+          "description": "Transfer the mixture to a serving bowl and top with sliced avocado."
+        },
+        {
+          "id": "3272d2ff-99ab-4ee8-88dd-9cf7b7792e4d",
+          "stepNumber": 3,
+          "description": "Pour the dressing over the quinoa and tuna mixture, and toss to coat evenly."
+        },
+        {
+          "id": "5cd0ca06-a63d-41f6-bfda-168a960ed936",
+          "stepNumber": 2,
+          "description": "In a small bowl, whisk together the lemon juice, olive oil, salt, and black pepper to make the dressing."
+        },
+        {
+          "id": "9924072a-2db9-4b4a-a5fa-a1b301f50529",
+          "stepNumber": 1,
+          "description": "In a mixing bowl, combine the cooked quinoa, drained tuna, diced cucumber, halved cherry tomatoes, and diced red onion."
+        }
+      ],
+      "nutritionalInfo": {
+        "calories": 344,
+        "protein": 35,
+        "carbohydrates": 36,
+        "fat": 8,
+        "fiber": 7
+      },
+      "ingredients": [
+        {
+          "id": "a93a536a-e0a7-4216-a051-73f257f9fb09",
+          "name": "Quinoa, cooked",
+          "amount": 1,
+          "unit": "cup"
+        },
+        {
+          "id": "23030a3a-adb2-4982-9b70-f0878f775096",
+          "name": "Tuna, canned in water, drained",
+          "amount": 3,
+          "unit": "oz"
+        },
+        {
+          "id": "9d2724ab-8615-46f4-95b7-ef09e2995d53",
+          "name": "Avocado, sliced",
+          "amount": 0,
+          "unit": "medium"
+        },
+        {
+          "id": "5ddee6ec-373b-4264-9a45-51d435409c90",
+          "name": "Cherry tomatoes, halved",
+          "amount": 0,
+          "unit": "cup"
+        },
+        {
+          "id": "7507a7c5-8358-4578-9c68-05acec98f37d",
+          "name": "Cucumber, diced",
+          "amount": 0,
+          "unit": "cup"
+        },
+        {
+          "id": "6e628c46-fdcd-497b-9438-109102e2f65f",
+          "name": "Red onion, diced",
+          "amount": 1,
+          "unit": "tbsp"
+        },
+        {
+          "id": "e34f0c39-39ae-42ee-9015-09af565ee764",
+          "name": "Lemon juice",
+          "amount": 1,
+          "unit": "tbsp"
+        },
+        {
+          "id": "827ac539-7e13-4932-bf35-da4fecc549d6",
+          "name": "Olive oil",
+          "amount": 1,
+          "unit": "tsp"
+        },
+        {
+          "id": "158ffa20-84d4-4a31-9d67-16ed014590b1",
+          "name": "Salt",
+          "amount": 0,
+          "unit": "tsp"
+        },
+        {
+          "id": "3cbecfdd-6901-4f09-9fbd-6f8fcdd84144",
+          "name": "Black pepper",
+          "amount": 0,
+          "unit": "tsp"
+        }
+      ]
+    },
+    {
+      "id": "137af28d-9c6b-476b-978a-bc48e4a3bd3b",
+      "name": "Spicy Chicken Avocado Wrap",
+      "description": "A healthy and satisfying wrap filled with seasoned chicken, creamy avocado, and fresh veggies.",
+      "prepTime": 10,
+      "cookTime": 15,
+      "servings": 1,
+      "mealTypes": [
+        "lunch"
+      ],
+      "dietTypes": [
+        "omnivore"
+      ],
+      "difficulty": "easy",
+      "instructions": [
+        {
+          "id": "d49c1a96-5d8c-4f75-b2df-b84e6d663ce6",
+          "stepNumber": 6,
+          "description": "Fold the sides of the tortilla over the filling, then roll up tightly. Cut in half and serve."
+        },
+        {
+          "id": "7cb7c1c9-9607-4bc0-a62f-3e627a4da315",
+          "stepNumber": 5,
+          "description": "Lay out the tortilla and spread the mashed avocado in the center. Top with sliced chicken, bell pepper, onion, and spinach."
+        },
+        {
+          "id": "ba22794c-514a-46d6-b8e5-ee611895d4ac",
+          "stepNumber": 4,
+          "description": "Thinly slice the bell pepper and red onion."
+        },
+        {
+          "id": "b9a20732-2acf-4fe4-aacb-bbeb2a5de59b",
+          "stepNumber": 3,
+          "description": "In a small bowl, mash the avocado with lime juice, salt, and pepper."
+        },
+        {
+          "id": "2b3ed737-94d0-4a73-a0f1-ccdaa24d0e13",
+          "stepNumber": 2,
+          "description": "Heat olive oil in a skillet over medium heat. Cook the chicken for 6-8 minutes per side or until cooked through. Let it rest for 5 minutes, then slice."
+        },
+        {
+          "id": "3c53c848-7493-412b-b0b1-f93b8e305f32",
+          "stepNumber": 1,
+          "description": "Season the chicken with chili powder, cumin, garlic powder, salt, and pepper."
+        }
+      ],
+      "nutritionalInfo": {
+        "calories": 344,
+        "protein": 35,
+        "carbohydrates": 35,
+        "fat": 7,
+        "fiber": 7
+      },
+      "ingredients": [
+        {
+          "id": "ee18e904-898e-4ea8-91ec-31f42f13a50c",
+          "name": "boneless, skinless chicken breast",
+          "amount": 69,
+          "unit": "g"
+        },
+        {
+          "id": "5b273410-45ce-4220-b916-1cca8f51c2b7",
+          "name": "avocado",
+          "amount": 0,
+          "unit": "medium"
+        },
+        {
+          "id": "a059d4ac-4e5f-4f35-a3e8-0daf822d0bd9",
+          "name": "whole wheat tortilla",
+          "amount": 1,
+          "unit": "large"
+        },
+        {
+          "id": "4b73670d-1c10-45b2-9d5c-d0dcf4c9b7a7",
+          "name": "red bell pepper",
+          "amount": 0,
+          "unit": "medium"
+        },
+        {
+          "id": "eae59973-40ea-4aa7-b030-fda1b24b7258",
+          "name": "red onion",
+          "amount": 0,
+          "unit": "small"
+        },
+        {
+          "id": "8569f7c9-cd73-439e-8709-4b0b77d831f4",
+          "name": "baby spinach",
+          "amount": 1,
+          "unit": "cup"
+        },
+        {
+          "id": "5afc7ee9-5db5-4a9a-9f96-cd758a91644b",
+          "name": "chili powder",
+          "amount": 0,
+          "unit": "tsp"
+        },
+        {
+          "id": "992bf522-91b7-4be3-a8e2-a211c8e1eabb",
+          "name": "ground cumin",
+          "amount": 0,
+          "unit": "tsp"
+        },
+        {
+          "id": "6152f331-9312-4c0d-96ba-c46a9fd6a4ec",
+          "name": "garlic powder",
+          "amount": 0,
+          "unit": "tsp"
+        },
+        {
+          "id": "debce7b7-94a7-4e77-ab06-b7814499b77b",
+          "name": "olive oil",
+          "amount": 1,
+          "unit": "tsp"
+        },
+        {
+          "id": "92ae67c2-be48-4166-85f5-b34ec3318780",
+          "name": "lime juice",
+          "amount": 1,
+          "unit": "tbsp"
+        },
+        {
+          "id": "784923f0-81bd-4e94-b02d-a45e431b5cbb",
+          "name": "salt",
+          "amount": 0,
+          "unit": "tsp"
+        },
+        {
+          "id": "a436ae3c-c513-4fd1-a0cc-13a8b4852ce1",
+          "name": "black pepper",
+          "amount": 0,
+          "unit": "tsp"
+        }
+      ]
+    },
+    {
+      "id": "36bf56e1-6197-4251-b266-02b5ce5404ae",
+      "name": "Greek Chicken Quinoa Bowl",
+      "description": "A flavorful and nutritious grain bowl with Greek-inspired ingredients like chicken, quinoa, chickpeas, cucumber, tomatoes, feta and a tangy lemon-herb dressing.",
+      "prepTime": 10,
+      "cookTime": 0,
+      "servings": 1,
+      "mealTypes": [
+        "lunch"
+      ],
+      "dietTypes": [
+        "omnivore"
+      ],
+      "difficulty": "easy",
+      "instructions": [
+        {
+          "id": "ab5517e8-60d5-4fe3-9ec9-916addb34d84",
+          "stepNumber": 3,
+          "description": "Pour the dressing over the quinoa bowl and toss well to coat everything evenly. Serve immediately and enjoy!"
+        },
+        {
+          "id": "d50fb934-7320-49ba-ad40-a1fb2623f89d",
+          "stepNumber": 2,
+          "description": "In a small bowl, whisk together the lemon juice, olive oil, garlic powder, oregano, salt and pepper to make the dressing."
+        },
+        {
+          "id": "790a22c1-f442-4a32-bebe-5b273379e6a0",
+          "stepNumber": 1,
+          "description": "In a serving bowl, add the cooked quinoa, chicken, chickpeas, tomatoes, cucumber, red onion, feta and parsley. Toss to combine."
+        }
+      ],
+      "nutritionalInfo": {
+        "calories": 344,
+        "protein": 34,
+        "carbohydrates": 35,
+        "fat": 10,
+        "fiber": 7
+      },
+      "ingredients": [
+        {
+          "id": "8e96bd80-2104-493e-9265-9ead94d847c9",
+          "name": "cooked quinoa",
+          "amount": 0,
+          "unit": "cup"
+        },
+        {
+          "id": "86dab9a1-5c99-44b5-80e7-dd4f74a3ee00",
+          "name": "cooked chicken breast, cubed",
+          "amount": 2,
+          "unit": "oz"
+        },
+        {
+          "id": "5d79b697-0520-42df-bbfc-8445a912d226",
+          "name": "canned chickpeas, rinsed and drained",
+          "amount": 0,
+          "unit": "cup"
+        },
+        {
+          "id": "cf9c0a69-2bc1-496d-97f8-3e674999a025",
+          "name": "cherry tomatoes, halved",
+          "amount": 0,
+          "unit": "cup"
+        },
+        {
+          "id": "7b57a063-9d6b-416e-ba99-4c6f512c2202",
+          "name": "cucumber, diced",
+          "amount": 0,
+          "unit": "cup"
+        },
+        {
+          "id": "ee42fd32-0c86-42a9-a72d-fb4a0402c087",
+          "name": "red onion, finely chopped",
+          "amount": 1,
+          "unit": "tbsp"
+        },
+        {
+          "id": "8ca2cc4f-eb84-4314-b6b0-21d515a250f7",
+          "name": "crumbled feta cheese",
+          "amount": 1,
+          "unit": "tbsp"
+        },
+        {
+          "id": "8636f425-88f4-4229-91f3-0086d4a789ef",
+          "name": "fresh parsley, chopped",
+          "amount": 1,
+          "unit": "tbsp"
+        },
+        {
+          "id": "867a985d-b486-4514-9991-030d104af413",
+          "name": "lemon juice",
+          "amount": 1,
+          "unit": "tbsp"
+        },
+        {
+          "id": "75e70435-7a76-45d9-b7b3-4f6465a58f60",
+          "name": "olive oil",
+          "amount": 1,
+          "unit": "tsp"
+        },
+        {
+          "id": "a39601c4-85e1-46db-bc3f-0bffb8ee4d68",
+          "name": "garlic powder",
+          "amount": 0,
+          "unit": "tsp"
+        },
+        {
+          "id": "43f267df-37d4-40b9-ba0b-15559ff962c6",
+          "name": "dried oregano",
+          "amount": 0,
+          "unit": "tsp"
+        },
+        {
+          "id": "e34be9db-6faf-4877-b9e7-eac6f603ebe3",
+          "name": "salt",
+          "amount": 0,
+          "unit": "tsp"
+        },
+        {
+          "id": "5e8b47b0-2d0a-402c-b4e4-26fe92ac240e",
+          "name": "black pepper",
+          "amount": 0,
+          "unit": "tsp"
+        }
+      ]
+    }
+  ],
+  "dinners": [
+    {
+      "id": "01f71039-c18a-4fa8-817c-a0294f42cfbb",
+      "name": "Seared Steak with Garlic Broccoli",
+      "description": "A quick and easy high-protein dinner featuring pan-seared steak and garlic-sautéed broccoli.",
+      "prepTime": 5,
+      "cookTime": 15,
+      "servings": 1,
+      "mealTypes": [
+        "dinner"
+      ],
+      "dietTypes": [
+        "omnivore"
+      ],
+      "difficulty": "easy",
+      "instructions": [
+        {
+          "id": "10b1b794-beba-49a3-b7b7-41e63dba076d",
+          "stepNumber": 4,
+          "description": "Slice the steak and serve alongside the garlic broccoli. Enjoy!"
+        },
+        {
+          "id": "99b695c5-b43a-4059-a281-d7e05798e4fa",
+          "stepNumber": 3,
+          "description": "In the same skillet, add the broccoli and minced garlic. Sauté for 4-5 minutes until the broccoli is tender-crisp. Season with a pinch of salt."
+        },
+        {
+          "id": "7edcfb59-a6b3-4e40-90f7-c0ea71a52261",
+          "stepNumber": 2,
+          "description": "Heat olive oil in a skillet over medium-high heat. Add the steak and cook for 3-4 minutes per side for medium doneness. Remove and let rest for a few minutes before slicing."
+        },
+        {
+          "id": "23c4e55f-1f4e-433e-9012-76530a2f3752",
+          "stepNumber": 1,
+          "description": "Season the steak on both sides with salt and pepper."
+        }
+      ],
+      "nutritionalInfo": {
+        "calories": 344,
+        "protein": 36,
+        "carbohydrates": 9,
+        "fat": 20,
+        "fiber": 3
+      },
+      "ingredients": [
+        {
+          "id": "d03af6cf-1da4-499d-91fa-7b29c95479c2",
+          "name": "sirloin steak",
+          "amount": 4,
+          "unit": "oz"
+        },
+        {
+          "id": "aff1c3eb-5f89-4126-9ac9-df734b20c630",
+          "name": "broccoli florets",
+          "amount": 1,
+          "unit": "cups"
+        },
+        {
+          "id": "88a46551-6a93-416a-9cd2-e5495f5750f7",
+          "name": "garlic",
+          "amount": 1,
+          "unit": "cloves"
+        },
+        {
+          "id": "87aedbae-4642-4cd6-9291-5a35c584d4e6",
+          "name": "olive oil",
+          "amount": 1,
+          "unit": "tbsp"
+        },
+        {
+          "id": "a4b544ab-62c5-47bf-acdc-493f9f6cf8df",
+          "name": "salt",
+          "amount": 0,
+          "unit": "tsp"
+        },
+        {
+          "id": "92ebb19d-8518-472e-a0cb-bb3b32ef5b1d",
+          "name": "black pepper",
+          "amount": 0,
+          "unit": "tsp"
+        }
+      ]
+    },
+    {
+      "id": "849dd4ea-f5bf-4b58-8e8b-5e9eeb33b384",
+      "name": "Grilled Chicken and Vegetable Skewers",
+      "description": "Juicy grilled chicken breast skewers with colorful vegetables, perfect for a quick and healthy dinner.",
+      "prepTime": 10,
+      "cookTime": 10,
+      "servings": 1,
+      "mealTypes": [
+        "dinner"
+      ],
+      "dietTypes": [
+        "omnivore"
+      ],
+      "difficulty": "easy",
+      "instructions": [
+        {
+          "id": "fd4ae5b8-9cde-4563-9914-b4481a1cb3d0",
+          "stepNumber": 6,
+          "description": "Serve the skewers hot."
+        },
+        {
+          "id": "de4d1e09-2d15-4967-9d49-51bf786bdd47",
+          "stepNumber": 5,
+          "description": "Grill the skewers for 10-12 minutes, turning occasionally, until the chicken is cooked through and the vegetables are tender and lightly charred."
+        },
+        {
+          "id": "7e09193c-73f7-4249-a6c2-ab7be3d066db",
+          "stepNumber": 4,
+          "description": "Thread the chicken and vegetables onto skewers, alternating between the ingredients."
+        },
+        {
+          "id": "187fdae0-f205-4c0d-93b8-5f9de1f57a5d",
+          "stepNumber": 3,
+          "description": "Preheat the grill or a grill pan to medium-high heat."
+        },
+        {
+          "id": "6df160ec-7a73-4fe0-b269-17cd54647bd6",
+          "stepNumber": 2,
+          "description": "In a large bowl, mix the olive oil, garlic powder, dried oregano, salt, and black pepper. Add the chicken cubes and vegetables to the bowl and toss to coat evenly."
+        },
+        {
+          "id": "61f8b521-db57-4f20-a622-13733792458f",
+          "stepNumber": 1,
+          "description": "Cut the chicken breast into 1-inch cubes. Cut the zucchini, red bell pepper, and red onion into 1-inch pieces."
+        }
+      ],
+      "nutritionalInfo": {
+        "calories": 344,
+        "protein": 34,
+        "carbohydrates": 26,
+        "fat": 11,
+        "fiber": 3
+      },
+      "ingredients": [
+        {
+          "id": "2930f33f-2204-49df-a7ea-d353f700d2b2",
+          "name": "Boneless, skinless chicken breast",
+          "amount": 115,
+          "unit": "g"
+        },
+        {
+          "id": "1b499a0d-96cd-4680-b847-2b3752ba200c",
+          "name": "Zucchini",
+          "amount": 57,
+          "unit": "g"
+        },
+        {
+          "id": "626bbc45-f1f2-4985-af9a-0fb32a081cbf",
+          "name": "Red bell pepper",
+          "amount": 57,
+          "unit": "g"
+        },
+        {
+          "id": "9bbf11ad-1005-45d7-b549-8a946180f4f9",
+          "name": "Red onion",
+          "amount": 29,
+          "unit": "g"
+        },
+        {
+          "id": "5850c11f-78ba-4679-a133-0f8f31312ab5",
+          "name": "Olive oil",
+          "amount": 1,
+          "unit": "tbsp"
+        },
+        {
+          "id": "2f616c74-a644-4ef9-a64f-e7e8207c3263",
+          "name": "Garlic powder",
+          "amount": 1,
+          "unit": "tsp"
+        },
+        {
+          "id": "e0922b9f-c834-4356-a540-f328e1c16623",
+          "name": "Dried oregano",
+          "amount": 1,
+          "unit": "tsp"
+        },
+        {
+          "id": "569b8d47-b9fb-4f50-bf54-f75c0e3b07f4",
+          "name": "Salt",
+          "amount": 0,
+          "unit": "tsp"
+        },
+        {
+          "id": "00499e2c-3e42-4a02-83c7-a64d9b651983",
+          "name": "Black pepper",
+          "amount": 0,
+          "unit": "tsp"
+        }
+      ]
+    },
+    {
+      "id": "16bf6148-ad59-48cf-8f6e-2d7199fb723e",
+      "name": "Teriyaki Chicken Stir-Fry",
+      "description": "A quick and easy stir-fry with tender chicken, crisp veggies, and a flavorful teriyaki sauce.",
+      "prepTime": 10,
+      "cookTime": 10,
+      "servings": 1,
+      "mealTypes": [
+        "dinner"
+      ],
+      "dietTypes": [
+        "omnivore"
+      ],
+      "difficulty": "easy",
+      "instructions": [
+        {
+          "id": "2c1ef03a-37bb-431c-b160-390426b97533",
+          "stepNumber": 6,
+          "description": "Garnish with green onion and serve hot."
+        },
+        {
+          "id": "e2c3a177-714f-4b40-af98-65b28aac0085",
+          "stepNumber": 5,
+          "description": "Pour in teriyaki sauce and stir to coat. Cook until sauce is heated through and slightly thickened, about 2 minutes."
+        },
+        {
+          "id": "f4304c6e-a232-4eb0-98c8-ddb84e932ef3",
+          "stepNumber": 4,
+          "description": "Add broccoli, bell pepper, and carrot. Stir-fry until vegetables are crisp-tender, about 4-5 minutes."
+        },
+        {
+          "id": "4da3369e-d6cb-48c8-b25e-80c64982bc3f",
+          "stepNumber": 3,
+          "description": "Add garlic and cook until fragrant, about 30 seconds."
+        },
+        {
+          "id": "e319ae2f-3f12-464a-ae03-c353159b7887",
+          "stepNumber": 2,
+          "description": "Heat oil in a large skillet or wok over medium-high heat. Add chicken and cook until browned, about 5 minutes."
+        },
+        {
+          "id": "a2328077-101a-452d-bd6c-c759df29b203",
+          "stepNumber": 1,
+          "description": "Cut chicken into bite-sized pieces. Chop broccoli, bell pepper, carrot, green onion, and mince garlic."
+        }
+      ],
+      "nutritionalInfo": {
+        "calories": 344,
+        "protein": 36,
+        "carbohydrates": 26,
+        "fat": 12,
+        "fiber": 4
+      },
+      "ingredients": [
+        {
+          "id": "1cbc1a47-d381-45c7-a4a7-9a35c973bed3",
+          "name": "boneless, skinless chicken breast",
+          "amount": 117,
+          "unit": "g"
+        },
+        {
+          "id": "2085e0bf-3dc2-4f03-aebe-c962d70a3581",
+          "name": "broccoli florets",
+          "amount": 59,
+          "unit": "g"
+        },
+        {
+          "id": "a48ee6cc-5312-4061-8640-df12222045c4",
+          "name": "red bell pepper",
+          "amount": 1,
+          "unit": "medium"
+        },
+        {
+          "id": "077ff9ff-4849-44c5-8e95-ab916b7113d4",
+          "name": "carrot",
+          "amount": 1,
+          "unit": "medium"
+        },
+        {
+          "id": "4ca1f46b-dd3d-440e-aea2-27a660cd3eb6",
+          "name": "green onion",
+          "amount": 1,
+          "unit": "stalks"
+        },
+        {
+          "id": "1f80d767-7a73-4c5a-9ea1-74409b18c7d9",
+          "name": "garlic",
+          "amount": 1,
+          "unit": "cloves"
+        },
+        {
+          "id": "fed3ce68-a87a-4550-a8a4-578c15ef1e6b",
+          "name": "teriyaki sauce",
+          "amount": 35,
+          "unit": "ml"
+        },
+        {
+          "id": "817dc0f3-a41f-4aee-b006-42607cc305a3",
+          "name": "vegetable oil",
+          "amount": 1,
+          "unit": "tbsp"
+        }
+      ]
+    },
+    {
+      "id": "80aca57d-ceff-412c-b872-91030cce0a1d",
+      "name": "Grilled Chicken and Quinoa Bowl",
+      "description": "A protein-packed and nutritious meal featuring grilled chicken, quinoa, and vegetables.",
+      "prepTime": 10,
+      "cookTime": 10,
+      "servings": 1,
+      "mealTypes": [
+        "dinner"
+      ],
+      "dietTypes": [
+        "omnivore"
+      ],
+      "difficulty": "easy",
+      "instructions": [
+        {
+          "id": "edb2d929-c78b-4c5d-8d25-5e3a99056d49",
+          "stepNumber": 8,
+          "description": "In a serving bowl, combine the cooked quinoa, steamed broccoli, sliced bell pepper, and grilled chicken. Drizzle with the olive oil and lemon juice mixture, and toss to combine."
+        },
+        {
+          "id": "e2d0f9f1-87a3-4515-a117-a59fa56214dd",
+          "stepNumber": 7,
+          "description": "In a small bowl, whisk together the olive oil and lemon juice."
+        },
+        {
+          "id": "baa4379d-e1e4-4453-8c2b-85d74fd747d7",
+          "stepNumber": 6,
+          "description": "Slice the red bell pepper into thin strips."
+        },
+        {
+          "id": "6ebe4c7e-f7c6-46c2-b94a-ed2160c41fb9",
+          "stepNumber": 5,
+          "description": "In a microwave-safe bowl, steam the broccoli florets for 2-3 minutes or until tender-crisp."
+        },
+        {
+          "id": "98c4ba8c-4fe4-4bdb-8a97-5bef46cd1059",
+          "stepNumber": 4,
+          "description": "In a small pot, bring 1 cup of water to a boil. Add the quinoa, reduce heat to low, cover, and simmer for 12-15 minutes or until the water is absorbed."
+        },
+        {
+          "id": "1bb91cdf-86e6-4d7b-b970-7af75d0143cc",
+          "stepNumber": 3,
+          "description": "Grill the chicken for 6-8 minutes per side or until cooked through. Set aside and slice into strips."
+        },
+        {
+          "id": "e803a9eb-260d-4835-946d-82c7bce02c37",
+          "stepNumber": 2,
+          "description": "Season the chicken breast with garlic powder, salt, and black pepper."
+        },
+        {
+          "id": "621708d1-4b20-4911-a957-a2c8a1d2b720",
+          "stepNumber": 1,
+          "description": "Preheat the grill or a grill pan to medium-high heat."
+        }
+      ],
+      "nutritionalInfo": {
+        "calories": 344,
+        "protein": 36,
+        "carbohydrates": 25,
+        "fat": 11,
+        "fiber": 5
+      },
+      "ingredients": [
+        {
+          "id": "ca47248b-e96d-425c-8824-813eaacdca4c",
+          "name": "Boneless, skinless chicken breast",
+          "amount": 118,
+          "unit": "g"
+        },
+        {
+          "id": "a44164bb-f162-4a57-858e-4bea8b6e36bb",
+          "name": "Quinoa",
+          "amount": 29,
+          "unit": "g"
+        },
+        {
+          "id": "3165fd25-1547-47a7-8384-d5cfcd85bbf2",
+          "name": "Broccoli florets",
+          "amount": 59,
+          "unit": "g"
+        },
+        {
+          "id": "b0ffbdc8-c8d7-49bb-accc-84bd18b39486",
+          "name": "Red bell pepper",
+          "amount": 1,
+          "unit": "medium"
+        },
+        {
+          "id": "899bb3fe-6add-4451-b4f1-8c3f640630be",
+          "name": "Olive oil",
+          "amount": 1,
+          "unit": "tbsp"
+        },
+        {
+          "id": "ea07d6f1-0ab0-409e-8006-d189e9803c0a",
+          "name": "Lemon juice",
+          "amount": 1,
+          "unit": "tbsp"
+        },
+        {
+          "id": "1b47850e-b52e-4c17-8da4-cdbb793abab3",
+          "name": "Garlic powder",
+          "amount": 1,
+          "unit": "tsp"
+        },
+        {
+          "id": "0b32f57d-94f4-4b2e-bfd2-f20b52ba8bcc",
+          "name": "Salt",
+          "amount": 0,
+          "unit": "tsp"
+        },
+        {
+          "id": "64015c06-fe2f-4f94-be11-ac9f86ae0fd4",
+          "name": "Black pepper",
+          "amount": 0,
+          "unit": "tsp"
+        }
+      ]
+    },
+    {
+      "id": "1121d342-6f40-4a0b-92d7-bdbeea002637",
+      "name": "Grilled Chicken with Quinoa Salad",
+      "description": "A protein-packed meal with grilled chicken and a refreshing quinoa salad.",
+      "prepTime": 10,
+      "cookTime": 15,
+      "servings": 1,
+      "mealTypes": [
+        "dinner"
+      ],
+      "dietTypes": [
+        "omnivore"
+      ],
+      "difficulty": "easy",
+      "instructions": [
+        {
+          "id": "95468731-2aba-4740-98e3-3e43d3bd3bfe",
+          "stepNumber": 7,
+          "description": "Serve the sliced grilled chicken on top of the quinoa salad."
+        },
+        {
+          "id": "b53e4745-d24d-47f2-967c-da9a2bb4738d",
+          "stepNumber": 6,
+          "description": "In a small bowl, whisk together the lemon juice and olive oil. Pour the dressing over the quinoa salad and toss to combine."
+        },
+        {
+          "id": "7e11f61d-3340-414a-8efd-49985f0273d8",
+          "stepNumber": 5,
+          "description": "In a bowl, combine the cooked quinoa, cherry tomatoes, cucumber, and red onion."
+        },
+        {
+          "id": "218bada9-39dc-4bc9-8cad-94196faa86fc",
+          "stepNumber": 4,
+          "description": "Cook the quinoa according to package instructions."
+        },
+        {
+          "id": "5dec9686-e300-4948-a076-e55b90fea54a",
+          "stepNumber": 3,
+          "description": "Grill the chicken for 6-8 minutes per side or until cooked through. Let it rest for 5 minutes before slicing."
+        },
+        {
+          "id": "b050ac64-da70-4410-941f-d53620066e6d",
+          "stepNumber": 2,
+          "description": "Season the chicken breast with garlic powder, salt, and black pepper."
+        },
+        {
+          "id": "cbcac373-4d05-4d8a-896d-d3140df9fe09",
+          "stepNumber": 1,
+          "description": "Preheat the grill or a grill pan to medium-high heat."
+        }
+      ],
+      "nutritionalInfo": {
+        "calories": 344,
+        "protein": 36,
+        "carbohydrates": 34,
+        "fat": 8,
+        "fiber": 4
+      },
+      "ingredients": [
+        {
+          "id": "200f4557-622c-45ef-8780-9e0206456aa7",
+          "name": "Chicken breast",
+          "amount": 117,
+          "unit": "g"
+        },
+        {
+          "id": "ac54a752-aa12-41b5-bb18-c80cb3126399",
+          "name": "Quinoa",
+          "amount": 29,
+          "unit": "g"
+        },
+        {
+          "id": "dfeda91c-ee4f-493f-ae47-94a954a4179e",
+          "name": "Cherry tomatoes",
+          "amount": 59,
+          "unit": "g"
+        },
+        {
+          "id": "142493ee-6912-4f62-81d5-86187f02ec6b",
+          "name": "Cucumber",
+          "amount": 29,
+          "unit": "g"
+        },
+        {
+          "id": "ce6aca48-74f0-4574-ab73-5fe1399faa70",
+          "name": "Red onion",
+          "amount": 15,
+          "unit": "g"
+        },
+        {
+          "id": "cc58df9b-dd75-417d-a7a9-9075d51bd445",
+          "name": "Lemon juice",
+          "amount": 1,
+          "unit": "tbsp"
+        },
+        {
+          "id": "a54253bf-e09e-4353-8b1d-3a5b27df9656",
+          "name": "Olive oil",
+          "amount": 1,
+          "unit": "tbsp"
+        },
+        {
+          "id": "601958fa-40b1-4dce-b2d8-380d91a01bdf",
+          "name": "Garlic powder",
+          "amount": 1,
+          "unit": "tsp"
+        },
+        {
+          "id": "decdea76-7b7a-4cff-9982-1ec829c00053",
+          "name": "Salt",
+          "amount": 0,
+          "unit": "tsp"
+        },
+        {
+          "id": "8cf7d47d-20d4-4927-a134-56c0e3201913",
+          "name": "Black pepper",
+          "amount": 0,
+          "unit": "tsp"
+        }
+      ]
+    },
+    {
+      "id": "a3035c4f-53e2-4317-98cd-df9817b05a37",
+      "name": "Baked Salmon with Quinoa and Roasted Vegetables",
+      "description": "A nutritious and flavorful dinner featuring omega-3 rich salmon, protein-packed quinoa, and colorful roasted vegetables.",
+      "prepTime": 20,
+      "cookTime": 40,
+      "servings": 1,
+      "mealTypes": [
+        "dinner"
+      ],
+      "dietTypes": [
+        "omnivore"
+      ],
+      "difficulty": "hard",
+      "instructions": [
+        {
+          "id": "2fffd6c2-11be-420f-9c63-95b8d224e27c",
+          "stepNumber": 7,
+          "description": "Serve the baked salmon alongside the cooked quinoa and roasted vegetables. Squeeze fresh lemon juice over the dish before serving."
+        },
+        {
+          "id": "a033cfad-3ca9-4c41-b56f-a83762624bee",
+          "stepNumber": 6,
+          "description": "Season the salmon fillet with the remaining olive oil, dried oregano, salt, and black pepper. Place the salmon on the baking sheet with the vegetables and bake for an additional 12-15 minutes, or until the salmon is cooked through and easily flakes with a fork."
+        },
+        {
+          "id": "982f2458-8320-4c34-950c-33f52a596bb4",
+          "stepNumber": 5,
+          "description": "Spread the vegetables on the prepared baking sheet and roast for 20-25 minutes, until tender and slightly caramelized."
+        },
+        {
+          "id": "f831ed91-a352-4a0e-890b-d64b66f96832",
+          "stepNumber": 4,
+          "description": "In a large bowl, toss the broccoli, red bell pepper, red onion, and minced garlic with 1 tbsp olive oil, 1/2 tsp dried oregano, 1/2 tsp salt, and 1/4 tsp black pepper."
+        },
+        {
+          "id": "0281a603-94b4-42c2-968e-de747390f427",
+          "stepNumber": 3,
+          "description": "Cut the broccoli into bite-sized florets. Slice the red bell pepper and red onion into strips. Mince the garlic cloves."
+        },
+        {
+          "id": "2b6fbf64-c15e-45f3-b37d-851297b7f45e",
+          "stepNumber": 2,
+          "description": "Rinse the quinoa and cook it according to package instructions."
+        },
+        {
+          "id": "b285fb58-57fd-462e-8082-3294416ab1b5",
+          "stepNumber": 1,
+          "description": "Preheat the oven to 425°F (220°C). Line a baking sheet with parchment paper."
+        }
+      ],
+      "nutritionalInfo": {
+        "calories": 344,
+        "protein": 35,
+        "carbohydrates": 35,
+        "fat": 7,
+        "fiber": 7
+      },
+      "ingredients": [
+        {
+          "id": "8952909c-2df0-41c0-af8e-d16473f9b4e4",
+          "name": "Salmon fillet",
+          "amount": 115,
+          "unit": "g"
+        },
+        {
+          "id": "cd7e0240-1fee-4235-b1ee-caa655aa0f66",
+          "name": "Quinoa",
+          "amount": 46,
+          "unit": "g"
+        },
+        {
+          "id": "286f07b2-3148-4169-944e-909ed2d033a8",
+          "name": "Broccoli florets",
+          "amount": 86,
+          "unit": "g"
+        },
+        {
+          "id": "e53e055e-1aeb-4276-9fdb-9937164b6c82",
+          "name": "Red bell pepper",
+          "amount": 1,
+          "unit": "piece"
+        },
+        {
+          "id": "67014363-6bc0-4e7c-a7b6-a13fd9c3f200",
+          "name": "Red onion",
+          "amount": 1,
+          "unit": "piece"
+        },
+        {
+          "id": "83814c86-4cb5-450a-8671-2dac98059c21",
+          "name": "Garlic",
+          "amount": 2,
+          "unit": "cloves"
+        },
+        {
+          "id": "b82a04f1-c2ea-4daf-8163-d2d888792d32",
+          "name": "Lemon",
+          "amount": 1,
+          "unit": "piece"
+        },
+        {
+          "id": "21531cb2-957f-42e3-acac-8cdcada2e4d6",
+          "name": "Olive oil",
+          "amount": 1,
+          "unit": "tbsp"
+        },
+        {
+          "id": "7d69c828-c04c-4e81-9606-aa3d11738367",
+          "name": "Dried oregano",
+          "amount": 1,
+          "unit": "tsp"
+        },
+        {
+          "id": "857a78fb-a20f-4fe1-9ff7-75200af79f78",
+          "name": "Salt",
+          "amount": 1,
+          "unit": "tsp"
+        },
+        {
+          "id": "149822c1-630a-4542-9005-fe604ca8b550",
+          "name": "Black pepper",
+          "amount": 0,
+          "unit": "tsp"
+        }
+      ]
+    },
+    {
+      "id": "17f255c2-ad63-4a59-8f64-adfe3137f81a",
+      "name": "Spicy Pork Stir-Fry with Bok Choy",
+      "description": "A flavorful and nutritious stir-fry featuring tender pork, crisp bok choy, and a spicy sauce.",
+      "prepTime": 30,
+      "cookTime": 30,
+      "servings": 1,
+      "mealTypes": [
+        "dinner"
+      ],
+      "dietTypes": [
+        "omnivore"
+      ],
+      "difficulty": "hard",
+      "instructions": [
+        {
+          "id": "b3ed99c5-a4ce-4d0f-87b7-36d67dd4aa04",
+          "stepNumber": 7,
+          "description": "Serve hot, garnished with sliced green onions if desired."
+        },
+        {
+          "id": "43387c06-4def-4e44-8231-e9085dcd4a6a",
+          "stepNumber": 6,
+          "description": "Mix cornstarch with a little water and add to the wok, stirring until the sauce thickens."
+        },
+        {
+          "id": "95b4759a-fd0e-4dfd-8637-6016d40a14c6",
+          "stepNumber": 5,
+          "description": "Add the bok choy and stir-fry until it starts to wilt, about 1-2 minutes."
+        },
+        {
+          "id": "6bab7f25-b2f0-46f3-8701-fbeb55a216a1",
+          "stepNumber": 4,
+          "description": "Add the bell pepper and stir-fry for another 2 minutes."
+        },
+        {
+          "id": "62664140-47a1-4920-85d7-92829e985c33",
+          "stepNumber": 3,
+          "description": "Heat a wok or large skillet over high heat. Add the marinated pork and stir-fry for 3-4 minutes until browned."
+        },
+        {
+          "id": "89e0e947-b154-4677-b740-ef329127e323",
+          "stepNumber": 2,
+          "description": "Wash and chop the bok choy into bite-sized pieces. Slice the red bell pepper into thin strips."
+        },
+        {
+          "id": "2b661717-f418-41cb-87be-67c4c2b72c06",
+          "stepNumber": 1,
+          "description": "Slice the pork tenderloin into thin strips. Marinate in a mixture of soy sauce, rice vinegar, sesame oil, minced garlic, grated ginger, and sliced red chili pepper for 20 minutes."
+        }
+      ],
+      "nutritionalInfo": {
+        "calories": 344,
+        "protein": 36,
+        "carbohydrates": 34,
+        "fat": 8,
+        "fiber": 5
+      },
+      "ingredients": [
+        {
+          "id": "4098410f-426c-4881-b5ef-ff92b75c6126",
+          "name": "pork tenderloin",
+          "amount": 98,
+          "unit": "g"
+        },
+        {
+          "id": "6ec37ab9-70a1-4467-9387-f95afb0c036d",
+          "name": "bok choy",
+          "amount": 116,
+          "unit": "g"
+        },
+        {
+          "id": "7015b863-90bb-4ade-a9a6-4cfa296b0a04",
+          "name": "red bell pepper",
+          "amount": 58,
+          "unit": "g"
+        },
+        {
+          "id": "1120a66f-25ca-4efd-8045-b314162aad3a",
+          "name": "garlic",
+          "amount": 2,
+          "unit": "cloves"
+        },
+        {
+          "id": "8828ee59-0431-4f11-bc5a-ee39caf7dc10",
+          "name": "ginger",
+          "amount": 1,
+          "unit": "tbsp"
+        },
+        {
+          "id": "2e170d05-a82d-4790-8468-59128e165fee",
+          "name": "red chili pepper",
+          "amount": 1,
+          "unit": ""
+        },
+        {
+          "id": "7122898d-4044-4059-ad48-d9dda210af95",
+          "name": "soy sauce",
+          "amount": 1,
+          "unit": "tbsp"
+        },
+        {
+          "id": "22f65751-8ba7-4788-a11f-e33718ee09bc",
+          "name": "rice vinegar",
+          "amount": 1,
+          "unit": "tbsp"
+        },
+        {
+          "id": "4901a915-e18c-49b3-aa73-f25941b33447",
+          "name": "sesame oil",
+          "amount": 1,
+          "unit": "tsp"
+        },
+        {
+          "id": "3a3379f3-d666-4d5e-aa18-a5b54762c22b",
+          "name": "cornstarch",
+          "amount": 1,
+          "unit": "tsp"
+        }
+      ]
+    }
+  ],
+  "snacks": [
+    {
+      "id": "23a4fedf-8674-4d13-9d7f-e19cb3bf0e2a",
+      "name": "High-Protein Yogurt Parfait",
+      "description": "A simple, protein-packed yogurt parfait with fresh berries and granola.",
+      "prepTime": 10,
+      "cookTime": 0,
+      "servings": 2,
+      "mealTypes": [
+        "snack"
+      ],
+      "dietTypes": [
+        "omnivore"
+      ],
+      "difficulty": "easy",
+      "instructions": [
+        {
+          "id": "4521ede7-2286-4849-a609-651662b8bb9e",
+          "stepNumber": 5,
+          "description": "Serve immediately and enjoy your healthy, high-protein snack!"
+        },
+        {
+          "id": "404d5f4a-5d9d-4855-8385-0d111ffc4dd5",
+          "stepNumber": 4,
+          "description": "Repeat the layers with the remaining yogurt, berries, and granola."
+        },
+        {
+          "id": "66fea344-e8b0-4525-8fd0-cc880c1b2300",
+          "stepNumber": 3,
+          "description": "Sprinkle half of the granola over the berries."
+        },
+        {
+          "id": "f2a34117-0d8d-413f-bb13-851c52057af6",
+          "stepNumber": 2,
+          "description": "Top the yogurt with half of the sliced strawberries and blueberries."
+        },
+        {
+          "id": "c193a00a-edf4-4053-8478-e3947135df24",
+          "stepNumber": 1,
+          "description": "In a parfait glass or small bowl, layer half of the Greek yogurt."
+        }
+      ],
+      "nutritionalInfo": {
+        "calories": 344,
+        "protein": 42,
+        "carbohydrates": 18,
+        "fat": 10,
+        "fiber": 3
+      },
+      "ingredients": [
+        {
+          "id": "2a0d12a4-6d01-4582-bf94-1f227e01929f",
+          "name": "Non-fat Greek yogurt",
+          "amount": 336,
+          "unit": "g"
+        },
+        {
+          "id": "681be070-c851-49bd-9eba-91d7423707ae",
+          "name": "Fresh strawberries, sliced",
+          "amount": 84,
+          "unit": "g"
+        },
+        {
+          "id": "4a13c0df-c760-46a2-ae7a-0ffaba13fa18",
+          "name": "Fresh blueberries",
+          "amount": 84,
+          "unit": "g"
+        },
+        {
+          "id": "7031eec1-b042-47f6-a9dd-a02800e04cff",
+          "name": "Low-sugar granola",
+          "amount": 25,
+          "unit": "g"
+        }
+      ]
+    },
+    {
+      "id": "9f36bc17-6c5e-4cfc-a79e-ee9a72e4e981",
+      "name": "Tuna Salad Snack Wrap",
+      "description": "A quick and easy high-protein snack wrap with tuna salad and veggies",
+      "prepTime": 10,
+      "cookTime": 0,
+      "servings": 2,
+      "mealTypes": [
+        "snack"
+      ],
+      "dietTypes": [
+        "omnivore"
+      ],
+      "difficulty": "easy",
+      "instructions": [
+        {
+          "id": "e9e92ca0-0fb3-439c-af5a-d6f90f3a943b",
+          "stepNumber": 4,
+          "description": "If desired, cut the wrap in half. Serve immediately and enjoy!"
+        },
+        {
+          "id": "ea5df874-6006-4c78-94d7-d1903f357c2a",
+          "stepNumber": 3,
+          "description": "Spoon the tuna mixture on top of the spinach. Wrap the tortilla tightly around the filling."
+        },
+        {
+          "id": "55d5a498-6b6c-4170-9289-6383d030785d",
+          "stepNumber": 2,
+          "description": "Lay the tortilla out flat. Place the baby spinach leaves in the center of the tortilla."
+        },
+        {
+          "id": "1904d6e4-cecf-4be1-99d2-743662f70263",
+          "stepNumber": 1,
+          "description": "In a small bowl, mix the drained tuna, mayonnaise, celery and red onion until well combined."
+        }
+      ],
+      "nutritionalInfo": {
+        "calories": 344,
+        "protein": 45,
+        "carbohydrates": 20,
+        "fat": 10,
+        "fiber": 5
+      },
+      "ingredients": [
+        {
+          "id": "7a29a632-8eaf-4ea4-8825-6202e9c1de36",
+          "name": "Canned tuna in water, drained",
+          "amount": 5,
+          "unit": "oz"
+        },
+        {
+          "id": "f7613743-a5ea-4609-aabb-5c51d0b8f063",
+          "name": "Light mayonnaise",
+          "amount": 2,
+          "unit": "tbsp"
+        },
+        {
+          "id": "acf11bf4-87e0-4fbc-b482-364c8ac10ce7",
+          "name": "Chopped celery",
+          "amount": 3,
+          "unit": "tbsp"
+        },
+        {
+          "id": "4695b841-7e38-4b75-82e2-2e2107b10b45",
+          "name": "Chopped red onion",
+          "amount": 2,
+          "unit": "tbsp"
+        },
+        {
+          "id": "4f8b4faa-8514-480e-b689-ad4fffa7e8e1",
+          "name": "Small whole grain tortilla",
+          "amount": 2,
+          "unit": "tortilla"
+        },
+        {
+          "id": "72b9d0c2-2c23-48b1-9c4d-ca3df64394d8",
+          "name": "Baby spinach leaves",
+          "amount": 1,
+          "unit": "cup"
+        }
+      ]
+    },
+    {
+      "id": "8b559148-eaa3-41eb-9273-cbcb111eddc7",
+      "name": "Cottage Cheese and Fruit Bowl",
+      "description": "A high-protein, low-carb snack that's easy to prepare and perfect for a quick energy boost.",
+      "prepTime": 5,
+      "cookTime": 0,
+      "servings": 2,
+      "mealTypes": [
+        "snack"
+      ],
+      "dietTypes": [
+        "omnivore"
+      ],
+      "difficulty": "easy",
+      "instructions": [
+        {
+          "id": "336bbef7-d0de-4c44-bf34-1d90d0010d08",
+          "stepNumber": 5,
+          "description": "Serve immediately and enjoy your healthy snack!"
+        },
+        {
+          "id": "1ae3aa97-542f-4b70-96b6-17a2c576febe",
+          "stepNumber": 4,
+          "description": "Sprinkle the sliced almonds on top of the fruit and cottage cheese."
+        },
+        {
+          "id": "99ec1b21-fe35-4d61-979c-067e905d6ec9",
+          "stepNumber": 3,
+          "description": "Add the blueberries to the bowl."
+        },
+        {
+          "id": "97c7062c-f929-4a7c-9702-bd770cffd3cf",
+          "stepNumber": 2,
+          "description": "Wash and slice the strawberries, then add them to the bowl."
+        },
+        {
+          "id": "612c9d5c-33e4-4b25-a2e6-b8e68908d2c1",
+          "stepNumber": 1,
+          "description": "In a bowl, add the low-fat cottage cheese."
+        }
+      ],
+      "nutritionalInfo": {
+        "calories": 344,
+        "protein": 44,
+        "carbohydrates": 19,
+        "fat": 10,
+        "fiber": 3
+      },
+      "ingredients": [
+        {
+          "id": "28798eaa-ef77-4638-a810-886800446db2",
+          "name": "Low-fat cottage cheese",
+          "amount": 256,
+          "unit": "g"
+        },
+        {
+          "id": "8b668102-aab2-4473-9570-5037d2c2f496",
+          "name": "Strawberries",
+          "amount": 85,
+          "unit": "g"
+        },
+        {
+          "id": "b20d1d18-4e80-4d04-86f2-5d6e73739d49",
+          "name": "Blueberries",
+          "amount": 85,
+          "unit": "g"
+        },
+        {
+          "id": "539beb6b-3ab0-4d08-a837-5450593375b9",
+          "name": "Sliced almonds",
+          "amount": 17,
+          "unit": "g"
+        }
+      ]
+    },
+    {
+      "id": "2060e8b8-0480-45d9-917a-fc35f0ce2ec9",
+      "name": "Tuna Salad Stuffed Avocado",
+      "description": "A quick and easy protein-packed snack featuring tuna salad stuffed in a fresh avocado.",
+      "prepTime": 10,
+      "cookTime": 0,
+      "servings": 2,
+      "mealTypes": [
+        "snack"
+      ],
+      "dietTypes": [
+        "omnivore"
+      ],
+      "difficulty": "easy",
+      "instructions": [
+        {
+          "id": "185c6a97-e20a-442b-bc30-be0c5cc6dc02",
+          "stepNumber": 4,
+          "description": "Serve immediately and enjoy your healthy and filling snack!"
+        },
+        {
+          "id": "5640f99e-a923-4db7-81ac-3f8583ec0239",
+          "stepNumber": 3,
+          "description": "Spoon the tuna salad mixture into the avocado halves."
+        },
+        {
+          "id": "4366b550-0636-4a98-88a2-3779f4c71bea",
+          "stepNumber": 2,
+          "description": "In a small bowl, mix the drained canned tuna, Greek yogurt, lemon juice, diced celery, salt, and black pepper until well combined."
+        },
+        {
+          "id": "20321d18-d861-4747-85f1-157bb2b193e2",
+          "stepNumber": 1,
+          "description": "Cut the avocado in half and remove the pit. Scoop out a small amount of the avocado flesh to make room for the tuna salad."
+        }
+      ],
+      "nutritionalInfo": {
+        "calories": 344,
+        "protein": 43,
+        "carbohydrates": 17,
+        "fat": 10,
+        "fiber": 12
+      },
+      "ingredients": [
+        {
+          "id": "bd0876f1-4975-4339-91d2-dc24ce6fec93",
+          "name": "Avocado",
+          "amount": 2,
+          "unit": "whole"
+        },
+        {
+          "id": "d8004cbc-155b-4c57-9325-d6d53a9279c6",
+          "name": "Canned tuna",
+          "amount": 5,
+          "unit": "oz"
+        },
+        {
+          "id": "0ad16c27-40c1-4ee1-b4b6-570805ddc8a6",
+          "name": "Greek yogurt",
+          "amount": 3,
+          "unit": "tbsp"
+        },
+        {
+          "id": "0f9a624c-dc35-477d-97f9-fbe913a23712",
+          "name": "Lemon juice",
+          "amount": 2,
+          "unit": "tsp"
+        },
+        {
+          "id": "65b071e4-f9e5-488f-a50f-d48b5283cb20",
+          "name": "Diced celery",
+          "amount": 3,
+          "unit": "tbsp"
+        },
+        {
+          "id": "ef5eebf9-8c29-4693-96b9-5d2168fd05ad",
+          "name": "Salt",
+          "amount": 0,
+          "unit": "tsp"
+        },
+        {
+          "id": "2af1e090-6ae4-4852-a070-bdea2fcbbd49",
+          "name": "Black pepper",
+          "amount": 0,
+          "unit": "tsp"
+        }
+      ]
+    },
+    {
+      "id": "bc5ccc54-a793-4bdd-9a66-b9fb260dc541",
+      "name": "Tuna and Avocado Wrap",
+      "description": "A quick and easy protein-packed snack with healthy fats and fiber.",
+      "prepTime": 10,
+      "cookTime": 0,
+      "servings": 2,
+      "mealTypes": [
+        "snack"
+      ],
+      "dietTypes": [
+        "omnivore"
+      ],
+      "difficulty": "easy",
+      "instructions": [
+        {
+          "id": "6562328b-8b43-49e6-b621-67c12c87f5de",
+          "stepNumber": 6,
+          "description": "Cut the wrap in half and serve."
+        },
+        {
+          "id": "5a0298c2-aa6d-4c67-a3a8-85e4a2cd2f74",
+          "stepNumber": 5,
+          "description": "Roll the tortilla tightly to form a wrap."
+        },
+        {
+          "id": "478f6bb2-0006-47ba-a197-ee5d2cee62ad",
+          "stepNumber": 4,
+          "description": "Add the tuna on top of the avocado mixture."
+        },
+        {
+          "id": "df5a0450-a23f-4049-a94e-51c873b0be9e",
+          "stepNumber": 3,
+          "description": "Spread the avocado mixture on the whole wheat tortilla."
+        },
+        {
+          "id": "2d2e2881-1476-40b6-876e-0695f430fc2d",
+          "stepNumber": 2,
+          "description": "Mash the avocado in another small bowl and add lemon juice, salt, and black pepper. Mix well."
+        },
+        {
+          "id": "7b15b4a3-c11a-4547-a49b-767799074f11",
+          "stepNumber": 1,
+          "description": "Drain the canned tuna and place it in a small bowl."
+        }
+      ],
+      "nutritionalInfo": {
+        "calories": 344,
+        "protein": 43,
+        "carbohydrates": 18,
+        "fat": 11,
+        "fiber": 8
+      },
+      "ingredients": [
+        {
+          "id": "f63eecd3-0813-4609-a579-b6a55f70bea9",
+          "name": "Canned tuna",
+          "amount": 139,
+          "unit": "g"
+        },
+        {
+          "id": "34653a0e-89d3-459e-ab2f-127caca8e852",
+          "name": "Avocado",
+          "amount": 1,
+          "unit": "medium"
+        },
+        {
+          "id": "8a66fecc-d447-403d-ac6f-3ff1b7eb24dc",
+          "name": "Whole wheat tortilla",
+          "amount": 2,
+          "unit": "small"
+        },
+        {
+          "id": "3f39bcfc-6c8d-4423-a023-e8fe6b5499b0",
+          "name": "Lemon juice",
+          "amount": 2,
+          "unit": "tsp"
+        },
+        {
+          "id": "96eba299-1df4-49a9-9067-2344095fa23c",
+          "name": "Salt",
+          "amount": 0,
+          "unit": "tsp"
+        },
+        {
+          "id": "0b664d9b-13cd-48f2-8416-d41c6ed4f86c",
+          "name": "Black pepper",
+          "amount": 0,
+          "unit": "tsp"
+        }
+      ]
+    },
+    {
+      "id": "4f3969c4-244d-4f66-8443-a350efe2cfe5",
+      "name": "Tuna Avocado Wrap",
+      "description": "A quick and easy high-protein snack with healthy fats.",
+      "prepTime": 5,
+      "cookTime": 0,
+      "servings": 2,
+      "mealTypes": [
+        "snack"
+      ],
+      "dietTypes": [
+        "omnivore"
+      ],
+      "difficulty": "easy",
+      "instructions": [
+        {
+          "id": "cc8a157f-7f2f-49fa-a917-f9a091c81761",
+          "stepNumber": 5,
+          "description": "Roll up the tortilla tightly, tucking in the ends. Cut the wrap in half and serve."
+        },
+        {
+          "id": "195c2f18-0ad2-4a06-94fe-5763d561faa8",
+          "stepNumber": 4,
+          "description": "Place the whole wheat tortilla on a plate and spread the tuna-avocado mixture evenly over the tortilla."
+        },
+        {
+          "id": "2b12f262-015b-4e24-be03-bd9848674d25",
+          "stepNumber": 3,
+          "description": "Add lemon juice to the bowl and mix well with a fork, mashing the avocado and combining it with the tuna."
+        },
+        {
+          "id": "517902bb-1ded-4730-a78c-87765ff6f314",
+          "stepNumber": 2,
+          "description": "Cut the avocado in half, remove the pit, and scoop the flesh into the bowl with the tuna."
+        },
+        {
+          "id": "c11e7508-c4da-47dc-874b-8eabefe1f423",
+          "stepNumber": 1,
+          "description": "Drain the canned tuna and place it in a small bowl. Mash with a fork."
+        }
+      ],
+      "nutritionalInfo": {
+        "calories": 344,
+        "protein": 41,
+        "carbohydrates": 20,
+        "fat": 11,
+        "fiber": 7
+      },
+      "ingredients": [
+        {
+          "id": "544e4557-36fd-4485-9c86-0ee0e9ce25bd",
+          "name": "Whole wheat tortilla",
+          "amount": 2,
+          "unit": "wrap"
+        },
+        {
+          "id": "1749fd17-391e-42d4-ab79-98f1612a74fb",
+          "name": "Canned tuna",
+          "amount": 131,
+          "unit": "g"
+        },
+        {
+          "id": "4fcfbabe-91cd-4505-8725-f9036b9ecc0b",
+          "name": "Ripe avocado",
+          "amount": 1,
+          "unit": "fruit"
+        },
+        {
+          "id": "301dca7c-3628-4494-8d49-8da10bc5d48e",
+          "name": "Lemon juice",
+          "amount": 2,
+          "unit": "tsp"
+        }
+      ]
+    },
+    {
+      "id": "8fc22f6a-5f4b-4d11-affd-e30826df6d01",
+      "name": "Thai Peanut Tofu Lettuce Wraps",
+      "description": "Flavorful Thai-inspired tofu lettuce wraps with a creamy peanut sauce, perfect as a healthy and protein-packed snack.",
+      "prepTime": 40,
+      "cookTime": 12,
+      "servings": 2,
+      "mealTypes": [
+        "snack"
+      ],
+      "dietTypes": [
+        "omnivore"
+      ],
+      "difficulty": "medium",
+      "instructions": [
+        {
+          "id": "d70ccaa9-a90e-47bb-b2ec-314123c9d759",
+          "stepNumber": 5,
+          "description": "Spoon the tofu and sauce mixture into the lettuce leaves. Top with chopped peanuts and cilantro. Serve immediately."
+        },
+        {
+          "id": "89edd3c6-15db-4a3c-be1f-a6ec81b9e0a6",
+          "stepNumber": 4,
+          "description": "Pour the peanut sauce over the tofu and stir to coat evenly. Cook for another 2-3 minutes."
+        },
+        {
+          "id": "030ea171-c0cc-4cff-b706-8f5b75216962",
+          "stepNumber": 3,
+          "description": "Heat a non-stick pan over medium heat. Add the tofu cubes and cook for 5-7 minutes, stirring occasionally, until golden brown."
+        },
+        {
+          "id": "83c0380e-cbf8-4b0b-bc71-d2dbfcccb96d",
+          "stepNumber": 2,
+          "description": "In a bowl, whisk together peanut butter, coconut milk, soy sauce, lime juice, minced garlic, red curry paste, and honey until smooth."
+        },
+        {
+          "id": "4d21746c-96c6-4406-a27e-d77f06f9ff4c",
+          "stepNumber": 1,
+          "description": "Press the tofu for 30 minutes to remove excess moisture. Cut into small cubes."
+        }
+      ],
+      "nutritionalInfo": {
+        "calories": 344,
+        "protein": 29,
+        "carbohydrates": 35,
+        "fat": 10,
+        "fiber": 4
+      },
+      "ingredients": [
+        {
+          "id": "13d66353-7544-404d-8309-813f2df493b0",
+          "name": "Extra firm tofu",
+          "amount": 224,
+          "unit": "g"
+        },
+        {
+          "id": "092d65ba-4fc3-4768-8668-7ae8fc3c4f84",
+          "name": "Lettuce leaves",
+          "amount": 9,
+          "unit": "large"
+        },
+        {
+          "id": "ea5f7917-048b-459c-85ea-7ba64371bcc0",
+          "name": "Peanut butter",
+          "amount": 2,
+          "unit": "tbsp"
+        },
+        {
+          "id": "404e69ce-36c9-4169-8b42-0e5c5e4d604d",
+          "name": "Coconut milk",
+          "amount": 2,
+          "unit": "tbsp"
+        },
+        {
+          "id": "5ed7e309-7c3b-4974-9237-3b81043f9c9d",
+          "name": "Soy sauce",
+          "amount": 1,
+          "unit": "tbsp"
+        },
+        {
+          "id": "4ad18c6f-bfd1-4d21-9e9d-4aa5836daf49",
+          "name": "Lime juice",
+          "amount": 1,
+          "unit": "tbsp"
+        },
+        {
+          "id": "0d368a51-a0e4-4300-bc3d-f2211013f3cc",
+          "name": "Garlic",
+          "amount": 1,
+          "unit": "clove"
+        },
+        {
+          "id": "7283e8a5-5504-4ce5-a4c8-563311ec9316",
+          "name": "Red curry paste",
+          "amount": 1,
+          "unit": "tsp"
+        },
+        {
+          "id": "14d086a2-a6f1-423c-9439-da2cbb619368",
+          "name": "Honey",
+          "amount": 1,
+          "unit": "tsp"
+        },
+        {
+          "id": "c7483551-c084-4ac8-8493-298d6e0824d9",
+          "name": "Chopped peanuts",
+          "amount": 2,
+          "unit": "tbsp"
+        },
+        {
+          "id": "8a528639-72e6-481a-a012-b9be5c621df2",
+          "name": "Chopped cilantro",
+          "amount": 2,
+          "unit": "tbsp"
+        }
+      ]
+    }
+  ]
+}

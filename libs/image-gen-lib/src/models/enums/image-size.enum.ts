@@ -1,0 +1,5 @@
+export enum ImageSize {
+	SQUARE_1024 = '1024x1024',
+	LANDSCAPE_1792_1024 = '1792x1024',
+	PORTRAIT_1024_1792 = '1024x1792',
+}

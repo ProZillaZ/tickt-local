@@ -1,0 +1,9 @@
+export { default as OnboardingScreen } from "screens/onboarding/onboarding.index";
+export { default as HomeScreen } from "./home/home.index";
+export { default as ProgressScreen } from "./progress/progress.index";
+export { default as CoachScreen } from "./coach/coach.index";
+export { default as AuthScreen } from "./auth/auth.index";
+export { default as ForgotScreen } from "components/auth/forgot/forgot.index";
+export { default as ProfileScreen } from "./profile/profile.index";
+export { default as DietPlanScreen } from "./diet-plan/diet-plan.index";
+export { default as RecipeDetailScreen } from "./recipe-detail/recipe-detail.index";
