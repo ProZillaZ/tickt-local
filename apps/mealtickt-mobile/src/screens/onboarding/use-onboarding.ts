@@ -38,6 +38,7 @@ export const useOnboarding = () => {
                 });
             }, 100);
         }
+        const x = TargetWeightService
     }, [onboardingState]);
 
     // Calculate the progress percentage based on the current index
