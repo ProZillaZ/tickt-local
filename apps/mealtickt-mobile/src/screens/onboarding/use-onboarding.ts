@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { FlatList } from 'react-native';
+import { FlatList, Animated, Dimensions, ViewabilityConfig, FlatListProps } from 'react-native';
 import { slides, Slide } from './onboarding.props.ts';
 import { loadingContent } from 'app/constants/constants.ts';
 import { useNavigation } from '@react-navigation/native';
@@ -8,9 +8,12 @@ import { useAuth } from 'contexts/auth/auth';
 import { useOnboarding as useOnboardingContext } from 'contexts/onboarding/onboarding-context';
 import { OnboardingState } from 'contexts/onboarding/onboarding.types';
 import { DbService } from 'app/services/db.service.ts';
+import { User } from 'app/contexts/auth/auth.types.ts';
 
 const initialLoadingState = { title: '', description: '' };
 const dbService = new DbService();
+const { width } = Dimensions.get('window');
+
 // Custom hook for managing the onboarding logic
 export const useOnboarding = () => {
     // Reference to FlatList component
@@ -25,6 +28,7 @@ export const useOnboarding = () => {
     const [visibleLoadingModal, setVisibleLoadingModal] = useState(false);
     const [loadingModalContent, setLoadingModalContent] = useState(initialLoadingState);
 
+    const scrollX = useRef(new Animated.Value(0)).current;
     // Load saved step from onboarding state if it exists
     useEffect(() => {
         if (onboardingState && onboardingState.currentStep !== undefined) {
@@ -114,7 +118,14 @@ export const useOnboarding = () => {
                         user?.uid as string,
                         onboardData,
                     );
-                    await login(userData);
+                    // Ensure userData has all required User fields
+                    const userForLogin = {
+                        ...(userData as User),
+                        email: userData.email ?? user?.email ?? '',
+                        uid: userData.uid ?? user?.uid ?? '',
+                        // Add other required User fields here if necessary
+                    };
+                    await login(userForLogin);
                 } catch (error) {
                     logout();
                     // Use console.log instead of console.error to avoid the red screen in Expo Go
@@ -154,7 +165,25 @@ export const useOnboarding = () => {
             console.error('Failed to save step data:', error);
         }
     };
+    const viewConfigRef = useRef<ViewabilityConfig>({
+        viewAreaCoveragePercentThreshold: 90,
+        minimumViewTime: 800,
+    });
 
+    const onViewableItemsChanged = useRef<FlatListProps<Slide>['onViewableItemsChanged']>(
+        (info) => {
+            if (info.viewableItems.length > 0) {
+                const newIndex = info.viewableItems[0].index;
+                if (newIndex != null && newIndex !== currentIndex) {
+                    setCurrentIndex(newIndex);
+                    saveStep({ currentStep: newIndex });
+                }
+            }
+        },
+    ).current;
+    const onScroll = Animated.event([{ nativeEvent: { contentOffset: { x: scrollX } } }], {
+        useNativeDriver: false,
+    });
     // Render item function for FlatList that dynamically renders the component for each slide
     const renderItem = ({ item }: { item: Slide }) =>
         React.createElement(item.component, {
@@ -173,6 +202,10 @@ export const useOnboarding = () => {
         progressPercentage,
         visibleLoadingModal,
         loadingModalContent,
+        onScroll,
+        onViewableItemsChanged,
+        viewabilityConfig: viewConfigRef.current,
+        scrollX,
         onboardingState,
         updateStepData,
         isLoading,
