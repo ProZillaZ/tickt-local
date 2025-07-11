@@ -157,7 +157,7 @@ const Slide5: React.FC<SlideComponentProps> = ({ handleNext, updateStepData, onb
             </View>
             <View style={styles.estimatedContainer}>
                 <Text style={styles.estTitle}>estimated time</Text>
-                <Text style={styles.estTitle}>5 weeks</Text>
+                <Text style={styles.estTitle}>5 weeks</Text> // Replace function. Also recalculate when the input is changed.
             </View>
             <Button onClick={onNextPress} text="next" disabled={false} style={styles.btn} />
             <InfoModal
