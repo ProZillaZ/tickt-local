@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, SafeAreaView, FlatList } from 'react-native';
+import { View, Text, SafeAreaView, FlatList, Animated, Dimensions } from 'react-native';
 import { styles } from './onboarding.styles.ts';
 import { Slide, slides } from './onboarding.props.ts';
 import { useOnboarding } from './use-onboarding.ts';
@@ -7,6 +7,7 @@ import Header from 'components/global/header/header.index';
 import LoadingModalFull from 'components/onboarding/loading/loading.index';
 import ScrollViewBase from 'components/global/scroll-view-base/scroll-view-base.index';
 import { OnboardingProvider } from 'contexts/onboarding/onboarding-context';
+const { width } = Dimensions.get('window');
 
 const OnboardingScreenContent = () => {
     const {
@@ -17,6 +18,8 @@ const OnboardingScreenContent = () => {
         progressPercentage,
         visibleLoadingModal,
         loadingModalContent,
+        onScroll,
+        onViewableItemsChanged,
     } = useOnboarding();
 
     return (
@@ -29,16 +32,26 @@ const OnboardingScreenContent = () => {
             <ScrollViewBase
                 scrollEnabled={currentIndex == 3 && true}
                 contentContainerStyle={{ flex: 1 }}>
-                <FlatList
+                <Animated.FlatList
                     ref={flatListRef}
                     data={slides}
                     renderItem={renderItem}
                     horizontal
                     pagingEnabled
+                    bounces={false}
                     scrollEnabled={false}
                     keyExtractor={(item: Slide) => item.id.toString()}
                     showsHorizontalScrollIndicator={false}
                     nestedScrollEnabled={true}
+                    scrollEventThrottle={76}
+                    onScroll={onScroll}
+                    snapToInterval={width}
+                    snapToAlignment="start"
+                    // only fire when >50% of a slide is visible
+                    viewabilityConfig={{ viewAreaCoveragePercentThreshold: 50 }}
+                    onViewableItemsChanged={onViewableItemsChanged}
+                    // kill any bounce/overshoot
+                    decelerationRate="normal"
                 />
             </ScrollViewBase>
             {/* <Button onClick={handleNext} text={'next'} disabled={false} /> */}

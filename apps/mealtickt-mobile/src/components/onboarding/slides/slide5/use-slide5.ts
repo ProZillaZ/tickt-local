@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { FormField, OnboardingState, TouchedFields, ValidationErrors } from './slide5.props';
 import { validateField, validateForm, isFormValid as checkFormValidity } from './validation';
 import { step5Options } from 'app/constants/constants.ts';
-// import { TargetWeightService } from '@tickt-engineering/diet-gen-lib';
+import { TargetWeightService } from '@tickt-engineering/diet-gen-lib';
 // import { Gender, ActivityLevel, UnitSystem } from '@tickt-engineering/diet-gen-lib';
 import { Gender } from 'app/enums/gender.enum';
 import { ActivityLevel } from 'app/enums/activity-level.enum';
@@ -60,7 +60,7 @@ export const useSlide5 = (onboardingState?: any, updateStepData?: (data: any) =>
                 onboardingState.gender &&
                 onboardingState.age
             ) {
-                //const targetWeightService = new TargetWeightService();
+                const targetWeightService = new TargetWeightService();
 
                 // Use data from previous steps
                 const weight = Number(onboardingState.weight);
@@ -73,18 +73,18 @@ export const useSlide5 = (onboardingState?: any, updateStepData?: (data: any) =>
                 const unitSystem = UnitSystem.METRIC;
 
                 // Get recommended target weight
-                // const recommended = targetWeightService.recommendTargetWeight(
-                // 	weight,
-                // 	height,
-                // 	gender,
-                // 	age,
-                // 	unitSystem,
-                // 	activityLevel
-                // );
+                const recommended = targetWeightService.recommendTargetWeight(
+                    weight,
+                    height,
+                    gender,
+                    age,
+                    unitSystem,
+                    activityLevel,
+                );
 
                 // Set as base weight
-                setBaseWeight(100);
-                setWeightUnit('kg');
+                setBaseWeight(recommended);
+                setWeightUnit(unitSystem === UnitSystem.METRIC ? 'kg' : 'lbs');
 
                 // Set as target weight if not already set
                 if (!newState.targetWeight) {
@@ -189,14 +189,15 @@ export const useSlide5 = (onboardingState?: any, updateStepData?: (data: any) =>
 
     // Save data and navigate to next step
     const handleNext = async (nextFn: () => void) => {
-        await updateStepData({
-            targetWeight: Number(state.targetWeight),
-            goal: state.goal,
-            pace: state.pace,
-        });
+        if (updateStepData) {
+            await updateStepData({
+                targetWeight: Number(state.targetWeight),
+                goal: state.goal,
+                pace: state.pace,
+            });
+        }
 
         nextFn();
-        return;
         if (handleSubmitAttempt()) {
             // Save form data to onboarding state
             if (updateStepData) {

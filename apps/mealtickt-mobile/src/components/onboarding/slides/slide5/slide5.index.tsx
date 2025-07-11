@@ -43,7 +43,15 @@ const Slide5: React.FC<SlideComponentProps> = ({ handleNext, updateStepData, onb
 
     const onNextPress = () => {
         if (updateStepData) {
-            updateStepData(state);
+            // Ensure targetWeight is a number before passing to updateStepData
+            const updatedState = {
+                ...state,
+                targetWeight:
+                    typeof state.targetWeight === 'string'
+                        ? Number(state.targetWeight)
+                        : state.targetWeight,
+            };
+            updateStepData(updatedState);
             processNext(handleNext);
         }
     };
