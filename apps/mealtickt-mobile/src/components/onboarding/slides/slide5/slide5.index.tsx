@@ -25,6 +25,7 @@ const Slide5: React.FC<SlideComponentProps> = ({ handleNext, updateStepData, onb
         getAdjustedWeight,
         MIN_ADJUSTMENT,
         MAX_ADJUSTMENT,
+        estimateTime,
     } = useSlide5(onboardingState, updateStepData);
 
     // Force select the pace option if it's not showing
@@ -94,7 +95,7 @@ const Slide5: React.FC<SlideComponentProps> = ({ handleNext, updateStepData, onb
                                         </TouchableOpacity>
 
                                         <Text style={styles.weightValue}>
-                                            {getAdjustedWeight()}
+                                            {`${getAdjustedWeight().adjustedWeight} ${getAdjustedWeight().weightUnit}`}
                                         </Text>
 
                                         <TouchableOpacity
@@ -155,10 +156,12 @@ const Slide5: React.FC<SlideComponentProps> = ({ handleNext, updateStepData, onb
                     );
                 })}
             </View>
-            <View style={styles.estimatedContainer}>
-                <Text style={styles.estTitle}>estimated time</Text>
-                <Text style={styles.estTitle}>5 weeks</Text> // Replace function. Also recalculate when the input is changed. Function calculateTimeToReachGoal
-            </View>
+            {estimateTime() > 0 && (
+                <View style={styles.estimatedContainer}>
+                    <Text style={styles.estTitle}>estimated time</Text>
+                    <Text style={styles.estTitle}>{estimateTime()} weeks</Text>
+                </View>
+            )}
             <Button onClick={onNextPress} text="next" disabled={false} style={styles.btn} />
             <InfoModal
                 visible={visible}

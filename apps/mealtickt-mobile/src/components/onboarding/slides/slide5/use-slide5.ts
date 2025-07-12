@@ -2,16 +2,24 @@ import { useState, useEffect } from 'react';
 import { FormField, OnboardingState, TouchedFields, ValidationErrors } from './slide5.props';
 import { validateField, validateForm, isFormValid as checkFormValidity } from './validation';
 import { step5Options } from 'app/constants/constants.ts';
-import { TargetWeightService } from '@tickt-engineering/diet-gen-lib';
+import {
+    MacroAllocation,
+    MealPlanBuilder,
+    TargetWeightService,
+    WeekMealPlanService,
+} from '@tickt-engineering/diet-gen-lib';
 // import { Gender, ActivityLevel, UnitSystem } from '@tickt-engineering/diet-gen-lib';
 import { Gender } from 'app/enums/gender.enum';
 import { ActivityLevel } from 'app/enums/activity-level.enum';
 import { UnitSystem } from 'app/enums/unit-system.enum';
 import { useOnboarding } from 'app/contexts/onboarding/onboarding-context';
+import { DietType } from 'app/enums/diet-type.enum';
+import { DietGoal, Macro, UserProfile } from '@tickt-engineering/types';
+import { GoalPace } from 'app/enums/goal-pace.enum';
 const initialState: OnboardingState = {
     targetWeight: '',
-    goal: 'lose weight',
-    pace: 'steady - 0.5kg/week',
+    goal: DietGoal.WEIGHT_LOSS,
+    pace: GoalPace.MODERATE,
 };
 
 // Constants
@@ -184,7 +192,10 @@ export const useSlide5 = (onboardingState?: any, updateStepData?: (data: any) =>
 
     const getAdjustedWeight = () => {
         const adjustedWeight = baseWeight + adjustment;
-        return `${adjustedWeight} ${weightUnit}`;
+        return {
+            adjustedWeight,
+            weightUnit,
+        };
     };
 
     // Save data and navigate to next step
@@ -217,7 +228,31 @@ export const useSlide5 = (onboardingState?: any, updateStepData?: (data: any) =>
             }
         }
     };
+    const estimateTime = () => {
+        if (!onboardingState?.weight) return 0;
 
+        const actualWeight = Number(onboardingState.weight);
+        const { adjustedWeight } = getAdjustedWeight();
+        const targetWeight = Number(adjustedWeight);
+
+        if (isNaN(actualWeight) || isNaN(targetWeight)) return 0;
+
+        let diff = 0;
+        if (state.goal === DietGoal.WEIGHT_LOSS) {
+            diff = actualWeight - targetWeight;
+        } else if (state.goal === DietGoal.WEIGHT_GAIN) {
+            diff = targetWeight - actualWeight;
+        } else {
+            return 0;
+        }
+
+        if (diff <= 0) return 0;
+
+        const paceValue = state.pace === GoalPace.MODERATE ? 0.5 : 1;
+        const remainWeeks = diff / paceValue;
+
+        return Math.ceil(remainWeeks);
+    };
     return {
         state,
         setState,
@@ -237,5 +272,6 @@ export const useSlide5 = (onboardingState?: any, updateStepData?: (data: any) =>
         weightUnit,
         MIN_ADJUSTMENT,
         MAX_ADJUSTMENT,
+        estimateTime,
     };
 };
