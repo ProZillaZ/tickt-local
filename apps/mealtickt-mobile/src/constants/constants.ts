@@ -1,5 +1,7 @@
 import { Platform } from 'react-native';
 import { getCardIcon } from '../utils/helpers';
+import { GoalPace } from 'app/enums/goal-pace.enum';
+import { DietGoal } from 'app/enums/diet-goal.enum';
 // import {
 // 	ingredientMenu as ingredientMenuData,
 // } from '@tickt-engineering/diet-gen-lib/src/data/ingredients/ingredient-menu.data';
@@ -119,17 +121,17 @@ export const step5Options = [
         key: 'goal',
         placeholder: 'your goal',
         options: [
-            { value: 'lose weight', label: 'lose weight' },
-            { value: 'gain muscle', label: 'gain muscle' },
-            { value: 'healthy balance', label: 'healthy balance' },
+            { value: DietGoal.WEIGHT_LOSS, label: 'lose weight' },
+            { value: DietGoal.MAINTENANCE, label: 'gain muscle' },
+            { value: DietGoal.WEIGHT_GAIN, label: 'healthy balance' },
         ],
     },
     {
         key: 'pace',
         placeholder: 'your pace',
         options: [
-            { value: 'steady - 0.5kg/week', label: 'steady - 0.5kg/week' },
-            { value: 'fast - 1kg/week', label: 'fast - 1kg/week' },
+            { value: GoalPace.MODERATE, label: 'steady - 0.5kg/week' },
+            { value: GoalPace.FAST, label: 'fast - 1kg/week' },
         ],
     },
 ];
@@ -447,17 +449,17 @@ export const goalOptions = [
         key: 'goal',
         placeholder: 'your goal',
         options: [
-            { value: 'lose weight', label: 'lose weight' },
-            { value: 'gain muscle', label: 'gain muscle' },
-            { value: 'healthy balance', label: 'healthy balance' },
+            { value: DietGoal.WEIGHT_LOSS, label: 'lose weight' },
+            { value: DietGoal.MAINTENANCE, label: 'gain muscle' },
+            { value: DietGoal.WEIGHT_GAIN, label: 'healthy balance' },
         ],
     },
     {
         key: 'pace',
         placeholder: 'your pace',
         options: [
-            { value: 'steady - 0.5kg/week', label: 'steady - 0.5kg/week' },
-            { value: 'fast - 1kg/week', label: 'fast - 1kg/week' },
+            { value: GoalPace.MODERATE, label: 'steady - 0.5kg/week' },
+            { value: GoalPace.FAST, label: 'fast - 1kg/week' },
         ],
     },
 ];
