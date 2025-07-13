@@ -96,7 +96,7 @@ export const useSlide5 = (onboardingState?: any, updateStepData?: (data: any) =>
 
                 // Set as target weight if not already set
                 if (!newState.targetWeight) {
-                    newState.targetWeight = String(100);
+                    newState.targetWeight = String(recommended);
                     setState(newState);
                 }
             } else {
@@ -229,29 +229,14 @@ export const useSlide5 = (onboardingState?: any, updateStepData?: (data: any) =>
         }
     };
     const estimateTime = () => {
-        if (!onboardingState?.weight) return 0;
-
-        const actualWeight = Number(onboardingState.weight);
-        const { adjustedWeight } = getAdjustedWeight();
-        const targetWeight = Number(adjustedWeight);
-
-        if (isNaN(actualWeight) || isNaN(targetWeight)) return 0;
-
-        let diff = 0;
-        if (state.goal === DietGoal.WEIGHT_LOSS) {
-            diff = actualWeight - targetWeight;
-        } else if (state.goal === DietGoal.WEIGHT_GAIN) {
-            diff = targetWeight - actualWeight;
-        } else {
-            return 0;
-        }
-
-        if (diff <= 0) return 0;
-
-        const paceValue = state.pace === GoalPace.MODERATE ? 0.5 : 1;
-        const remainWeeks = diff / paceValue;
-
-        return Math.ceil(remainWeeks);
+        const targetWeightService = new TargetWeightService();
+        const weeks = targetWeightService.calculateTimeToReachGoal(
+            onboardingState?.weight,
+            Number(state.targetWeight),
+            state.pace as GoalPace,
+            UnitSystem.METRIC,
+        );
+        return weeks;
     };
     return {
         state,
