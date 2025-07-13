@@ -17,6 +17,7 @@ export interface SlideComponentProps {
     handleNext: () => void;
     updateStepData?: (data: Partial<OnboardingState>) => Promise<void>;
     onboardingState?: Partial<OnboardingState> | null;
+    isActive: boolean;
 }
 
 // Array of slides, each containing an id and a component to render

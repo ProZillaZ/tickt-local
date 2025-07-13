@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from 'react';
-import { View, Text, TextInput, ScrollView, KeyboardType } from 'react-native';
+import { View, Text, TextInput, ScrollView, KeyboardType, Animated } from 'react-native';
 import { styles } from './slide1.styles';
 import { useSlide1 } from './use-slide1.ts';
 import { FormField } from './slide1.props';
@@ -11,13 +11,21 @@ import Input from 'components/global/input/input.index';
 import SingleRadioButton from 'components/global/single-radio-button/single-radio-button.index.tsx';
 import Button from 'components/global/button/button.index';
 import { SlideComponentProps } from 'screens/onboarding/onboarding.props';
+import { useActiveAnimation } from '../useActiveAnimation.ts';
 
 // Use the constant from the centralized file
 const { NUMERIC_FIELDS } = ONBOARDING.VALIDATION;
 
-const Slide1: React.FC<SlideComponentProps> = ({ handleNext, updateStepData, onboardingState }) => {
+const Slide1: React.FC<SlideComponentProps> = ({
+    handleNext,
+    updateStepData,
+    onboardingState,
+    isActive,
+}) => {
     const { state, setState, onChange, errors, isFormValid, shouldShowError, handleSubmitAttempt } =
         useSlide1();
+
+    const { animateValue, translateX } = useActiveAnimation(isActive);
 
     // Create refs for input fields
     const inputRefs = useRef<(TextInput | null)[]>([]);
@@ -81,7 +89,11 @@ const Slide1: React.FC<SlideComponentProps> = ({ handleNext, updateStepData, onb
     };
 
     return (
-        <View style={styles.container}>
+        <Animated.View
+            style={[
+                styles.container,
+                { opacity: animateValue, transform: [{ translateX: translateX }] },
+            ]}>
             <ScrollView
                 keyboardShouldPersistTaps="handled"
                 showsVerticalScrollIndicator={false}
@@ -173,7 +185,7 @@ const Slide1: React.FC<SlideComponentProps> = ({ handleNext, updateStepData, onb
                 </View>
                 <Button onClick={onNextPress} text={'next'} disabled={false} style={styles.btn} />
             </ScrollView>
-        </View>
+        </Animated.View>
     );
 };
 

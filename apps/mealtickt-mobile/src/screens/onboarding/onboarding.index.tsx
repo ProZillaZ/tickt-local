@@ -19,6 +19,7 @@ const OnboardingScreenContent = () => {
         visibleLoadingModal,
         loadingModalContent,
         onScroll,
+        viewabilityConfig,
         onViewableItemsChanged,
     } = useOnboarding();
 
@@ -37,7 +38,6 @@ const OnboardingScreenContent = () => {
                     data={slides}
                     renderItem={renderItem}
                     horizontal
-                    pagingEnabled
                     bounces={false}
                     scrollEnabled={false}
                     keyExtractor={(item: Slide) => item.id.toString()}
@@ -47,10 +47,8 @@ const OnboardingScreenContent = () => {
                     onScroll={onScroll}
                     snapToInterval={width}
                     snapToAlignment="start"
-                    // only fire when >50% of a slide is visible
-                    viewabilityConfig={{ viewAreaCoveragePercentThreshold: 50 }}
+                    viewabilityConfig={viewabilityConfig}
                     onViewableItemsChanged={onViewableItemsChanged}
-                    // kill any bounce/overshoot
                     decelerationRate="normal"
                 />
             </ScrollViewBase>

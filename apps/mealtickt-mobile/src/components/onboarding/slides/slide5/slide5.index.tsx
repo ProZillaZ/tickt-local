@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Text, View, TouchableOpacity } from 'react-native';
+import { Text, View, TouchableOpacity, Animated } from 'react-native';
 import { styles } from './slide5.styles';
 import { useSlide5 } from './use-slide5.ts';
 import { FormField } from './slide5.props';
@@ -9,8 +9,14 @@ import Content from '../../content/content.index';
 import InfoModal from 'components/global/info-modal/info-modal.index.tsx';
 import Button from 'components/global/button/button.index';
 import { SlideComponentProps } from 'screens/onboarding/onboarding.props';
+import { useActiveAnimation } from '../useActiveAnimation.ts';
 
-const Slide5: React.FC<SlideComponentProps> = ({ handleNext, updateStepData, onboardingState }) => {
+const Slide5: React.FC<SlideComponentProps> = ({
+    handleNext,
+    updateStepData,
+    onboardingState,
+    isActive,
+}) => {
     const {
         visible,
         setVisible,
@@ -27,6 +33,7 @@ const Slide5: React.FC<SlideComponentProps> = ({ handleNext, updateStepData, onb
         MAX_ADJUSTMENT,
         estimateTime,
     } = useSlide5(onboardingState, updateStepData);
+    const { animateValue, translateX } = useActiveAnimation(isActive);
 
     // Force select the pace option if it's not showing
     useEffect(() => {
@@ -58,7 +65,11 @@ const Slide5: React.FC<SlideComponentProps> = ({ handleNext, updateStepData, onb
     };
 
     return (
-        <View style={styles.container}>
+        <Animated.View
+            style={[
+                styles.container,
+                { opacity: animateValue, transform: [{ translateX: translateX }] },
+            ]}>
             <Content
                 headerText="almost there..."
                 description="based on your input, here is what we recommend for your diet plan."
@@ -171,7 +182,7 @@ const Slide5: React.FC<SlideComponentProps> = ({ handleNext, updateStepData, onb
 					 however, we don't recommend going too far (ex: -5kg) since that might be detrimental for your health.
         			`}
             />
-        </View>
+        </Animated.View>
     );
 };
 

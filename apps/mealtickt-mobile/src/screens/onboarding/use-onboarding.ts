@@ -20,8 +20,7 @@ export const useOnboarding = () => {
     const flatListRef = useRef<FlatList<Slide>>(null);
     const { navigate, popToTop } = useNavigation<NavigationProp<'BottomBar'>>();
     const { handleOnboarding } = useAuth();
-    const { onboardingState, saveStep, isLoading, completeOnboarding, lastSlideRef } =
-        useOnboardingContext();
+    const { onboardingState, saveStep, isLoading, lastSlideRef } = useOnboardingContext();
     const { user, login, logout } = useAuth();
     // State to keep track of the current index in the slides
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -55,7 +54,7 @@ export const useOnboarding = () => {
 
     // Handler for navigating to the next slide
     const handleNext = async () => {
-        let timeout = 0;
+        let timeout = 100;
 
         if (currentIndex < slides.length - 1) {
             // For transition from slide 3 to 4, show the loading screen first
@@ -90,8 +89,10 @@ export const useOnboarding = () => {
             await saveStep({ currentStep: currentIndex + 1 });
 
             // Scroll to the next slide
-            flatListRef?.current?.scrollToIndex({ index: currentIndex + 1, animated: true });
-            setCurrentIndex(currentIndex + 1); // Update currentIndex
+            setTimeout(() => {
+                flatListRef?.current?.scrollToIndex({ index: currentIndex + 1, animated: true });
+                setCurrentIndex(currentIndex + 1); // Update currentIndex
+            }, timeout);
         }
 
         if (currentIndex == 4) {
@@ -182,14 +183,15 @@ export const useOnboarding = () => {
         },
     ).current;
     const onScroll = Animated.event([{ nativeEvent: { contentOffset: { x: scrollX } } }], {
-        useNativeDriver: false,
+        useNativeDriver: true,
     });
     // Render item function for FlatList that dynamically renders the component for each slide
-    const renderItem = ({ item }: { item: Slide }) =>
+    const renderItem = ({ item, index }: { item: Slide; index: number }) =>
         React.createElement(item.component, {
             handleNext,
             updateStepData,
             onboardingState,
+            isActive: index === currentIndex,
         });
 
     // Return values from the custom hook to be used in the component
