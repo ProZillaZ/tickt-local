@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { FormField, OnboardingState, TouchedFields, ValidationErrors } from './slide5.props';
 import { validateField, validateForm, isFormValid as checkFormValidity } from './validation';
-import { step5Options } from 'app/constants/constants.ts';
+import { step5Options, days } from 'app/constants/constants.ts';
 import {
     MacroAllocation,
     MealPlanBuilder,
@@ -10,7 +10,18 @@ import {
 } from '@tickt-engineering/diet-gen-lib';
 // import { Gender, ActivityLevel, UnitSystem } from '@tickt-engineering/diet-gen-lib';
 import { useOnboarding } from 'app/contexts/onboarding/onboarding-context';
-import { DietGoal, GoalPace, UnitSystem, ActivityLevel, Gender } from '@tickt-engineering/types';
+import {
+    DietGoal,
+    GoalPace,
+    UnitSystem,
+    ActivityLevel,
+    Gender,
+    MealType,
+    Recipe,
+    RecipeFilter,
+} from '@tickt-engineering/types';
+import { PaginatedResult, ServiceFactory } from '@tickt-engineering/services';
+
 const initialState: OnboardingState = {
     targetWeight: '',
     goal: DietGoal.WEIGHT_LOSS,
@@ -234,6 +245,63 @@ export const useSlide5 = (onboardingState?: any, updateStepData?: (data: any) =>
 
         return weeks;
     };
+
+    type WeekMeals = {
+        [day: string]: {
+            [meal in MealType]?: Recipe;
+        };
+    };
+    async function getAllRecipes(): Promise<WeekMeals> {
+        const { freeDays, mealCount, allergies, dietaryPreferences } = onboardingState;
+
+        //This line could not be run due to using firebase-admin in shared service. React native can not use Node.js modules.
+        const recipeService = ServiceFactory.getInstance().getRecipeService();
+
+        // Determine the meal types based on mealCount
+        const getMealTypes = (count: number): MealType[] => {
+            switch (count) {
+                case 1:
+                    return [MealType.LUNCH];
+                case 2:
+                    return [MealType.LUNCH, MealType.DINNER];
+                case 3:
+                    return [MealType.BREAKFAST, MealType.LUNCH, MealType.DINNER];
+                case 4:
+                default:
+                    return [MealType.BREAKFAST, MealType.LUNCH, MealType.SNACK, MealType.DINNER];
+            }
+        };
+
+        const meals: MealType[] = getMealTypes(Number(mealCount));
+        const weekMeals: WeekMeals = {};
+
+        for (const day of freeDays) {
+            weekMeals[day] = {};
+
+            for (const meal of meals) {
+                try {
+                    const filter: RecipeFilter = {
+                        mealTypes: [meal],
+                        allergens: allergies,
+                        dietTypes: dietaryPreferences,
+                    };
+
+                    const result: PaginatedResult<Recipe> = await recipeService.search(filter, {
+                        limit: 1,
+                    });
+
+                    if (result.items.length > 0) {
+                        weekMeals[day][meal] = result.items[0]; // pick the first recipe
+                    }
+                } catch (error) {
+                    console.error(`Error fetching recipe for ${day} - ${meal}:`, error);
+                }
+            }
+        }
+
+        return weekMeals;
+    }
+
     return {
         state,
         setState,
