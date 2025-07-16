@@ -1,5 +1,5 @@
 import { Ingredient } from '../../models/ingredients/ingredient';
-import { Macro, MealType, DietType, Cuisine, Allergen } from '@tickt-engineering/types';
+import { Macro, MealType, DietType, Cuisine, Allergen } from '@tickt-ltd/types';
 import { IngredientCategory } from '../../models/ingredients/ingredient-category.enum';
 import { CookingMethod } from '../../models/ingredients/cooking-method.enum';
 import { Season } from '../../models/ingredients/season.enum';

@@ -1,6 +1,6 @@
 import {DayMealPlanService} from "./day-meal-plan.service";
 import {NutritionalInfoService} from "../nutritional-info.service";
-import { DietType, Allergen, MealCount } from '@tickt-engineering/types';
+import { DietType, Allergen, MealCount, Recipe } from '@tickt-ltd/types';
 import {MacroAllocation} from "../../models/macros/macro-allocation";
 import {WeekMealPlan} from "../../models/meal-plans/week-meal-plan";
 import {DayMealPlan} from "../../models/meal-plans/day-meal-plan";
@@ -29,6 +29,27 @@ export class WeekMealPlanService {
         mealCount: MealCount = DEFAULT_MEAL_COUNT
     ): WeekMealPlan {
         const dayMealPlans: DayMealPlan[] = this.dayMealPlanService.createDailyMealPlans(dietType, allergens, totalWeekMacroAllocation, mealCount);
+
+        // Calculate total nutritional info for the week
+        const weekNutritionalInfo = this.nutritionalInfoService.calculateWeekNutritionalInfo(dayMealPlans);
+
+        // Create and return the weekMealPlan object
+        return WeekMealPlanFactory.createWeekMealPlan(dayMealPlans, weekNutritionalInfo);
+    }
+
+    /**
+     * Creates a week meal plan using provided recipes for each day.
+     * @param weekRecipes - Array of 7 days, each containing recipes for that day.
+     * @param totalWeekMacroAllocation - The total macronutrient allocation for the week.
+     * @param mealCount - The number of meals per day.
+     * @returns A WeekMealPlan object containing all the daily meal plans with recipes.
+     */
+    createWeekRecipeMealPlan(
+        weekRecipes: Recipe[][],
+        totalWeekMacroAllocation: MacroAllocation,
+        mealCount: MealCount = DEFAULT_MEAL_COUNT
+    ): WeekMealPlan {
+        const dayMealPlans: DayMealPlan[] = this.dayMealPlanService.createDailyRecipeMealPlans(weekRecipes, totalWeekMacroAllocation, mealCount);
 
         // Calculate total nutritional info for the week
         const weekNutritionalInfo = this.nutritionalInfoService.calculateWeekNutritionalInfo(dayMealPlans);

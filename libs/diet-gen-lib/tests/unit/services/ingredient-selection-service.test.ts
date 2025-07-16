@@ -1,5 +1,5 @@
-import { IngredientSelectionService } from '../../../src/services/ingredients/ingredient-selection.service';
-import { DietType, MealType, Macro, Allergen } from '@tickt-engineering/types';
+import { IngredientSelectionService } from '@tickt/diet-gen-lib';
+import { DietType, MealType, Macro, Allergen } from '@tickt-ltd/types';
 import { mockIngredients } from '../../__mocks__/mock-ingredients';
 
 describe('IngredientSelectionService', () => {

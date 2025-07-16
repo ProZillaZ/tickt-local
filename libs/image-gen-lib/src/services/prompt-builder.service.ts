@@ -1,4 +1,4 @@
-import { Logger } from '@tickt-engineering/services';
+import { Logger } from '@tickt-ltd/services';
 import { RecipeStyle, RecipeSetting, RecipeLighting, RecipePlating } from '../models';
 
 export interface RecipePromptOptions {

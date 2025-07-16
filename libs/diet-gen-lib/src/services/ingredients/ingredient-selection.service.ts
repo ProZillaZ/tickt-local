@@ -1,5 +1,5 @@
 import { Ingredient } from '../../models/ingredients/ingredient';
-import { MealType, Macro, Allergen, DietType } from '@tickt-engineering/types';
+import { MealType, Macro, Allergen, DietType } from '@tickt-ltd/types';
 import { IngredientScorer } from './ingredient-scorer';
 import { VarietyStrategy } from '../../models/scoring/strategies/variety.strategy';
 

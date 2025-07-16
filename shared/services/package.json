@@ -1,6 +1,6 @@
 {
-    "name": "@tickt-engineering/services",
-    "version": "2.3.0",
+    "name": "@tickt-ltd/services",
+    "version": "2.4.0",
     "description": "Shared services and infrastructure for Tickt applications",
     "license": "All rights reserved to Polytropic Ltd",
     "main": "dist/index.js",
@@ -19,7 +19,7 @@
         "firestore"
     ],
     "dependencies": {
-        "@tickt-engineering/types": "^1.0.0",
+        "@tickt-ltd/types": "2.0.0",
         "firebase-admin": "^13.4.0"
     },
     "peerDependencies": {
@@ -31,7 +31,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/tickt-engineering/tickt.git"
+        "url": "https://github.com/tickt-ltd/tickt.git"
     },
     "publishConfig": {
         "registry": "https://npm.pkg.github.com"

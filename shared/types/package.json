@@ -1,6 +1,6 @@
 {
-    "name": "@tickt-engineering/types",
-    "version": "1.0.1",
+    "name": "@tickt-ltd/types",
+    "version": "2.0.0",
     "description": "Consolidated TypeScript types for the Tickt ecosystem",
     "license": "All rights reserved to Polytropic Ltd",
     "main": "dist/index.js",
@@ -30,7 +30,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/tickt-engineering/tickt.git"
+        "url": "https://github.com/tickt-ltd/tickt.git"
     },
     "publishConfig": {
         "registry": "https://npm.pkg.github.com"

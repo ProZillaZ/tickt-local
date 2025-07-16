@@ -1,7 +1,7 @@
 import { Ingredient } from './ingredient.model';
 import { Instruction } from './instruction.model';
 import { Tag } from './tag.model';
-import { RecipeNutritionalInfo } from './nutritional-info.model';
+import { NutritionalInfo } from './nutritional-info.model';
 import { Difficulty } from '../enums';
 import { Cuisine, DietType, MealType } from '../../nutrition';
 
@@ -19,7 +19,7 @@ export class Recipe {
 	dietTypes: DietType[];
 	tags: Tag[];
 	difficulty: Difficulty;
-	nutritionalInfo: RecipeNutritionalInfo;
+	nutritionalInfo: NutritionalInfo;
 	imageUrl?: string;
 	createdBy?: string;
 	createdAt: Date;
@@ -38,7 +38,7 @@ export class Recipe {
 		dietTypes: DietType[],
 		tags: Tag[],
 		difficulty: Difficulty,
-		nutritionalInfo: RecipeNutritionalInfo,
+		nutritionalInfo: NutritionalInfo,
 		imageUrl?: string,
 		id?: string,
 	) {

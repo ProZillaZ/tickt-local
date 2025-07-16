@@ -1,4 +1,4 @@
-import { Macro, DietType, Allergen, Cuisine, MealType } from '@tickt-engineering/types';
+import { Macro, DietType, Allergen, Cuisine, MealType } from '@tickt-ltd/types';
 import { IngredientCategory } from './ingredient-category.enum';
 import { CookingMethod } from './cooking-method.enum';
 import { Season } from './season.enum';

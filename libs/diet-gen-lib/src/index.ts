@@ -14,11 +14,14 @@ export { FrameSizeService } from './services/frame-size.service';
 export { HealthMetricsService } from './services/health-metrics.service';
 export { MacronutrientService } from './services/macronutrient.service';
 
+// Recipe Services
+export { RecipeQuantityAdjustmentService } from './services/recipes/recipe-quantity-adjustment.service';
+
 // Models
 export { Ingredient } from './models/ingredients/ingredient';
 export { MacroAllocation } from './models/macros/macro-allocation';
 export { NutritionalInfo } from './models/nutritional-info/nutritional-info';
-export { UserProfile, DietFilters } from '@tickt-engineering/types';
+export { UserProfile, DietFilters } from '@tickt-ltd/types';
 export { Meal } from './models/meals/meal';
 export { DayMealPlan } from './models/meal-plans/day-meal-plan';
 export { WeekMealPlan } from './models/meal-plans/week-meal-plan';

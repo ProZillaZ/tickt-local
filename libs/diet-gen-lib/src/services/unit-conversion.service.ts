@@ -1,4 +1,4 @@
-import { UnitSystem } from '@tickt-engineering/types';
+import { UnitSystem } from '@tickt-ltd/types';
 
 export class UnitConversionService {
 

@@ -1,4 +1,4 @@
-import { Gender, ActivityLevel, DietGoal, GoalPace } from '@tickt-engineering/types';
+import { Gender, ActivityLevel, DietGoal, GoalPace } from '@tickt-ltd/types';
 import {CalorieAdjustmentsConfig} from '../utils/constants';
 
 export class CaloricIntakeService {
@@ -65,6 +65,7 @@ export class CaloricIntakeService {
             case DietGoal.WEIGHT_GAIN:
                 return bmrActivityLevel + calorieAdjustment;
             case DietGoal.MAINTENANCE:
+                return bmrActivityLevel;
             default:
                 throw new Error("Invalid diet goal provided.");
         }

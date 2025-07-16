@@ -7,7 +7,7 @@ import {
 	UpdateMealPlanDto,
 	MealPlanFilter,
 	MealPlanNutritionalInfo,
-} from '@tickt-engineering/types';
+} from '@tickt-ltd/types';
 
 // Re-export types for convenience
 export {

@@ -1,6 +1,6 @@
 import { Ingredient } from '../../models/ingredients/ingredient';
 import { MacroAllocation } from '../../models/macros/macro-allocation';
-import { Macro } from '@tickt-engineering/types';
+import { Macro } from '@tickt-ltd/types';
 import { CALORIES_PER_GRAM } from '../../utils/constants';
 
 export class QuantityCalculationService {

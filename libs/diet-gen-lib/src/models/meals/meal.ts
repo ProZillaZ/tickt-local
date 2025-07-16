@@ -1,6 +1,5 @@
-import { MealType } from '@tickt-engineering/types';
+import { MealType, NutritionalInfo } from '@tickt-ltd/types';
 import {Ingredient} from "../ingredients/ingredient";
-import {NutritionalInfo} from "../nutritional-info/nutritional-info";
 
 export interface Meal {
     id: string;

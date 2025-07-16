@@ -1,4 +1,4 @@
-import { Recipe, CreateRecipeDto, UpdateRecipeDto, RecipeFilter } from '@tickt-engineering/types';
+import { Recipe, CreateRecipeDto, UpdateRecipeDto, RecipeFilter } from '@tickt-ltd/types';
 import { PaginatedResult, SearchOptions } from './common-types';
 
 export interface IRecipeService {

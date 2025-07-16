@@ -3,7 +3,7 @@ import {
 	CreateRecipeDto,
 	UpdateRecipeDto,
 	RecipeFilter,
-} from '@tickt-engineering/types';
+} from '@tickt-ltd/types';
 import { ILogger, PaginatedResult, SearchOptions, IDatabaseAdapter, IRecipeService, DEFAULT_DATABASE_CONFIG } from '../interfaces';
 import { BaseService, ValidationError, NotFoundError, UnauthorizedError } from '../core';
 

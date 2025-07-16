@@ -1,4 +1,4 @@
-export interface RecipeNutritionalInfoDto {
+export interface NutritionalInfoDto {
 	calories: number;
 	protein: number;
 	carbohydrates: number;

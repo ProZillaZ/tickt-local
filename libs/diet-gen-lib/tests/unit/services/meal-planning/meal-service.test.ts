@@ -4,7 +4,7 @@ import { QuantityCalculationService } from '../../../../src/services/ingredients
 import { NutritionalInfoService } from '../../../../src/services/nutritional-info.service';
 import { MacronutrientService } from '../../../../src/services/macronutrient.service';
 import { MacroAllocation } from '../../../../src/models/macros/macro-allocation';
-import { DietType, Allergen, MealType, Macro } from '@tickt-engineering/types';
+import { DietType, Allergen, MealType, Macro, NutritionalInfo } from '@tickt-ltd/types';
 import { Ingredient } from '../../../../src/models/ingredients/ingredient';
 import { Meal } from '../../../../src/models/meals/meal';
 
@@ -52,7 +52,7 @@ describe('MealService', () => {
                 id: 'mock-id',
                 mealType,
                 ingredients: [],
-                nutritionalInfo: { totalCalories: 0, totalProtein: 0, totalCarbs: 0, totalFats: 0 },
+                nutritionalInfo: new NutritionalInfo(0, 0, 0, 0, 0),
                 createdAt: new Date(),
                 updatedAt: new Date(),
             });
@@ -86,7 +86,7 @@ describe('MealService', () => {
                 id: 'mock-id',
                 mealType,
                 ingredients: [],
-                nutritionalInfo: { totalCalories: 0, totalProtein: 0, totalCarbs: 0, totalFats: 0 },
+                nutritionalInfo: new NutritionalInfo(0, 0, 0, 0, 0),
                 createdAt: new Date(),
                 updatedAt: new Date(),
             });
@@ -129,22 +129,19 @@ describe('MealService', () => {
 
             ingredientSelectionService.selectCompatibleIngredients.mockReturnValue(mockIngredients);
             quantityCalculationService.calculateQuantity.mockReturnValue(100);
-            nutritionalInfoService.calculateMealNutritionalInfo.mockReturnValue({
-                totalCalories: 900,
-                totalProtein: 30,
-                totalCarbs: 75,
-                totalFats: 45,
-            });
+            nutritionalInfoService.calculateMealNutritionalInfo.mockReturnValue(
+                new NutritionalInfo(900, 30, 75, 45, 0)
+            );
 
             const meal = mealService.createMeal(mealType, dietType, allergens, mealMacroAllocation, dayMacroAllocation);
 
             expect(meal.mealType).toBe(MealType.BREAKFAST);
             expect(meal.ingredients.length).toBe(4);
             expect(meal.ingredients[0].quantity).toBe(100);
-            expect(meal.nutritionalInfo.totalCalories).toBe(900);
-            expect(meal.nutritionalInfo.totalProtein).toBe(30);
-            expect(meal.nutritionalInfo.totalCarbs).toBe(75);
-            expect(meal.nutritionalInfo.totalFats).toBe(45);
+            expect(meal.nutritionalInfo.calories).toBe(900);
+            expect(meal.nutritionalInfo.protein).toBe(30);
+            expect(meal.nutritionalInfo.carbohydrates).toBe(75);
+            expect(meal.nutritionalInfo.fat).toBe(45);
         });
     });
 });

@@ -8,7 +8,7 @@ import {
     MealCount,
     Cuisine,
     Allergen,
-} from '@tickt-engineering/diet-gen-lib';
+} from '@tickt-ltd/types';
 
 export interface OnboardingState {
     email: string;

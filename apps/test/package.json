@@ -13,7 +13,7 @@
     "license": "ISC",
     "description": "",
     "dependencies": {
-        "@tickt-engineering/diet-gen-lib": "^1.0.0",
+        "@tickt-ltd/diet-gen-lib": "^3.0.0",
         "axios": "^1.7.9",
         "fs": "^0.0.1-security",
         "reflect-metadata": "^0.2.0"

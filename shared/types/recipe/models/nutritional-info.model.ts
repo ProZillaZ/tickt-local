@@ -1,4 +1,4 @@
-export class RecipeNutritionalInfo {
+export class NutritionalInfo {
 	id: string;
 	calories: number;
 	protein: number;

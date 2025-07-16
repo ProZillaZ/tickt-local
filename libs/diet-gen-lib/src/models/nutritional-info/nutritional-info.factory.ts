@@ -1,4 +1,4 @@
-import {NutritionalInfo} from "./nutritional-info";
+import {NutritionalInfo} from '@tickt-ltd/types';
 
 export class NutritionalInfoFactory {
 
@@ -7,12 +7,7 @@ export class NutritionalInfoFactory {
      * @returns A NutritionalInfo object with all fields initialized to 0.
      */
     public static createEmpty(): NutritionalInfo {
-        return {
-            totalCalories: 0,
-            totalProtein: 0,
-            totalCarbs: 0,
-            totalFats: 0
-        };
+        return new NutritionalInfo(0, 0, 0, 0, 0);
     }
 
     /**
@@ -21,19 +16,16 @@ export class NutritionalInfoFactory {
      * @param protein - The amount of protein in grams.
      * @param carbs - The amount of carbohydrates in grams.
      * @param fats - The amount of fats in grams.
+     * @param fiber - Tha amount of fiber in grams.
      * @returns A NutritionalInfo object with the specified values.
      */
     public static createWithValues(
         calories: number,
         protein: number,
         carbs: number,
-        fats: number
+        fats: number,
+        fiber: number = 0
     ): NutritionalInfo {
-        return {
-            totalCalories: calories,
-            totalProtein: protein,
-            totalCarbs: carbs,
-            totalFats: fats
-        };
+        return new NutritionalInfo(calories, protein, carbs, fats, fiber);
     }
 }

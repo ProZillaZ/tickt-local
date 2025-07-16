@@ -1,4 +1,4 @@
-import { DietType, MealType, Difficulty } from '@tickt-engineering/types';
+import { DietType, MealType, Difficulty } from '@tickt-ltd/types';
 
 /**
  * Unified configuration for recipe generation

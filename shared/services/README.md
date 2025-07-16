@@ -1,4 +1,4 @@
-# @tickt-engineering/services
+# @tickt-ltd/services
 
 Platform-agnostic services package for all Tickt applications providing consistent data access patterns, error handling, and logging across platforms.
 
@@ -17,10 +17,10 @@ Platform-agnostic services package for all Tickt applications providing consiste
 ## 📦 Installation
 
 ```bash
-yarn add @tickt-engineering/services
+yarn add @tickt-ltd/services
 
 # Install consolidated types package
-yarn add @tickt-engineering/types
+yarn add @tickt-ltd/types
 ```
 
 ## 🚀 Quick Start
@@ -28,7 +28,7 @@ yarn add @tickt-engineering/types
 ### Simple Firebase Setup (Recommended)
 
 ```typescript
-import { initializeFirestoreServices } from '@tickt-engineering/services';
+import { initializeFirestoreServices } from '@tickt-ltd/services';
 import firestore from '@react-native-firebase/firestore';
 import auth from '@react-native-firebase/auth';
 
@@ -52,14 +52,16 @@ const recipes = await recipeService.search({
 
 ### Platform-Specific Conveniences
 
-```typescript
+```ts
 // Node.js with automatic environment detection
-import { initializeNodeFirestoreServices } from '@tickt-engineering/services';
-const services = initializeNodeFirestoreServices(firebaseModules);
+import { initializeNodeFirestoreServices } from '@tickt-ltd/services';
+
+const nodeServices = initializeNodeFirestoreServices(firebaseModules);
 
 // React Native with __DEV__ detection  
-import { initializeReactNativeFirestoreServices } from '@tickt-engineering/services';
-const services = initializeReactNativeFirestoreServices(firebaseModules);
+import { initializeReactNativeFirestoreServices } from '@tickt-ltd/services';
+
+const rnServices = initializeReactNativeFirestoreServices(firebaseModules);
 ```
 
 ### Custom Platform (Advanced)
@@ -69,7 +71,7 @@ import {
   initializeServices, 
   createFirebaseAdapters,
   firestoreServiceFactories 
-} from '@tickt-engineering/services';
+} from '@tickt-ltd/services';
 
 // Full control over configuration
 const adapters = createFirebaseAdapters(firebaseModules);
@@ -216,16 +218,16 @@ const DEFAULT_DATABASE_CONFIG = {
 
 ### Custom Error Types
 
-```typescript
+```ts
 // Base application error
-class AppError extends Error
+class AppError extends Error {}
 
 // Specific error types
-class ValidationError extends AppError    // Input validation failures
-class NotFoundError extends AppError      // Resource not found  
-class UnauthorizedError extends AppError  // Permission denied
-class ConflictError extends AppError      // Resource conflicts
-class NetworkError extends AppError       // Connection issues
+class ValidationError extends AppError {}   // Input validation failures
+class NotFoundError extends AppError {}     // Resource not found  
+class UnauthorizedError extends AppError {} // Permission denied
+class ConflictError extends AppError {}     // Resource conflicts
+class NetworkError extends AppError {}      // Connection issues
 ```
 
 ### Error Handling Example
@@ -248,10 +250,10 @@ try {
 
 ## 📊 Data Models
 
-The services package works with the consolidated `@tickt-engineering/types` package:
+The services package works with the consolidated `@tickt-ltd/types` package:
 
 ### Recipe Types
-- `Recipe`, `Ingredient`, `Instruction`, `RecipeNutritionalInfo` models
+- `Recipe`, `Ingredient`, `Instruction`, `NutritionalInfo` models
 - `Difficulty` enums and recipe filters
 - Create/Update DTOs for type safety
 
@@ -280,7 +282,7 @@ The services package works with the consolidated `@tickt-engineering/types` pack
 ### Mock Services
 
 ```typescript
-import { IRecipeService } from '@tickt-engineering/services';
+import { IRecipeService } from '@tickt-ltd/services';
 
 const mockRecipeService: IRecipeService = {
   getById: jest.fn().mockResolvedValue(mockRecipe),
@@ -342,10 +344,10 @@ echo $FIREBASE_ENV
 // Before: App-specific service
 import { DBServices } from '../services/DBServices';
 const dbService = new DBServices();
-const recipes = await dbService.searchRecipes(filter);
+const beforeRecipes = await dbService.searchRecipes(filter);
 
 // After: Shared service
-import { initializeFirestoreServices } from '@tickt-engineering/services';
+import { initializeFirestoreServices } from '@tickt-ltd/services';
 const services = initializeFirestoreServices(firebaseModules);
 const recipeService = services.getRecipeService();
 const recipes = await recipeService.search(filter);
@@ -359,7 +361,7 @@ import firestore from '@react-native-firebase/firestore';
 const snapshot = await firestore().collection('recipes').get();
 
 // After: Service layer with consolidated types
-import { Recipe, RecipeFilter } from '@tickt-engineering/types';
+import { Recipe, RecipeFilter } from '@tickt-ltd/types';
 const recipeService = services.getRecipeService();
 const recipes: Recipe[] = await recipeService.search();
 ```
@@ -370,10 +372,10 @@ const recipes: Recipe[] = await recipeService.search();
 
 ```typescript
 // ✅ Good - Use service factory
-const recipeService = serviceFactory.getRecipeService();
+const recipeServiceUsingFactory = serviceFactory.getRecipeService();
 
 // ❌ Bad - Direct instantiation  
-const recipeService = new FirestoreRecipeService(logger, adapter);
+const recipeServiceDirectInstatation = new FirestoreRecipeService(logger, adapter);
 ```
 
 ### 2. Handle Errors Specifically
@@ -409,13 +411,13 @@ if (result.hasMore) {
 
 ```typescript
 // Development - Verbose logging
-const services = initializeFirestoreServices(firebase, {
+const servicesVerboseLogging = initializeFirestoreServices(firebase, {
   logLevel: LogLevel.DEBUG,
   enableMetrics: true
 });
 
 // Production - Minimal logging
-const services = initializeFirestoreServices(firebase, {
+const servicesMinimalLogging = initializeFirestoreServices(firebase, {
   logLevel: LogLevel.ERROR,
   enableMetrics: false
 });
@@ -428,7 +430,7 @@ const services = initializeFirestoreServices(firebase, {
 - **v1.2.0** - Added chat session service and grouped data structures
 - **v2.0.0** - Platform-agnostic architecture with service registry pattern
 - **v2.1.0** - Extracted meal plan types and eliminated type redundancy
-- **v2.2.0** - Consolidated all types into `@tickt-engineering/types` package
+- **v2.2.0** - Consolidated all types into `@tickt-ltd/types` package
 
 ## 🤝 Contributing
 

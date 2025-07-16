@@ -28,7 +28,7 @@ export {
 } from '@tickt-engineering/image-gen-lib';
 
 // DTOs (re-exported from shared types)
-export { RecipeGenInputDto } from '@tickt-engineering/types';
+export { RecipeGenInputDto } from '@tickt-ltd/types';
 
 // Validators
 export { ConfigValidator } from './validators/config.validator';

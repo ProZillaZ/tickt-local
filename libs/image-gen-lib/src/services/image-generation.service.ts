@@ -1,4 +1,4 @@
-import { Logger, FirebaseStorageService, IStorageService } from '@tickt-engineering/services';
+import { Logger, FirebaseStorageService, IStorageService } from '@tickt-ltd/services';
 import { v4 as uuidv4 } from 'uuid';
 import {
 	IImageProvider,

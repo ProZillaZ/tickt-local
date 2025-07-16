@@ -1,6 +1,6 @@
-import { UserProfile } from '@tickt-engineering/types';
-import { Gender, UnitSystem, ActivityLevel, DietGoal } from '@tickt-engineering/types';
-import { DietType } from '@tickt-engineering/types';
+import { UserProfile } from '@tickt-ltd/types';
+import { Gender, UnitSystem, ActivityLevel, DietGoal } from '@tickt-ltd/types';
+import { DietType } from '@tickt-ltd/types';
 import { MealPlanBuilder } from './services/meal-planning/meal-plan.builder';
 import fs from 'fs';
 

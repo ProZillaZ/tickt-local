@@ -8,7 +8,7 @@ import {
 	CreateChatParticipantDto,
 	ChatSessionFilter,
 	SessionStatus,
-} from '@tickt-engineering/types';
+} from '@tickt-ltd/types';
 import { IDatabaseAdapter, IChatSessionService, DEFAULT_DATABASE_CONFIG } from '../interfaces';
 
 export class FirestoreChatSessionService implements IChatSessionService {

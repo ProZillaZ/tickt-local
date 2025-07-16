@@ -1,6 +1,6 @@
-import { RecipeDto } from '@tickt-engineering/types';
-import { 
-	ImageGenerationService, 
+import { RecipeDto } from '@tickt-ltd/types';
+import {
+	ImageGenerationService,
 	PromptBuilderService,
 	ImageProvider,
 	ImageQuality,

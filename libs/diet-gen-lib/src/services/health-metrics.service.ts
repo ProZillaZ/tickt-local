@@ -1,4 +1,4 @@
-import { UnitSystem } from '@tickt-engineering/types';
+import { UnitSystem } from '@tickt-ltd/types';
 
 /**
  * Service for calculating various health metrics and indicators
@@ -6,7 +6,7 @@ import { UnitSystem } from '@tickt-engineering/types';
 export class HealthMetricsService {
   /**
    * Calculates BMI (Body Mass Index) given height and weight
-   * 
+   *
    * @param height Height in cm (metric) or inches (imperial)
    * @param weight Weight in kg (metric) or pounds (imperial)
    * @param unitSystem The unit system being used
@@ -26,4 +26,4 @@ export class HealthMetricsService {
       return Math.round((weight / (heightInM * heightInM)) * 10) / 10;
     }
   }
-} 
+}

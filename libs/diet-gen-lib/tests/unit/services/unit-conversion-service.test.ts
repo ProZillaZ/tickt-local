@@ -1,5 +1,5 @@
 import { UnitConversionService } from '../../../src/services/unit-conversion.service';
-import { UnitSystem } from '@tickt-engineering/types';
+import { UnitSystem } from '@tickt-ltd/types';
 
 describe('UnitConversionService', () => {
 

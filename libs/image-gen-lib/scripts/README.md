@@ -182,7 +182,7 @@ The script provides detailed logging and progress tracking:
    - Node.js >= 14.0.0
    - Firebase Admin SDK
    - Google GenAI SDK
-   - @tickt-engineering/services
+   - @tickt-ltd/services
 
 3. **APIs Enabled**
    - Vertex AI API

@@ -1,5 +1,5 @@
 import OpenAI from 'openai';
-import { Logger } from '@tickt-engineering/services';
+import { Logger } from '@tickt-ltd/services';
 import {
 	IImageProvider,
 	ImageGenerationConfig,

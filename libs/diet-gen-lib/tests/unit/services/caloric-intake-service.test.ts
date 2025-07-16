@@ -1,7 +1,6 @@
-import { CaloricIntakeService } from '../../../src/services/caloric-intake.service';
-import { Gender, ActivityLevel, DietGoal } from '@tickt-engineering/types';
-import { GoalPace } from '@tickt-engineering/nutrition-types';
-import { CalorieAdjustmentsConfig } from '../../../src/utils/constants';
+import { CaloricIntakeService } from '@tickt/diet-gen-lib';
+import { Gender, ActivityLevel, DietGoal, GoalPace } from '@tickt-ltd/types';
+import { CalorieAdjustmentsConfig } from '@tickt/diet-gen-lib';
 
 describe('CaloricIntakeService', () => {
     let service: CaloricIntakeService;
@@ -85,8 +84,9 @@ describe('CaloricIntakeService', () => {
             expect(adjustedCalories).toBe(2000 + CalorieAdjustmentsConfig.FAST);
         });
 
-        it('should throw an error for maintenance goal', () => {
-            expect(() => service.adjustCaloriesForDietGoal(2000, DietGoal.MAINTENANCE)).toThrow();
+        it('should return the same calories for maintenance goal', () => {
+            const result = service.adjustCaloriesForDietGoal(2000, DietGoal.MAINTENANCE);
+            expect(result).toBe(2000);
         });
 
         it('should throw an error for non-positive adjusted BMR', () => {

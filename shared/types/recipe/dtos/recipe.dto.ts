@@ -2,7 +2,7 @@ import { Difficulty } from '../enums';
 import { IngredientDto } from './ingredient.dto';
 import { InstructionDto } from './instruction.dto';
 import { TagDto } from './tag.dto';
-import { RecipeNutritionalInfoDto } from './nutritional-info.dto';
+import { NutritionalInfoDto } from './nutritional-info.dto';
 import { Cuisine, DietType, MealType } from '../../nutrition';
 
 export interface RecipeDto {
@@ -19,6 +19,6 @@ export interface RecipeDto {
 	dietTypes: DietType[];
 	tags: TagDto[];
 	difficulty: Difficulty;
-	nutritionalInfo: RecipeNutritionalInfoDto;
+	nutritionalInfo: NutritionalInfoDto;
 	imageUrl?: string;
 }

@@ -1,7 +1,7 @@
 import { WeekMealPlanService } from '../../../../src/services/meal-planning/week-meal-plan.service';
 import { DayMealPlanService } from '../../../../src/services/meal-planning/day-meal-plan.service';
 import { NutritionalInfoService } from '../../../../src/services/nutritional-info.service';
-import { DietType, Allergen, MealCount } from '@tickt-engineering/types';
+import { DietType, Allergen, MealCount, NutritionalInfo } from '@tickt-ltd/types';
 import { MacroAllocation } from '../../../../src/models/macros/macro-allocation';
 import { WeekMealPlan } from '../../../../src/models/meal-plans/week-meal-plan';
 import { DayMealPlan } from '../../../../src/models/meal-plans/day-meal-plan';
@@ -57,12 +57,7 @@ describe('WeekMealPlanService', () => {
             const mockDayMealPlans: DayMealPlan[] = Array(7).fill({} as DayMealPlan);
             mockDayMealPlanService.createDailyMealPlans.mockReturnValue(mockDayMealPlans);
 
-            const mockWeekNutritionalInfo = {
-                totalCalories: 14000,
-                totalProtein: 700,
-                totalCarbs: 1750,
-                totalFats: 467,
-            };
+            const mockWeekNutritionalInfo = new NutritionalInfo(7000, 700, 875, 467, 0);
             mockNutritionalInfoService.calculateWeekNutritionalInfo.mockReturnValue(mockWeekNutritionalInfo);
 
             // Act

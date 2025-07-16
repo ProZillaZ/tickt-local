@@ -1,4 +1,4 @@
-import { UserProfile, CreateUserProfileDto, UpdateUserProfileDto } from '@tickt-engineering/types';
+import { UserProfile, CreateUserProfileDto, UpdateUserProfileDto } from '@tickt-ltd/types';
 import { PaginatedResult, SearchOptions } from './common-types';
 
 /**

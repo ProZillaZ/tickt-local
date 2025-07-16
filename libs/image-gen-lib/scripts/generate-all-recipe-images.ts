@@ -1,7 +1,7 @@
 #!/usr/bin/env ts-node
 
 import { initializeApp } from 'firebase-admin/app';
-import { Logger } from '@tickt-engineering/services';
+import { Logger } from '@tickt-ltd/services';
 import {
 	BatchImageGenerationService,
 	BatchGenerationOptions,

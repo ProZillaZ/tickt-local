@@ -5,12 +5,13 @@ import {MacronutrientService} from "../macronutrient.service";
 import {NutritionalInfoService} from "../nutritional-info.service";
 import {DayMealPlanService} from "./day-meal-plan.service";
 import {WeekMealPlanService} from "./week-meal-plan.service";
-import { UserProfile, DietFilters } from '@tickt-engineering/types';
+import { UserProfile, DietFilters, Recipe } from '@tickt-ltd/types';
 import {IngredientSelectionService} from "../ingredients/ingredient-selection.service";
 import {QuantityCalculationService} from "../ingredients/quantity-calculation.service";
 import {ingredients} from "../../data/ingredients/ingredients.data";
 import {MacroAllocation} from "../../models/macros/macro-allocation";
 import {WeekMealPlan} from "../../models/meal-plans/week-meal-plan";
+import {RecipeQuantityAdjustmentService} from "../recipes/recipe-quantity-adjustment.service";
 
 export class MealPlanBuilder {
     private readonly userProfile: UserProfile;
@@ -24,6 +25,7 @@ export class MealPlanBuilder {
     private readonly mealService: MealService;
     private readonly dayMealPlanService: DayMealPlanService;
     private readonly weekMealPlanService: WeekMealPlanService;
+    private readonly recipeQuantityAdjustmentService: RecipeQuantityAdjustmentService;
 
     constructor(userProfile: UserProfile) {
         this.userProfile = userProfile;
@@ -33,11 +35,13 @@ export class MealPlanBuilder {
         this.quantityCalculationService = new QuantityCalculationService()
         this.macronutrientService = new MacronutrientService();
         this.nutritionalInfoService = new NutritionalInfoService();
+        this.recipeQuantityAdjustmentService = new RecipeQuantityAdjustmentService();
         this.mealService = new MealService(
             this.ingredientSelectionService,
             this.quantityCalculationService,
             this.nutritionalInfoService,
-            this.macronutrientService
+            this.macronutrientService,
+            this.recipeQuantityAdjustmentService
         );
         this.dayMealPlanService = new DayMealPlanService(
             this.mealService,
@@ -51,11 +55,19 @@ export class MealPlanBuilder {
     }
 
     /**
-     * Builds and returns the WeekMealPlan.
+     * Builds and returns the WeekMealPlan using ingredient-based meals.
      * @returns A WeekMealPlan object containing the generated meal plan.
      */
-    build(): WeekMealPlan {
+    build(recipes?: Recipe[][]): WeekMealPlan {
         const totalWeekMacroAllocation = this.calculateTotalWeekMacroAllocation();
+
+        if (recipes && recipes.length > 0) {
+            return this.weekMealPlanService.createWeekRecipeMealPlan(
+                recipes,
+                totalWeekMacroAllocation,
+                this.dietFilters.mealCount || DEFAULT_MEAL_COUNT
+            );
+        }
 
         return this.weekMealPlanService.createWeekMealPlan(
             this.userProfile.dietType,

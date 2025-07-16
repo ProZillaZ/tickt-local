@@ -1,4 +1,4 @@
-import { RecipeGenInputDto } from '@tickt-engineering/types';
+import { RecipeGenInputDto } from '@tickt-ltd/types';
 import { RecipeGenConfig } from '../config';
 
 /**
@@ -13,16 +13,16 @@ export class PromptBuilder {
 		const restrictions = RecipeGenConfig.diets.restrictions[input.dietType] || [];
 
 		// Build constraints sections
-		const allergiesSection = input.allergies?.length 
-			? `\n• Allergies: ${input.allergies.join(', ')} (Ensure ZERO cross-contamination risk)` 
+		const allergiesSection = input.allergies?.length
+			? `\n• Allergies: ${input.allergies.join(', ')} (Ensure ZERO cross-contamination risk)`
 			: '';
-		
-		const excludedSection = input.dislikedIngredients?.length 
-			? `\n• Excluded ingredients: ${input.dislikedIngredients.join(', ')} (Do not use these or similar ingredients)` 
+
+		const excludedSection = input.dislikedIngredients?.length
+			? `\n• Excluded ingredients: ${input.dislikedIngredients.join(', ')} (Do not use these or similar ingredients)`
 			: '';
-		
-		const restrictionsSection = restrictions.length 
-			? `\n• Restricted ingredients: ${restrictions.join(', ')}` 
+
+		const restrictionsSection = restrictions.length
+			? `\n• Restricted ingredients: ${restrictions.join(', ')}`
 			: '';
 
 		const nutritionSection = this.buildNutritionTargets(input);
@@ -62,7 +62,7 @@ ${RecipeGenConfig.prompts.finalMessage}`;
 		if (input.carbsTarget) targets.push(`Carbohydrates: ${input.carbsTarget}g`);
 		if (input.fatsTarget) targets.push(`Fats: ${input.fatsTarget}g`);
 
-		return targets.length 
+		return targets.length
 			? `Nutritional Targets (Aim for ±5% accuracy):\n• ${targets.join('\n• ')}`
 			: 'Nutritional Targets: Not specified';
 	}

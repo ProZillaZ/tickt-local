@@ -1,9 +1,8 @@
 import {v4 as uuidv4} from 'uuid';
-import { MealType } from '@tickt-engineering/types';
+import { MealType, NutritionalInfo } from '@tickt-ltd/types';
 import {Meal} from "./meal";
 import {NutritionalInfoFactory} from "../nutritional-info/nutritional-info.factory";
 import {Ingredient} from "../ingredients/ingredient";
-import {NutritionalInfo} from "../nutritional-info/nutritional-info";
 
 export class MealFactory {
     /**

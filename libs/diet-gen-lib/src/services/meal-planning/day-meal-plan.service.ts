@@ -1,4 +1,4 @@
-import { DietType, Allergen, MealCount } from '@tickt-engineering/types';
+import { DietType, Allergen, MealCount, Recipe } from '@tickt-ltd/types';
 import {MacroAllocation} from "../../models/macros/macro-allocation";
 import {DAYS_IN_WEEK, DEFAULT_MEAL_COUNT} from "../../utils/constants";
 import {DayMealPlan} from "../../models/meal-plans/day-meal-plan";
@@ -63,6 +63,71 @@ export class DayMealPlanService {
         const dayNutritionalInfo = this.nutritionalInfoService.calculateDayNutritionalInfo(meals);
 
         return DayMealPlanFactory.createDayMealPlan(meals, dayNutritionalInfo);
+    }
+
+    /**
+     * Creates daily meal plans using provided recipes for a full week.
+     * @param weekRecipes - Array of 7 days, each containing recipes for that day.
+     * @param totalWeekMacroAllocation - The total macronutrient allocation for the week.
+     * @param mealCount - The number of meals per day.
+     * @returns An array of DayMealPlan objects with recipes.
+     */
+    createDailyRecipeMealPlans(
+        weekRecipes: Recipe[][],
+        totalWeekMacroAllocation: MacroAllocation,
+        mealCount: MealCount = DEFAULT_MEAL_COUNT
+    ): DayMealPlan[] {
+        const dayMacroAllocations: MacroAllocation[] = this.macronutrientService.distribute(
+            totalWeekMacroAllocation,
+            DAYS_IN_WEEK
+        );
+
+        return weekRecipes.map((dayRecipes, dayIndex) => {
+            const dayMacroAllocation = dayMacroAllocations[dayIndex];
+            const isFreeDay = this.isFreeDay(dayIndex);
+
+            return this.createDailyRecipeMealPlan(
+                dayRecipes,
+                dayMacroAllocation,
+                mealCount,
+                isFreeDay
+            );
+        });
+    }
+
+    /**
+     * Creates a daily meal plan using provided recipes.
+     * @param dayRecipes - Array of recipes for the day.
+     * @param dayMacroAllocation - The total macronutrient allocation for the day.
+     * @param mealCount - The number of meals the user wants.
+     * @param isFreeDay - Whether this day is a free day with no structured meals.
+     * @returns A DayMealPlan object containing recipes.
+     */
+    createDailyRecipeMealPlan(
+        dayRecipes: Recipe[],
+        dayMacroAllocation: MacroAllocation,
+        mealCount: MealCount = DEFAULT_MEAL_COUNT,
+        isFreeDay: boolean = false
+    ): DayMealPlan {
+        if (isFreeDay || dayRecipes.length === 0) {
+            return DayMealPlanFactory.createEmpty(isFreeDay);
+        }
+
+        // Distribute the daily macro allocation across the meals
+        const mealMacroAllocations: MacroAllocation[] = this.macronutrientService.distribute(
+            dayMacroAllocation,
+            mealCount
+        );
+
+        // Create recipe-based meals
+        const recipes = this.mealService.createRecipeMeals(
+            dayRecipes,
+            mealMacroAllocations
+        );
+
+        const dayNutritionalInfo = this.nutritionalInfoService.calculateDayNutritionalInfo(recipes);
+
+        return DayMealPlanFactory.createDayMealPlan(recipes, dayNutritionalInfo);
     }
 
     /**

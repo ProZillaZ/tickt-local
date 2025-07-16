@@ -42,8 +42,8 @@
         "node": ">=14.0.0"
     },
     "dependencies": {
-        "@tickt-engineering/types": "^1.0.1",
-        "@tickt-engineering/image-gen-lib": "^1.0.0",
+        "@tickt-ltd/types": "2.0.0",
+        "@tickt-engineering/image-gen-lib": "^2.0.0",
         "@anthropic-ai/sdk": "^0.24.3",
         "openai": "^4.52.7",
         "class-transformer": "^0.5.1",
