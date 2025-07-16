@@ -9,13 +9,8 @@ import {
     WeekMealPlanService,
 } from '@tickt-engineering/diet-gen-lib';
 // import { Gender, ActivityLevel, UnitSystem } from '@tickt-engineering/diet-gen-lib';
-import { Gender } from 'app/enums/gender.enum';
-import { ActivityLevel } from 'app/enums/activity-level.enum';
-import { UnitSystem } from 'app/enums/unit-system.enum';
 import { useOnboarding } from 'app/contexts/onboarding/onboarding-context';
-import { DietType } from 'app/enums/diet-type.enum';
-import { DietGoal, Macro, UserProfile } from '@tickt-engineering/types';
-import { GoalPace } from 'app/enums/goal-pace.enum';
+import { DietGoal, GoalPace, UnitSystem, ActivityLevel, Gender } from '@tickt-engineering/types';
 const initialState: OnboardingState = {
     targetWeight: '',
     goal: DietGoal.WEIGHT_LOSS,
@@ -234,8 +229,9 @@ export const useSlide5 = (onboardingState?: any, updateStepData?: (data: any) =>
             onboardingState?.weight,
             Number(state.targetWeight),
             state.pace as GoalPace,
-            UnitSystem.METRIC,
+            onboardingState?.measurementSystem,
         );
+
         return weeks;
     };
     return {

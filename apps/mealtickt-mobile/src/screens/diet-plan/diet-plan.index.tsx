@@ -13,12 +13,14 @@ import { slide3SingleOption } from 'app/constants/constants.ts';
 import DaySelection from 'components/onboarding/day-selection/selection.index';
 import Button from 'components/global/button/button.index';
 import { useUpdateUser } from 'app/hooks/use-update-user.ts';
-import { DietType } from 'app/enums/diet-type.enum.ts';
-import { ActivityLevel } from 'app/enums/activity-level.enum.ts';
-import { IngredientMeasurement } from 'app/enums/ingredient-measurement.enum.ts';
-import { MealCount } from 'app/enums/meal-count.enum.ts';
-import { GoalPace } from 'app/enums/goal-pace.enum.ts';
-import { DietGoal } from 'app/enums/diet-goal.enum.ts';
+import {
+    ActivityLevel,
+    DietGoal,
+    DietType,
+    GoalPace,
+    IngredientMeasurement,
+    MealCount,
+} from '@tickt-engineering/types';
 
 const DietPlan = () => {
     const { state, updateState, handleBack, handleUpdateDays, handleConfirm } = useDietPlan();
@@ -30,7 +32,7 @@ const DietPlan = () => {
     const hasEqual5 = isEqual(user?.mealCount, state.frequency);
     const hasEqual6 = isEqual(user?.pace, state.pace);
     const hasEqual7 = isEqual(user?.goal, state.goal);
-    const hasEqual8=isEqual(user?.targetWeight,state.goalWeight)
+    const hasEqual8 = isEqual(user?.targetWeight, state.goalWeight);
 
     return (
         <SafeAreaView style={styles.container}>
@@ -82,7 +84,7 @@ const DietPlan = () => {
                             mealCount: state.frequency as MealCount,
                             pace: state.pace as GoalPace,
                             goal: state.goal as DietGoal,
-                            targetWeight:state.goalWeight
+                            targetWeight: state.goalWeight,
                         });
                         handleConfirm();
                     }}

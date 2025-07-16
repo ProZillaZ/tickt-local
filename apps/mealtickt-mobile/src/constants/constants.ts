@@ -1,7 +1,6 @@
 import { Platform } from 'react-native';
 import { getCardIcon } from '../utils/helpers';
-import { GoalPace } from 'app/enums/goal-pace.enum';
-import { DietGoal } from 'app/enums/diet-goal.enum';
+import { DietGoal, GoalPace } from '@tickt-engineering/types';
 // import {
 // 	ingredientMenu as ingredientMenuData,
 // } from '@tickt-engineering/diet-gen-lib/src/data/ingredients/ingredient-menu.data';

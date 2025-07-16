@@ -9,8 +9,8 @@ import Input from 'components/global/input/input.index';
 import Button from 'components/global/button/button.index';
 import AppLogger from 'app/logger/logger.ts';
 import { useUpdateUser } from 'app/hooks/use-update-user.ts';
-import { Gender } from 'app/enums/gender.enum.ts';
 import { MeasurementSystem } from 'app/components/onboarding/slides/slide1/slide1.props.ts';
+import { Gender } from '@tickt-engineering/types';
 
 const Slide3 = ({ handleNext }: Slide3Props) => {
     const { state, isEditMode, data, inputRef, handleBack, updateState, getUnit, toggleEditMode } =
