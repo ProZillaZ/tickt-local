@@ -2,15 +2,21 @@ import { useState, useEffect } from 'react';
 import { FormField, OnboardingState, TouchedFields, ValidationErrors } from './slide5.props';
 import { validateField, validateForm, isFormValid as checkFormValidity } from './validation';
 import { step5Options } from 'app/constants/constants.ts';
-import { TargetWeightService } from '@tickt-ltd/diet-gen-lib';
+import { MealPlanBuilder, TargetWeightService } from '@tickt-ltd/diet-gen-lib';
 // import { Gender, ActivityLevel, UnitSystem } from '@tickt-engineering/diet-gen-lib';
-import { Gender } from 'app/enums/gender.enum';
-import { ActivityLevel } from 'app/enums/activity-level.enum';
-import { UnitSystem } from 'app/enums/unit-system.enum';
 import { useOnboarding } from 'app/contexts/onboarding/onboarding-context';
-import { DietType } from 'app/enums/diet-type.enum';
-import { DietGoal, Macro, UserProfile } from '@tickt-ltd/types';
-import { GoalPace } from 'app/enums/goal-pace.enum';
+import {
+    DietGoal,
+    GoalPace,
+    ActivityLevel,
+    Gender,
+    UnitSystem,
+    MealType,
+    Recipe,
+    UserProfile,
+    Cuisine,
+} from '@tickt-ltd/types';
+import { useAuth } from 'app/contexts/auth/auth';
 const initialState: OnboardingState = {
     targetWeight: '',
     goal: DietGoal.WEIGHT_LOSS,
@@ -35,6 +41,7 @@ export const useSlide5 = (onboardingState?: any, updateStepData?: (data: any) =>
     const [baseWeight, setBaseWeight] = useState<number>(0);
     const [adjustment, setAdjustment] = useState<number>(0);
     const [weightUnit, setWeightUnit] = useState<string>('kg');
+    const { user } = useAuth();
 
     // Load saved state from onboardingState if it exists
     useEffect(() => {
@@ -73,7 +80,10 @@ export const useSlide5 = (onboardingState?: any, updateStepData?: (data: any) =>
                 const activityLevel = mapActivityLevel(onboardingState.activityLevel);
 
                 // Use metric system by default (can be adjusted based on app requirements)
-                const unitSystem = UnitSystem.METRIC;
+                const unitSystem =
+                    onboardingState.measurementSystem === 'cmKg'
+                        ? UnitSystem.METRIC
+                        : UnitSystem.IMPERIAL;
 
                 // Get recommended target weight
                 const recommended = targetWeightService.recommendTargetWeight(
@@ -229,10 +239,44 @@ export const useSlide5 = (onboardingState?: any, updateStepData?: (data: any) =>
             onboardingState?.weight,
             Number(state.targetWeight),
             state.pace as GoalPace,
-            UnitSystem.METRIC,
+            onboardingState?.measurementSystem === 'cmKg' ? UnitSystem.METRIC : UnitSystem.IMPERIAL,
         );
         return weeks;
     };
+
+    type WeekMeals = {
+        [day: string]: {
+            [meal in MealType]?: Recipe;
+        };
+    };
+    async function getAllRecipes() {
+        if (user?.email && user.uid) {
+            const mealPlanBuilder = new MealPlanBuilder({
+                activityLevel: onboardingState.activityLevel,
+                dietType: onboardingState.dietaryPreferences,
+                gender: onboardingState.gender,
+                age: onboardingState.age,
+                weightKg: onboardingState.weight,
+                heightCm: onboardingState.height,
+                goal: onboardingState.goal,
+                unitSystem:
+                    onboardingState?.measurementSystem === 'cmKg'
+                        ? UnitSystem.METRIC
+                        : UnitSystem.IMPERIAL,
+                email: user.email,
+                id: user.uid,
+                dietFilters: {
+                    allergies: onboardingState.allergies,
+                    mealCount: onboardingState.mealCount,
+                    pace: onboardingState.pace,
+                },
+                createdAt: new Date('2023-01-01'),
+                updatedAt: new Date('2023-01-01'),
+            });
+            console.log(mealPlanBuilder.build().dayPlans);
+            return mealPlanBuilder.build().dayPlans;
+        }
+    }
     return {
         state,
         setState,
