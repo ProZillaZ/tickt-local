@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import { UseSlide2Props } from './slide2.props';
 import { ingredientMenu } from 'app/constants/constants';
 import { useAuth } from 'app/contexts/auth/auth';
-import { Allergen } from 'app/enums/allergen.enum';
 
 const initialState = { selectedAllergies: ['eggs'] };
 

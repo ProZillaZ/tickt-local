@@ -1,13 +1,12 @@
-import { Recipe } from '@tickt-ltd/types';
-import {Meal} from "../meals/meal";
-import {NutritionalInfo} from '@tickt-ltd/types';
+import { Recipe, RecipeNutritionalInfo } from "@tickt-ltd/types";
+import { Meal } from "../meals/meal";
 
 export interface DayMealPlan {
-    id: string;
-    meals: (Meal | Recipe)[];
-    dayNutritionalInfo: NutritionalInfo;
-    date: Date; // Date for which this daily meal plan applies.
-    isFreeDay: boolean;
-    createdAt: Date;
-    updatedAt: Date;
+  id: string;
+  meals: (Meal | Recipe)[];
+  dayNutritionalInfo: RecipeNutritionalInfo;
+  date: Date; // Date for which this daily meal plan applies.
+  isFreeDay: boolean;
+  createdAt: Date;
+  updatedAt: Date;
 }
