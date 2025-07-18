@@ -1,41 +1,52 @@
-import { View, Text, Image, ScrollView, Pressable, TextInput } from 'react-native';
+import { View, Text, Image, ScrollView, Pressable, TextInput, ActivityIndicator } from 'react-native';
 import React, { useState } from 'react';
 import { ChatBottomModalProps } from './chat-bottom-modal.props';
 import { BottomModal } from 'components/global/bottom-modal/bottom-modal.index';
 import { styles } from './chat-bottom-modal.styles';
 import { heightPercentageToDP as hp } from 'react-native-responsive-screen';
-import { chatData } from 'app/constants/constants.ts';
 import { getCardIcon } from 'utils/helpers.ts';
 import Button from 'components/global/button/button.index';
 import { colors } from 'utils/styles';
 import { useChatModal } from './use-chat-bottom-modal.ts';
 import AppLogger from 'app/logger/logger.ts';
 const ChatBottomModal = ({ isVisible, onClose }: ChatBottomModalProps) => {
-    const { scrollViewRef, scrollToEnd } = useChatModal();
-    const [chatStarted, setChatStarted] = useState(false);
-    const userMsg = (item: any, id: number) => (
+    const { 
+        scrollViewRef, 
+        scrollToEnd, 
+        chatStarted, 
+        setChatStarted,
+        currentSession,
+        currentMessage,
+        updateCurrentMessage,
+        sendMessage,
+        isLoading,
+        error,
+        clearError
+    } = useChatModal();
+
+    const userMsg = (message: any, id: number) => (
         <View
             key={id}
             style={[
                 styles.headerContainer,
                 styles.userContainer,
-                item.msg?.length > 30 && styles.userContainer2,
+                message.content?.length > 30 && styles.userContainer2,
             ]}>
-            <Text style={styles.userMsg}>{item.msg}</Text>
+            <Text style={styles.userMsg}>{message.content}</Text>
         </View>
     );
 
-    const aiMsg = (item: any, id: number) => (
+    const aiMsg = (message: any, id: number) => (
         <View key={id} style={[styles.headerContainer, styles.aiContainer]}>
             <View style={styles.aiRow}>
                 <View style={styles.aiIconContainer}>
                     <Image style={styles.aiIcon} source={getCardIcon('ai')} />
                 </View>
-                <Text style={styles.aiMsg}>{item.msg}</Text>
+                <Text style={styles.aiMsg}>{message.content}</Text>
             </View>
-            {item?.suggestions?.length > 0 && (
+            {message?.metadata?.suggestions?.length > 0 && (
                 <View style={styles.optContainer}>
-                    {item?.suggestions?.map((suggestion: string, id: number) => (
+                    {message?.metadata?.suggestions?.map((suggestion: string, id: number) => (
                         <Button
                             key={id}
                             type="none"
@@ -48,9 +59,9 @@ const ChatBottomModal = ({ isVisible, onClose }: ChatBottomModalProps) => {
                     ))}
                 </View>
             )}
-            {item?.options?.length > 0 && (
+            {message?.metadata?.options?.length > 0 && (
                 <View style={styles.rowGap}>
-                    {item?.options?.map((option: string, id: number) => (
+                    {message?.metadata?.options?.map((option: string, id: number) => (
                         <View key={id} style={styles.row}>
                             <View style={styles.circle}>
                                 <Text style={styles.aiMsg2}>{id + 1}</Text>
@@ -60,7 +71,7 @@ const ChatBottomModal = ({ isVisible, onClose }: ChatBottomModalProps) => {
                     ))}
                 </View>
             )}
-            {item?.question && <Text style={styles.question}>{item.question}</Text>}
+            {message?.metadata?.question && <Text style={styles.question}>{message.metadata.question}</Text>}
         </View>
     );
 
@@ -77,11 +88,30 @@ const ChatBottomModal = ({ isVisible, onClose }: ChatBottomModalProps) => {
                 showsVerticalScrollIndicator={false}
                 contentContainerStyle={styles.scrollView}>
                 <View style={styles.chatContainer}>
-                    {chatData?.map((item, id) =>
-                        item.role == 'user' ? userMsg(item, id) : aiMsg(item, id),
+                    {currentSession?.messages?.map((message, id) =>
+                        message.participantId === 'user_1' ? userMsg(message, id) : aiMsg(message, id),
+                    )}
+                    {isLoading && (
+                        <View style={[styles.headerContainer, styles.aiContainer]}>
+                            <View style={styles.aiRow}>
+                                <View style={styles.aiIconContainer}>
+                                    <Image style={styles.aiIcon} source={getCardIcon('ai')} />
+                                </View>
+                                <ActivityIndicator size="small" color={colors.yellow} />
+                                <Text style={[styles.aiMsg, { marginLeft: 8 }]}>Thinking...</Text>
+                            </View>
+                        </View>
                     )}
                 </View>
             </ScrollView>
+            {error && (
+                <View style={{ padding: 12, backgroundColor: '#ffebee', borderRadius: 8, margin: 12 }}>
+                    <Text style={{ color: '#c62828', fontSize: 14 }}>{error}</Text>
+                    <Pressable onPress={clearError} style={{ marginTop: 8 }}>
+                        <Text style={{ color: '#1976d2', fontSize: 14, fontWeight: '500' }}>Dismiss</Text>
+                    </Pressable>
+                </View>
+            )}
             <View style={styles.inputContainer}>
                 <Pressable>
                     <Image style={styles.inputLeftIcon} source={getCardIcon('plus')} />
@@ -91,9 +121,11 @@ const ChatBottomModal = ({ isVisible, onClose }: ChatBottomModalProps) => {
                     style={[styles.inputStyle]}
                     placeholder={'message'}
                     placeholderTextColor={colors.blackText}
-                    onChangeText={() => {}}
+                    value={currentMessage}
+                    onChangeText={updateCurrentMessage}
                     cursorColor={colors.yellow}
                     selectionColor={colors.yellow}
+                    editable={!isLoading}
                 />
                 <Pressable
                     onPress={() => {
@@ -102,14 +134,18 @@ const ChatBottomModal = ({ isVisible, onClose }: ChatBottomModalProps) => {
                                 session_id: 'xyz',
                                 userType: 'free',
                             });
-                            setChatStarted(true);
                         }
                         AppLogger.trackEvent('ai_message_sent', {
                             message_type: 'nutrition_question',
                             response_time: 2.3,
                         });
+                        sendMessage();
                     }}
-                    style={styles.inputRightIconContainer}>
+                    disabled={isLoading || !currentMessage.trim()}
+                    style={[
+                        styles.inputRightIconContainer,
+                        (isLoading || !currentMessage.trim()) && { opacity: 0.5 }
+                    ]}>
                     <Image style={styles.inputRightIcon} source={getCardIcon('enter')} />
                 </Pressable>
             </View>

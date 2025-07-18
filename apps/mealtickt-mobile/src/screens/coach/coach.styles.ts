@@ -5,7 +5,6 @@ import { heightPercentageToDP as hp, widthPercentageToDP as wp } from 'react-nat
 const { w90, wh100, dFlex, flex1, flexCenter, bgPrimary, h0_5, w60, fts1_4, fontBold, fts3_5 } = commonStyles;
 const { blackText, yellowLight, neutrals, black_60 } = colors;
 
-// Define the styles for the OnboardingScreen component
 export const styles = StyleSheet.create({
 	container: {
 		...wh100, ...dFlex, ...flex1, ...bgPrimary,

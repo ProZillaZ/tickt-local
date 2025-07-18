@@ -1,4 +1,4 @@
-import { View, Text, SafeAreaView } from 'react-native';
+import { SafeAreaView } from 'react-native';
 import React from 'react';
 import { ChatBottomModal, Navbar } from 'components/user-stack/home';
 import { styles } from './coach.styles';
