@@ -95,7 +95,7 @@ export const validateForm = (state: OnboardingState): ValidationErrors => {
 
 	// Validate each field
 	fields.forEach(field => {
-		const error = validateField(field, state[field]);
+		const error = validateField(field, String(state[field] || ''));
 		if (error) errors[field] = error;
 	});
 

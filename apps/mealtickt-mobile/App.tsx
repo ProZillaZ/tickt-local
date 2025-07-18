@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { NavigationContainer } from '@react-navigation/native';
+import { NavigationContainer, NavigationContainerRef } from '@react-navigation/native';
 import StackNavigator from 'app/navigation/navigation.index';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { KeyboardAvoidingView, StatusBar, StyleSheet } from 'react-native';
@@ -12,11 +12,12 @@ import { useFonts } from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { OnboardingProvider } from 'contexts/onboarding/onboarding-context';
+import { ServicesProvider } from 'src/services/services.provider';
 import analytics, { logScreenView } from '@react-native-firebase/analytics';
 SplashScreen.preventAutoHideAsync();
 SplashScreen.setOptions({ duration: 1000, fade: true });
 import mobileAds, { MaxAdContentRating } from 'react-native-google-mobile-ads';
-import { analyticsMobile } from 'firebaseConfig';
+import { analyticsMobile } from 'src/config/firebase.config';
 mobileAds()
     .setRequestConfiguration({
         maxAdContentRating: MaxAdContentRating.PG,
@@ -28,8 +29,8 @@ mobileAds()
         // Request config successfully set!
     });
 const App: React.FC = () => {
-    const routeNameRef = useRef();
-    const navigationRef = useRef();
+    const routeNameRef = useRef<string | undefined>(undefined);
+    const navigationRef = useRef<NavigationContainerRef<any>>(null);
     // TEMPORARY: Clear onboarding data on app start
     useEffect(() => {
         const clearOnboardingData = async () => {
@@ -64,13 +65,17 @@ const App: React.FC = () => {
                 <NavigationContainer
                     ref={navigationRef}
                     onReady={() => {
-                        routeNameRef.current = navigationRef.current.getCurrentRoute().name;
+                        const currentRoute = navigationRef.current?.getCurrentRoute();
+                        if (currentRoute) {
+                            routeNameRef.current = currentRoute.name;
+                        }
                     }}
                     onStateChange={async () => {
                         const previousRouteName = routeNameRef.current;
-                        const currentRouteName = navigationRef.current.getCurrentRoute().name;
+                        const currentRoute = navigationRef.current?.getCurrentRoute();
+                        const currentRouteName = currentRoute?.name;
 
-                        if (previousRouteName !== currentRouteName) {
+                        if (previousRouteName !== currentRouteName && currentRouteName) {
                             await logScreenView(analyticsMobile, {
                                 screen_name: currentRouteName,
                                 screen_class: currentRouteName,
@@ -78,11 +83,13 @@ const App: React.FC = () => {
                         }
                         routeNameRef.current = currentRouteName;
                     }}>
-                    <AuthProvider>
-                        <OnboardingProvider>
-                            <StackNavigator />
-                        </OnboardingProvider>
-                    </AuthProvider>
+                    <ServicesProvider>
+                        <AuthProvider>
+                            <OnboardingProvider>
+                                <StackNavigator />
+                            </OnboardingProvider>
+                        </AuthProvider>
+                    </ServicesProvider>
                     <Toast config={toastConfig} />
                 </NavigationContainer>
             </KeyboardAvoidingView>

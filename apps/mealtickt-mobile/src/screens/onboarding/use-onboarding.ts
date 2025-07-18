@@ -7,11 +7,10 @@ import { NavigationProp } from 'app/navigation/navigation.props';
 import { useAuth } from 'contexts/auth/auth';
 import { useOnboarding as useOnboardingContext } from 'contexts/onboarding/onboarding-context';
 import { OnboardingState } from 'contexts/onboarding/onboarding.types';
-import { DbService } from 'app/services/db.service.ts';
+import { useUserServiceAdapter } from 'app/services/user.service.ts';
 import { User } from 'app/contexts/auth/auth.types.ts';
 
 const initialLoadingState = { title: '', description: '' };
-const dbService = new DbService();
 const { width } = Dimensions.get('window');
 
 // Custom hook for managing the onboarding logic
@@ -22,6 +21,7 @@ export const useOnboarding = () => {
     const { handleOnboarding } = useAuth();
     const { onboardingState, saveStep, isLoading, lastSlideRef } = useOnboardingContext();
     const { user, login, logout } = useAuth();
+    const userService = useUserServiceAdapter();
     // State to keep track of the current index in the slides
     const [currentIndex, setCurrentIndex] = useState(0);
     const [visibleLoadingModal, setVisibleLoadingModal] = useState(false);
@@ -115,7 +115,7 @@ export const useOnboarding = () => {
                         targetWeight: lastSlideRef.current.targetWeight,
                     };
                     console.log('onboarding state :', onboardData);
-                    const userData = await dbService.completeOnboarding(
+                    const userData = await userService.completeOnboarding(
                         user?.uid as string,
                         onboardData,
                     );

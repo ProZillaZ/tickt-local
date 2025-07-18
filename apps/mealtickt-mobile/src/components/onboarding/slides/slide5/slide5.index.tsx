@@ -4,6 +4,8 @@ import { styles } from './slide5.styles';
 import { useSlide5 } from './use-slide5.ts';
 import { FormField } from './slide5.props';
 import { step5Options } from 'app/constants/constants.ts';
+import { DietGoal } from 'app/enums/diet-goal.enum';
+import { GoalPace } from 'app/enums/goal-pace.enum';
 import Dropdown from 'components/global/dropdown/dropdown.index';
 import Content from '../../content/content.index';
 import InfoModal from 'components/global/info-modal/info-modal.index.tsx';
@@ -58,6 +60,8 @@ const Slide5: React.FC<SlideComponentProps> = ({
                     typeof state.targetWeight === 'string'
                         ? Number(state.targetWeight)
                         : state.targetWeight,
+                goal: state.goal as DietGoal,
+                pace: state.pace as GoalPace,
             };
             updateStepData(updatedState);
             processNext(handleNext);

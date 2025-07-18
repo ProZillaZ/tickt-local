@@ -1,3 +1,3 @@
 export interface AuthenticateThroughProps {
-	onPress: (id: number) => void;
+	onPress: (id: string) => void;
 }

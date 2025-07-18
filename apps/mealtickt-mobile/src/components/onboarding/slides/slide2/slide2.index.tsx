@@ -6,6 +6,8 @@ import { useSlide2 } from './use-slide2.ts';
 import { FormField } from './slide2.props';
 
 import { step2Options } from 'app/constants/constants.ts';
+import { ActivityLevel } from 'app/enums/activity-level.enum';
+import { MealCount } from 'app/enums/meal-count.enum';
 import Dropdown from 'components/global/dropdown/dropdown.index';
 import Content from '../../content/content.index';
 import Button from 'components/global/button/button.index';
@@ -54,9 +56,9 @@ const Slide2: React.FC<SlideComponentProps> = ({
                     // Convert values to appropriate types if needed
                     const dataToSave = {
                         ...state,
-                        mealCount: state.mealCount,
+                        mealCount: parseInt(state.mealCount) as MealCount,
                         dietaryPreferences: state.dietaryPreferences,
-                        activityLevel: state.activityLevel,
+                        activityLevel: state.activityLevel as ActivityLevel,
                     };
 
                     updateStepData(dataToSave);

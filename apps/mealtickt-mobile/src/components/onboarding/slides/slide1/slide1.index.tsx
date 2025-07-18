@@ -5,6 +5,7 @@ import { useSlide1 } from './use-slide1.ts';
 import { FormField } from './slide1.props';
 import { slide1SingleOption, step1Options } from 'app/constants/constants.ts';
 import { ONBOARDING } from 'app/constants/onboarding.constants';
+import { Gender } from 'app/enums/gender.enum';
 import Dropdown from 'components/global/dropdown/dropdown.index';
 import Content from '../../content/content.index';
 import Input from 'components/global/input/input.index';
@@ -75,6 +76,7 @@ const Slide1: React.FC<SlideComponentProps> = ({
                         age: state.age ? Number(state.age) : undefined,
                         height: state.height ? Number(state.height) : undefined,
                         weight: state.weight ? Number(state.weight) : undefined,
+                        gender: state.gender as Gender,
                     };
 
                     await updateStepData(dataToSave);

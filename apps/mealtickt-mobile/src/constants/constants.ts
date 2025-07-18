@@ -1,6 +1,7 @@
 import { Platform } from 'react-native';
 import { getCardIcon } from '../utils/helpers';
-import { DietGoal, GoalPace } from '@tickt-ltd/types';
+import { GoalPace } from 'app/enums/goal-pace.enum';
+import { DietGoal } from 'app/enums/diet-goal.enum';
 // import {
 // 	ingredientMenu as ingredientMenuData,
 // } from '@tickt-engineering/diet-gen-lib/src/data/ingredients/ingredient-menu.data';
@@ -140,12 +141,12 @@ export const step2Options = [
         key: 'mealCount',
         placeholder: 'how often do you eat in a day',
         options: [
-            { value: '1', label: '1 time' },
-            { value: '2', label: '2 times' },
-            { value: '3', label: '3 times' },
-            { value: '4', label: '4 times' },
-            { value: '5', label: '5 times' },
-            { value: '6', label: '6 times' },
+            { value: '1 time', label: '1 time' },
+            { value: '2 times', label: '2 times' },
+            { value: '3 times', label: '3 times' },
+            { value: '4 times', label: '4 times' },
+            { value: '5 times', label: '5 times' },
+            { value: '6 times', label: '6 times' },
         ],
     },
     {
@@ -164,19 +165,19 @@ export const step2Options = [
         placeholder: 'how active are you',
         options: [
             {
-                value: 'sedentary',
+                value: 'sedentary (little to no activity)',
                 label: 'sedentary (little to no activity)',
             },
             {
-                value: 'lightly-active',
+                value: 'lightly active (1–2 times per week)',
                 label: 'lightly active (1–2 times per week)',
             },
             {
-                value: 'moderately-active',
+                value: 'active (3-4 times per week)',
                 label: 'active (3-4 times per week)',
             },
             {
-                value: 'very-active',
+                value: 'very active (daily intense activity)',
                 label: 'very active (daily intense activity)',
             },
         ],

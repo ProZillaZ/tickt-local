@@ -7,6 +7,7 @@ import SelectCategory from 'components/onboarding/category/category.index';
 import SingleRadioButton from 'components/global/single-radio-button/single-radio-button.index.tsx';
 import DaySelection from 'components/onboarding/day-selection/selection.index';
 import { slide3SingleOption } from 'app/constants/constants.ts';
+import { Allergen } from 'app/enums/allergen.enum';
 import { useSlide3 } from './use-slide3.ts';
 import Button from 'components/global/button/button.index';
 import { SlideComponentProps } from 'screens/onboarding/onboarding.props';
@@ -78,7 +79,7 @@ const Slide3: React.FC<SlideComponentProps> = ({
             if (updateStepData) {
                 try {
                     await updateStepData({
-                        allergies: state.allergies,
+                        allergies: state.allergies as Allergen[],
                         ingredientMeasurement: state.ingredientMeasurement,
                         freeDays: state.freeDays,
                     });

@@ -3,14 +3,14 @@ import { useAuth } from 'contexts/auth/auth';
 import { NavigationProp } from 'app/navigation/navigation.props';
 import { useState } from 'react';
 import { showSuccess } from 'app/utils/toast-config';
-import { AuthServices } from 'app/services/auth.service.ts';
+import { useAuthServices } from 'app/services/auth.service.adapter.ts';
 
 const initialState = { email: '', password: '' };
-const authServices = new AuthServices();
 export const useLogin = () => {
 	const [state, setState] = useState(initialState);
 	const [loading, setLoading] = useState(false);
 	const { login } = useAuth();
+	const authServices = useAuthServices();
 
 	const { navigate } = useNavigation<NavigationProp<'forgot'>>();
 
@@ -28,7 +28,7 @@ export const useLogin = () => {
 			}
 			setLoading(true);
 			const userInfo = await authServices.signIn(state.email, state.password);
-			login(userInfo);
+			login(userInfo as any);
 			showSuccess({ text: 'Login successful' });
 		} catch (error: any) {
 			console.log('error:', error);

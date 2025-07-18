@@ -4,9 +4,7 @@ import { authToggleOptions } from 'app/constants/constants';
 import { RouteProp, useRoute } from '@react-navigation/native';
 import { RootStackParamList } from 'app/navigation/navigation.props';
 import { useAuth as authHook } from 'app/contexts/auth/auth';
-import { AuthServices } from 'app/services/auth.service.ts';
-
-const authServices = new AuthServices();
+import { useAuthServices } from 'app/services/auth.service.adapter.ts';
 export const useAuth = () => {
 	const route = useRoute<RouteProp<RootStackParamList, 'auth'>>();
 	const { params } = route;
@@ -14,6 +12,7 @@ export const useAuth = () => {
 	const [withEmail, setWithEmail] = useState(false);
 	const [loading, setLoading] = useState(false);
 	const { login } = authHook();
+	const authServices = useAuthServices();
 	const renderItem = (item: Slide, idx: number) =>
 		currentIndex == idx && React.createElement(item.component);
 	const handleToggle = (index: number) => {
@@ -27,7 +26,7 @@ export const useAuth = () => {
 		setLoading(true);
 		try {
 			const userInfo = await authServices.socialSignIn(id);
-			await login(userInfo);
+			await login(userInfo as any);
 		} catch (error) {
 			console.log('error :', error);
 		} finally {

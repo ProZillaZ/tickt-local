@@ -10,7 +10,7 @@ import {
 } from '@tickt-ltd/types';
 
 // Re-export types for convenience
-export {
+export type {
 	WeekMealPlan as MealPlan,
 	DayMealPlan,
 	MealPlanItem,

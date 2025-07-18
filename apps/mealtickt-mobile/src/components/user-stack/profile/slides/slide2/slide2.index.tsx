@@ -14,6 +14,7 @@ import { useSlide2 } from './use-slide2.ts';
 import BackButton from 'components/global/back/back.index';
 import SelectCategory from 'components/onboarding/category/category.index';
 import { allergies } from 'app/constants/constants.ts';
+import { Allergen } from 'app/enums/allergen.enum';
 import ScrollBar from 'components/global/scrollbar/scrollbar.index';
 import Search from 'components/onboarding/search/search.index';
 import SelectedTags from 'components/onboarding/selected-tags/tags.index';
@@ -92,8 +93,11 @@ const Slide2 = ({ handleNext }: Slide2Props) => {
                     text="save changes"
                     onClick={() => {
                         updateUser({
-                            allergies: state.selectedAllergies,
-                            avoidedIngredients: selectedData,
+                            allergies: state.selectedAllergies as Allergen[],
+                            avoidedIngredients: selectedData.map(item => ({
+                                id: item.id as number,
+                                name: item.name as string,
+                            })),
                         });
                     }}
                     disabled={hasEqual && hasEqual2}

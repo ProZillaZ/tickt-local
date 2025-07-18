@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { UseSlide1Props } from "./slide1.props";
 import { showSuccess } from "app/utils/toast-config";
-import { AuthServices } from "app/services/auth.service.ts";
+import { useAuthServices } from "app/services/auth.service.adapter.ts";
 const initialState = { email: "" };
-const authServices = new AuthServices();
 export const useSlide1 = ({ handleNext }: UseSlide1Props) => {
     const [state, setState] = useState(initialState);
+    const authServices = useAuthServices();
 
     const onStateChange = (field: string, value: string) => {
         setState((s) => ({ ...s, [field]: value }));

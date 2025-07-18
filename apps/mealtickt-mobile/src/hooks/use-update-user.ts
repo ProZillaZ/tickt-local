@@ -1,11 +1,10 @@
 import { useAuth } from 'app/contexts/auth/auth';
-import { DbService } from 'app/services/db.service.ts';
+import { useUserServiceAdapter } from 'app/services/user.service.ts';
 import { showSuccess } from 'app/utils/toast-config';
-
-const dbService = new DbService();
 
 export const useUpdateUser = () => {
 	const { user, login } = useAuth();
+	const userService = useUserServiceAdapter();
 
 	const isEqual = (a: any, b: any): boolean => {
 		if (a === b) return true;
@@ -28,9 +27,9 @@ export const useUpdateUser = () => {
 			console.log('calling update user', user?.uid, user);
 			if (user?.uid) {
 				console.log('calling update user1');
-				await dbService.updateUserData(user.uid, data);
+				await userService.updateUserData(user.uid, data);
 				console.log('calling update user2');
-				const res = await dbService.getUserData(user.uid);
+				const res = await userService.getUserData(user.uid);
 				console.log('calling update user3');
 				await login(res.data());
 				console.log('calling update user4');

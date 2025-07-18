@@ -9,11 +9,14 @@ const AuthenticateThrough: React.FC<AuthenticateThroughProps> = ({ onPress }) =>
 	return (
 		<View style={styles.container}>
 			{
-				authenticateThroughOptions.map((item, id) => (
-					<Button key={id} leftIcon={item.icon} textStyles={styles.text} leftIconStyles={styles.icon}
-							text={item.text} onClick={() => onPress(item.id)} disabled={false}
-							style={styles.buttonContainer} />
-				))
+				authenticateThroughOptions.filter(Boolean).map((item, id) => {
+					const authOption = item as { id: string; icon: any; text: string; };
+					return (
+						<Button key={id} leftIcon={authOption.icon} textStyles={styles.text} leftIconStyles={styles.icon}
+								text={authOption.text} onClick={() => onPress(authOption.id)} disabled={false}
+								style={styles.buttonContainer} />
+					);
+				})
 			}
 		</View>
 	);

@@ -1,5 +1,5 @@
 // services/FirebaseAuthService.ts
-import { auth } from 'firebaseConfig';
+import { auth } from '../config/firebase.config';
 import { IAuthService } from './interfaces/auth-service.interface.ts';
 import {
 	signInWithEmailAndPassword,
@@ -10,20 +10,23 @@ import {
 import { GoogleSignin } from '@react-native-google-signin/google-signin';
 import { AppleAuthProvider, GoogleAuthProvider } from '@react-native-firebase/auth';
 import * as AppleAuthentication from 'expo-apple-authentication';
-import { DbService } from './db.service.ts';
+import { useUserServiceAdapter } from './user.service.ts';
 
 GoogleSignin.configure({
 	webClientId: '948382471750-3e4o3v053724vb7rlsbgj6e5183r37uq.apps.googleusercontent.com',
 });
 
-const dbServices = new DbService();
-
 export class AuthServices implements IAuthService {
+	private userService: any;
+
+	constructor(userService: any) {
+		this.userService = userService;
+	}
 	async signIn(email: string, password: string): Promise<string> {
 		let userInfo;
 		const res = await signInWithEmailAndPassword(auth, email, password);
 		if (res.user.uid) {
-			const doc = await dbServices.getUserData(res.user.uid);
+			const doc = await this.userService.getUserData(res.user.uid);
 			if (doc.exists()) {
 				if (doc.data()?.uid) {
 					userInfo = {
@@ -37,7 +40,7 @@ export class AuthServices implements IAuthService {
 						uid: res.user.uid,
 						email: res.user.email,
 					};
-					dbServices.updateUserData(res.user.uid, {
+					this.userService.updateUserData(res.user.uid, {
 						uid: res.user.uid,
 						email: email,
 					});
@@ -47,7 +50,7 @@ export class AuthServices implements IAuthService {
 					uid: res.user.uid,
 					email: email,
 				};
-				await dbServices.storeUserData(res.user.uid, {
+				await this.userService.storeUserData(res.user.uid, {
 					uid: res.user.uid,
 					email: email,
 				});
@@ -58,7 +61,7 @@ export class AuthServices implements IAuthService {
 
 	async signUp(email: string, password: string): Promise<{ uid: string; email: string }> {
 		const res = await createUserWithEmailAndPassword(auth, email, password);
-		await dbServices.storeUserData(res.user.uid, {
+		await this.userService.storeUserData(res.user.uid, {
 			uid: res.user.uid,
 			email: email,
 		});
@@ -89,7 +92,7 @@ export class AuthServices implements IAuthService {
 
 		let userInfo;
 		if (userCredential.user.uid) {
-			const doc = await dbServices.getUserData(userCredential.user.uid);
+			const doc = await this.userService.getUserData(userCredential.user.uid);
 			if (doc.exists()) {
 				if (doc.data()?.uid) {
 					userInfo = {
@@ -103,7 +106,7 @@ export class AuthServices implements IAuthService {
 						uid: userCredential.user.uid,
 						email: userCredential.user.email,
 					};
-					dbServices.updateUserData(userCredential.user.uid, {
+					this.userService.updateUserData(userCredential.user.uid, {
 						uid: userCredential.user.uid,
 					});
 				}
@@ -113,7 +116,7 @@ export class AuthServices implements IAuthService {
 					email: userCredential.user.email as string,
 					name: userCredential.user.displayName as string,
 				};
-				await dbServices.storeUserData(userCredential.user.uid, userInfo);
+				await this.userService.storeUserData(userCredential.user.uid, userInfo);
 			}
 		}
 		return userInfo;

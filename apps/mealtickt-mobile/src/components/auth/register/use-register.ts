@@ -1,14 +1,13 @@
 import { useAuth } from 'app/contexts/auth/auth';
-import { AuthServices } from 'app/services/auth.service.ts';
+import { useAuthServices } from 'app/services/auth.service.adapter.ts';
 import { showSuccess } from 'app/utils/toast-config';
 import { useState } from 'react';
-
-const authServices = new AuthServices();
 const initialState = { email: '', password: '' };
 export const useRegister = () => {
     const [state, setState] = useState(initialState);
     const [loading, setLoading] = useState(false);
     const { login } = useAuth();
+    const authServices = useAuthServices();
     const handleChange = (field: string, value: string | number) => {
         setState((s) => ({ ...s, [field]: value }));
     };
@@ -25,7 +24,7 @@ export const useRegister = () => {
         try {
             setLoading(true);
             const userInfo = await authServices.signUp(state.email, state.password);
-            await login(userInfo);
+            await login(userInfo as any);
         } catch (error: any) {
             console.log('error :', error);
 

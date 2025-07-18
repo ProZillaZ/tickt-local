@@ -1,2 +1,2 @@
 // Re-export NutritionalInfo from shared types
-export { RecipeNutritionalInfo } from "@tickt-ltd/types";
+export { NutritionalInfo } from '@tickt-ltd/types';

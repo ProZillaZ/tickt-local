@@ -5,7 +5,7 @@ import { UseSrollBarCSProps } from './scrollbar-cs.props.ts';
 
 const screenHeight = commonStyles.h100.height;
 export const useScrollBarCS = ({ refrence, onScroll }: UseSrollBarCSProps) => {
-	const refre = useRef<any>();
+	const refre = useRef<any>(null);
 	const [indicator] = useState(new Animated.Value(0));
 	const [wholeHeight, setWholeHeight] = useState(1);
 	const [visibleHeight, setVisibleHeight] = useState(screenHeight);

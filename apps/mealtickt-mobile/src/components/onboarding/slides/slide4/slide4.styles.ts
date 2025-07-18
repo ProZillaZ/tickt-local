@@ -17,7 +17,7 @@ export const styles = StyleSheet.create({
     },
     searchContainer: {
         marginVertical: hp('2%'),
-        maxHeight: hp('35%'),
+        maxHeight: hp('45%'),
     },
     itemText: {
         ...fts1_8,
