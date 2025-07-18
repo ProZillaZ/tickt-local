@@ -1,6 +1,2 @@
-export interface NutritionalInfo {
-    totalCalories: number;
-    totalProtein: number;
-    totalCarbs: number;
-    totalFats: number;
-}
+// Re-export NutritionalInfo from shared types
+export { RecipeNutritionalInfo } from "@tickt-ltd/types";

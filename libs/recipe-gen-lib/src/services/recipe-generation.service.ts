@@ -1,4 +1,4 @@
-import { RecipeDto, RecipeGenInputDto } from '@tickt-engineering/types';
+import { RecipeDto, RecipeGenInputDto } from '@tickt-ltd/types';
 import { LoggerInterface, RecipeGenConfig } from '../models';
 import { LlmService } from './llm-service';
 import { ConfigValidator } from '../validators/config.validator';

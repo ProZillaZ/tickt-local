@@ -1,4 +1,4 @@
-import { RecipeGenInputDto, Difficulty, DietType, MealType } from '@tickt-engineering/types';
+import { RecipeGenInputDto, Difficulty, DietType, MealType } from '@tickt-ltd/types';
 import { RecipeGenerationError } from '../models';
 
 /**
@@ -145,17 +145,17 @@ export class InputValidator {
 	 * Validate diet-specific constraints
 	 */
 	private static validateDietSpecificConstraints(
-		input: RecipeGenInputDto, 
-		errors: string[], 
+		input: RecipeGenInputDto,
+		errors: string[],
 		warnings: string[]
 	): void {
 		// Vegan diet should not have animal products in preferred ingredients
 		if (input.dietType === DietType.VEGAN) {
 			const animalProducts = ['chicken', 'beef', 'pork', 'fish', 'dairy', 'milk', 'cheese', 'egg'];
-			const conflictingPreferences = input.preferredCuisines?.filter(cuisine => 
+			const conflictingPreferences = input.preferredCuisines?.filter(cuisine =>
 				animalProducts.some(product => cuisine.toLowerCase().includes(product))
 			);
-			
+
 			if (conflictingPreferences && conflictingPreferences.length > 0) {
 				warnings.push(`Vegan diet with potentially conflicting cuisine preferences: ${conflictingPreferences.join(', ')}`);
 			}

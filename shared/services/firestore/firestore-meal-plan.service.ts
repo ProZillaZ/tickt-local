@@ -9,7 +9,7 @@ import {
 	UpdateMealPlanDto,
 	DEFAULT_DATABASE_CONFIG,
 } from '../interfaces';
-import { WeekMealPlan } from '@tickt-engineering/types';
+import { WeekMealPlan } from '@tickt-ltd/types';
 import { BaseService, NotFoundError, ValidationError } from '../core';
 
 /**

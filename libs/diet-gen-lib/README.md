@@ -1,4 +1,4 @@
-# @tickt-engineering/diet-gen-lib
+# @tickt-ltd/diet-gen-lib
 
 A comprehensive library for generating personalized diet plans, meal planning, and nutrition calculations for the Tickt ecosystem.
 
@@ -6,10 +6,10 @@ A comprehensive library for generating personalized diet plans, meal planning, a
 
 ```bash
 # Using yarn (recommended)
-yarn add @tickt-engineering/diet-gen-lib
+yarn add @tickt-ltd/diet-gen-lib
 
 # Using npm
-npm install @tickt-engineering/diet-gen-lib
+npm install @tickt-ltd/diet-gen-lib
 ```
 
 ## 🚀 Quick Start
@@ -20,7 +20,7 @@ import {
   UserProfile, 
   Gender, 
   ActivityLevel 
-} from '@tickt-engineering/diet-gen-lib';
+} from '@tickt-ltd/diet-gen-lib';
 
 // Create user profile
 const userProfile = new UserProfile({
@@ -54,7 +54,7 @@ import {
   MealType,
   Cuisine,
   MealPlanBuilder
-} from '@tickt-engineering/diet-gen-lib';
+} from '@tickt-ltd/diet-gen-lib';
 ```
 
 **Pros:** Single dependency, simple imports
@@ -71,7 +71,7 @@ import {
   DietGoal,
   UnitSystem,
   BodyType
-} from '@tickt-engineering/user-types';
+} from '@tickt-ltd/user-types';
 
 // Nutrition & dietary types (lightweight ~5KB)
 import { 
@@ -80,14 +80,14 @@ import {
   Cuisine,
   Allergen,
   Macro
-} from '@tickt-engineering/nutrition-types';
+} from '@tickt-ltd/nutrition-types';
 
 // Complex business logic (heavier ~500KB)
 import { 
   UserProfile,
   MealPlanBuilder,
   CaloricIntakeService 
-} from '@tickt-engineering/diet-gen-lib';
+} from '@tickt-ltd/diet-gen-lib';
 ```
 
 **Pros:** Smaller bundles, explicit dependencies, better tree-shaking, clear separation of concerns

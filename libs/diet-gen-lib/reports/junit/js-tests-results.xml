@@ -1,159 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="jest tests" tests="105" failures="0" errors="0" time="5.59">
-  <testsuite name="MacronutrientService" errors="0" failures="0" skipped="0" timestamp="2025-06-07T11:58:18" time="4.503" tests="21">
-    <testcase classname="MacronutrientService calculateMacroCalories should calculate macro allocation in calories based on total daily calories and default ratio" name="MacronutrientService calculateMacroCalories should calculate macro allocation in calories based on total daily calories and default ratio" time="0.007">
+<testsuites name="jest tests" tests="123" failures="0" errors="0" time="5.827">
+  <testsuite name="IngredientSelectionService" errors="0" failures="0" skipped="0" timestamp="2025-07-15T19:44:04" time="4.38" tests="8">
+    <testcase classname="IngredientSelectionService selectCompatibleIngredients should select compatible ingredients for a standard diet dinner" name="IngredientSelectionService selectCompatibleIngredients should select compatible ingredients for a standard diet dinner" time="0.018">
     </testcase>
-    <testcase classname="MacronutrientService calculateMacroCalories should calculate macro allocation in calories based on custom ratio" name="MacronutrientService calculateMacroCalories should calculate macro allocation in calories based on custom ratio" time="0.001">
+    <testcase classname="IngredientSelectionService selectCompatibleIngredients should select compatible ingredients for a vegetarian diet lunch" name="IngredientSelectionService selectCompatibleIngredients should select compatible ingredients for a vegetarian diet lunch" time="0.001">
     </testcase>
-    <testcase classname="MacronutrientService calculateMacroCalories should throw an error if total calories is less than or equal to 0" name="MacronutrientService calculateMacroCalories should throw an error if total calories is less than or equal to 0" time="0.043">
+    <testcase classname="IngredientSelectionService selectCompatibleIngredients should exclude ingredients with allergens" name="IngredientSelectionService selectCompatibleIngredients should exclude ingredients with allergens" time="0.002">
     </testcase>
-    <testcase classname="MacronutrientService scale should scale macro allocation by a given factor" name="MacronutrientService scale should scale macro allocation by a given factor" time="0.001">
+    <testcase classname="IngredientSelectionService selectCompatibleIngredients should return an empty array if no compatible ingredients are found" name="IngredientSelectionService selectCompatibleIngredients should return an empty array if no compatible ingredients are found" time="0.006">
     </testcase>
-    <testcase classname="MacronutrientService scale should return zero macro values when scaled by 0" name="MacronutrientService scale should return zero macro values when scaled by 0" time="0.006">
+    <testcase classname="IngredientSelectionService selectCompatibleIngredients should handle an empty list of needed macros" name="IngredientSelectionService selectCompatibleIngredients should handle an empty list of needed macros" time="0.003">
     </testcase>
-    <testcase classname="MacronutrientService scale should handle negative scaling factors correctly" name="MacronutrientService scale should handle negative scaling factors correctly" time="0">
+    <testcase classname="IngredientSelectionService findCompatibleIngredient should find a compatible ingredient for a given macro" name="IngredientSelectionService findCompatibleIngredient should find a compatible ingredient for a given macro" time="0.001">
     </testcase>
-    <testcase classname="MacronutrientService add should add two macro allocations together" name="MacronutrientService add should add two macro allocations together" time="0.001">
+    <testcase classname="IngredientSelectionService findCompatibleIngredient should return null if no compatible ingredient is found" name="IngredientSelectionService findCompatibleIngredient should return null if no compatible ingredient is found" time="0.001">
     </testcase>
-    <testcase classname="MacronutrientService add should handle cases where some of the other allocation is missing" name="MacronutrientService add should handle cases where some of the other allocation is missing" time="0">
-    </testcase>
-    <testcase classname="MacronutrientService add should handle negative macro values when adding" name="MacronutrientService add should handle negative macro values when adding" time="0">
-    </testcase>
-    <testcase classname="MacronutrientService add should add empty or partially empty macro allocations" name="MacronutrientService add should add empty or partially empty macro allocations" time="0.001">
-    </testcase>
-    <testcase classname="MacronutrientService distribute should distribute macro allocation evenly across the default number of meals" name="MacronutrientService distribute should distribute macro allocation evenly across the default number of meals" time="0.001">
-    </testcase>
-    <testcase classname="MacronutrientService distribute should distribute macro allocation across one meal" name="MacronutrientService distribute should distribute macro allocation across one meal" time="0">
-    </testcase>
-    <testcase classname="MacronutrientService distribute should handle meal distributions with high decimal precision" name="MacronutrientService distribute should handle meal distributions with high decimal precision" time="0">
-    </testcase>
-    <testcase classname="MacronutrientService distribute should distribute macro allocation according to a custom meal distribution" name="MacronutrientService distribute should distribute macro allocation according to a custom meal distribution" time="0.006">
-    </testcase>
-    <testcase classname="MacronutrientService distribute should throw an error if meal count is not positive" name="MacronutrientService distribute should throw an error if meal count is not positive" time="0.003">
-    </testcase>
-    <testcase classname="MacronutrientService distribute should throw an error if distribution array length does not match meal count" name="MacronutrientService distribute should throw an error if distribution array length does not match meal count" time="0.001">
-    </testcase>
-    <testcase classname="MacronutrientService distribute should throw an error if distribution percentages do not sum to 100" name="MacronutrientService distribute should throw an error if distribution percentages do not sum to 100" time="0.004">
-    </testcase>
-    <testcase classname="MacronutrientService applyAdjustments should apply adjustments to the distributed macro allocations" name="MacronutrientService applyAdjustments should apply adjustments to the distributed macro allocations" time="0.022">
-    </testcase>
-    <testcase classname="MacronutrientService applyAdjustments should leave allocations unchanged if no adjustments are provided" name="MacronutrientService applyAdjustments should leave allocations unchanged if no adjustments are provided" time="0.001">
-    </testcase>
-    <testcase classname="MacronutrientService applyAdjustments should apply negative adjustments to reduce macro allocations" name="MacronutrientService applyAdjustments should apply negative adjustments to reduce macro allocations" time="0.001">
-    </testcase>
-    <testcase classname="MacronutrientService applyAdjustments should handle cases where only some meals are adjusted" name="MacronutrientService applyAdjustments should handle cases where only some meals are adjusted" time="0.001">
+    <testcase classname="IngredientSelectionService findCompatibleIngredient should consider current selection when finding compatible ingredient" name="IngredientSelectionService findCompatibleIngredient should consider current selection when finding compatible ingredient" time="0.001">
     </testcase>
   </testsuite>
-  <testsuite name="CaloricIntakeService" errors="0" failures="0" skipped="0" timestamp="2025-06-07T11:58:18" time="4.525" tests="19">
-    <testcase classname="CaloricIntakeService calculateBmr should calculate BMR correctly for males" name="CaloricIntakeService calculateBmr should calculate BMR correctly for males" time="0.009">
-    </testcase>
-    <testcase classname="CaloricIntakeService calculateBmr should calculate BMR correctly for females" name="CaloricIntakeService calculateBmr should calculate BMR correctly for females" time="0.001">
-    </testcase>
-    <testcase classname="CaloricIntakeService calculateBmr should throw an error for non-positive weight" name="CaloricIntakeService calculateBmr should throw an error for non-positive weight" time="0.041">
-    </testcase>
-    <testcase classname="CaloricIntakeService calculateBmr should throw an error for non-positive height" name="CaloricIntakeService calculateBmr should throw an error for non-positive height" time="0.006">
-    </testcase>
-    <testcase classname="CaloricIntakeService calculateBmr should throw an error for non-positive age" name="CaloricIntakeService calculateBmr should throw an error for non-positive age" time="0.001">
-    </testcase>
-    <testcase classname="CaloricIntakeService adjustBmrForActivityLevel should adjust BMR correctly for sedentary activity level" name="CaloricIntakeService adjustBmrForActivityLevel should adjust BMR correctly for sedentary activity level" time="0.001">
-    </testcase>
-    <testcase classname="CaloricIntakeService adjustBmrForActivityLevel should adjust BMR correctly for lightly active activity level" name="CaloricIntakeService adjustBmrForActivityLevel should adjust BMR correctly for lightly active activity level" time="0.004">
-    </testcase>
-    <testcase classname="CaloricIntakeService adjustBmrForActivityLevel should adjust BMR correctly for moderately active activity level" name="CaloricIntakeService adjustBmrForActivityLevel should adjust BMR correctly for moderately active activity level" time="0">
-    </testcase>
-    <testcase classname="CaloricIntakeService adjustBmrForActivityLevel should adjust BMR correctly for very active activity level" name="CaloricIntakeService adjustBmrForActivityLevel should adjust BMR correctly for very active activity level" time="0.001">
-    </testcase>
-    <testcase classname="CaloricIntakeService adjustBmrForActivityLevel should throw an error for non-positive BMR" name="CaloricIntakeService adjustBmrForActivityLevel should throw an error for non-positive BMR" time="0.001">
-    </testcase>
-    <testcase classname="CaloricIntakeService adjustBmrForActivityLevel should throw an error for invalid activity level" name="CaloricIntakeService adjustBmrForActivityLevel should throw an error for invalid activity level" time="0.001">
-    </testcase>
-    <testcase classname="CaloricIntakeService adjustCaloriesForDietGoal should adjust calories correctly for weight loss with moderate pace" name="CaloricIntakeService adjustCaloriesForDietGoal should adjust calories correctly for weight loss with moderate pace" time="0.001">
-    </testcase>
-    <testcase classname="CaloricIntakeService adjustCaloriesForDietGoal should adjust calories correctly for weight gain with moderate pace" name="CaloricIntakeService adjustCaloriesForDietGoal should adjust calories correctly for weight gain with moderate pace" time="0">
-    </testcase>
-    <testcase classname="CaloricIntakeService adjustCaloriesForDietGoal should adjust calories correctly for weight loss with fast pace" name="CaloricIntakeService adjustCaloriesForDietGoal should adjust calories correctly for weight loss with fast pace" time="0">
-    </testcase>
-    <testcase classname="CaloricIntakeService adjustCaloriesForDietGoal should adjust calories correctly for weight gain with fast pace" name="CaloricIntakeService adjustCaloriesForDietGoal should adjust calories correctly for weight gain with fast pace" time="0.001">
-    </testcase>
-    <testcase classname="CaloricIntakeService adjustCaloriesForDietGoal should throw an error for maintenance goal" name="CaloricIntakeService adjustCaloriesForDietGoal should throw an error for maintenance goal" time="0.002">
-    </testcase>
-    <testcase classname="CaloricIntakeService adjustCaloriesForDietGoal should throw an error for non-positive adjusted BMR" name="CaloricIntakeService adjustCaloriesForDietGoal should throw an error for non-positive adjusted BMR" time="0.001">
-    </testcase>
-    <testcase classname="CaloricIntakeService adjustCaloriesForDietGoal should throw an error for invalid goal" name="CaloricIntakeService adjustCaloriesForDietGoal should throw an error for invalid goal" time="0.003">
-    </testcase>
-    <testcase classname="CaloricIntakeService adjustCaloriesForDietGoal should throw an error for invalid pace" name="CaloricIntakeService adjustCaloriesForDietGoal should throw an error for invalid pace" time="0.001">
-    </testcase>
-  </testsuite>
-  <testsuite name="NutritionalInfoService" errors="0" failures="0" skipped="0" timestamp="2025-06-07T11:58:18" time="4.577" tests="6">
-    <testcase classname="NutritionalInfoService calculateMealNutritionalInfo should correctly calculate nutritional info for a meal" name="NutritionalInfoService calculateMealNutritionalInfo should correctly calculate nutritional info for a meal" time="0.008">
-    </testcase>
-    <testcase classname="NutritionalInfoService calculateMealNutritionalInfo should return zero values for an empty ingredient list" name="NutritionalInfoService calculateMealNutritionalInfo should return zero values for an empty ingredient list" time="0.001">
-    </testcase>
-    <testcase classname="NutritionalInfoService calculateDayNutritionalInfo should correctly calculate nutritional info for a day" name="NutritionalInfoService calculateDayNutritionalInfo should correctly calculate nutritional info for a day" time="0.001">
-    </testcase>
-    <testcase classname="NutritionalInfoService calculateDayNutritionalInfo should return zero values for an empty meal list" name="NutritionalInfoService calculateDayNutritionalInfo should return zero values for an empty meal list" time="0.001">
-    </testcase>
-    <testcase classname="NutritionalInfoService calculateWeekNutritionalInfo should correctly calculate nutritional info for a week" name="NutritionalInfoService calculateWeekNutritionalInfo should correctly calculate nutritional info for a week" time="0.001">
-    </testcase>
-    <testcase classname="NutritionalInfoService calculateWeekNutritionalInfo should return zero values for an empty day meal plan list" name="NutritionalInfoService calculateWeekNutritionalInfo should return zero values for an empty day meal plan list" time="0">
-    </testcase>
-  </testsuite>
-  <testsuite name="UnitConversionService" errors="0" failures="0" skipped="0" timestamp="2025-06-07T11:58:18" time="4.594" tests="14">
-    <testcase classname="UnitConversionService convertCmToFeetInches should correctly convert centimeters to feet and inches" name="UnitConversionService convertCmToFeetInches should correctly convert centimeters to feet and inches" time="0.008">
-    </testcase>
-    <testcase classname="UnitConversionService convertCmToFeetInches should handle edge cases like exactly 1 meter" name="UnitConversionService convertCmToFeetInches should handle edge cases like exactly 1 meter" time="0.001">
-    </testcase>
-    <testcase classname="UnitConversionService convertFeetInchesToCm should correctly convert feet and inches to centimeters" name="UnitConversionService convertFeetInchesToCm should correctly convert feet and inches to centimeters" time="0.001">
-    </testcase>
-    <testcase classname="UnitConversionService convertFeetInchesToCm should handle zero feet and inches" name="UnitConversionService convertFeetInchesToCm should handle zero feet and inches" time="0.001">
-    </testcase>
-    <testcase classname="UnitConversionService convertKgToLbs should correctly convert kilograms to pounds" name="UnitConversionService convertKgToLbs should correctly convert kilograms to pounds" time="0">
-    </testcase>
-    <testcase classname="UnitConversionService convertKgToLbs should handle zero kilograms" name="UnitConversionService convertKgToLbs should handle zero kilograms" time="0">
-    </testcase>
-    <testcase classname="UnitConversionService convertLbsToKg should correctly convert pounds to kilograms" name="UnitConversionService convertLbsToKg should correctly convert pounds to kilograms" time="0">
-    </testcase>
-    <testcase classname="UnitConversionService convertLbsToKg should handle zero pounds" name="UnitConversionService convertLbsToKg should handle zero pounds" time="0.001">
-    </testcase>
-    <testcase classname="UnitConversionService convertHeight should convert height from metric to imperial correctly" name="UnitConversionService convertHeight should convert height from metric to imperial correctly" time="0.001">
-    </testcase>
-    <testcase classname="UnitConversionService convertHeight should convert height from imperial to metric correctly" name="UnitConversionService convertHeight should convert height from imperial to metric correctly" time="0">
-    </testcase>
-    <testcase classname="UnitConversionService convertHeight should return height unchanged when the unit systems are the same" name="UnitConversionService convertHeight should return height unchanged when the unit systems are the same" time="0.001">
-    </testcase>
-    <testcase classname="UnitConversionService convertWeight should convert weight from metric to imperial correctly" name="UnitConversionService convertWeight should convert weight from metric to imperial correctly" time="0.001">
-    </testcase>
-    <testcase classname="UnitConversionService convertWeight should convert weight from imperial to metric correctly" name="UnitConversionService convertWeight should convert weight from imperial to metric correctly" time="0">
-    </testcase>
-    <testcase classname="UnitConversionService convertWeight should return weight unchanged when the unit systems are the same" name="UnitConversionService convertWeight should return weight unchanged when the unit systems are the same" time="0.001">
-    </testcase>
-  </testsuite>
-  <testsuite name="WeekMealPlanService" errors="0" failures="0" skipped="0" timestamp="2025-06-07T11:58:18" time="4.819" tests="4">
-    <testcase classname="WeekMealPlanService createWeekMealPlan should create a week meal plan with correct properties" name="WeekMealPlanService createWeekMealPlan should create a week meal plan with correct properties" time="0.009">
-    </testcase>
-    <testcase classname="WeekMealPlanService createWeekMealPlan should call dayMealPlanService.createDailyMealPlans with correct parameters" name="WeekMealPlanService createWeekMealPlan should call dayMealPlanService.createDailyMealPlans with correct parameters" time="0.001">
-    </testcase>
-    <testcase classname="WeekMealPlanService createWeekMealPlan should call nutritionalInfoService.calculateWeekNutritionalInfo with correct parameters" name="WeekMealPlanService createWeekMealPlan should call nutritionalInfoService.calculateWeekNutritionalInfo with correct parameters" time="0.001">
-    </testcase>
-    <testcase classname="WeekMealPlanService createWeekMealPlan should use default meal count when not provided" name="WeekMealPlanService createWeekMealPlan should use default meal count when not provided" time="0.001">
-    </testcase>
-  </testsuite>
-  <testsuite name="QuantityCalculationService" errors="0" failures="0" skipped="0" timestamp="2025-06-07T11:58:18" time="4.75" tests="20">
-    <testcase classname="QuantityCalculationService calculateQuantity should calculate the correct quantity for a protein-based ingredient" name="QuantityCalculationService calculateQuantity should calculate the correct quantity for a protein-based ingredient" time="0.004">
+  <testsuite name="QuantityCalculationService" errors="0" failures="0" skipped="0" timestamp="2025-07-15T19:44:04" time="4.544" tests="20">
+    <testcase classname="QuantityCalculationService calculateQuantity should calculate the correct quantity for a protein-based ingredient" name="QuantityCalculationService calculateQuantity should calculate the correct quantity for a protein-based ingredient" time="0.009">
     </testcase>
     <testcase classname="QuantityCalculationService calculateQuantity should adjust the quantity for a carb-based ingredient based on carb calories" name="QuantityCalculationService calculateQuantity should adjust the quantity for a carb-based ingredient based on carb calories" time="0.001">
     </testcase>
-    <testcase classname="QuantityCalculationService calculateQuantity should throw an error for unsupported macro types" name="QuantityCalculationService calculateQuantity should throw an error for unsupported macro types" time="0.014">
+    <testcase classname="QuantityCalculationService calculateQuantity should throw an error for unsupported macro types" name="QuantityCalculationService calculateQuantity should throw an error for unsupported macro types" time="0.026">
     </testcase>
-    <testcase classname="QuantityCalculationService calculateQuantity should return zero quantity if meal macro allocation is zero" name="QuantityCalculationService calculateQuantity should return zero quantity if meal macro allocation is zero" time="0">
+    <testcase classname="QuantityCalculationService calculateQuantity should return zero quantity if meal macro allocation is zero" name="QuantityCalculationService calculateQuantity should return zero quantity if meal macro allocation is zero" time="0.001">
     </testcase>
     <testcase classname="QuantityCalculationService calculateQuantity should return zero quantity for veggie macro type" name="QuantityCalculationService calculateQuantity should return zero quantity for veggie macro type" time="0.001">
     </testcase>
-    <testcase classname="QuantityCalculationService calculateQuantity should reallocate excess calories when quantity exceeds max quantity" name="QuantityCalculationService calculateQuantity should reallocate excess calories when quantity exceeds max quantity" time="0">
+    <testcase classname="QuantityCalculationService calculateQuantity should reallocate excess calories when quantity exceeds max quantity" name="QuantityCalculationService calculateQuantity should reallocate excess calories when quantity exceeds max quantity" time="0.001">
     </testcase>
-    <testcase classname="QuantityCalculationService calculateQuantity should reallocate shortfall calories when quantity is below min quantity" name="QuantityCalculationService calculateQuantity should reallocate shortfall calories when quantity is below min quantity" time="0.001">
+    <testcase classname="QuantityCalculationService calculateQuantity should reallocate shortfall calories when quantity is below min quantity" name="QuantityCalculationService calculateQuantity should reallocate shortfall calories when quantity is below min quantity" time="0.002">
     </testcase>
-    <testcase classname="QuantityCalculationService calculateQuantity should round quantity to nearest 10 grams" name="QuantityCalculationService calculateQuantity should round quantity to nearest 10 grams" time="0">
+    <testcase classname="QuantityCalculationService calculateQuantity should round quantity to nearest 10 grams" name="QuantityCalculationService calculateQuantity should round quantity to nearest 10 grams" time="0.001">
     </testcase>
     <testcase classname="QuantityCalculationService calculateQuantity should return zero quantity if meal macro allocation for the macro is zero" name="QuantityCalculationService calculateQuantity should return zero quantity if meal macro allocation for the macro is zero" time="0">
     </testcase>
@@ -165,69 +45,227 @@
     </testcase>
     <testcase classname="QuantityCalculationService enforceMinMaxAndReallocate should enforce max quantity and reallocate excess calories" name="QuantityCalculationService enforceMinMaxAndReallocate should enforce max quantity and reallocate excess calories" time="0">
     </testcase>
-    <testcase classname="QuantityCalculationService enforceMinMaxAndReallocate should enforce min quantity and reallocate shortfall calories" name="QuantityCalculationService enforceMinMaxAndReallocate should enforce min quantity and reallocate shortfall calories" time="0">
+    <testcase classname="QuantityCalculationService enforceMinMaxAndReallocate should enforce min quantity and reallocate shortfall calories" name="QuantityCalculationService enforceMinMaxAndReallocate should enforce min quantity and reallocate shortfall calories" time="0.001">
     </testcase>
-    <testcase classname="QuantityCalculationService enforceMinMaxAndReallocate should enforce the same min and max quantity without reallocation" name="QuantityCalculationService enforceMinMaxAndReallocate should enforce the same min and max quantity without reallocation" time="0.001">
+    <testcase classname="QuantityCalculationService enforceMinMaxAndReallocate should enforce the same min and max quantity without reallocation" name="QuantityCalculationService enforceMinMaxAndReallocate should enforce the same min and max quantity without reallocation" time="0">
     </testcase>
-    <testcase classname="QuantityCalculationService calculateCaloriesForQuantity should calculate the correct calories for a given quantity of an ingredient" name="QuantityCalculationService calculateCaloriesForQuantity should calculate the correct calories for a given quantity of an ingredient" time="0">
+    <testcase classname="QuantityCalculationService calculateCaloriesForQuantity should calculate the correct calories for a given quantity of an ingredient" name="QuantityCalculationService calculateCaloriesForQuantity should calculate the correct calories for a given quantity of an ingredient" time="0.001">
     </testcase>
     <testcase classname="QuantityCalculationService calculateCaloriesForQuantity should return zero calories if the ingredient has no macronutrients" name="QuantityCalculationService calculateCaloriesForQuantity should return zero calories if the ingredient has no macronutrients" time="0">
     </testcase>
     <testcase classname="QuantityCalculationService reallocateExcessCalories should reallocate excess calories for protein" name="QuantityCalculationService reallocateExcessCalories should reallocate excess calories for protein" time="0">
     </testcase>
-    <testcase classname="QuantityCalculationService reallocateExcessCalories should handle zero allocations when reallocating excess calories" name="QuantityCalculationService reallocateExcessCalories should handle zero allocations when reallocating excess calories" time="0">
+    <testcase classname="QuantityCalculationService reallocateExcessCalories should handle zero allocations when reallocating excess calories" name="QuantityCalculationService reallocateExcessCalories should handle zero allocations when reallocating excess calories" time="0.001">
     </testcase>
     <testcase classname="QuantityCalculationService reallocateShortfallCalories should reallocate shortfall calories for fat" name="QuantityCalculationService reallocateShortfallCalories should reallocate shortfall calories for fat" time="0">
     </testcase>
   </testsuite>
-  <testsuite name="DayMealPlanService" errors="0" failures="0" skipped="0" timestamp="2025-06-07T11:58:18" time="4.839" tests="4">
-    <testcase classname="DayMealPlanService createDailyMealPlans should create 7 daily meal plans" name="DayMealPlanService createDailyMealPlans should create 7 daily meal plans" time="0.009">
+  <testsuite name="MacronutrientService" errors="0" failures="0" skipped="0" timestamp="2025-07-15T19:44:04" time="4.589" tests="21">
+    <testcase classname="MacronutrientService calculateMacroCalories should calculate macro allocation in calories based on total daily calories and default ratio" name="MacronutrientService calculateMacroCalories should calculate macro allocation in calories based on total daily calories and default ratio" time="0.015">
     </testcase>
-    <testcase classname="DayMealPlanService createDailyMealPlan should create a daily meal plan for a non-free day" name="DayMealPlanService createDailyMealPlan should create a daily meal plan for a non-free day" time="0.002">
+    <testcase classname="MacronutrientService calculateMacroCalories should calculate macro allocation in calories based on custom ratio" name="MacronutrientService calculateMacroCalories should calculate macro allocation in calories based on custom ratio" time="0.006">
     </testcase>
-    <testcase classname="DayMealPlanService createDailyMealPlan should create an empty meal plan for a free day" name="DayMealPlanService createDailyMealPlan should create an empty meal plan for a free day" time="0.001">
+    <testcase classname="MacronutrientService calculateMacroCalories should throw an error if total calories is less than or equal to 0" name="MacronutrientService calculateMacroCalories should throw an error if total calories is less than or equal to 0" time="0.04">
     </testcase>
-    <testcase classname="DayMealPlanService isFreeDay should set Saturday as a free day" name="DayMealPlanService isFreeDay should set Saturday as a free day" time="0.002">
+    <testcase classname="MacronutrientService scale should scale macro allocation by a given factor" name="MacronutrientService scale should scale macro allocation by a given factor" time="0.005">
+    </testcase>
+    <testcase classname="MacronutrientService scale should return zero macro values when scaled by 0" name="MacronutrientService scale should return zero macro values when scaled by 0" time="0.001">
+    </testcase>
+    <testcase classname="MacronutrientService scale should handle negative scaling factors correctly" name="MacronutrientService scale should handle negative scaling factors correctly" time="0">
+    </testcase>
+    <testcase classname="MacronutrientService add should add two macro allocations together" name="MacronutrientService add should add two macro allocations together" time="0.002">
+    </testcase>
+    <testcase classname="MacronutrientService add should handle cases where some of the other allocation is missing" name="MacronutrientService add should handle cases where some of the other allocation is missing" time="0.001">
+    </testcase>
+    <testcase classname="MacronutrientService add should handle negative macro values when adding" name="MacronutrientService add should handle negative macro values when adding" time="0">
+    </testcase>
+    <testcase classname="MacronutrientService add should add empty or partially empty macro allocations" name="MacronutrientService add should add empty or partially empty macro allocations" time="0">
+    </testcase>
+    <testcase classname="MacronutrientService distribute should distribute macro allocation evenly across the default number of meals" name="MacronutrientService distribute should distribute macro allocation evenly across the default number of meals" time="0.007">
+    </testcase>
+    <testcase classname="MacronutrientService distribute should distribute macro allocation across one meal" name="MacronutrientService distribute should distribute macro allocation across one meal" time="0.001">
+    </testcase>
+    <testcase classname="MacronutrientService distribute should handle meal distributions with high decimal precision" name="MacronutrientService distribute should handle meal distributions with high decimal precision" time="0.001">
+    </testcase>
+    <testcase classname="MacronutrientService distribute should distribute macro allocation according to a custom meal distribution" name="MacronutrientService distribute should distribute macro allocation according to a custom meal distribution" time="0.001">
+    </testcase>
+    <testcase classname="MacronutrientService distribute should throw an error if meal count is not positive" name="MacronutrientService distribute should throw an error if meal count is not positive" time="0.006">
+    </testcase>
+    <testcase classname="MacronutrientService distribute should throw an error if distribution array length does not match meal count" name="MacronutrientService distribute should throw an error if distribution array length does not match meal count" time="0.002">
+    </testcase>
+    <testcase classname="MacronutrientService distribute should throw an error if distribution percentages do not sum to 100" name="MacronutrientService distribute should throw an error if distribution percentages do not sum to 100" time="0.019">
+    </testcase>
+    <testcase classname="MacronutrientService applyAdjustments should apply adjustments to the distributed macro allocations" name="MacronutrientService applyAdjustments should apply adjustments to the distributed macro allocations" time="0.003">
+    </testcase>
+    <testcase classname="MacronutrientService applyAdjustments should leave allocations unchanged if no adjustments are provided" name="MacronutrientService applyAdjustments should leave allocations unchanged if no adjustments are provided" time="0.002">
+    </testcase>
+    <testcase classname="MacronutrientService applyAdjustments should apply negative adjustments to reduce macro allocations" name="MacronutrientService applyAdjustments should apply negative adjustments to reduce macro allocations" time="0.001">
+    </testcase>
+    <testcase classname="MacronutrientService applyAdjustments should handle cases where only some meals are adjusted" name="MacronutrientService applyAdjustments should handle cases where only some meals are adjusted" time="0">
     </testcase>
   </testsuite>
-  <testsuite name="IngredientSelectionService" errors="0" failures="0" skipped="0" timestamp="2025-06-07T11:58:18" time="4.869" tests="8">
-    <testcase classname="IngredientSelectionService selectCompatibleIngredients should select compatible ingredients for a standard diet dinner" name="IngredientSelectionService selectCompatibleIngredients should select compatible ingredients for a standard diet dinner" time="0.005">
+  <testsuite name="MealPlanBuilder" errors="0" failures="0" skipped="0" timestamp="2025-07-15T19:44:04" time="4.665" tests="6">
+    <testcase classname="MealPlanBuilder should create a MealPlanBuilder instance" name="MealPlanBuilder should create a MealPlanBuilder instance" time="0.008">
     </testcase>
-    <testcase classname="IngredientSelectionService selectCompatibleIngredients should select compatible ingredients for a vegetarian diet lunch" name="IngredientSelectionService selectCompatibleIngredients should select compatible ingredients for a vegetarian diet lunch" time="0">
+    <testcase classname="MealPlanBuilder should build a WeekMealPlan" name="MealPlanBuilder should build a WeekMealPlan" time="0.002">
     </testcase>
-    <testcase classname="IngredientSelectionService selectCompatibleIngredients should exclude ingredients with allergens" name="IngredientSelectionService selectCompatibleIngredients should exclude ingredients with allergens" time="0.004">
+    <testcase classname="MealPlanBuilder should use the correct user profile data" name="MealPlanBuilder should use the correct user profile data" time="0.002">
     </testcase>
-    <testcase classname="IngredientSelectionService selectCompatibleIngredients should return an empty array if no compatible ingredients are found" name="IngredientSelectionService selectCompatibleIngredients should return an empty array if no compatible ingredients are found" time="0">
-    </testcase>
-    <testcase classname="IngredientSelectionService selectCompatibleIngredients should handle an empty list of needed macros" name="IngredientSelectionService selectCompatibleIngredients should handle an empty list of needed macros" time="0">
-    </testcase>
-    <testcase classname="IngredientSelectionService findCompatibleIngredient should find a compatible ingredient for a given macro" name="IngredientSelectionService findCompatibleIngredient should find a compatible ingredient for a given macro" time="0">
-    </testcase>
-    <testcase classname="IngredientSelectionService findCompatibleIngredient should return null if no compatible ingredient is found" name="IngredientSelectionService findCompatibleIngredient should return null if no compatible ingredient is found" time="0.001">
-    </testcase>
-    <testcase classname="IngredientSelectionService findCompatibleIngredient should consider current selection when finding compatible ingredient" name="IngredientSelectionService findCompatibleIngredient should consider current selection when finding compatible ingredient" time="0">
-    </testcase>
-  </testsuite>
-  <testsuite name="MealService" errors="0" failures="0" skipped="0" timestamp="2025-06-07T11:58:18" time="4.962" tests="3">
-    <testcase classname="MealService createMeals should create the correct number of meals" name="MealService createMeals should create the correct number of meals" time="0.005">
-    </testcase>
-    <testcase classname="MealService createMeals should handle more than 3 meals by adding snacks" name="MealService createMeals should handle more than 3 meals by adding snacks" time="0.002">
-    </testcase>
-    <testcase classname="MealService createMeal should create a meal with correct ingredients and nutritional info" name="MealService createMeal should create a meal with correct ingredients and nutritional info" time="0.002">
-    </testcase>
-  </testsuite>
-  <testsuite name="MealPlanBuilder" errors="0" failures="0" skipped="0" timestamp="2025-06-07T11:58:18" time="4.992" tests="6">
-    <testcase classname="MealPlanBuilder should create a MealPlanBuilder instance" name="MealPlanBuilder should create a MealPlanBuilder instance" time="0.005">
-    </testcase>
-    <testcase classname="MealPlanBuilder should build a WeekMealPlan" name="MealPlanBuilder should build a WeekMealPlan" time="0.001">
-    </testcase>
-    <testcase classname="MealPlanBuilder should use the correct user profile data" name="MealPlanBuilder should use the correct user profile data" time="0.001">
-    </testcase>
-    <testcase classname="MealPlanBuilder should use the correct diet filters and macro allocation" name="MealPlanBuilder should use the correct diet filters and macro allocation" time="0.001">
+    <testcase classname="MealPlanBuilder should use the correct diet filters and macro allocation" name="MealPlanBuilder should use the correct diet filters and macro allocation" time="0.003">
     </testcase>
     <testcase classname="MealPlanBuilder should handle missing diet filters" name="MealPlanBuilder should handle missing diet filters" time="0.001">
     </testcase>
-    <testcase classname="MealPlanBuilder should calculate total week macro allocation" name="MealPlanBuilder should calculate total week macro allocation" time="0.001">
+    <testcase classname="MealPlanBuilder should calculate total week macro allocation" name="MealPlanBuilder should calculate total week macro allocation" time="0.002">
+    </testcase>
+  </testsuite>
+  <testsuite name="MealService" errors="0" failures="0" skipped="0" timestamp="2025-07-15T19:44:04" time="4.623" tests="3">
+    <testcase classname="MealService createMeals should create the correct number of meals" name="MealService createMeals should create the correct number of meals" time="0.009">
+    </testcase>
+    <testcase classname="MealService createMeals should handle more than 3 meals by adding snacks" name="MealService createMeals should handle more than 3 meals by adding snacks" time="0.002">
+    </testcase>
+    <testcase classname="MealService createMeal should create a meal with correct ingredients and nutritional info" name="MealService createMeal should create a meal with correct ingredients and nutritional info" time="0.003">
+    </testcase>
+  </testsuite>
+  <testsuite name="UnitConversionService" errors="0" failures="0" skipped="0" timestamp="2025-07-15T19:44:04" time="4.665" tests="14">
+    <testcase classname="UnitConversionService convertCmToFeetInches should correctly convert centimeters to feet and inches" name="UnitConversionService convertCmToFeetInches should correctly convert centimeters to feet and inches" time="0.008">
+    </testcase>
+    <testcase classname="UnitConversionService convertCmToFeetInches should handle edge cases like exactly 1 meter" name="UnitConversionService convertCmToFeetInches should handle edge cases like exactly 1 meter" time="0.001">
+    </testcase>
+    <testcase classname="UnitConversionService convertFeetInchesToCm should correctly convert feet and inches to centimeters" name="UnitConversionService convertFeetInchesToCm should correctly convert feet and inches to centimeters" time="0">
+    </testcase>
+    <testcase classname="UnitConversionService convertFeetInchesToCm should handle zero feet and inches" name="UnitConversionService convertFeetInchesToCm should handle zero feet and inches" time="0.002">
+    </testcase>
+    <testcase classname="UnitConversionService convertKgToLbs should correctly convert kilograms to pounds" name="UnitConversionService convertKgToLbs should correctly convert kilograms to pounds" time="0.001">
+    </testcase>
+    <testcase classname="UnitConversionService convertKgToLbs should handle zero kilograms" name="UnitConversionService convertKgToLbs should handle zero kilograms" time="0">
+    </testcase>
+    <testcase classname="UnitConversionService convertLbsToKg should correctly convert pounds to kilograms" name="UnitConversionService convertLbsToKg should correctly convert pounds to kilograms" time="0.001">
+    </testcase>
+    <testcase classname="UnitConversionService convertLbsToKg should handle zero pounds" name="UnitConversionService convertLbsToKg should handle zero pounds" time="0">
+    </testcase>
+    <testcase classname="UnitConversionService convertHeight should convert height from metric to imperial correctly" name="UnitConversionService convertHeight should convert height from metric to imperial correctly" time="0">
+    </testcase>
+    <testcase classname="UnitConversionService convertHeight should convert height from imperial to metric correctly" name="UnitConversionService convertHeight should convert height from imperial to metric correctly" time="0">
+    </testcase>
+    <testcase classname="UnitConversionService convertHeight should return height unchanged when the unit systems are the same" name="UnitConversionService convertHeight should return height unchanged when the unit systems are the same" time="0.002">
+    </testcase>
+    <testcase classname="UnitConversionService convertWeight should convert weight from metric to imperial correctly" name="UnitConversionService convertWeight should convert weight from metric to imperial correctly" time="0">
+    </testcase>
+    <testcase classname="UnitConversionService convertWeight should convert weight from imperial to metric correctly" name="UnitConversionService convertWeight should convert weight from imperial to metric correctly" time="0.001">
+    </testcase>
+    <testcase classname="UnitConversionService convertWeight should return weight unchanged when the unit systems are the same" name="UnitConversionService convertWeight should return weight unchanged when the unit systems are the same" time="0">
+    </testcase>
+  </testsuite>
+  <testsuite name="WeekMealPlanService" errors="0" failures="0" skipped="0" timestamp="2025-07-15T19:44:04" time="4.787" tests="4">
+    <testcase classname="WeekMealPlanService createWeekMealPlan should create a week meal plan with correct properties" name="WeekMealPlanService createWeekMealPlan should create a week meal plan with correct properties" time="0.01">
+    </testcase>
+    <testcase classname="WeekMealPlanService createWeekMealPlan should call dayMealPlanService.createDailyMealPlans with correct parameters" name="WeekMealPlanService createWeekMealPlan should call dayMealPlanService.createDailyMealPlans with correct parameters" time="0.001">
+    </testcase>
+    <testcase classname="WeekMealPlanService createWeekMealPlan should call nutritionalInfoService.calculateWeekNutritionalInfo with correct parameters" name="WeekMealPlanService createWeekMealPlan should call nutritionalInfoService.calculateWeekNutritionalInfo with correct parameters" time="0.002">
+    </testcase>
+    <testcase classname="WeekMealPlanService createWeekMealPlan should use default meal count when not provided" name="WeekMealPlanService createWeekMealPlan should use default meal count when not provided" time="0.001">
+    </testcase>
+  </testsuite>
+  <testsuite name="NutritionalInfoService" errors="0" failures="0" skipped="0" timestamp="2025-07-15T19:44:04" time="4.81" tests="6">
+    <testcase classname="NutritionalInfoService calculateMealNutritionalInfo should correctly calculate nutritional info for a meal" name="NutritionalInfoService calculateMealNutritionalInfo should correctly calculate nutritional info for a meal" time="0.007">
+    </testcase>
+    <testcase classname="NutritionalInfoService calculateMealNutritionalInfo should return zero values for an empty ingredient list" name="NutritionalInfoService calculateMealNutritionalInfo should return zero values for an empty ingredient list" time="0.001">
+    </testcase>
+    <testcase classname="NutritionalInfoService calculateDayNutritionalInfo should correctly calculate nutritional info for a day" name="NutritionalInfoService calculateDayNutritionalInfo should correctly calculate nutritional info for a day" time="0.001">
+    </testcase>
+    <testcase classname="NutritionalInfoService calculateDayNutritionalInfo should return zero values for an empty meal list" name="NutritionalInfoService calculateDayNutritionalInfo should return zero values for an empty meal list" time="0.001">
+    </testcase>
+    <testcase classname="NutritionalInfoService calculateWeekNutritionalInfo should correctly calculate nutritional info for a week" name="NutritionalInfoService calculateWeekNutritionalInfo should correctly calculate nutritional info for a week" time="0.001">
+    </testcase>
+    <testcase classname="NutritionalInfoService calculateWeekNutritionalInfo should return zero values for an empty day meal plan list" name="NutritionalInfoService calculateWeekNutritionalInfo should return zero values for an empty day meal plan list" time="0.001">
+    </testcase>
+  </testsuite>
+  <testsuite name="CaloricIntakeService" errors="0" failures="0" skipped="0" timestamp="2025-07-15T19:44:04" time="4.9" tests="19">
+    <testcase classname="CaloricIntakeService calculateBmr should calculate BMR correctly for males" name="CaloricIntakeService calculateBmr should calculate BMR correctly for males" time="0.004">
+    </testcase>
+    <testcase classname="CaloricIntakeService calculateBmr should calculate BMR correctly for females" name="CaloricIntakeService calculateBmr should calculate BMR correctly for females" time="0.001">
+    </testcase>
+    <testcase classname="CaloricIntakeService calculateBmr should throw an error for non-positive weight" name="CaloricIntakeService calculateBmr should throw an error for non-positive weight" time="0.007">
+    </testcase>
+    <testcase classname="CaloricIntakeService calculateBmr should throw an error for non-positive height" name="CaloricIntakeService calculateBmr should throw an error for non-positive height" time="0.001">
+    </testcase>
+    <testcase classname="CaloricIntakeService calculateBmr should throw an error for non-positive age" name="CaloricIntakeService calculateBmr should throw an error for non-positive age" time="0">
+    </testcase>
+    <testcase classname="CaloricIntakeService adjustBmrForActivityLevel should adjust BMR correctly for sedentary activity level" name="CaloricIntakeService adjustBmrForActivityLevel should adjust BMR correctly for sedentary activity level" time="0.001">
+    </testcase>
+    <testcase classname="CaloricIntakeService adjustBmrForActivityLevel should adjust BMR correctly for lightly active activity level" name="CaloricIntakeService adjustBmrForActivityLevel should adjust BMR correctly for lightly active activity level" time="0">
+    </testcase>
+    <testcase classname="CaloricIntakeService adjustBmrForActivityLevel should adjust BMR correctly for moderately active activity level" name="CaloricIntakeService adjustBmrForActivityLevel should adjust BMR correctly for moderately active activity level" time="0">
+    </testcase>
+    <testcase classname="CaloricIntakeService adjustBmrForActivityLevel should adjust BMR correctly for very active activity level" name="CaloricIntakeService adjustBmrForActivityLevel should adjust BMR correctly for very active activity level" time="0.001">
+    </testcase>
+    <testcase classname="CaloricIntakeService adjustBmrForActivityLevel should throw an error for non-positive BMR" name="CaloricIntakeService adjustBmrForActivityLevel should throw an error for non-positive BMR" time="0">
+    </testcase>
+    <testcase classname="CaloricIntakeService adjustBmrForActivityLevel should throw an error for invalid activity level" name="CaloricIntakeService adjustBmrForActivityLevel should throw an error for invalid activity level" time="0.001">
+    </testcase>
+    <testcase classname="CaloricIntakeService adjustCaloriesForDietGoal should adjust calories correctly for weight loss with moderate pace" name="CaloricIntakeService adjustCaloriesForDietGoal should adjust calories correctly for weight loss with moderate pace" time="0">
+    </testcase>
+    <testcase classname="CaloricIntakeService adjustCaloriesForDietGoal should adjust calories correctly for weight gain with moderate pace" name="CaloricIntakeService adjustCaloriesForDietGoal should adjust calories correctly for weight gain with moderate pace" time="0">
+    </testcase>
+    <testcase classname="CaloricIntakeService adjustCaloriesForDietGoal should adjust calories correctly for weight loss with fast pace" name="CaloricIntakeService adjustCaloriesForDietGoal should adjust calories correctly for weight loss with fast pace" time="0.001">
+    </testcase>
+    <testcase classname="CaloricIntakeService adjustCaloriesForDietGoal should adjust calories correctly for weight gain with fast pace" name="CaloricIntakeService adjustCaloriesForDietGoal should adjust calories correctly for weight gain with fast pace" time="0">
+    </testcase>
+    <testcase classname="CaloricIntakeService adjustCaloriesForDietGoal should return the same calories for maintenance goal" name="CaloricIntakeService adjustCaloriesForDietGoal should return the same calories for maintenance goal" time="0">
+    </testcase>
+    <testcase classname="CaloricIntakeService adjustCaloriesForDietGoal should throw an error for non-positive adjusted BMR" name="CaloricIntakeService adjustCaloriesForDietGoal should throw an error for non-positive adjusted BMR" time="0.001">
+    </testcase>
+    <testcase classname="CaloricIntakeService adjustCaloriesForDietGoal should throw an error for invalid goal" name="CaloricIntakeService adjustCaloriesForDietGoal should throw an error for invalid goal" time="0.001">
+    </testcase>
+    <testcase classname="CaloricIntakeService adjustCaloriesForDietGoal should throw an error for invalid pace" name="CaloricIntakeService adjustCaloriesForDietGoal should throw an error for invalid pace" time="0.001">
+    </testcase>
+  </testsuite>
+  <testsuite name="Recipe Meal Plan End-to-End Tests" errors="0" failures="0" skipped="0" timestamp="2025-07-15T19:44:04" time="4.911" tests="18">
+    <testcase classname="Recipe Meal Plan End-to-End Tests Basic Recipe Integration should create a day meal plan using individual recipes" name="Recipe Meal Plan End-to-End Tests Basic Recipe Integration should create a day meal plan using individual recipes" time="0.009">
+    </testcase>
+    <testcase classname="Recipe Meal Plan End-to-End Tests Basic Recipe Integration should handle different meal types correctly" name="Recipe Meal Plan End-to-End Tests Basic Recipe Integration should handle different meal types correctly" time="0.002">
+    </testcase>
+    <testcase classname="Recipe Meal Plan End-to-End Tests Basic Recipe Integration should calculate total daily nutritional info correctly" name="Recipe Meal Plan End-to-End Tests Basic Recipe Integration should calculate total daily nutritional info correctly" time="0.001">
+    </testcase>
+    <testcase classname="Recipe Meal Plan End-to-End Tests Week-Long Recipe Meal Plan should create a complete week meal plan with recipes" name="Recipe Meal Plan End-to-End Tests Week-Long Recipe Meal Plan should create a complete week meal plan with recipes" time="0.003">
+    </testcase>
+    <testcase classname="Recipe Meal Plan End-to-End Tests Week-Long Recipe Meal Plan should handle free day correctly (Saturday)" name="Recipe Meal Plan End-to-End Tests Week-Long Recipe Meal Plan should handle free day correctly (Saturday)" time="0.001">
+    </testcase>
+    <testcase classname="Recipe Meal Plan End-to-End Tests Week-Long Recipe Meal Plan should calculate week nutritional info correctly" name="Recipe Meal Plan End-to-End Tests Week-Long Recipe Meal Plan should calculate week nutritional info correctly" time="0.001">
+    </testcase>
+    <testcase classname="Recipe Meal Plan End-to-End Tests Recipe Quantity Adjustment should adjust recipe quantities to meet macro targets" name="Recipe Meal Plan End-to-End Tests Recipe Quantity Adjustment should adjust recipe quantities to meet macro targets" time="0.001">
+    </testcase>
+    <testcase classname="Recipe Meal Plan End-to-End Tests Recipe Quantity Adjustment should scale ingredients proportionally" name="Recipe Meal Plan End-to-End Tests Recipe Quantity Adjustment should scale ingredients proportionally" time="0.002">
+    </testcase>
+    <testcase classname="Recipe Meal Plan End-to-End Tests Mixed Recipe Types should handle different diet types" name="Recipe Meal Plan End-to-End Tests Mixed Recipe Types should handle different diet types" time="0.001">
+    </testcase>
+    <testcase classname="Recipe Meal Plan End-to-End Tests Mixed Recipe Types should handle different meal counts" name="Recipe Meal Plan End-to-End Tests Mixed Recipe Types should handle different meal counts" time="0.001">
+    </testcase>
+    <testcase classname="Recipe Meal Plan End-to-End Tests Mixed Recipe Types should handle allergen preferences" name="Recipe Meal Plan End-to-End Tests Mixed Recipe Types should handle allergen preferences" time="0">
+    </testcase>
+    <testcase classname="Recipe Meal Plan End-to-End Tests Comprehensive Validations should create valid WeekMealPlan structure" name="Recipe Meal Plan End-to-End Tests Comprehensive Validations should create valid WeekMealPlan structure" time="0.002">
+    </testcase>
+    <testcase classname="Recipe Meal Plan End-to-End Tests Comprehensive Validations should create valid DayMealPlan structures" name="Recipe Meal Plan End-to-End Tests Comprehensive Validations should create valid DayMealPlan structures" time="0">
+    </testcase>
+    <testcase classname="Recipe Meal Plan End-to-End Tests Comprehensive Validations should maintain recipe integrity after processing" name="Recipe Meal Plan End-to-End Tests Comprehensive Validations should maintain recipe integrity after processing" time="0.001">
+    </testcase>
+    <testcase classname="Recipe Meal Plan End-to-End Tests Comprehensive Validations should handle edge cases gracefully" name="Recipe Meal Plan End-to-End Tests Comprehensive Validations should handle edge cases gracefully" time="0.001">
+    </testcase>
+    <testcase classname="Recipe Meal Plan End-to-End Tests Comprehensive Validations should produce consistent results across multiple runs" name="Recipe Meal Plan End-to-End Tests Comprehensive Validations should produce consistent results across multiple runs" time="0.001">
+    </testcase>
+    <testcase classname="Recipe Meal Plan End-to-End Tests Performance and Integration should complete meal plan generation in reasonable time" name="Recipe Meal Plan End-to-End Tests Performance and Integration should complete meal plan generation in reasonable time" time="0.001">
+    </testcase>
+    <testcase classname="Recipe Meal Plan End-to-End Tests Performance and Integration should handle large number of recipes efficiently" name="Recipe Meal Plan End-to-End Tests Performance and Integration should handle large number of recipes efficiently" time="0.004">
+    </testcase>
+  </testsuite>
+  <testsuite name="DayMealPlanService" errors="0" failures="0" skipped="0" timestamp="2025-07-15T19:44:04" time="5.234" tests="4">
+    <testcase classname="DayMealPlanService createDailyMealPlans should create 7 daily meal plans" name="DayMealPlanService createDailyMealPlans should create 7 daily meal plans" time="0.006">
+    </testcase>
+    <testcase classname="DayMealPlanService createDailyMealPlan should create a daily meal plan for a non-free day" name="DayMealPlanService createDailyMealPlan should create a daily meal plan for a non-free day" time="0.001">
+    </testcase>
+    <testcase classname="DayMealPlanService createDailyMealPlan should create an empty meal plan for a free day" name="DayMealPlanService createDailyMealPlan should create an empty meal plan for a free day" time="0.001">
+    </testcase>
+    <testcase classname="DayMealPlanService isFreeDay should set Saturday as a free day" name="DayMealPlanService isFreeDay should set Saturday as a free day" time="0.004">
     </testcase>
   </testsuite>
 </testsuites>

@@ -1,4 +1,4 @@
-import { RecipeDto, RecipeGenInputDto } from '@tickt-engineering/types';
+import { RecipeDto, RecipeGenInputDto } from '@tickt-ltd/types';
 import { LoggerInterface, LlmClient, RecipeGenerationError, RecipeGenConfig, LlmProvider } from '../models';
 import { PromptBuilder } from './prompt.builder';
 import { RecipeParserService } from './recipe-parser.service';
@@ -45,7 +45,7 @@ export class LlmService {
 	}
 
 	private static enhanceConfig(config: RecipeGenConfig): RecipeGenConfig {
-		const providerDefaults = config.provider === LlmProvider.ANTHROPIC 
+		const providerDefaults = config.provider === LlmProvider.ANTHROPIC
 			? Config.providers.anthropic
 			: Config.providers.openai;
 

@@ -1,27 +1,25 @@
 import { useState, useEffect } from 'react';
 import { FormField, OnboardingState, TouchedFields, ValidationErrors } from './slide5.props';
 import { validateField, validateForm, isFormValid as checkFormValidity } from './validation';
-import { step5Options, days } from 'app/constants/constants.ts';
-import {
-    MacroAllocation,
-    MealPlanBuilder,
-    TargetWeightService,
-    WeekMealPlanService,
-} from '@tickt-engineering/diet-gen-lib';
-// import { Gender, ActivityLevel, UnitSystem } from '@tickt-engineering/diet-gen-lib';
+import { step5Options } from 'app/constants/constants.ts';
+import { MealPlanBuilder, TargetWeightService } from '@tickt-ltd/diet-gen-lib';
+import { createWeekRecipes } from '@tickt-ltd/diet-gen-lib/tests/__mocks__/mock-recipes';
 import { useOnboarding } from 'app/contexts/onboarding/onboarding-context';
 import {
     DietGoal,
     GoalPace,
-    UnitSystem,
     ActivityLevel,
     Gender,
+    UnitSystem,
     MealType,
     Recipe,
+    UserProfile,
+    Cuisine,
     RecipeFilter,
-} from '@tickt-engineering/types';
-import { PaginatedResult, ServiceFactory } from '@tickt-engineering/services';
+} from '@tickt-ltd/types';
+import { useAuth } from 'app/contexts/auth/auth';
 
+import { PaginatedResult, ServiceFactory } from '@tickt-ltd/services';
 const initialState: OnboardingState = {
     targetWeight: '',
     goal: DietGoal.WEIGHT_LOSS,
@@ -46,6 +44,7 @@ export const useSlide5 = (onboardingState?: any, updateStepData?: (data: any) =>
     const [baseWeight, setBaseWeight] = useState<number>(0);
     const [adjustment, setAdjustment] = useState<number>(0);
     const [weightUnit, setWeightUnit] = useState<string>('kg');
+    const { user } = useAuth();
 
     // Load saved state from onboardingState if it exists
     useEffect(() => {
@@ -84,7 +83,10 @@ export const useSlide5 = (onboardingState?: any, updateStepData?: (data: any) =>
                 const activityLevel = mapActivityLevel(onboardingState.activityLevel);
 
                 // Use metric system by default (can be adjusted based on app requirements)
-                const unitSystem = UnitSystem.METRIC;
+                const unitSystem =
+                    onboardingState.measurementSystem === 'cmKg'
+                        ? UnitSystem.METRIC
+                        : UnitSystem.IMPERIAL;
 
                 // Get recommended target weight
                 const recommended = targetWeightService.recommendTargetWeight(
@@ -240,9 +242,8 @@ export const useSlide5 = (onboardingState?: any, updateStepData?: (data: any) =>
             onboardingState?.weight,
             Number(state.targetWeight),
             state.pace as GoalPace,
-            onboardingState?.measurementSystem,
+            onboardingState?.measurementSystem === 'cmKg' ? UnitSystem.METRIC : UnitSystem.IMPERIAL,
         );
-
         return weeks;
     };
 
@@ -251,7 +252,35 @@ export const useSlide5 = (onboardingState?: any, updateStepData?: (data: any) =>
             [meal in MealType]?: Recipe;
         };
     };
-    async function getAllRecipes(): Promise<WeekMeals> {
+    async function getAllRecipesFromMealPlanBuilder() {
+        if (user?.email && user.uid) {
+            const mealPlanBuilder = new MealPlanBuilder({
+                activityLevel: onboardingState.activityLevel,
+                dietType: onboardingState.dietaryPreferences,
+                gender: onboardingState.gender,
+                age: onboardingState.age,
+                weightKg: onboardingState.weight,
+                heightCm: onboardingState.height,
+                goal: onboardingState.goal,
+                unitSystem:
+                    onboardingState?.measurementSystem === 'cmKg'
+                        ? UnitSystem.METRIC
+                        : UnitSystem.IMPERIAL,
+                email: user.email,
+                id: user.uid,
+                dietFilters: {
+                    allergies: onboardingState.allergies,
+                    mealCount: onboardingState.mealCount,
+                    pace: onboardingState.pace,
+                },
+                createdAt: new Date('2023-01-01'),
+                updatedAt: new Date('2023-01-01'),
+            }).build(); // need to pass recieps
+            return mealPlanBuilder;
+        }
+    }
+
+    async function getAllRecipesFromFireStore(): Promise<WeekMeals> {
         const { freeDays, mealCount, allergies, dietaryPreferences } = onboardingState;
 
         //This line could not be run due to using firebase-admin in shared service. React native can not use Node.js modules.
@@ -301,7 +330,6 @@ export const useSlide5 = (onboardingState?: any, updateStepData?: (data: any) =>
 
         return weekMeals;
     }
-
     return {
         state,
         setState,

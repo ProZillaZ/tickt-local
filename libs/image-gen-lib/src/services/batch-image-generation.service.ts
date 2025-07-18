@@ -1,5 +1,5 @@
-import { Logger, ServiceFactory, IRecipeService } from '@tickt-engineering/services';
-import { UpdateRecipeDto } from '@tickt-engineering/types';
+import { Logger, ServiceFactory, IRecipeService } from '@tickt-ltd/services';
+import { UpdateRecipeDto } from '@tickt-ltd/types';
 import {
 	ImageGenerationService,
 	PromptBuilderService,
@@ -150,7 +150,7 @@ export class BatchImageGenerationService {
 				name: recipe.name,
 				description: recipe.description,
 				cuisines: recipe.cuisines,
-				ingredients: recipe.ingredients?.map(ing => ({
+				ingredients: recipe.ingredients?.map((ing:any) => ({
 					name: ing.name,
 					amount: ing.amount,
 					unit: ing.unit

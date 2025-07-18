@@ -7,7 +7,7 @@ import {
     GoalPace,
     IngredientMeasurement,
     MealCount,
-} from '@tickt-engineering/types';
+} from '@tickt-ltd/types';
 import { MeasurementSystem } from 'app/components/onboarding/slides/slide1/slide1.props';
 
 export enum onboarding {

@@ -6,7 +6,7 @@ import {
 	CreateChatMessageDto,
 	CreateChatParticipantDto,
 	ChatSessionFilter,
-} from '@tickt-engineering/types';
+} from '@tickt-ltd/types';
 
 export interface IChatSessionService {
 	createSession(createDto: CreateChatSessionDto): Promise<ChatSession>;

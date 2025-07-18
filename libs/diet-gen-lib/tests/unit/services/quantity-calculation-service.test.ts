@@ -1,7 +1,7 @@
 import { QuantityCalculationService } from '../../../src/services/ingredients/quantity-calculation.service';
 import { Ingredient } from '../../../src/models/ingredients/ingredient';
 import { MacroAllocation } from '../../../src/models/macros/macro-allocation';
-import { Macro } from '@tickt-engineering/types';
+import { Macro } from '@tickt-ltd/types';
 import { CALORIES_PER_GRAM } from '../../../src/utils/constants';
 import { IngredientCategory } from '../../../src/models/ingredients/ingredient-category.enum';
 import { CookingMethod } from '../../../src/models/ingredients/cooking-method.enum';

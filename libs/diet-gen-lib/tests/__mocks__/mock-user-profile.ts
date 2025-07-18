@@ -1,5 +1,4 @@
-import { UserProfile, Gender, ActivityLevel, DietGoal, UnitSystem } from '@tickt-engineering/types';
-import { DietType, MealCount, Allergen } from '@tickt-engineering/nutrition-types';
+import { UserProfile, Gender, ActivityLevel, DietGoal, UnitSystem, DietType, MealCount, Allergen } from '@tickt-ltd/types';
 
 export const mockUserProfile: UserProfile = {
     id: '1',

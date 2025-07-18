@@ -1,5 +1,6 @@
-import { Meal } from '../../src/models/meals/meal';
-import { MealType } from '@tickt-engineering/nutrition-types';
+import { Meal } from '@tickt/diet-gen-lib';
+import { MealType } from '@tickt-ltd/types';
+import { NutritionalInfo } from '@tickt-ltd/types';
 import { mockIngredients } from './mock-ingredients';
 
 export const mockMeals: Meal[] = [
@@ -7,12 +8,7 @@ export const mockMeals: Meal[] = [
         id: '1',
         mealType: MealType.BREAKFAST,
         ingredients: [{ ...mockIngredients[2], quantity: 100 }], // Avocado
-        nutritionalInfo: {
-            totalCalories: 160,
-            totalProtein: 2,
-            totalCarbs: 1.9,
-            totalFats: 19.7,
-        },
+        nutritionalInfo: new NutritionalInfo(160, 2, 1.9, 19.7, 0),
         createdAt: new Date(),
         updatedAt: new Date(),
     },
@@ -23,12 +19,7 @@ export const mockMeals: Meal[] = [
             { ...mockIngredients[0], quantity: 150 }, // Chicken Breast
             { ...mockIngredients[1], quantity: 100 }, // Brown Rice
         ],
-        nutritionalInfo: {
-            totalCalories: 247.5 + 112,
-            totalProtein: 46.5 + 2.6,
-            totalCarbs: 0 + 23,
-            totalFats: 5.4 + 0.9,
-        },
+        nutritionalInfo: new NutritionalInfo(247.5 + 112, 46.5 + 2.6, 0 + 23, 5.4 + 0.9, 0),
         createdAt: new Date(),
         updatedAt: new Date(),
     },

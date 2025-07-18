@@ -1,4 +1,4 @@
-import { Macro, MealType, Allergen, DietType } from '@tickt-engineering/types';
+import { Macro, MealType, Allergen, DietType, Recipe } from '@tickt-ltd/types';
 import {IngredientSelectionService} from "../ingredients/ingredient-selection.service";
 import {QuantityCalculationService} from "../ingredients/quantity-calculation.service";
 import {MacroAllocation} from '../../models/macros/macro-allocation';
@@ -6,13 +6,15 @@ import {Meal} from '../../models/meals/meal';
 import {NutritionalInfoService} from "../nutritional-info.service";
 import {MealFactory} from '../../models/meals/meal.factory';
 import {MacronutrientService} from "../macronutrient.service";
+import {RecipeQuantityAdjustmentService} from "../recipes/recipe-quantity-adjustment.service";
 
 export class MealService {
     constructor(
         private ingredientSelectionService: IngredientSelectionService,
         private quantityCalculationService: QuantityCalculationService,
         private nutritionalInfoService: NutritionalInfoService,
-        private macronutrientService: MacronutrientService
+        private macronutrientService: MacronutrientService,
+        private recipeQuantityAdjustmentService?: RecipeQuantityAdjustmentService
     ) {}
 
     /**
@@ -99,5 +101,47 @@ export class MealService {
         const snacks = Array(mealCount - mealTypes.length).fill(MealType.SNACK);
 
         return [...mealTypes.slice(0, Math.min(mealCount, 3)), ...snacks];
+    }
+
+    /**
+     * Creates recipe-based meals from provided recipes and macro allocations.
+     * @param recipes - Array of recipes to use for each meal.
+     * @param mealMacroAllocations - Array of macro allocations for each meal.
+     * @returns An array of Recipe objects, adjusted for macro targets.
+     */
+    createRecipeMeals(
+        recipes: Recipe[],
+        mealMacroAllocations: MacroAllocation[]
+    ): Recipe[] {
+        if (!this.recipeQuantityAdjustmentService) {
+            throw new Error('RecipeQuantityAdjustmentService is required for recipe-based meals');
+        }
+
+        return recipes.map((recipe, index) => {
+            const mealMacroAllocation = mealMacroAllocations[index];
+
+            return this.createRecipeMeal(recipe, mealMacroAllocation);
+        });
+    }
+
+    /**
+     * Creates a recipe-based meal by adjusting recipe quantities to meet macro targets.
+     * @param recipe - The recipe to use for the meal.
+     * @param mealMacroAllocation - The macronutrient allocation for the meal.
+     * @returns A Recipe object adjusted for macro targets.
+     */
+    createRecipeMeal(
+        recipe: Recipe,
+        mealMacroAllocation: MacroAllocation
+    ): Recipe {
+        if (!this.recipeQuantityAdjustmentService) {
+            throw new Error('RecipeQuantityAdjustmentService is required for recipe-based meals');
+        }
+
+        // Adjust recipe quantities to meet macro targets
+        return this.recipeQuantityAdjustmentService.scaleRecipeForMacros(
+            recipe,
+            mealMacroAllocation
+        );
     }
 }

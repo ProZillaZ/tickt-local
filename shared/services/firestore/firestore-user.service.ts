@@ -1,4 +1,4 @@
-import { CreateUserProfileDto, UpdateUserProfileDto, UserProfile } from '@tickt-engineering/types';
+import { CreateUserProfileDto, UpdateUserProfileDto, UserProfile } from '@tickt-ltd/types';
 import { IDatabaseAdapter, ILogger, IUserService, PaginatedResult, SearchOptions, DEFAULT_DATABASE_CONFIG } from '../interfaces';
 import { BaseService, NotFoundError, ValidationError } from '../core';
 

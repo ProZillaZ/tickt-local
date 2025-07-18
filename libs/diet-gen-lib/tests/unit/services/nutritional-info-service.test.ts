@@ -21,23 +21,21 @@ describe('NutritionalInfoService', () => {
 
             const result = nutritionalInfoService.calculateMealNutritionalInfo(ingredients);
 
-            expect(result).toEqual({
-                totalCalories: 247.5 + 112 + 11.5,
-                totalProtein: 46.5 + 2.6 + 1.45,
-                totalCarbs: 0 + 23 + 1.8,
-                totalFats: 5.4 + 0.9 + 0.2,
-            });
+            expect(result.calories).toBe(Math.round((247.5 + 112 + 11.5) * 10) / 10);
+            expect(result.protein).toBe(Math.round((46.5 + 2.6 + 1.45) * 10) / 10);
+            expect(result.carbohydrates).toBe(Math.round((0 + 23 + 1.8) * 10) / 10);
+            expect(result.fat).toBe(Math.round((5.4 + 0.9 + 0.2) * 10) / 10);
+            expect(result.fiber).toBe(0);
         });
 
         it('should return zero values for an empty ingredient list', () => {
             const result = nutritionalInfoService.calculateMealNutritionalInfo([]);
 
-            expect(result).toEqual({
-                totalCalories: 0,
-                totalProtein: 0,
-                totalCarbs: 0,
-                totalFats: 0,
-            });
+            expect(result.calories).toBe(0);
+            expect(result.protein).toBe(0);
+            expect(result.carbohydrates).toBe(0);
+            expect(result.fat).toBe(0);
+            expect(result.fiber).toBe(0);
         });
     });
 
@@ -45,23 +43,21 @@ describe('NutritionalInfoService', () => {
         it('should correctly calculate nutritional info for a day', () => {
             const result = nutritionalInfoService.calculateDayNutritionalInfo(mockMeals);
 
-            expect(result).toEqual({
-                totalCalories: 160 + 247.5 + 112,
-                totalProtein: 2 + 46.5 + 2.6,
-                totalCarbs: 1.9 + 0 + 23,
-                totalFats: 19.7 + 5.4 + 0.9,
-            });
+            expect(result.calories).toBe(Math.round((160 + 247.5 + 112) * 10) / 10);
+            expect(result.protein).toBe(Math.round((2 + 46.5 + 2.6) * 10) / 10);
+            expect(result.carbohydrates).toBe(Math.round((1.9 + 0 + 23) * 10) / 10);
+            expect(result.fat).toBe(Math.round((19.7 + 5.4 + 0.9) * 10) / 10);
+            expect(result.fiber).toBe(0);
         });
 
         it('should return zero values for an empty meal list', () => {
             const result = nutritionalInfoService.calculateDayNutritionalInfo([]);
 
-            expect(result).toEqual({
-                totalCalories: 0,
-                totalProtein: 0,
-                totalCarbs: 0,
-                totalFats: 0,
-            });
+            expect(result.calories).toBe(0);
+            expect(result.protein).toBe(0);
+            expect(result.carbohydrates).toBe(0);
+            expect(result.fat).toBe(0);
+            expect(result.fiber).toBe(0);
         });
     });
 
@@ -69,23 +65,21 @@ describe('NutritionalInfoService', () => {
         it('should correctly calculate nutritional info for a week', () => {
             const result = nutritionalInfoService.calculateWeekNutritionalInfo(mockDayMealPlans);
 
-            expect(result).toEqual({
-                totalCalories: 3800,
-                totalProtein: 190,
-                totalCarbs: 475,
-                totalFats: 127,
-            });
+            expect(result.calories).toBe(Math.round(3800 * 10) / 10);
+            expect(result.protein).toBe(Math.round(190 * 10) / 10);
+            expect(result.carbohydrates).toBe(Math.round(475 * 10) / 10);
+            expect(result.fat).toBe(Math.round(127 * 10) / 10);
+            expect(result.fiber).toBe(0);
         });
 
         it('should return zero values for an empty day meal plan list', () => {
             const result = nutritionalInfoService.calculateWeekNutritionalInfo([]);
 
-            expect(result).toEqual({
-                totalCalories: 0,
-                totalProtein: 0,
-                totalCarbs: 0,
-                totalFats: 0,
-            });
+            expect(result.calories).toBe(0);
+            expect(result.protein).toBe(0);
+            expect(result.carbohydrates).toBe(0);
+            expect(result.fat).toBe(0);
+            expect(result.fiber).toBe(0);
         });
     });
 });

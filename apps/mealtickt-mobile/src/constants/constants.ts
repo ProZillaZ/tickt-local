@@ -1,6 +1,6 @@
 import { Platform } from 'react-native';
 import { getCardIcon } from '../utils/helpers';
-import { DietGoal, GoalPace } from '@tickt-engineering/types';
+import { DietGoal, GoalPace } from '@tickt-ltd/types';
 // import {
 // 	ingredientMenu as ingredientMenuData,
 // } from '@tickt-engineering/diet-gen-lib/src/data/ingredients/ingredient-menu.data';
@@ -164,19 +164,19 @@ export const step2Options = [
         placeholder: 'how active are you',
         options: [
             {
-                value: 'sedentary (little to no activity)',
+                value: 'sedentary',
                 label: 'sedentary (little to no activity)',
             },
             {
-                value: 'lightly active (1–2 times per week)',
+                value: 'lightly-active',
                 label: 'lightly active (1–2 times per week)',
             },
             {
-                value: 'active (3-4 times per week)',
+                value: 'moderately-active',
                 label: 'active (3-4 times per week)',
             },
             {
-                value: 'very active (daily intense activity)',
+                value: 'very-active',
                 label: 'very active (daily intense activity)',
             },
         ],

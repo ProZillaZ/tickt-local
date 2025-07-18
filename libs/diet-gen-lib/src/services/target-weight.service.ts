@@ -1,4 +1,4 @@
-import { Gender, UnitSystem, FrameSize, ActivityLevel, DietGoal, GoalPace } from '@tickt-engineering/types';
+import { Gender, UnitSystem, FrameSize, ActivityLevel, DietGoal, GoalPace } from '@tickt-ltd/types';
 import { FrameSizeService } from './frame-size.service';
 import { HealthMetricsService } from './health-metrics.service';
 import { UnitConversionService } from './unit-conversion.service';
@@ -21,7 +21,7 @@ export class TargetWeightService {
   /**
    * Calculates the recommended target weight range based on height, gender, and frame size
    * using evidence-based formulas.
-   * 
+   *
    * @param height Height in cm (metric) or inches (imperial)
    * @param gender User's gender
    * @param age User's age in years
@@ -38,7 +38,7 @@ export class TargetWeightService {
   ): { min: number; ideal: number; max: number } {
     // Convert to metric if using imperial
     const heightInCm = unitSystem === UnitSystem.IMPERIAL ? height * 2.54 : height;
-    
+
     // Base calculation using modified Hamwi formula
     let baseWeight: number;
     if (gender === Gender.MALE) {
@@ -46,19 +46,19 @@ export class TargetWeightService {
     } else {
       baseWeight = 45.5 + 0.91 * (heightInCm - 152.4);
     }
-    
+
     // Get frame factor using FrameSizeService
     const frameFactor = this.frameSizeService.getFrameFactor(frameSize);
-    
+
     // Adjust for age (metabolism slows as we age)
     const ageFactor = age >= 50 ? 0.98 : 1.0;
-    
+
     const idealWeight = baseWeight * frameFactor * ageFactor;
-    
+
     // Calculate range (typically ±10% of ideal weight is considered healthy)
     const min = Math.round(idealWeight * 0.9);
     const max = Math.round(idealWeight * 1.1);
-    
+
     // Convert back to imperial if needed
     if (unitSystem === UnitSystem.IMPERIAL) {
       return {
@@ -67,7 +67,7 @@ export class TargetWeightService {
         max: Math.round(max * 2.20462)
       };
     }
-    
+
     return {
       min: min,
       ideal: Math.round(idealWeight),
@@ -77,7 +77,7 @@ export class TargetWeightService {
 
   /**
    * Calculates BMI (Body Mass Index) given height and weight
-   * 
+   *
    * @param height Height in cm (metric) or inches (imperial)
    * @param weight Weight in kg (metric) or pounds (imperial)
    * @param unitSystem The unit system being used
@@ -93,13 +93,13 @@ export class TargetWeightService {
 
   /**
    * Determines the healthy weight range based on BMI 18.5-24.9
-   * 
+   *
    * @param height Height in cm (metric) or inches (imperial)
    * @param unitSystem The unit system being used
    * @returns Object containing minimum and maximum healthy weights based on BMI
    */
   calculateHealthyWeightRangeByBMI(
-    height: number, 
+    height: number,
     unitSystem: UnitSystem
   ): { min: number; max: number } {
     if (unitSystem === UnitSystem.IMPERIAL) {
@@ -118,7 +118,7 @@ export class TargetWeightService {
 
   /**
    * Determines the user's frame size based on available data
-   * 
+   *
    * @param weight Current weight in kg (metric) or pounds (imperial)
    * @param height Height in cm (metric) or inches (imperial)
    * @param gender User's gender
@@ -139,17 +139,17 @@ export class TargetWeightService {
     if (providedFrameSize) {
       return providedFrameSize;
     }
-    
+
     // Use wrist measurement if available for more accurate estimation
     if (wristCircumference) {
       return this.frameSizeService.inferFrameSize(
-        wristCircumference, 
-        height, 
-        gender, 
+        wristCircumference,
+        height,
+        gender,
         unitSystem
       );
     }
-    
+
     // Fall back to BMI-based estimation
     return this.frameSizeService.estimateFrameSizeFromBMI(
       weight,
@@ -161,7 +161,7 @@ export class TargetWeightService {
 
   /**
    * Calculates a detailed age-based adjustment factor for metabolic changes
-   * 
+   *
    * @param age User's age in years
    * @param gender User's gender
    * @returns Age adjustment factor for weight calculations
@@ -188,7 +188,7 @@ export class TargetWeightService {
 
   /**
    * Gets an activity level factor based on the user's activity level
-   * 
+   *
    * @param activityLevel User's activity level
    * @returns Activity adjustment factor
    */
@@ -209,7 +209,7 @@ export class TargetWeightService {
 
   /**
    * Recommends a target weight based on current weight, height, gender, and health goals
-   * 
+   *
    * @param currentWeight Current weight in kg (metric) or pounds (imperial)
    * @param height Height in cm (metric) or inches (imperial)
    * @param gender User's gender
@@ -239,63 +239,63 @@ export class TargetWeightService {
       frameSize,
       wristCircumference
     );
-    
+
     const bmiRange = this.calculateHealthyWeightRangeByBMI(height, unitSystem);
     const idealRange = this.calculateIdealWeightRange(height, gender, age, unitSystem, userFrameSize);
-    
+
     // Calculate detailed age adjustment factor
     const ageAdjustmentFactor = this.calculateAgeAdjustmentFactor(age, gender);
-    
+
     // Check if current weight is healthy
     if (currentWeight >= bmiRange.min && currentWeight <= bmiRange.max) {
       // If already in healthy range, target the ideal weight for their frame size
       // Apply age adjustment to the ideal weight
       return Math.round(idealRange.ideal * ageAdjustmentFactor);
     }
-    
+
     // If overweight, target the upper end of healthy BMI range
     if (currentWeight > bmiRange.max) {
       // Activity level adjustment based on enum
       const activityAdjustment = this.getActivityLevelFactor(activityLevel);
-      
+
       // Frame size adjustment - larger frames can support more weight
       const frameFactor = this.frameSizeService.getFrameFactor(userFrameSize);
-      
+
       // Apply age adjustment factor
       const adjustedMax = bmiRange.max * activityAdjustment * frameFactor * ageAdjustmentFactor;
-      
+
       const target = Math.min(
         currentWeight * 0.9, // Don't recommend more than 10% loss initially
         adjustedMax
       );
       return Math.round(target);
     }
-    
+
     // If underweight, target the lower end of healthy BMI range
     if (currentWeight < bmiRange.min) {
       // Frame size adjustment - smaller frames naturally weigh less
       const frameFactor = this.frameSizeService.getFrameFactor(userFrameSize);
-      
+
       // Apply age adjustment - but in reverse for underweight individuals
       // For underweight, we want to ensure adequate weight regardless of age
       const ageFactorForUnderweight = Math.min(1.0, 2 - ageAdjustmentFactor);
-      
+
       const adjustedMin = bmiRange.min * frameFactor * ageFactorForUnderweight;
-      
+
       const target = Math.max(
         currentWeight * 1.1, // Don't recommend more than 10% gain initially
         adjustedMin
       );
       return Math.round(target);
     }
-    
+
     // Fallback to ideal weight for their frame size with age adjustment
     return Math.round(idealRange.ideal * ageAdjustmentFactor);
   }
 
   /**
    * Infers the diet goal based on the relationship between current and target weights
-   * 
+   *
    * @param currentWeight Current weight in kg or lbs
    * @param targetWeight Target weight in kg or lbs
    * @returns The inferred diet goal
@@ -304,24 +304,24 @@ export class TargetWeightService {
     // Calculate percentage difference
     const difference = targetWeight - currentWeight;
     const percentDifference = (difference / currentWeight) * 100;
-    
+
     // Small differences (±1%) are considered maintenance
     if (Math.abs(percentDifference) < 1) {
       return DietGoal.MAINTENANCE;
     }
-    
+
     // Weight loss goal
     if (difference < 0) {
       return DietGoal.WEIGHT_LOSS;
     }
-    
+
     // Weight gain goal
     return DietGoal.WEIGHT_GAIN;
   }
 
   /**
    * Calculate the number of weeks needed to reach a target weight based on the selected pace
-   * 
+   *
    * @param currentWeight Current weight in kg (metric) or pounds (imperial)
    * @param targetWeight Target weight in kg (metric) or pounds (imperial)
    * @param goalPace Selected weight change pace (MODERATE: 0.5kg/week, FAST: 1kg/week)
@@ -336,15 +336,15 @@ export class TargetWeightService {
   ): number {
     // Infer diet goal
     const dietGoal = this.inferDietGoal(currentWeight, targetWeight);
-    
+
     // For maintenance goals, return 0 weeks
     if (dietGoal === DietGoal.MAINTENANCE) {
       return 0;
     }
-    
+
     // Calculate weight difference
     const weightDifference = Math.abs(targetWeight - currentWeight);
-    
+
     // Get weekly rate in kg based on the pace
     let weeklyRate: number;
     if (goalPace === GoalPace.FAST) {
@@ -352,16 +352,16 @@ export class TargetWeightService {
     } else {
       weeklyRate = 0.5; // 0.5 kg per week (MODERATE is the default)
     }
-    
+
     // Convert to imperial if needed
     if (unitSystem === UnitSystem.IMPERIAL) {
       weeklyRate = UnitConversionService.convertKgToLbs(weeklyRate);
     }
-    
+
     // Calculate weeks
     const weeks = weightDifference / weeklyRate;
-    
+
     // Return ceiling value to get full weeks
     return Math.ceil(weeks);
   }
-} 
+}

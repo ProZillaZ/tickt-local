@@ -20,7 +20,7 @@ import {
     GoalPace,
     IngredientMeasurement,
     MealCount,
-} from '@tickt-engineering/types';
+} from '@tickt-ltd/types';
 
 const DietPlan = () => {
     const { state, updateState, handleBack, handleUpdateDays, handleConfirm } = useDietPlan();

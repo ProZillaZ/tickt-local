@@ -1,4 +1,4 @@
-import { Macro } from '@tickt-engineering/types';
+import { Macro } from '@tickt-ltd/types';
 
 export interface MacroCount {
 	macro: Macro;

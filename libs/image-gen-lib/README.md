@@ -8,7 +8,7 @@ A modular, extensible, and reusable library for generating high-quality, photore
 - 🔧 **Modular Architecture**: Independently maintainable and testable components
 - 🔗 **Extensible Design**: Easy to integrate additional image generation providers
 - ♻️ **Reusable**: Designed for use across multiple applications and projects
-- 🔥 **Shared Services Integration**: Uses `@tickt-engineering/services` for consistent database operations
+- 🔥 **Shared Services Integration**: Uses `@tickt-ltd/services` for consistent database operations
 - 🚀 **Batch Processing**: Generate images for multiple recipes with concurrency control
 - 📱 **TypeScript Support**: Full TypeScript support with comprehensive type definitions
 - ✅ **Validation**: Built-in request and configuration validation
@@ -26,16 +26,16 @@ yarn add @tickt-engineering/image-gen-lib
 This library requires the Tickt Engineering shared packages:
 
 ```bash
-yarn add @tickt-engineering/services @tickt-engineering/types
+yarn add @tickt-ltd/services @tickt-ltd/types
 ```
 
 ## Recent Updates (v2.x)
 
 ### What's New
 
-- ✨ **Shared Services Integration**: Migrated from direct Firestore access to use `@tickt-engineering/services`
+- ✨ **Shared Services Integration**: Migrated from direct Firestore access to use `@tickt-ltd/services`
 - 🚀 **Enhanced Batch Processing**: Improved concurrency control and error handling
-- 🔧 **Better Type Safety**: Full integration with `@tickt-engineering/types`
+- 🔧 **Better Type Safety**: Full integration with `@tickt-ltd/types`
 - 📊 **Progress Tracking**: Real-time batch generation progress monitoring
 - 🛠️ **Service Factory Pattern**: Proper dependency injection and service management
 
@@ -46,17 +46,17 @@ If upgrading from v1.x, the `BatchImageGenerationService` now requires proper sh
 ```typescript
 // Before (v1.x) - Direct Firestore
 import { BatchImageGenerationService } from '@tickt-engineering/image-gen-lib';
-const batchService = new BatchImageGenerationService(); // This will now fail
+const batchServiceBefore = new BatchImageGenerationService(); // This will now fail
 
 // After (v2.x) - Shared Services
 import { BatchImageGenerationService } from '@tickt-engineering/image-gen-lib';
-import { initializeFirestoreServices } from '@tickt-engineering/services';
+import { initializeFirestoreServices } from '@tickt-ltd/services';
 
 // Initialize shared services first
 initializeFirestoreServices(firebaseModules);
 
 // Then create batch service
-const batchService = new BatchImageGenerationService(); // Now works properly
+const batchServiceAfter = new BatchImageGenerationService(); // Now works properly
 ```
 
 ## Quick Start
@@ -154,7 +154,7 @@ import {
 } from '@tickt-engineering/image-gen-lib';
 
 // Initialize shared services (required for batch processing)
-import { ServiceFactory, initializeFirestoreServices } from '@tickt-engineering/services';
+import { ServiceFactory, initializeFirestoreServices } from '@tickt-ltd/services';
 
 // Setup database connection (one-time setup)
 const firebase = {
@@ -217,14 +217,14 @@ const finalResult = await batchPromise;
 - **BatchImageGenerationService**: Handles large-scale image generation with concurrency control
 - **Adapters**: Provider-specific implementations (OpenAI DALL-E, Google Imagen)
 - **Validators**: Request and configuration validation
-- **Storage Integration**: Uses `@tickt-engineering/services` for Firebase Storage operations
+- **Storage Integration**: Uses `@tickt-ltd/services` for Firebase Storage operations
 
 ### Shared Services Integration
 
 This library leverages the Tickt Engineering shared services ecosystem:
 
-- **Database Operations**: Uses `@tickt-engineering/services` for recipe data access
-- **Type Safety**: Leverages `@tickt-engineering/types` for consistent data models
+- **Database Operations**: Uses `@tickt-ltd/services` for recipe data access
+- **Type Safety**: Leverages `@tickt-ltd/types` for consistent data models
 - **Service Factory Pattern**: Proper dependency injection and service management
 - **Consistent Logging**: Unified logging across all Tickt Engineering packages
 
@@ -238,8 +238,8 @@ This library leverages the Tickt Engineering shared services ecosystem:
 
 ```json
 {
-  "@tickt-engineering/services": "^2.3.0",
-  "@tickt-engineering/types": "^1.0.1"
+  "@tickt-ltd/services": "^2.3.0",
+  "@tickt-ltd/types": "^1.0.1"
 }
 ```
 
@@ -454,7 +454,7 @@ yarn lint
 - Ensure Firebase project supports GenKit (newer projects work best)
 
 **Shared services errors:**
-- Verify `@tickt-engineering/services` and `@tickt-engineering/types` are installed
+- Verify `@tickt-ltd/services` and `@tickt-ltd/types` are installed
 - Check that shared services are properly initialized before batch operations
 - Ensure database adapters have proper Firebase configuration
 

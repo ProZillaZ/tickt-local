@@ -18,7 +18,7 @@
         "forceConsistentCasingInFileNames": false,
         "noFallthroughCasesInSwitch": false,
         "paths": {
-            "@tickt-engineering/diet-gen-lib": [
+            "@tickt-ltd/diet-gen-lib": [
                 "../../libs/diet-gen-lib/dist"
             ]
         }

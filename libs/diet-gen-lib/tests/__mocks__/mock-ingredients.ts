@@ -1,5 +1,5 @@
 import { Ingredient } from '../../src/models/ingredients/ingredient';
-import { Macro, MealType, DietType, Allergen } from '@tickt-engineering/types';
+import { Macro, MealType, DietType, Allergen } from '@tickt-ltd/types';
 import { IngredientCategory } from '../../src/models/ingredients/ingredient-category.enum';
 
 export const mockIngredients: Ingredient[] = [

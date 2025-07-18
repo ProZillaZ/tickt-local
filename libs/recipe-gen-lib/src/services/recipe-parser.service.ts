@@ -1,4 +1,4 @@
-import { RecipeDto } from '@tickt-engineering/types';
+import { RecipeDto } from '@tickt-ltd/types';
 import { LoggerInterface, RecipeGenerationError } from '../models';
 
 export class RecipeParserService {

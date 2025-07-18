@@ -1,4 +1,4 @@
-# @tickt-engineering/types
+# @tickt-ltd/types
 
 Consolidated TypeScript types for the Tickt ecosystem. This package contains all shared types, interfaces, DTOs, and enums used across Tickt applications.
 
@@ -13,9 +13,9 @@ Consolidated TypeScript types for the Tickt ecosystem. This package contains all
 ## Installation
 
 ```bash
-yarn add @tickt-engineering/types
+yarn add @tickt-ltd/types
 # or
-npm install @tickt-engineering/types
+npm install @tickt-ltd/types
 ```
 
 ## Usage
@@ -23,17 +23,17 @@ npm install @tickt-engineering/types
 ### Import Specific Types
 
 ```typescript
-import { Recipe, Ingredient, CreateRecipeDto } from '@tickt-engineering/types';
-import { WeekMealPlan, DayMealPlan } from '@tickt-engineering/types';
-import { ChatSession, ChatMessage } from '@tickt-engineering/types';
-import { UserProfile, ActivityLevel } from '@tickt-engineering/types';
-import { Cuisine, DietType, Allergen } from '@tickt-engineering/types';
+import { Recipe, Ingredient, CreateRecipeDto } from '@tickt-ltd/types';
+import { WeekMealPlan, DayMealPlan } from '@tickt-ltd/types';
+import { ChatSession, ChatMessage } from '@tickt-ltd/types';
+import { UserProfile, ActivityLevel } from '@tickt-ltd/types';
+import { Cuisine, DietType, Allergen } from '@tickt-ltd/types';
 ```
 
 ### Import by Domain
 
 ```typescript
-import { recipe, mealPlan, chat, user, nutrition } from '@tickt-engineering/types';
+import { recipe, mealPlan, chat, user, nutrition } from '@tickt-ltd/types';
 
 // Use specific domain types
 const newRecipe: recipe.Recipe = { /* ... */ };
@@ -73,7 +73,7 @@ const userProfile: user.UserProfile = { /* ... */ };
 ### Recipe Creation
 
 ```typescript
-import { Recipe, CreateRecipeDto, Difficulty, Cuisine } from '@tickt-engineering/types';
+import { Recipe, CreateRecipeDto, Difficulty, Cuisine } from '@tickt-ltd/types';
 
 const createRecipeDto: CreateRecipeDto = {
   name: 'Chicken Parmesan',
@@ -100,7 +100,7 @@ const createRecipeDto: CreateRecipeDto = {
 ### Meal Planning
 
 ```typescript
-import { WeekMealPlan, DayMealPlan, MealType } from '@tickt-engineering/types';
+import { WeekMealPlan, DayMealPlan, MealType } from '@tickt-ltd/types';
 
 const dayPlan: DayMealPlan = {
   id: 'day-1',
@@ -130,7 +130,7 @@ const weekPlan: WeekMealPlan = {
 ### User Profile
 
 ```typescript
-import { UserProfile, Gender, ActivityLevel, DietGoal } from '@tickt-engineering/types';
+import { UserProfile, Gender, ActivityLevel, DietGoal } from '@tickt-ltd/types';
 
 const userProfile: UserProfile = {
   id: 'user-123',
@@ -153,7 +153,7 @@ const userProfile: UserProfile = {
 ### Chat Session
 
 ```typescript
-import { ChatSession, ChatMessage, MessageType, SessionStatus } from '@tickt-engineering/types';
+import { ChatSession, ChatMessage, MessageType, SessionStatus } from '@tickt-ltd/types';
 
 const chatMessage: ChatMessage = {
   id: 'msg-1',
@@ -216,11 +216,11 @@ If you're migrating from the individual type packages:
 
 ```typescript
 // Before (multiple packages)
-import { Recipe } from '@tickt-engineering/recipe-types';
-import { WeekMealPlan } from '@tickt-engineering/meal-plan-types';
-import { ChatSession } from '@tickt-engineering/chat-types';
-import { UserProfile } from '@tickt-engineering/user-types';
-import { Cuisine } from '@tickt-engineering/nutrition-types';
+import { Recipe } from '@tickt-ltd/recipe-types';
+import { WeekMealPlan } from '@tickt-ltd/meal-plan-types';
+import { ChatSession } from '@tickt-ltd/chat-types';
+import { UserProfile } from '@tickt-ltd/user-types';
+import { Cuisine } from '@tickt-ltd/nutrition-types';
 
 // After (single package)
 import { 
@@ -229,7 +229,7 @@ import {
   ChatSession, 
   UserProfile, 
   Cuisine 
-} from '@tickt-engineering/types';
+} from '@tickt-ltd/types';
 ```
 
 ## Best Practices
@@ -238,16 +238,16 @@ import {
 
 ```typescript
 // ✅ Good - Specific imports
-import { Recipe, CreateRecipeDto } from '@tickt-engineering/types';
+import { Recipe, CreateRecipeDto } from '@tickt-ltd/types';
 
 // ❌ Avoid - Importing everything
-import * as Types from '@tickt-engineering/types';
+import * as Types from '@tickt-ltd/types';
 ```
 
 ### 2. Use Type Guards for Runtime Validation
 
 ```typescript
-import { Recipe } from '@tickt-engineering/types';
+import { Recipe } from '@tickt-ltd/types';
 
 function isRecipe(obj: any): obj is Recipe {
   return obj && typeof obj.id === 'string' && typeof obj.name === 'string';
@@ -257,7 +257,7 @@ function isRecipe(obj: any): obj is Recipe {
 ### 3. Leverage Union Types
 
 ```typescript
-import { MealType } from '@tickt-engineering/types';
+import { MealType } from '@tickt-ltd/types';
 
 type MealPlanningContext = {
   mealType: MealType;

@@ -1,13 +1,13 @@
-import { DayMealPlanService } from '../../../../src/services/meal-planning/day-meal-plan.service';
-import { MealService } from '../../../../src/services/meal-planning/meal.service';
-import { IngredientSelectionService } from '../../../../src/services/ingredients/ingredient-selection.service';
-import { QuantityCalculationService } from '../../../../src/services/ingredients/quantity-calculation.service';
-import { MacronutrientService } from '../../../../src/services/macronutrient.service';
-import { NutritionalInfoService } from '../../../../src/services/nutritional-info.service';
-import { DietType, Allergen, MealCount } from '@tickt-engineering/types';
-import { MacroAllocation } from '../../../../src/models/macros/macro-allocation';
-import { Meal } from '../../../../src/models/meals/meal';
-import { DAYS_IN_WEEK } from '../../../../src/utils/constants';
+import { DayMealPlanService } from '@tickt/diet-gen-lib';
+import { MealService } from '@tickt/diet-gen-lib';
+import { IngredientSelectionService } from '@tickt/diet-gen-lib';
+import { QuantityCalculationService } from '@tickt/diet-gen-lib';
+import { MacronutrientService } from '@tickt/diet-gen-lib';
+import { NutritionalInfoService } from '@tickt/diet-gen-lib';
+import { DietType, Allergen, MealCount, NutritionalInfo } from '@tickt-ltd/types';
+import { MacroAllocation } from '@tickt/diet-gen-lib';
+import { Meal } from '@tickt/diet-gen-lib';
+import { DAYS_IN_WEEK } from '@tickt/diet-gen-lib';
 
 // Mock dependencies
 jest.mock('../../../../src/services/meal-planning/meal.service');
@@ -55,12 +55,9 @@ describe('DayMealPlanService', () => {
             const mockMeal: Meal = {} as Meal;
             mockMealService.createMeals.mockReturnValue([mockMeal, mockMeal, mockMeal]);
 
-            mockNutritionalInfoService.calculateDayNutritionalInfo.mockReturnValue({
-                totalCalories: 1000,
-                totalProtein: 50,
-                totalCarbs: 100,
-                totalFats: 30,
-            });
+            mockNutritionalInfoService.calculateDayNutritionalInfo.mockReturnValue(
+                new NutritionalInfo(1000, 50, 100, 30, 0)
+            );
 
             const result = dayMealPlanService.createDailyMealPlans(
                 dietType,
@@ -86,12 +83,9 @@ describe('DayMealPlanService', () => {
             const mockMeals: Meal[] = [{} as Meal, {} as Meal, {} as Meal];
             mockMealService.createMeals.mockReturnValue(mockMeals);
 
-            mockNutritionalInfoService.calculateDayNutritionalInfo.mockReturnValue({
-                totalCalories: 1000,
-                totalProtein: 50,
-                totalCarbs: 100,
-                totalFats: 30,
-            });
+            mockNutritionalInfoService.calculateDayNutritionalInfo.mockReturnValue(
+                new NutritionalInfo(1000, 50, 100, 30, 0)
+            );
 
             const result = dayMealPlanService.createDailyMealPlan(
                 dietType,
@@ -102,12 +96,11 @@ describe('DayMealPlanService', () => {
             );
 
             expect(result.meals).toEqual(mockMeals);
-            expect(result.dayNutritionalInfo).toEqual({
-                totalCalories: 1000,
-                totalProtein: 50,
-                totalCarbs: 100,
-                totalFats: 30,
-            });
+            expect(result.dayNutritionalInfo.calories).toBe(1000);
+            expect(result.dayNutritionalInfo.protein).toBe(50);
+            expect(result.dayNutritionalInfo.carbohydrates).toBe(100);
+            expect(result.dayNutritionalInfo.fat).toBe(30);
+            expect(result.dayNutritionalInfo.fiber).toBe(0);
             expect(result.isFreeDay).toBe(false);
         });
 
@@ -126,12 +119,11 @@ describe('DayMealPlanService', () => {
             );
 
             expect(result.meals).toEqual([]);
-            expect(result.dayNutritionalInfo).toEqual({
-                totalCalories: 0,
-                totalProtein: 0,
-                totalCarbs: 0,
-                totalFats: 0,
-            });
+            expect(result.dayNutritionalInfo.calories).toBe(0);
+            expect(result.dayNutritionalInfo.protein).toBe(0);
+            expect(result.dayNutritionalInfo.carbohydrates).toBe(0);
+            expect(result.dayNutritionalInfo.fat).toBe(0);
+            expect(result.dayNutritionalInfo.fiber).toBe(0);
             expect(result.isFreeDay).toBe(true);
         });
     });
@@ -150,12 +142,9 @@ describe('DayMealPlanService', () => {
             const mockMeal: Meal = {} as Meal;
             mockMealService.createMeals.mockReturnValue([mockMeal, mockMeal, mockMeal]);
 
-            mockNutritionalInfoService.calculateDayNutritionalInfo.mockReturnValue({
-                totalCalories: 1000,
-                totalProtein: 50,
-                totalCarbs: 100,
-                totalFats: 30,
-            });
+            mockNutritionalInfoService.calculateDayNutritionalInfo.mockReturnValue(
+                new NutritionalInfo(1000, 50, 100, 30, 0)
+            );
 
             const result = dayMealPlanService.createDailyMealPlans(
                 dietType,

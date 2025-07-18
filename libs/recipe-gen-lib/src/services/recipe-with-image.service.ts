@@ -1,4 +1,4 @@
-import { RecipeDto, RecipeGenInputDto } from '@tickt-engineering/types';
+import { RecipeDto, RecipeGenInputDto } from '@tickt-ltd/types';
 import { LoggerInterface, RecipeGenConfig, ImageGenerationOptions } from '../models';
 import { RecipeGenerationService } from './recipe-generation.service';
 import { RecipeImageService } from './recipe-image.service';
@@ -19,10 +19,10 @@ export class RecipeWithImageService {
 		logger?: LoggerInterface,
 	) {
 		this.logger = logger;
-		
+
 		// Validate recipe generation config
 		ConfigValidator.validateAndThrow(config.recipeGeneration, 'recipe-generation');
-		
+
 		// Initialize services
 		this.recipeService = new RecipeGenerationService(config.recipeGeneration, logger);
 		this.imageService = new RecipeImageService(logger);
@@ -38,7 +38,7 @@ export class RecipeWithImageService {
 
 			// Then generate the image
 			const recipeWithImage = await this.imageService.generateImageForRecipe(
-				recipe, 
+				recipe,
 				{ enabled: true, generateInBackground: false }
 			);
 
@@ -60,7 +60,7 @@ export class RecipeWithImageService {
 
 			// Generate image in background
 			const recipeWithImage = await this.imageService.generateImageForRecipe(
-				recipe, 
+				recipe,
 				{ enabled: true, generateInBackground: true }
 			);
 
@@ -73,7 +73,7 @@ export class RecipeWithImageService {
 	}
 
 	async generateRecipeWithCustomImageOptions(
-		input: RecipeGenInputDto, 
+		input: RecipeGenInputDto,
 		imageOptions: ImageGenerationOptions
 	): Promise<RecipeDto> {
 		this.logger?.log('Starting recipe generation with custom image options', 'RecipeWithImageService');
@@ -81,7 +81,7 @@ export class RecipeWithImageService {
 		try {
 			// Generate the recipe first
 			const recipe = await this.recipeService.generateRecipe(input);
-			
+
 			if (!imageOptions.enabled) {
 				this.logger?.log('Image generation disabled, returning recipe only', 'RecipeWithImageService');
 				return recipe;
