@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { FormField, OnboardingState, TouchedFields, ValidationErrors } from './slide5.props';
 import { validateField, validateForm, isFormValid as checkFormValidity } from './validation';
 import { step5Options } from 'app/constants/constants.ts';
-import { TargetWeightService } from '@tickt-ltd/diet-gen-lib';
+import { MealPlanBuilder, TargetWeightService } from '@tickt-ltd/diet-gen-lib';
 // import { Gender, ActivityLevel, UnitSystem } from '@tickt-engineering/diet-gen-lib';
 import { Gender } from 'app/enums/gender.enum';
 import { ActivityLevel } from 'app/enums/activity-level.enum';
@@ -233,6 +233,30 @@ export const useSlide5 = (onboardingState?: any, updateStepData?: (data: any) =>
         );
         return weeks;
     };
+    const getRecipes = () => {
+        if (!onboardingState) return null;
+
+        const userProfile: UserProfile = {
+            id: 'temp-user',
+            email: 'temp@example.com',
+            age: Number(onboardingState.age) || 25,
+            gender: onboardingState.gender === 'male' ? Gender.MALE : Gender.FEMALE,
+            heightCm: Number(onboardingState.height) || 170,
+            weightKg: Number(onboardingState.weight) || 70,
+            activityLevel: mapActivityLevel(onboardingState.activityLevel),
+            goal: state.goal as DietGoal,
+            dietType: DietType.STANDARD,
+            unitSystem: UnitSystem.METRIC,
+            createdAt: new Date(),
+            updatedAt: new Date(),
+        };
+
+        const weekMealPlan = new MealPlanBuilder(userProfile).build();
+
+        weekMealPlan.dayPlans.forEach((d, i) => {
+            console.log(JSON.stringify(d));
+        });
+    };
     return {
         state,
         setState,
@@ -253,5 +277,6 @@ export const useSlide5 = (onboardingState?: any, updateStepData?: (data: any) =>
         MIN_ADJUSTMENT,
         MAX_ADJUSTMENT,
         estimateTime,
+        getRecipes,
     };
 };

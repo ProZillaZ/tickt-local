@@ -34,6 +34,7 @@ const Slide5: React.FC<SlideComponentProps> = ({
         MIN_ADJUSTMENT,
         MAX_ADJUSTMENT,
         estimateTime,
+        getRecipes,
     } = useSlide5(onboardingState, updateStepData);
     const { animateValue, translateX } = useActiveAnimation(isActive);
 
@@ -178,6 +179,7 @@ const Slide5: React.FC<SlideComponentProps> = ({
                 </View>
             )}
             <Button onClick={onNextPress} text="next" disabled={false} style={styles.btn} />
+            <Button onClick={getRecipes} text="next" disabled={false} style={styles.btn} />
             <InfoModal
                 visible={visible}
                 setVisible={() => setVisible(false)}
