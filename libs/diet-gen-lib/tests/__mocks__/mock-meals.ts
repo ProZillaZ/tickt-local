@@ -1,4 +1,4 @@
-import { Meal } from '@tickt/diet-gen-lib';
+import { Meal } from '../../src/models/meals/meal';
 import { MealType } from '@tickt-ltd/types';
 import { NutritionalInfo } from '@tickt-ltd/types';
 import { mockIngredients } from './mock-ingredients';

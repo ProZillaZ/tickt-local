@@ -10,7 +10,7 @@ import {IngredientSelectionService} from "../ingredients/ingredient-selection.se
 import {QuantityCalculationService} from "../ingredients/quantity-calculation.service";
 import {ingredients} from "../../data/ingredients/ingredients.data";
 import {MacroAllocation} from "../../models/macros/macro-allocation";
-import {WeekMealPlan} from "../../models/meal-plans/week-meal-plan";
+import { WeekMealPlan } from '@tickt-ltd/types';
 import {RecipeQuantityAdjustmentService} from "../recipes/recipe-quantity-adjustment.service";
 
 export class MealPlanBuilder {

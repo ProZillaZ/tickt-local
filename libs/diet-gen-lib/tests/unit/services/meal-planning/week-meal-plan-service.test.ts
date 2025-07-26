@@ -3,8 +3,8 @@ import { DayMealPlanService } from '../../../../src/services/meal-planning/day-m
 import { NutritionalInfoService } from '../../../../src/services/nutritional-info.service';
 import { DietType, Allergen, MealCount, NutritionalInfo } from '@tickt-ltd/types';
 import { MacroAllocation } from '../../../../src/models/macros/macro-allocation';
-import { WeekMealPlan } from '../../../../src/models/meal-plans/week-meal-plan';
-import { DayMealPlan } from '../../../../src/models/meal-plans/day-meal-plan';
+import { WeekMealPlan } from '../../../../../../shared/types/meal-plan';
+import { DayMealPlan } from '../../../../../../shared/types/meal-plan';
 import { MealService } from '../../../../src/services/meal-planning/meal.service';
 import { MacronutrientService } from '../../../../src/services/macronutrient.service';
 

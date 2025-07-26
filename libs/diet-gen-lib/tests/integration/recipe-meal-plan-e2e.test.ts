@@ -1,18 +1,18 @@
 import { MealPlanBuilder } from '../../src/services/meal-planning/meal-plan.builder';
-import { WeekMealPlan } from '../../src/models/meal-plans/week-meal-plan';
+import { WeekMealPlan } from '@tickt-ltd/types';
 import { mockUserProfile } from '../__mocks__/mock-user-profile';
-import { 
-    mockBreakfastRecipe, 
-    mockLunchRecipe, 
-    mockDinnerRecipe, 
+import {
+    mockBreakfastRecipe,
+    mockLunchRecipe,
+    mockDinnerRecipe,
     mockVegetarianRecipe,
     createWeekRecipes,
     createDayRecipes
 } from '../__mocks__/mock-recipes';
-import { 
-    Recipe, 
-    UserProfile, 
-    DietType, 
+import {
+    Recipe,
+    UserProfile,
+    DietType,
     MealCount,
     Allergen
 } from '@tickt-ltd/types';
@@ -31,19 +31,19 @@ describe('Recipe Meal Plan End-to-End Tests', () => {
             // Arrange
             const dayRecipes = createDayRecipes();
             const weekRecipes = [dayRecipes]; // Single day
-            
+
             // Act
             const weekMealPlan: WeekMealPlan = mealPlanBuilder.build(weekRecipes);
-            
+
             // Assert
             expect(weekMealPlan).toBeDefined();
             expect(weekMealPlan.dayPlans).toHaveLength(1);
-            
+
             const dayPlan = weekMealPlan.dayPlans[0];
             expect(dayPlan).toBeDefined();
             expect(dayPlan.meals).toHaveLength(3); // breakfast, lunch, dinner
             expect(dayPlan.isFreeDay).toBe(false);
-            
+
             // Verify nutritional info is calculated
             expect(dayPlan.dayNutritionalInfo).toBeDefined();
             expect(dayPlan.dayNutritionalInfo.calories).toBeGreaterThan(0);
@@ -56,22 +56,22 @@ describe('Recipe Meal Plan End-to-End Tests', () => {
             // Arrange
             const dayRecipes = [mockBreakfastRecipe, mockLunchRecipe, mockDinnerRecipe];
             const weekRecipes = [dayRecipes];
-            
+
             // Act
             const weekMealPlan: WeekMealPlan = mealPlanBuilder.build(weekRecipes);
-            
+
             // Assert
             const dayPlan = weekMealPlan.dayPlans[0];
             const meals = dayPlan.meals;
-            
+
             expect(meals).toHaveLength(3);
-            
+
             // Verify each meal has expected properties
             meals.forEach(meal => {
                 expect(meal).toBeDefined();
                 expect(meal.ingredients).toBeDefined();
                 expect(meal.nutritionalInfo).toBeDefined();
-                
+
                 // Check if it's a Recipe (has name and instructions) or Meal (has mealType)
                 if ('name' in meal) {
                     // It's a Recipe
@@ -88,22 +88,22 @@ describe('Recipe Meal Plan End-to-End Tests', () => {
             // Arrange
             const dayRecipes = createDayRecipes();
             const weekRecipes = [dayRecipes];
-            
+
             // Act
             const weekMealPlan: WeekMealPlan = mealPlanBuilder.build(weekRecipes);
-            
+
             // Assert
             const dayPlan = weekMealPlan.dayPlans[0];
             const nutritionalInfo = dayPlan.dayNutritionalInfo;
-            
-            // The system scales recipes to meet user's macro targets, 
+
+            // The system scales recipes to meet user's macro targets,
             // so we just verify the nutritional info is calculated and reasonable
             expect(nutritionalInfo.calories).toBeGreaterThan(1000); // Should be reasonable daily calories
             expect(nutritionalInfo.calories).toBeLessThan(5000);
             expect(nutritionalInfo.protein).toBeGreaterThan(50);
             expect(nutritionalInfo.carbohydrates).toBeGreaterThan(100);
             expect(nutritionalInfo.fat).toBeGreaterThan(30);
-            
+
             // Verify that the sum of meal nutritional info equals day total
             const mealTotalCalories = dayPlan.meals.reduce((sum, meal) => sum + meal.nutritionalInfo.calories, 0);
             expect(nutritionalInfo.calories).toBeCloseTo(mealTotalCalories, 0);
@@ -114,18 +114,18 @@ describe('Recipe Meal Plan End-to-End Tests', () => {
         it('should create a complete week meal plan with recipes', () => {
             // Arrange
             const weekRecipes = createWeekRecipes();
-            
+
             // Act
             const weekMealPlan: WeekMealPlan = mealPlanBuilder.build(weekRecipes);
-            
+
             // Assert
             expect(weekMealPlan).toBeDefined();
             expect(weekMealPlan.dayPlans).toHaveLength(7);
-            
+
             // Verify each day has meals (except free day)
             weekMealPlan.dayPlans.forEach((dayPlan, index) => {
                 expect(dayPlan).toBeDefined();
-                
+
                 if (index === 5) { // Saturday is free day
                     expect(dayPlan.isFreeDay).toBe(true);
                     expect(dayPlan.meals).toHaveLength(0);
@@ -139,10 +139,10 @@ describe('Recipe Meal Plan End-to-End Tests', () => {
         it('should handle free day correctly (Saturday)', () => {
             // Arrange
             const weekRecipes = createWeekRecipes();
-            
+
             // Act
             const weekMealPlan: WeekMealPlan = mealPlanBuilder.build(weekRecipes);
-            
+
             // Assert
             const saturdayPlan = weekMealPlan.dayPlans[5]; // Saturday is index 5
             expect(saturdayPlan.isFreeDay).toBe(true);
@@ -156,21 +156,21 @@ describe('Recipe Meal Plan End-to-End Tests', () => {
         it('should calculate week nutritional info correctly', () => {
             // Arrange
             const weekRecipes = createWeekRecipes();
-            
+
             // Act
             const weekMealPlan: WeekMealPlan = mealPlanBuilder.build(weekRecipes);
-            
+
             // Assert
             expect(weekMealPlan.weekNutritionalInfo).toBeDefined();
             expect(weekMealPlan.weekNutritionalInfo.calories).toBeGreaterThan(0);
             expect(weekMealPlan.weekNutritionalInfo.protein).toBeGreaterThan(0);
             expect(weekMealPlan.weekNutritionalInfo.carbohydrates).toBeGreaterThan(0);
             expect(weekMealPlan.weekNutritionalInfo.fat).toBeGreaterThan(0);
-            
+
             // Week total should be sum of non-free days (6 days)
             const nonFreeDays = weekMealPlan.dayPlans.filter(day => !day.isFreeDay);
             expect(nonFreeDays).toHaveLength(6);
-            
+
             const expectedWeekCalories = nonFreeDays.reduce((total, day) => total + day.dayNutritionalInfo.calories, 0);
             expect(weekMealPlan.weekNutritionalInfo.calories).toBeCloseTo(expectedWeekCalories, 0);
         });
@@ -181,22 +181,22 @@ describe('Recipe Meal Plan End-to-End Tests', () => {
             // Arrange
             const dayRecipes = [mockBreakfastRecipe]; // Single meal
             const weekRecipes = [dayRecipes];
-            
+
             // Act
             const weekMealPlan: WeekMealPlan = mealPlanBuilder.build(weekRecipes);
-            
+
             // Assert
             const dayPlan = weekMealPlan.dayPlans[0];
             const adjustedRecipe = dayPlan.meals[0];
-            
+
             expect(adjustedRecipe).toBeDefined();
             expect(adjustedRecipe.ingredients).toBeDefined();
             expect(adjustedRecipe.ingredients.length).toBeGreaterThan(0);
-            
+
             // Recipe should have been adjusted for macro targets
             expect(adjustedRecipe.nutritionalInfo).toBeDefined();
             expect(adjustedRecipe.nutritionalInfo.calories).toBeGreaterThan(0);
-            
+
             // If it's a Recipe, check servings
             if ('servings' in adjustedRecipe) {
                 expect(adjustedRecipe.servings).toBeGreaterThan(0);
@@ -208,16 +208,16 @@ describe('Recipe Meal Plan End-to-End Tests', () => {
             const originalRecipe = mockBreakfastRecipe;
             const originalIngredientCount = originalRecipe.ingredients.length;
             const weekRecipes = [[originalRecipe]];
-            
+
             // Act
             const weekMealPlan: WeekMealPlan = mealPlanBuilder.build(weekRecipes);
-            
+
             // Assert
             const adjustedRecipe = weekMealPlan.dayPlans[0].meals[0];
-            
+
             // Should have same number of ingredients
             expect(adjustedRecipe.ingredients.length).toBe(originalIngredientCount);
-            
+
             // All ingredients should have positive amounts
             adjustedRecipe.ingredients.forEach(ingredient => {
                 // Check if it's a Recipe Ingredient (has amount and unit) or diet-gen-lib Ingredient (has quantity)
@@ -241,18 +241,18 @@ describe('Recipe Meal Plan End-to-End Tests', () => {
                 ...testUserProfile,
                 dietType: DietType.VEGETARIAN
             };
-            
+
             const vegetarianBuilder = new MealPlanBuilder(vegetarianUser);
             const dayRecipes = [mockBreakfastRecipe, mockLunchRecipe, mockVegetarianRecipe];
             const weekRecipes = [dayRecipes];
-            
+
             // Act
             const weekMealPlan: WeekMealPlan = vegetarianBuilder.build(weekRecipes);
-            
+
             // Assert
             expect(weekMealPlan).toBeDefined();
             expect(weekMealPlan.dayPlans[0].meals).toHaveLength(3);
-            
+
             // Verify vegetarian recipe is included
             const dinnerMeal = weekMealPlan.dayPlans[0].meals[2];
             if ('name' in dinnerMeal) {
@@ -269,14 +269,14 @@ describe('Recipe Meal Plan End-to-End Tests', () => {
                     mealCount: MealCount.FOUR
                 }
             };
-            
+
             const fourMealBuilder = new MealPlanBuilder(fourMealUser);
             const dayRecipes = createDayRecipes(true); // Include snack
             const weekRecipes = [dayRecipes];
-            
+
             // Act
             const weekMealPlan: WeekMealPlan = fourMealBuilder.build(weekRecipes);
-            
+
             // Assert
             expect(weekMealPlan).toBeDefined();
             expect(weekMealPlan.dayPlans[0].meals).toHaveLength(4);
@@ -291,18 +291,18 @@ describe('Recipe Meal Plan End-to-End Tests', () => {
                     allergies: [Allergen.PEANUTS]
                 }
             };
-            
+
             const allergenBuilder = new MealPlanBuilder(allergenUser);
             const dayRecipes = createDayRecipes();
             const weekRecipes = [dayRecipes];
-            
+
             // Act
             const weekMealPlan: WeekMealPlan = allergenBuilder.build(weekRecipes);
-            
+
             // Assert
             expect(weekMealPlan).toBeDefined();
             expect(weekMealPlan.dayPlans[0].meals).toHaveLength(3);
-            
+
             // Should still create meal plan despite allergen preferences
             // (Recipe selection logic would filter out allergen-containing recipes)
         });
@@ -312,10 +312,10 @@ describe('Recipe Meal Plan End-to-End Tests', () => {
         it('should create valid WeekMealPlan structure', () => {
             // Arrange
             const weekRecipes = createWeekRecipes();
-            
+
             // Act
             const weekMealPlan: WeekMealPlan = mealPlanBuilder.build(weekRecipes);
-            
+
             // Assert
             expect(weekMealPlan).toBeDefined();
             expect(weekMealPlan.id).toBeDefined();
@@ -332,10 +332,10 @@ describe('Recipe Meal Plan End-to-End Tests', () => {
             // Arrange
             const dayRecipes = createDayRecipes();
             const weekRecipes = [dayRecipes];
-            
+
             // Act
             const weekMealPlan: WeekMealPlan = mealPlanBuilder.build(weekRecipes);
-            
+
             // Assert
             const dayPlan = weekMealPlan.dayPlans[0];
             expect(dayPlan).toBeDefined();
@@ -351,13 +351,13 @@ describe('Recipe Meal Plan End-to-End Tests', () => {
             // Arrange
             const originalRecipe = mockBreakfastRecipe;
             const weekRecipes = [[originalRecipe]];
-            
+
             // Act
             const weekMealPlan: WeekMealPlan = mealPlanBuilder.build(weekRecipes);
-            
+
             // Assert
             const processedRecipe = weekMealPlan.dayPlans[0].meals[0];
-            
+
             // Core properties should be maintained if it's a Recipe
             if ('name' in processedRecipe) {
                 expect(processedRecipe.name).toBe(originalRecipe.name);
@@ -368,7 +368,7 @@ describe('Recipe Meal Plan End-to-End Tests', () => {
                 expect(processedRecipe.dietTypes).toEqual(originalRecipe.dietTypes);
                 expect(processedRecipe.instructions).toEqual(originalRecipe.instructions);
             }
-            
+
             // Quantities may be adjusted but structure should be maintained
             expect(processedRecipe.ingredients.length).toBe(originalRecipe.ingredients.length);
             expect(processedRecipe.nutritionalInfo).toBeDefined();
@@ -377,7 +377,7 @@ describe('Recipe Meal Plan End-to-End Tests', () => {
         it('should handle edge cases gracefully', () => {
             // Arrange - empty recipes array
             const emptyWeekRecipes: Recipe[][] = [[]];
-            
+
             // Act & Assert
             expect(() => {
                 mealPlanBuilder.build(emptyWeekRecipes);
@@ -387,14 +387,14 @@ describe('Recipe Meal Plan End-to-End Tests', () => {
         it('should produce consistent results across multiple runs', () => {
             // Arrange
             const weekRecipes = createWeekRecipes();
-            
+
             // Act
             const weekMealPlan1: WeekMealPlan = mealPlanBuilder.build(weekRecipes);
             const weekMealPlan2: WeekMealPlan = mealPlanBuilder.build(weekRecipes);
-            
+
             // Assert
             expect(weekMealPlan1.dayPlans.length).toBe(weekMealPlan2.dayPlans.length);
-            
+
             // Compare nutritional totals (should be similar)
             expect(weekMealPlan1.weekNutritionalInfo.calories)
                 .toBeCloseTo(weekMealPlan2.weekNutritionalInfo.calories, 0);
@@ -408,11 +408,11 @@ describe('Recipe Meal Plan End-to-End Tests', () => {
             // Arrange
             const weekRecipes = createWeekRecipes();
             const startTime = Date.now();
-            
+
             // Act
             const weekMealPlan: WeekMealPlan = mealPlanBuilder.build(weekRecipes);
             const endTime = Date.now();
-            
+
             // Assert
             expect(weekMealPlan).toBeDefined();
             expect(endTime - startTime).toBeLessThan(1000); // Should complete in under 1 second
@@ -429,14 +429,14 @@ describe('Recipe Meal Plan End-to-End Tests', () => {
                     mockDinnerRecipe
                 ]);
             }
-            
+
             // Act
             const weekMealPlan: WeekMealPlan = mealPlanBuilder.build(largeRecipeSet);
-            
+
             // Assert
             expect(weekMealPlan).toBeDefined();
             expect(weekMealPlan.dayPlans).toHaveLength(7);
-            
+
             // Each non-free day should have 3 meals
             weekMealPlan.dayPlans.forEach((dayPlan, index) => {
                 if (index !== 5) { // Not Saturday

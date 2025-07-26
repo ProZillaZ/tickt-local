@@ -1,25 +1,15 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { FormField, OnboardingState, TouchedFields, ValidationErrors } from './slide5.props';
-import { validateField, validateForm, isFormValid as checkFormValidity } from './validation';
+import { isFormValid as checkFormValidity, validateField } from './validation';
 import { step5Options } from 'app/constants/constants.ts';
-import { MealPlanBuilder, TargetWeightService } from '@tickt-ltd/diet-gen-lib';
-import { createWeekRecipes } from '@tickt-ltd/diet-gen-lib/tests/__mocks__/mock-recipes';
+import { TargetWeightService } from '@tickt-ltd/diet-gen-lib';
+import { Gender } from 'app/enums/gender.enum';
+import { ActivityLevel } from 'app/enums/activity-level.enum';
+import { UnitSystem } from 'app/enums/unit-system.enum';
 import { useOnboarding } from 'app/contexts/onboarding/onboarding-context';
-import {
-    DietGoal,
-    GoalPace,
-    ActivityLevel,
-    Gender,
-    UnitSystem,
-    MealType,
-    Recipe,
-    UserProfile,
-    Cuisine,
-    RecipeFilter,
-} from '@tickt-ltd/types';
-import { useAuth } from 'app/contexts/auth/auth';
+import { DietGoal } from '@tickt-ltd/types';
+import { GoalPace } from 'app/enums/goal-pace.enum';
 
-import { PaginatedResult, ServiceFactory } from '@tickt-ltd/services';
 const initialState: OnboardingState = {
     targetWeight: '',
     goal: DietGoal.WEIGHT_LOSS,
@@ -44,7 +34,6 @@ export const useSlide5 = (onboardingState?: any, updateStepData?: (data: any) =>
     const [baseWeight, setBaseWeight] = useState<number>(0);
     const [adjustment, setAdjustment] = useState<number>(0);
     const [weightUnit, setWeightUnit] = useState<string>('kg');
-    const { user } = useAuth();
 
     // Load saved state from onboardingState if it exists
     useEffect(() => {
@@ -83,10 +72,7 @@ export const useSlide5 = (onboardingState?: any, updateStepData?: (data: any) =>
                 const activityLevel = mapActivityLevel(onboardingState.activityLevel);
 
                 // Use metric system by default (can be adjusted based on app requirements)
-                const unitSystem =
-                    onboardingState.measurementSystem === 'cmKg'
-                        ? UnitSystem.METRIC
-                        : UnitSystem.IMPERIAL;
+                const unitSystem = UnitSystem.METRIC;
 
                 // Get recommended target weight
                 const recommended = targetWeightService.recommendTargetWeight(
@@ -238,98 +224,13 @@ export const useSlide5 = (onboardingState?: any, updateStepData?: (data: any) =>
     };
     const estimateTime = () => {
         const targetWeightService = new TargetWeightService();
-        const weeks = targetWeightService.calculateTimeToReachGoal(
+        return targetWeightService.calculateTimeToReachGoal(
             onboardingState?.weight,
             Number(state.targetWeight),
             state.pace as GoalPace,
-            onboardingState?.measurementSystem === 'cmKg' ? UnitSystem.METRIC : UnitSystem.IMPERIAL,
+            UnitSystem.METRIC,
         );
-        return weeks;
     };
-
-    type WeekMeals = {
-        [day: string]: {
-            [meal in MealType]?: Recipe;
-        };
-    };
-    async function getAllRecipesFromMealPlanBuilder() {
-        if (user?.email && user.uid) {
-            const mealPlanBuilder = new MealPlanBuilder({
-                activityLevel: onboardingState.activityLevel,
-                dietType: onboardingState.dietaryPreferences,
-                gender: onboardingState.gender,
-                age: onboardingState.age,
-                weightKg: onboardingState.weight,
-                heightCm: onboardingState.height,
-                goal: onboardingState.goal,
-                unitSystem:
-                    onboardingState?.measurementSystem === 'cmKg'
-                        ? UnitSystem.METRIC
-                        : UnitSystem.IMPERIAL,
-                email: user.email,
-                id: user.uid,
-                dietFilters: {
-                    allergies: onboardingState.allergies,
-                    mealCount: onboardingState.mealCount,
-                    pace: onboardingState.pace,
-                },
-                createdAt: new Date('2023-01-01'),
-                updatedAt: new Date('2023-01-01'),
-            }).build(); // need to pass recieps
-            return mealPlanBuilder;
-        }
-    }
-
-    async function getAllRecipesFromFireStore(): Promise<WeekMeals> {
-        const { freeDays, mealCount, allergies, dietaryPreferences } = onboardingState;
-
-        //This line could not be run due to using firebase-admin in shared service. React native can not use Node.js modules.
-        const recipeService = ServiceFactory.getInstance().getRecipeService();
-
-        // Determine the meal types based on mealCount
-        const getMealTypes = (count: number): MealType[] => {
-            switch (count) {
-                case 1:
-                    return [MealType.LUNCH];
-                case 2:
-                    return [MealType.LUNCH, MealType.DINNER];
-                case 3:
-                    return [MealType.BREAKFAST, MealType.LUNCH, MealType.DINNER];
-                case 4:
-                default:
-                    return [MealType.BREAKFAST, MealType.LUNCH, MealType.SNACK, MealType.DINNER];
-            }
-        };
-
-        const meals: MealType[] = getMealTypes(Number(mealCount));
-        const weekMeals: WeekMeals = {};
-
-        for (const day of freeDays) {
-            weekMeals[day] = {};
-
-            for (const meal of meals) {
-                try {
-                    const filter: RecipeFilter = {
-                        mealTypes: [meal],
-                        allergens: allergies,
-                        dietTypes: dietaryPreferences,
-                    };
-
-                    const result: PaginatedResult<Recipe> = await recipeService.search(filter, {
-                        limit: 1,
-                    });
-
-                    if (result.items.length > 0) {
-                        weekMeals[day][meal] = result.items[0]; // pick the first recipe
-                    }
-                } catch (error) {
-                    console.error(`Error fetching recipe for ${day} - ${meal}:`, error);
-                }
-            }
-        }
-
-        return weekMeals;
-    }
     return {
         state,
         setState,

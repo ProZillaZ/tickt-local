@@ -1,15 +1,12 @@
 import { DayMealPlan } from './day-meal-plan.model';
-import { MealPlanNutritionalInfo } from './nutritional-info.model';
+import { NutritionalInfo } from '@tickt-ltd/types';
 
 export interface WeekMealPlan {
 	id: string;
-	userId: string;
 	dayPlans: DayMealPlan[];
-	weekNutritionalInfo?: MealPlanNutritionalInfo;
-	startDate: string;
-	endDate: string;
-	name?: string;
-	description?: string;
-	createdAt?: Date;
-	updatedAt?: Date;
+	weekNutritionalInfo: NutritionalInfo;
+	startDate: Date;
+	endDate: Date;
+	createdAt: Date;
+	updatedAt: Date;
 }

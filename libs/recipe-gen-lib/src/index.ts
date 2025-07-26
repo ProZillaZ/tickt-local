@@ -25,7 +25,7 @@ export {
 	ImageQuality,
 	ImageSize,
 	ImageStyle,
-} from '@tickt-engineering/image-gen-lib';
+} from '@tickt-ltd/image-gen-lib';
 
 // DTOs (re-exported from shared types)
 export { RecipeGenInputDto } from '@tickt-ltd/types';

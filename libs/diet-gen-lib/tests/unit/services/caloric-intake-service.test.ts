@@ -1,6 +1,6 @@
-import { CaloricIntakeService } from '@tickt/diet-gen-lib';
+import { CaloricIntakeService } from '../../../src/services/caloric-intake.service';
 import { Gender, ActivityLevel, DietGoal, GoalPace } from '@tickt-ltd/types';
-import { CalorieAdjustmentsConfig } from '@tickt/diet-gen-lib';
+import { CalorieAdjustmentsConfig } from '../../../src/utils/constants';
 
 describe('CaloricIntakeService', () => {
     let service: CaloricIntakeService;

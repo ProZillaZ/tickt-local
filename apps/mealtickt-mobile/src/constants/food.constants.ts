@@ -1,7 +1,7 @@
 import { getCardIcon } from '../utils/helpers';
 // import {
 // 	ingredientMenu as ingredientMenuData,
-// } from '@tickt-engineering/diet-gen-lib/src/data/ingredients/ingredient-menu.data';
+// } from '@tickt-ltd/diet-gen-lib/src/data/ingredients/ingredient-menu.data';
 
 export const ingredientMenuData = [
 { id: 101, name: 'Chicken Breast' },
@@ -180,4 +180,4 @@ export const recipeToggleOptions = ['ingredients', 'directions', 'macros'];
 export const recipeMealLogOptions = [
 	{ label: 'yes, I\'ve had this meal', icon: getCardIcon('plus') },
 	{ label: 'no, i\'ve skipped this meal', icon: getCardIcon('minus') },
-]; 
+];

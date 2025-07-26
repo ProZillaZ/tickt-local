@@ -15,20 +15,20 @@
 ## Installation
 
 ```bash
-yarn add @tickt-engineering/recipe-gen-lib
+yarn add @tickt-ltd/recipe-gen-lib
 ```
 
 Or with npm:
 ```bash
-npm install @tickt-engineering/recipe-gen-lib
+npm install @tickt-ltd/recipe-gen-lib
 ```
 
 ## Quick Start
 
 ```typescript
-import { RecipeGenerationService, LlmProvider } from '@tickt-engineering/recipe-gen-lib';
-import { DietType, MealType } from '@tickt-engineering/nutrition-types';
-import { Difficulty } from '@tickt-engineering/recipe-types';
+import { RecipeGenerationService, LlmProvider } from '@tickt-ltd/recipe-gen-lib';
+import { DietType, MealType } from '@tickt-ltd/nutrition-types';
+import { Difficulty } from '@tickt-ltd/recipe-types';
 
 // Initialize the service with simplified configuration
 const recipeService = new RecipeGenerationService({
@@ -136,7 +136,7 @@ const service = new RecipeGenerationService(config, customLogger);
 ### Using LLM Service Directly
 
 ```typescript
-import { LlmService, LlmProvider } from '@tickt-engineering/recipe-gen-lib';
+import { LlmService, LlmProvider } from '@tickt-ltd/recipe-gen-lib';
 
 // Create LLM service directly using built-in factory method
 const llmService = LlmService.create({
@@ -152,7 +152,7 @@ const recipe = await llmService.generateRecipe(input);
 ### Custom Prompt Building
 
 ```typescript
-import { PromptBuilder } from '@tickt-engineering/recipe-gen-lib';
+import { PromptBuilder } from '@tickt-ltd/recipe-gen-lib';
 
 // Build custom prompts
 const prompt = PromptBuilder.build({
@@ -173,7 +173,7 @@ console.log(prompt); // Complete LLM prompt ready for generation
 The library includes automatic retry logic with exponential backoff, but you can still handle errors:
 
 ```typescript
-import { RecipeGenerationError } from '@tickt-engineering/recipe-gen-lib';
+import { RecipeGenerationError } from '@tickt-ltd/recipe-gen-lib';
 
 try {
   const recipe = await recipeService.generateRecipe(input);
@@ -268,8 +268,8 @@ yarn test
 
 ## License
 
-All Rights Reserved - Tickt Engineering
+All Rights Reserved - Polytropic Ltd
 
 ## Support
 
-For issues and questions, please visit our [GitHub Issues](https://github.com/tickt-engineering/tickt/issues) page.
+For issues and questions, please visit our [GitHub Issues](https://github.com/tickt-ltd/tickt/issues) page.

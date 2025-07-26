@@ -1,4 +1,4 @@
-import { ScoringStrategy } from "models/scoring/scoring-strategy";
+import { ScoringStrategy } from "../../models/scoring/scoring-strategy";
 import { CuisineCompatibilityStrategy } from '../../models/scoring/strategies/cuisine-compatibility.strategy';
 import { CategoryCompatibilityStrategy } from '../../models/scoring/strategies/category-compatibility.strategy';
 import { Ingredient } from '../../models/ingredients/ingredient';

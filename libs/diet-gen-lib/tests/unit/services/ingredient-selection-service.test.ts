@@ -1,6 +1,7 @@
-import { IngredientSelectionService } from '@tickt/diet-gen-lib';
+import { IngredientSelectionService } from '../../../src/services/ingredients/ingredient-selection.service';
 import { DietType, MealType, Macro, Allergen } from '@tickt-ltd/types';
 import { mockIngredients } from '../../__mocks__/mock-ingredients';
+import { Ingredient } from '../../../src/models/ingredients/ingredient';
 
 describe('IngredientSelectionService', () => {
 	let service: IngredientSelectionService;
@@ -19,10 +20,10 @@ describe('IngredientSelectionService', () => {
 			);
 
 			expect(result).toHaveLength(4);
-			expect(result.find(i => i.macro === Macro.PROTEIN)).toBeDefined();
-			expect(result.find(i => i.macro === Macro.CARBS)).toBeDefined();
-			expect(result.find(i => i.macro === Macro.FAT)).toBeDefined();
-			expect(result.find(i => i.macro === Macro.VEGGIE)).toBeDefined();
+			expect(result.find((i: Ingredient) => i.macro === Macro.PROTEIN)).toBeDefined();
+			expect(result.find((i: Ingredient) => i.macro === Macro.CARBS)).toBeDefined();
+			expect(result.find((i: Ingredient) => i.macro === Macro.FAT)).toBeDefined();
+			expect(result.find((i: Ingredient) => i.macro === Macro.VEGGIE)).toBeDefined();
 		});
 
 		it('should select compatible ingredients for a vegetarian diet lunch', () => {
@@ -34,8 +35,8 @@ describe('IngredientSelectionService', () => {
 			);
 
 			expect(result).toHaveLength(2);
-			expect(result.find(i => i.macro === Macro.PROTEIN)).toBeDefined();
-			expect(result.find(i => i.macro === Macro.CARBS)).toBeDefined();
+			expect(result.find((i: Ingredient) => i.macro === Macro.PROTEIN)).toBeDefined();
+			expect(result.find((i: Ingredient) => i.macro === Macro.CARBS)).toBeDefined();
 		});
 
 		it('should exclude ingredients with allergens', () => {
@@ -47,7 +48,7 @@ describe('IngredientSelectionService', () => {
 			);
 
 			expect(result).toHaveLength(4);
-			expect(result.map(i => i.name)).not.toContain('Tofu');
+			expect(result.map((i: Ingredient) => i.name)).not.toContain('Tofu');
 		});
 
 		it('should return an empty array if no compatible ingredients are found', () => {
@@ -102,7 +103,7 @@ describe('IngredientSelectionService', () => {
 		});
 
 		it('should consider current selection when finding compatible ingredient', () => {
-			const chickenBreast = mockIngredients.find(i => i.name === 'Chicken Breast')!;
+			const chickenBreast = mockIngredients.find((i: Ingredient) => i.name === 'Chicken Breast')!;
 			const result = (service as any).findCompatibleIngredient(
 				Macro.CARBS,
 				MealType.DINNER,

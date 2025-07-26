@@ -1,0 +1,15 @@
+# Compiled output
+*.js
+*.js.map
+*.d.ts
+*.d.ts.map
+dist/
+
+# TypeScript build cache
+*.tsbuildinfo
+
+# Dependencies
+node_modules/
+
+# Logs
+*.log

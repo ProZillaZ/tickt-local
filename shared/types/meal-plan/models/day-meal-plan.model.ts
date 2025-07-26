@@ -1,15 +1,21 @@
-import { MealPlanItem } from './meal-plan-item.model';
-import { MealPlanNutritionalInfo } from './nutritional-info.model';
+import { Recipe } from '@tickt-ltd/types';
+import { NutritionalInfo } from '@tickt-ltd/types';
+
+export interface Meal {
+	id: string;
+	mealType: string;
+	ingredients: any[];
+	nutritionalInfo: NutritionalInfo;
+	createdAt: Date;
+	updatedAt: Date;
+}
 
 export interface DayMealPlan {
 	id: string;
-	date: string;
-	breakfast?: MealPlanItem;
-	lunch?: MealPlanItem;
-	dinner?: MealPlanItem;
-	snacks?: MealPlanItem[];
-	dayNutritionalInfo?: MealPlanNutritionalInfo;
-	isFreeDay?: boolean;
-	createdAt?: Date;
-	updatedAt?: Date;
+	meals: (Meal | Recipe)[];
+	dayNutritionalInfo: NutritionalInfo;
+	date: Date;
+	isFreeDay: boolean;
+	createdAt: Date;
+	updatedAt: Date;
 }

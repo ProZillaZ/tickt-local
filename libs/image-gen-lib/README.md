@@ -1,4 +1,4 @@
-# @tickt-engineering/image-gen-lib
+# @tickt-ltd/image-gen-lib
 
 A modular, extensible, and reusable library for generating high-quality, photorealistic images of recipes using AI image generation providers. Part of the Tickt Engineering ecosystem.
 
@@ -18,7 +18,7 @@ A modular, extensible, and reusable library for generating high-quality, photore
 ## Installation
 
 ```bash
-yarn add @tickt-engineering/image-gen-lib
+yarn add @tickt-ltd/image-gen-lib
 ```
 
 ### Dependencies
@@ -45,11 +45,11 @@ If upgrading from v1.x, the `BatchImageGenerationService` now requires proper sh
 
 ```typescript
 // Before (v1.x) - Direct Firestore
-import { BatchImageGenerationService } from '@tickt-engineering/image-gen-lib';
+import { BatchImageGenerationService } from '@tickt-ltd/image-gen-lib';
 const batchServiceBefore = new BatchImageGenerationService(); // This will now fail
 
 // After (v2.x) - Shared Services
-import { BatchImageGenerationService } from '@tickt-engineering/image-gen-lib';
+import { BatchImageGenerationService } from '@tickt-ltd/image-gen-lib';
 import { initializeFirestoreServices } from '@tickt-ltd/services';
 
 // Initialize shared services first
@@ -71,7 +71,7 @@ import {
   ImageQuality,
   ImageSize,
   ImageStyle 
-} from '@tickt-engineering/image-gen-lib';
+} from '@tickt-ltd/image-gen-lib';
 
 // Initialize services
 const imageService = new ImageGenerationService();
@@ -115,7 +115,7 @@ import {
   ImageSize,
   ImageStyle,
   initializeGenKit
-} from '@tickt-engineering/image-gen-lib';
+} from '@tickt-ltd/image-gen-lib';
 
 // Initialize GenKit (optional - done automatically)
 initializeGenKit({
@@ -151,7 +151,7 @@ import {
   ImageQuality,
   ImageSize,
   ImageStyle
-} from '@tickt-engineering/image-gen-lib';
+} from '@tickt-ltd/image-gen-lib';
 
 // Initialize shared services (required for batch processing)
 import { ServiceFactory, initializeFirestoreServices } from '@tickt-ltd/services';
@@ -263,7 +263,7 @@ interface ImageGenerationConfig {
 ### Advanced Prompt Options
 
 ```typescript
-import { RecipeStyle, RecipeSetting, RecipeLighting, RecipePlating } from '@tickt-engineering/image-gen-lib';
+import { RecipeStyle, RecipeSetting, RecipeLighting, RecipePlating } from '@tickt-ltd/image-gen-lib';
 
 const promptOptions = {
   recipeName: 'Beef Wellington',
@@ -296,7 +296,7 @@ recipes/
 The library includes comprehensive error handling and validation:
 
 ```typescript
-import { ImageConfigValidator } from '@tickt-engineering/image-gen-lib';
+import { ImageConfigValidator } from '@tickt-ltd/image-gen-lib';
 
 // Validate configuration
 const errors = ImageConfigValidator.validateImageGenerationConfig(config);
@@ -311,7 +311,7 @@ const isValid = ImageConfigValidator.isValidRecipeImageGenerationRequest(request
 ## Extending with Custom Providers
 
 ```typescript
-import { IImageProvider, ImageGenerationConfig, ImageGenerationResult } from '@tickt-engineering/image-gen-lib';
+import { IImageProvider, ImageGenerationConfig, ImageGenerationResult } from '@tickt-ltd/image-gen-lib';
 
 class CustomProvider implements IImageProvider {
   async generateImage(prompt: string, config: ImageGenerationConfig): Promise<ImageGenerationResult> {
@@ -368,7 +368,7 @@ Create a simple test file:
 
 ```typescript
 // test-my-images.ts
-import { ImageGenerationService, ImageProvider, ImageQuality, ImageSize, ImageStyle } from '@tickt-engineering/image-gen-lib';
+import { ImageGenerationService, ImageProvider, ImageQuality, ImageSize, ImageStyle } from '@tickt-ltd/image-gen-lib';
 
 async function generateMyImage() {
     const service = new ImageGenerationService();

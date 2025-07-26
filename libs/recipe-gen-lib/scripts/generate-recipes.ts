@@ -6,8 +6,8 @@
  */
 
 import { RecipeGenerationService, LlmProvider } from '../src';
-import { RecipeGenInputDto, Difficulty } from '@tickt-engineering/recipe-types';
-import { DietType, MealType, Cuisine } from '@tickt-engineering/nutrition-types';
+import { RecipeGenInputDto, Difficulty } from '@tickt-ltd/types';
+import { DietType, MealType, Cuisine } from '@tickt-ltd/types';
 import * as fs from 'fs';
 import * as path from 'path';
 

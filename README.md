@@ -26,7 +26,7 @@ This monorepo contains the following workspaces:
 
 1. Clone the repository:
    ```
-   git clone git@github.com:tickt-engineering/tickt.git
+   git clone git@github.com:tickt-ltd/tickt.git
    cd tickt
    ```
 
@@ -74,10 +74,10 @@ Please make sure to update tests as appropriate and adhere to the code style gui
 
 ## License
 
-All Rights Reserved - [LICENSE](../../LICENSE.txt)
+All Rights Reserved - [LICENSE](./LICENSE.txt)
 
 ## Contact
 
 [Christos Demetriades] - [engineering@tickt.io]
 
-Project Link: [https://github.com/tickt-engineering/tickt](https://github.com/tickt-engineering/tickt)
+Project Link: [https://github.com/tickt-ltd/tickt](https://github.com/tickt-ltd/tickt)

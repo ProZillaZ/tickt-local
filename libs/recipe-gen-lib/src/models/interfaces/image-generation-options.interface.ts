@@ -1,4 +1,4 @@
-import { ImageQuality, ImageSize, ImageStyle } from '@tickt-engineering/image-gen-lib';
+import { ImageQuality, ImageSize, ImageStyle } from '@tickt-ltd/image-gen-lib';
 
 export interface ImageGenerationOptions {
 	enabled: boolean;

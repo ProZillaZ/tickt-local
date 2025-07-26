@@ -1,8 +1,7 @@
 import { DietType, Allergen, MealCount, Recipe } from '@tickt-ltd/types';
 import {MacroAllocation} from "../../models/macros/macro-allocation";
 import {DAYS_IN_WEEK, DEFAULT_MEAL_COUNT} from "../../utils/constants";
-import {DayMealPlan} from "../../models/meal-plans/day-meal-plan";
-import {DayMealPlanFactory} from "../../models/meal-plans/day-meal-plan.factory";
+import { DayMealPlan, DayMealPlanFactory } from '@tickt-ltd/types';
 import {MealService} from "./meal.service";
 import {NutritionalInfoService} from "../nutritional-info.service";
 import {MacronutrientService} from "../macronutrient.service";

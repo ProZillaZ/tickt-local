@@ -1,9 +1,9 @@
 {
-    "name": "tickt-engineering",
+    "name": "tickt-ltd",
     "version": "1.0.0",
     "private": true,
     "workspaces": [
-        "apis/*",
+        "apis",
         "apps/*",
         "functions/*",
         "libs/*",
@@ -35,7 +35,6 @@
         "node": ">=14.0.0"
     },
     "dependencies": {
-        "firebase-admin": "^13.4.0",
-        "firebase-functions": "^6.3.2"
+        "firebase-admin": "^13.4.0"
     }
 }

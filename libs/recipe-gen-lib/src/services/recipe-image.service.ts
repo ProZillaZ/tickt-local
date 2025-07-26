@@ -10,7 +10,7 @@ import {
 	RecipeSetting,
 	RecipeLighting,
 	RecipePlating
-} from '@tickt-engineering/image-gen-lib';
+} from '@tickt-ltd/image-gen-lib';
 import { LoggerInterface, ImageGenerationOptions } from '../models';
 
 export class RecipeImageService {
@@ -50,7 +50,7 @@ export class RecipeImageService {
 
 	private async generateImageInBackground(recipe: RecipeDto, options: ImageGenerationOptions): Promise<void> {
 		this.performImageGeneration(recipe, options)
-			.then(result => {
+			.then(() => {
 				this.logger?.log(`Background image generation completed for recipe: ${recipe.name}`, 'RecipeImageService');
 			})
 			.catch(error => {

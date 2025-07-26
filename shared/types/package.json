@@ -1,11 +1,11 @@
 {
     "name": "@tickt-ltd/types",
-    "version": "2.0.0",
+    "version": "3.0.0",
     "description": "Consolidated TypeScript types for the Tickt ecosystem",
     "license": "All rights reserved to Polytropic Ltd",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
-"scripts": {
+    "scripts": {
         "build": "tsc",
         "clean": "rm -rf dist",
         "dev": "tsc --watch",

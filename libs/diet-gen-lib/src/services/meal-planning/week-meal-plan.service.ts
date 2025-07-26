@@ -2,10 +2,8 @@ import {DayMealPlanService} from "./day-meal-plan.service";
 import {NutritionalInfoService} from "../nutritional-info.service";
 import { DietType, Allergen, MealCount, Recipe } from '@tickt-ltd/types';
 import {MacroAllocation} from "../../models/macros/macro-allocation";
-import {WeekMealPlan} from "../../models/meal-plans/week-meal-plan";
-import {DayMealPlan} from "../../models/meal-plans/day-meal-plan";
+import { DayMealPlan, WeekMealPlan, WeekMealPlanFactory } from '@tickt-ltd/types';
 import {DEFAULT_MEAL_COUNT} from "../../utils/constants";
-import {WeekMealPlanFactory} from "../../models/meal-plans/week-meal-plan.factory";
 
 export class WeekMealPlanService {
     constructor(

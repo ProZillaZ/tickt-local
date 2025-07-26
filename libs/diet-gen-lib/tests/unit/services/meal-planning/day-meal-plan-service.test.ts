@@ -1,13 +1,13 @@
-import { DayMealPlanService } from '@tickt/diet-gen-lib';
-import { MealService } from '@tickt/diet-gen-lib';
-import { IngredientSelectionService } from '@tickt/diet-gen-lib';
-import { QuantityCalculationService } from '@tickt/diet-gen-lib';
-import { MacronutrientService } from '@tickt/diet-gen-lib';
-import { NutritionalInfoService } from '@tickt/diet-gen-lib';
+import { DayMealPlanService } from '../../../../src/services/meal-planning/day-meal-plan.service';
+import { MealService } from '../../../../src/services/meal-planning/meal.service';
+import { IngredientSelectionService } from '../../../../src/services/ingredients/ingredient-selection.service';
+import { QuantityCalculationService } from '../../../../src/services/ingredients/quantity-calculation.service';
+import { MacronutrientService } from '../../../../src/services/macronutrient.service';
+import { NutritionalInfoService } from '../../../../src/services/nutritional-info.service';
 import { DietType, Allergen, MealCount, NutritionalInfo } from '@tickt-ltd/types';
-import { MacroAllocation } from '@tickt/diet-gen-lib';
-import { Meal } from '@tickt/diet-gen-lib';
-import { DAYS_IN_WEEK } from '@tickt/diet-gen-lib';
+import { MacroAllocation } from '../../../../src/models/macros/macro-allocation';
+import { Meal } from '../../../../src/models/meals/meal';
+import { DAYS_IN_WEEK } from '../../../../src/utils/constants';
 
 // Mock dependencies
 jest.mock('../../../../src/services/meal-planning/meal.service');

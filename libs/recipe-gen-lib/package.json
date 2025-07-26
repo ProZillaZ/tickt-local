@@ -1,5 +1,5 @@
 {
-    "name": "@tickt-engineering/recipe-gen-lib",
+    "name": "@tickt-ltd/recipe-gen-lib",
     "version": "1.0.0",
     "private": false,
     "description": "AI-powered recipe generation library for the Tickt ecosystem",
@@ -32,10 +32,10 @@
     "license": "All Rights Reserved",
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/tickt-engineering/tickt.git"
+        "url": "git+https://github.com/tickt-ltd/tickt.git"
     },
     "bugs": {
-        "url": "https://github.com/tickt-engineering/tickt/issues"
+        "url": "https://github.com/tickt-ltd/tickt/issues"
     },
     "homepage": "mealtickt.com",
     "engines": {
@@ -43,7 +43,7 @@
     },
     "dependencies": {
         "@tickt-ltd/types": "2.0.0",
-        "@tickt-engineering/image-gen-lib": "^2.0.0",
+        "@tickt-ltd/image-gen-lib": "^2.0.0",
         "@anthropic-ai/sdk": "^0.24.3",
         "openai": "^4.52.7",
         "class-transformer": "^0.5.1",
