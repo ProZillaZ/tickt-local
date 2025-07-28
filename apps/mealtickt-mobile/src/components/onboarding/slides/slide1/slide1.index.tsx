@@ -12,6 +12,7 @@ import SingleRadioButton from 'components/global/single-radio-button/single-radi
 import Button from 'components/global/button/button.index';
 import { SlideComponentProps } from 'screens/onboarding/onboarding.props';
 import { useActiveAnimation } from '../useActiveAnimation.ts';
+import { Gender } from '@tickt-ltd/types';
 
 // Use the constant from the centralized file
 const { NUMERIC_FIELDS } = ONBOARDING.VALIDATION;
@@ -75,6 +76,7 @@ const Slide1: React.FC<SlideComponentProps> = ({
                         age: state.age ? Number(state.age) : undefined,
                         height: state.height ? Number(state.height) : undefined,
                         weight: state.weight ? Number(state.weight) : undefined,
+                        gender: state.gender ? (state.gender as Gender) : undefined,
                     };
 
                     await updateStepData(dataToSave);

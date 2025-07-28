@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { use, useEffect, useState } from 'react';
 import { FormField, OnboardingState, TouchedFields, ValidationErrors } from './slide5.props';
 import { isFormValid as checkFormValidity, validateField } from './validation';
 import { step5Options } from 'app/constants/constants.ts';
@@ -10,6 +10,7 @@ import { useOnboarding } from 'app/contexts/onboarding/onboarding-context';
 import { DietGoal, DietType, WeekMealPlan } from '@tickt-ltd/types';
 import { GoalPace } from 'app/enums/goal-pace.enum';
 import { useAxios } from 'app/hooks/useAxios';
+import { useAuth } from 'app/contexts/auth/auth';
 
 const initialState: OnboardingState = {
     targetWeight: '',
@@ -31,6 +32,7 @@ export const useSlide5 = (onboardingState?: any, updateStepData?: (data: any) =>
     const { lastSlideRef } = useOnboarding();
     const [attemptedSubmit, setAttemptedSubmit] = useState(false);
     const { axiosInstance } = useAxios();
+    const { user } = useAuth();
 
     // Weight adjustment state
     const [baseWeight, setBaseWeight] = useState<number>(0);
@@ -235,9 +237,9 @@ export const useSlide5 = (onboardingState?: any, updateStepData?: (data: any) =>
     };
 
     const generateMealPlans = async (): Promise<WeekMealPlan[]> => {
-        const user = {
-            id: 'temp-user',
-            email: 'temp@example.com',
+        const userProfile = {
+            id: user?.uid || 'temp-user-id',
+            email: user?.email || 'temp@example.com',
             age: Number(onboardingState.age) || 25,
             gender: onboardingState.gender === 'male' ? Gender.MALE : Gender.FEMALE,
             heightCm: Number(onboardingState.height) || 170,
@@ -245,17 +247,29 @@ export const useSlide5 = (onboardingState?: any, updateStepData?: (data: any) =>
             activityLevel: mapActivityLevel(onboardingState.activityLevel),
             goal: state.goal as DietGoal,
             dietType: DietType.STANDARD,
-            unitSystem: UnitSystem.METRIC,
+            unitSystem:
+                onboardingState.unitSystem === 'cmKg' ? UnitSystem.METRIC : UnitSystem.IMPERIAL,
             dietFilters: {
-                pace: onboardingState.pace as GoalPace,
+                pace: (onboardingState.pace as GoalPace) || GoalPace.MODERATE,
                 mealCount: onboardingState.mealCount || 3,
                 foodMeasurement: onboardingState.foodMeasurement || 'actualWeight',
                 favoriteCuisines: onboardingState.favoriteCuisines || ['italian', 'mediterranean'],
                 allergies: onboardingState.allergies || ['gluten', 'nuts'],
             },
         };
-        const res = await axiosInstance.post('/meal-plans/generate', user);
-        console.log('Generated meal plans:', res.data);
+        const now = new Date();
+        const endDate = new Date();
+        endDate.setDate(now.getDate() + 6); // 7 days including start
+        const res = await axiosInstance.post('/meal-plans/generate', {
+            userProfile,
+            startDate: now.toISOString().split('T')[0],
+            endDate: endDate.toISOString().split('T')[0],
+            options: {
+                includeRecipes: true,
+            },
+            name: 'Generated Meal Plan',
+            description: 'A meal plan generated based on user preferences and goals.',
+        });
         return res.data;
     };
     return {

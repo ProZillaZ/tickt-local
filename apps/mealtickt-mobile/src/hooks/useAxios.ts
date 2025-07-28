@@ -10,7 +10,6 @@ export function useAxios() {
 
     const axiosInstance = axios.create({
         baseURL: HOST_API,
-        withCredentials: true,
     });
 
     axiosInstance.interceptors.response.use(

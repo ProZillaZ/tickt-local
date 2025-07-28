@@ -11,6 +11,7 @@ import Content from '../../content/content.index';
 import Button from 'components/global/button/button.index';
 import { SlideComponentProps } from 'screens/onboarding/onboarding.props';
 import { useActiveAnimation } from '../useActiveAnimation.ts';
+import { ActivityLevel, MealCount } from '@tickt-ltd/types';
 
 const Slide2: React.FC<SlideComponentProps> = ({
     handleNext,
@@ -54,9 +55,9 @@ const Slide2: React.FC<SlideComponentProps> = ({
                     // Convert values to appropriate types if needed
                     const dataToSave = {
                         ...state,
-                        mealCount: state.mealCount,
+                        mealCount: Number(state.mealCount) as MealCount,
                         dietaryPreferences: state.dietaryPreferences,
-                        activityLevel: state.activityLevel,
+                        activityLevel: state.activityLevel as ActivityLevel,
                     };
 
                     updateStepData(dataToSave);
