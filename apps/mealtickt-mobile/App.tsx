@@ -3,6 +3,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import StackNavigator from 'app/navigation/navigation.index';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { KeyboardAvoidingView, StatusBar, StyleSheet } from 'react-native';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { commonStyles } from 'utils/styles';
 import Toast from 'react-native-toast-message';
 import { toastConfig } from 'utils/toast-config';
@@ -30,6 +31,24 @@ mobileAds()
 const App: React.FC = () => {
     const routeNameRef = useRef();
     const navigationRef = useRef();
+
+    // Initialize React Query Client Configurations
+    // Set default options for queries and mutations
+    // Adjust stale time, retry attempts, and refetch behavior
+    const queryClient = new QueryClient({
+        defaultOptions: {
+            queries: {
+                staleTime: 40000,
+                retry: 10,
+                refetchOnWindowFocus: true,
+                refetchOnReconnect: true,
+                refetchOnMount: true,
+            },
+            mutations: {
+                retry: 0,
+            },
+        },
+    });
     // TEMPORARY: Clear onboarding data on app start
     useEffect(() => {
         const clearOnboardingData = async () => {
@@ -59,7 +78,7 @@ const App: React.FC = () => {
     }
     return (
         <GestureHandlerRootView style={styles.container}>
-            <StatusBar barStyle={"dark-content"} /> 
+            <StatusBar barStyle={'dark-content'} />
             <KeyboardAvoidingView behavior={isIOS ? 'padding' : 'height'} style={styles.container}>
                 <NavigationContainer
                     ref={navigationRef}
@@ -79,9 +98,11 @@ const App: React.FC = () => {
                         routeNameRef.current = currentRouteName;
                     }}>
                     <AuthProvider>
-                        <OnboardingProvider>
-                            <StackNavigator />
-                        </OnboardingProvider>
+                        <QueryClientProvider client={queryClient}>
+                            <OnboardingProvider>
+                                <StackNavigator />
+                            </OnboardingProvider>
+                        </QueryClientProvider>
                     </AuthProvider>
                     <Toast config={toastConfig} />
                 </NavigationContainer>

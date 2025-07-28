@@ -1,41 +1,41 @@
 {
-    "name": "@tickt-ltd/services",
-    "version": "2.4.0",
-    "description": "Shared services and infrastructure for Tickt applications",
-    "license": "All rights reserved to Polytropic Ltd",
-    "main": "dist/index.js",
-    "types": "dist/index.d.ts",
-    "scripts": {
-        "build": "tsc",
-        "dev": "tsc --watch",
-        "clean": "rm -rf dist",
-        "deploy:dev": "bash scripts/deploy-dev.sh",
-        "deploy:prod": "bash scripts/deploy-prod.sh"
-    },
-    "keywords": [
-        "tickt",
-        "services",
-        "firebase",
-        "firestore"
-    ],
-    "dependencies": {
-        "@tickt-ltd/types": "2.0.0",
-        "@types/node": "^24.1.0",
-        "firebase-admin": "^13.4.0",
-        "mongodb": "^6.18.0"
-    },
-    "peerDependencies": {
-        "@react-native-firebase/auth": "^18.0.0",
-        "@react-native-firebase/firestore": "^18.0.0"
-    },
-    "devDependencies": {
-        "typescript": "^5.0.0"
-    },
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/tickt-ltd/tickt.git"
-    },
-    "publishConfig": {
-        "registry": "https://npm.pkg.github.com"
-    }
+  "name": "@tickt-ltd/services",
+  "version": "2.4.0",
+  "description": "Shared services and infrastructure for Tickt applications",
+  "license": "All rights reserved to Polytropic Ltd",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "clean": "rm -rf dist",
+    "deploy:dev": "bash scripts/deploy-dev.sh",
+    "deploy:prod": "bash scripts/deploy-prod.sh"
+  },
+  "keywords": [
+    "tickt",
+    "services",
+    "firebase",
+    "firestore"
+  ],
+  "dependencies": {
+    "@tickt-ltd/types": "3.0.0",
+    "@types/node": "^24.1.0",
+    "firebase-admin": "^13.4.0",
+    "mongodb": "^6.18.0"
+  },
+  "peerDependencies": {
+    "@react-native-firebase/auth": "^18.0.0",
+    "@react-native-firebase/firestore": "^18.0.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tickt-ltd/tickt.git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  }
 }

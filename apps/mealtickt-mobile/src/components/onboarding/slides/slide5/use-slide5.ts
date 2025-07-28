@@ -7,8 +7,9 @@ import { Gender } from 'app/enums/gender.enum';
 import { ActivityLevel } from 'app/enums/activity-level.enum';
 import { UnitSystem } from 'app/enums/unit-system.enum';
 import { useOnboarding } from 'app/contexts/onboarding/onboarding-context';
-import { DietGoal } from '@tickt-ltd/types';
+import { DietGoal, DietType, WeekMealPlan } from '@tickt-ltd/types';
 import { GoalPace } from 'app/enums/goal-pace.enum';
+import { useAxios } from 'app/hooks/useAxios';
 
 const initialState: OnboardingState = {
     targetWeight: '',
@@ -29,6 +30,7 @@ export const useSlide5 = (onboardingState?: any, updateStepData?: (data: any) =>
     const [isFormValid, setIsFormValid] = useState<boolean>(false);
     const { lastSlideRef } = useOnboarding();
     const [attemptedSubmit, setAttemptedSubmit] = useState(false);
+    const { axiosInstance } = useAxios();
 
     // Weight adjustment state
     const [baseWeight, setBaseWeight] = useState<number>(0);
@@ -231,6 +233,31 @@ export const useSlide5 = (onboardingState?: any, updateStepData?: (data: any) =>
             UnitSystem.METRIC,
         );
     };
+
+    const generateMealPlans = async (): Promise<WeekMealPlan[]> => {
+        const user = {
+            id: 'temp-user',
+            email: 'temp@example.com',
+            age: Number(onboardingState.age) || 25,
+            gender: onboardingState.gender === 'male' ? Gender.MALE : Gender.FEMALE,
+            heightCm: Number(onboardingState.height) || 170,
+            weightKg: Number(onboardingState.weight) || 70,
+            activityLevel: mapActivityLevel(onboardingState.activityLevel),
+            goal: state.goal as DietGoal,
+            dietType: DietType.STANDARD,
+            unitSystem: UnitSystem.METRIC,
+            dietFilters: {
+                pace: onboardingState.pace as GoalPace,
+                mealCount: onboardingState.mealCount || 3,
+                foodMeasurement: onboardingState.foodMeasurement || 'actualWeight',
+                favoriteCuisines: onboardingState.favoriteCuisines || ['italian', 'mediterranean'],
+                allergies: onboardingState.allergies || ['gluten', 'nuts'],
+            },
+        };
+        const res = await axiosInstance.post('/meal-plans/generate', user);
+        console.log('Generated meal plans:', res.data);
+        return res.data;
+    };
     return {
         state,
         setState,
@@ -251,5 +278,6 @@ export const useSlide5 = (onboardingState?: any, updateStepData?: (data: any) =>
         MIN_ADJUSTMENT,
         MAX_ADJUSTMENT,
         estimateTime,
+        generateMealPlans,
     };
 };
