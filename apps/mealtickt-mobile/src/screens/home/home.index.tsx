@@ -26,6 +26,7 @@ import { Image } from 'expo-image';
 import AppLogger from 'app/logger/logger.ts';
 import { Recipe } from '@tickt-ltd/types';
 import { Meal } from '@tickt-ltd/diet-gen-lib';
+import { SelectedData } from 'app/components/user-stack/home/shop-collapsibles/shop-collapsibles.props.ts';
 
 const adUnitId = __DEV__ ? TestIds.ADAPTIVE_BANNER : 'ca-app-pub-xxxxxxxxxxxxx/yyyyyyyyyyyyyy';
 
@@ -150,7 +151,7 @@ const HomeScreen = () => {
                             skipDays={state.skipDays}
                         />
                         <ShopCollapsibles
-                            selectedData={state}
+                            selectedData={state as unknown as SelectedData}
                             onUpdate={onShopMealDataChange}
                             todayShoppingList={todayShoppingList}
                         />

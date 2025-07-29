@@ -30,7 +30,7 @@ const DietPlan = () => {
     const hasEqual5 = isEqual(user?.mealCount, state.frequency);
     const hasEqual6 = isEqual(user?.pace, state.pace);
     const hasEqual7 = isEqual(user?.goal, state.goal);
-    const hasEqual8=isEqual(user?.targetWeight,state.goalWeight)
+    const hasEqual8 = isEqual(user?.targetWeight, state.goalWeight);
 
     return (
         <SafeAreaView style={styles.container}>
@@ -82,7 +82,7 @@ const DietPlan = () => {
                             mealCount: state.frequency as MealCount,
                             pace: state.pace as GoalPace,
                             goal: state.goal as DietGoal,
-                            targetWeight:state.goalWeight
+                            targetWeight: state.goalWeight,
                         });
                         handleConfirm();
                     }}
