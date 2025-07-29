@@ -19,14 +19,7 @@ import { useHome } from './use-home.ts';
 import { tipContent, tipContentOrder } from 'app/constants/constants.ts';
 import { isTablet } from 'utils/helpers.ts';
 import InfoModal from 'components/global/info-modal/info-modal.index.tsx';
-import mobileAds, {
-    BannerAdSize,
-    NativeAd,
-    NativeAdView,
-    NativeAsset,
-    NativeAssetType,
-    NativeMediaView,
-} from 'react-native-google-mobile-ads';
+import mobileAds from 'react-native-google-mobile-ads';
 
 import { BannerAd, TestIds, useForeground } from 'react-native-google-mobile-ads';
 import { Image } from 'expo-image';
@@ -71,6 +64,8 @@ const HomeScreen = () => {
         handleRepeatDays,
         onChatModalPress,
         setMealSwapModalOpen,
+        recipes,
+        loading,
     } = useHome();
     const bannerRef = useRef<BannerAd>(null);
 
@@ -104,7 +99,11 @@ const HomeScreen = () => {
                     onQuestionPress={() => onQuestionPress(true)}
                 />
                 {showCarousel && (
-                    <WeekSlider defaultWeek={state.currentWeek} onChangeWeek={onWeekChange} />
+                    <WeekSlider
+                        weeks={Array.from(String(recipes?.data?.length))}
+                        defaultWeek={state.currentWeek}
+                        onChangeWeek={onWeekChange}
+                    />
                 )}
                 <Toggle
                     style={styles.toggleContainer}
@@ -145,7 +144,7 @@ const HomeScreen = () => {
                             defaultDay={state.currentShopMeal}
                             onChangeDay={onShopMealChange}
                         />
- 
+
                         <ShopCollapsibles selectedData={state} onUpdate={onShopMealDataChange} />
                         <Tip
                             data={tipContentOrder}
@@ -157,7 +156,6 @@ const HomeScreen = () => {
                             }}
                             showButton={true}
                         />
-                        
                     </Fragment>
                 )}
                 <RecipeBottomModal
