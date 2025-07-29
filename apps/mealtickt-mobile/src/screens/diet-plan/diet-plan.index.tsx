@@ -68,7 +68,7 @@ const DietPlan = () => {
                 <DaySelection
                     style={styles.day}
                     defaultValue={state.days}
-                    onChange={(data) => updateState('days', data)}
+                    onChange={(data) => handleUpdateDays('days', data)}
                 />
                 <Button
                     style={styles.button}

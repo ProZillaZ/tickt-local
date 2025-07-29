@@ -35,7 +35,7 @@ export const useDietPlan = () => {
         setState((s) => ({ ...s, [field]: value }));
 
     const handleUpdateDays = (field: string, value: string | number | string[]) => {
-        // updateState(field,value);
+        updateState(field, value);
         params.onUpdate('days', value as string[]);
     };
 
