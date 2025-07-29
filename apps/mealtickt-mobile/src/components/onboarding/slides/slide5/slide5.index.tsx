@@ -175,7 +175,6 @@ const Slide5: React.FC<SlideComponentProps> = ({
                 </View>
             )}
             <Button onClick={onNextPress} text="next" disabled={false} style={styles.btn} />
-            <Button onClick={generateMealPlans} text="next" disabled={false} style={styles.btn} />
             <InfoModal
                 visible={visible}
                 setVisible={() => setVisible(false)}

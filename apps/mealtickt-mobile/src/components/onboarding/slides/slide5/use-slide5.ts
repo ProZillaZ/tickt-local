@@ -47,12 +47,13 @@ export const useSlide5 = (onboardingState?: any, updateStepData?: (data: any) =>
             const newState = { ...state };
 
             // Check for each field in our state if it exists in onboardingState
-            for (const key in state) {
+            (Object.keys(state) as (keyof OnboardingState)[]).forEach((key) => {
                 if (onboardingState[key] !== undefined) {
-                    newState[key as FormField] = onboardingState[key].toString();
+                    // @ts-expect-error: assigning from possibly any-typed onboardingState
+                    newState[key] = onboardingState[key]?.toString();
                     hasUpdates = true;
                 }
-            }
+            });
 
             // Only update state if we have saved values
             if (hasUpdates) {
@@ -76,7 +77,10 @@ export const useSlide5 = (onboardingState?: any, updateStepData?: (data: any) =>
                 const activityLevel = mapActivityLevel(onboardingState.activityLevel);
 
                 // Use metric system by default (can be adjusted based on app requirements)
-                const unitSystem = UnitSystem.METRIC;
+                const unitSystem =
+                    onboardingState?.measurementSystem === 'cmKg'
+                        ? UnitSystem.METRIC
+                        : UnitSystem.IMPERIAL;
 
                 // Get recommended target weight
                 const recommended = targetWeightService.recommendTargetWeight(
@@ -196,43 +200,37 @@ export const useSlide5 = (onboardingState?: any, updateStepData?: (data: any) =>
         };
     };
 
-    // Save data and navigate to next step
+    // Save data, generate meal plans and navigate to next step
     const handleNext = async (nextFn: () => void) => {
-        if (updateStepData) {
-            await updateStepData({
-                targetWeight: Number(state.targetWeight),
-                goal: state.goal,
-                pace: state.pace,
-            });
-        }
+        setAttemptedSubmit(true);
 
-        nextFn();
-        if (handleSubmitAttempt()) {
-            // Save form data to onboarding state
+        if (!isFormValid) return;
+
+        try {
             if (updateStepData) {
-                try {
-                    // Convert string values to numbers where needed
-                    await updateStepData({
-                        targetWeight: Number(state.targetWeight),
-                        goal: state.goal,
-                        pace: state.pace,
-                    });
-                    nextFn();
-                } catch (error) {
-                    console.error('Failed to save slide5 data:', error);
-                }
-            } else {
-                nextFn();
+                await updateStepData({
+                    targetWeight: Number(state.targetWeight),
+                    goal: state.goal,
+                    pace: state.pace,
+                });
             }
+
+            await generateMealPlans(); // Required before next step
+
+            nextFn();
+        } catch (error) {
+            console.error('Error during step update or meal plan generation:', error);
+            // Optional: show feedback to user
         }
     };
+
     const estimateTime = () => {
         const targetWeightService = new TargetWeightService();
         return targetWeightService.calculateTimeToReachGoal(
             onboardingState?.weight,
             Number(state.targetWeight),
             state.pace as GoalPace,
-            UnitSystem.METRIC,
+            onboardingState?.measurementSystem === 'cmKg' ? UnitSystem.METRIC : UnitSystem.IMPERIAL,
         );
     };
 
@@ -248,7 +246,9 @@ export const useSlide5 = (onboardingState?: any, updateStepData?: (data: any) =>
             goal: state.goal as DietGoal,
             dietType: DietType.STANDARD,
             unitSystem:
-                onboardingState.unitSystem === 'cmKg' ? UnitSystem.METRIC : UnitSystem.IMPERIAL,
+                onboardingState.measurementSystem === 'cmKg'
+                    ? UnitSystem.METRIC
+                    : UnitSystem.IMPERIAL,
             dietFilters: {
                 pace: (onboardingState.pace as GoalPace) || GoalPace.MODERATE,
                 mealCount: onboardingState.mealCount || 3,
@@ -267,7 +267,7 @@ export const useSlide5 = (onboardingState?: any, updateStepData?: (data: any) =>
             options: {
                 includeRecipes: true,
             },
-            name: 'Generated Meal Plan',
+            name: `Meal Plan for ${user?.uid}`,
             description: 'A meal plan generated based on user preferences and goals.',
         });
         return res.data;
