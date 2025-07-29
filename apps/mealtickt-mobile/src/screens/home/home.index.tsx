@@ -24,6 +24,8 @@ import mobileAds from 'react-native-google-mobile-ads';
 import { BannerAd, TestIds, useForeground } from 'react-native-google-mobile-ads';
 import { Image } from 'expo-image';
 import AppLogger from 'app/logger/logger.ts';
+import { Recipe } from '@tickt-ltd/types';
+import { Meal } from '@tickt-ltd/diet-gen-lib';
 
 const adUnitId = __DEV__ ? TestIds.ADAPTIVE_BANNER : 'ca-app-pub-xxxxxxxxxxxxx/yyyyyyyyyyyyyy';
 
@@ -65,7 +67,8 @@ const HomeScreen = () => {
         onChatModalPress,
         setMealSwapModalOpen,
         recipes,
-        loading,
+        todaysMeals,
+        todayShoppingList,
     } = useHome();
     const bannerRef = useRef<BannerAd>(null);
 
@@ -100,7 +103,7 @@ const HomeScreen = () => {
                 />
                 {showCarousel && (
                     <WeekSlider
-                        weeks={Array.from(String(recipes?.data?.length))}
+                        weeks={Array.from(String(recipes?.length))}
                         defaultWeek={state.currentWeek}
                         onChangeWeek={onWeekChange}
                     />
@@ -124,6 +127,7 @@ const HomeScreen = () => {
                         />
                         {showCarousel && (
                             <ShowCase
+                                dayMealPlans={todaysMeals as (Recipe | Meal)[]}
                                 isLoggedMeal={isLoggedMeal}
                                 isRepeatRecipe={isRepeatRecipeDay}
                                 isRepeatDay={isRepeatDay}
@@ -140,12 +144,16 @@ const HomeScreen = () => {
                     <Fragment>
                         <WeekDays
                             style={styles.weekDaysContainer}
-                            daysOfWeek={shopMealsType as [string | ImageSourcePropType]}
-                            defaultDay={state.currentShopMeal}
-                            onChangeDay={onShopMealChange}
+                            daysOfWeek={daysOfWeek as [string | ImageSourcePropType]}
+                            defaultDay={state.currentDay}
+                            onChangeDay={onDayChange}
+                            skipDays={state.skipDays}
                         />
-
-                        <ShopCollapsibles selectedData={state} onUpdate={onShopMealDataChange} />
+                        <ShopCollapsibles
+                            selectedData={state}
+                            onUpdate={onShopMealDataChange}
+                            todayShoppingList={todayShoppingList}
+                        />
                         <Tip
                             data={tipContentOrder}
                             onPress={() => {

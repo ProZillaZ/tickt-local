@@ -1,30 +1,25 @@
-import {
-	DataItem,
-	selectedData,
-	ShopCollapsibleProps,
-} from "./shop-collapsibles.props";
+import { ShopCollapsibleProps } from './shop-collapsibles.props';
 
-export const useShopCollapsible = ({
-	onUpdate,
-}: Partial<ShopCollapsibleProps>) => {
-	const getChevronIcon = (up: boolean) => {
-		if (up) return require("../../../../assets/icons/chevron-up.png");
-		else return require("../../../../assets/icons/chevron-down.png");
-	};
+export const useShopCollapsible = ({ onUpdate }: Pick<ShopCollapsibleProps, 'onUpdate'>) => {
+    const getChevronIcon = (up: boolean) =>
+        up
+            ? require('../../../../assets/icons/chevron-up.png')
+            : require('../../../../assets/icons/chevron-down.png');
 
-	const onCheckBoxPress = (heading: string, id: number, data: number[]) => {
-		let remain;
-		if (data.includes(id)) remain = data?.filter((item) => item != id);
-		else remain = [...data, id];
-		onUpdate && onUpdate(heading, remain);
-	};
+    // Default `dayData` to an empty array so .includes never blows up
+    const onCheckBoxPress = (heading: string, id: number, dayData: number[] = []) => {
+        const remain = dayData.includes(id)
+            ? dayData.filter((item) => item !== id)
+            : [...dayData, id];
 
-	const isChecked = (heading: string, id: number, data: selectedData) =>
-		data[heading].includes(id);
+        onUpdate(heading, remain);
+    };
 
-	return {
-		getChevronIcon,
-		onCheckBoxPress,
-		isChecked,
-	};
+    const isChecked = (heading: string, id: number, dayData: number[] = []) => dayData.includes(id);
+
+    return {
+        getChevronIcon,
+        onCheckBoxPress,
+        isChecked,
+    };
 };

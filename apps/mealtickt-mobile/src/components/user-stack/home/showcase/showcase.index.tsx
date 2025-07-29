@@ -6,7 +6,6 @@ import {
     ImageBackground,
     Pressable,
     Platform,
-    StyleSheet,
 } from 'react-native';
 import Carousel from 'react-native-reanimated-carousel';
 import { useShowcase } from './use-showcase.ts';
@@ -46,8 +45,9 @@ const ShowCase = ({
     isLoggedMeal,
     onOptionsPress,
     onMealSwapPress,
+    dayMealPlans,
 }: ShowCaseProps) => {
-    const { carouselRef, showcaseContent, progressPercentage, onChangeIndex, onRecipePress } =
+    const { carouselRef, progressPercentage, onChangeIndex, onRecipePress, getSlides } =
         useShowcase();
     const bannerRef = useRef<BannerAd>(null);
 
@@ -204,7 +204,7 @@ const ShowCase = ({
                     parallaxScrollingOffset: isTablet ? 100 : 60,
                     parallaxAdjacentItemScale: 0.85,
                 }}
-                data={showcaseContent}
+                data={getSlides(dayMealPlans)}
                 onSnapToItem={(index: number) => onChangeIndex(index)}
                 renderItem={
                     isSkipDay || isRepeatRecipe || isRepeatDay

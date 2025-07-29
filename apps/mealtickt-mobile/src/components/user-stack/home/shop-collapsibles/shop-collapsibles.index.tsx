@@ -1,73 +1,86 @@
-import { View, Text, Image, Pressable } from 'react-native';
 import React from 'react';
-import { DataItem, ShopCollapsibleProps } from './shop-collapsibles.props';
-import { styles } from './shop-collapsibles.styles';
-import CollapsableView from 'components/global/collapsible/collapsible.index';
-import { mealsData } from 'app/constants/constants.ts';
-import { useShopCollapsible } from './use-shop-collapsibles.ts';
+import { View, Text, Image, Pressable } from 'react-native';
 import BouncyCheckbox from 'react-native-bouncy-checkbox';
-import { colors } from 'utils/styles';
+import CollapsableView from 'components/global/collapsible/collapsible.index';
 import { heightPercentageToDP as hp } from 'react-native-responsive-screen';
-import AppLogger from 'app/logger/logger.ts';
+import AppLogger from 'app/logger/logger';
+import { colors } from 'utils/styles';
+
+import { DataItem, SelectedData, ShopCollapsibleProps } from './shop-collapsibles.props';
+import { useShopCollapsible } from './use-shop-collapsibles';
+import { styles } from './shop-collapsibles.styles';
 
 const { primary } = colors;
 
-const ShopCollapsibles = ({ selectedData, onUpdate }: ShopCollapsibleProps) => {
-    const { getChevronIcon, onCheckBoxPress, isChecked } = useShopCollapsible({ onUpdate });
+interface Props
+    extends Pick<ShopCollapsibleProps, 'selectedData' | 'onUpdate' | 'todayShoppingList'> {}
 
-    const renderHeader = (isActive: boolean, data: DataItem) => {
+const ShopCollapsibles: React.FC<Props> = ({ selectedData, onUpdate, todayShoppingList }) => {
+    const { getChevronIcon, onCheckBoxPress, isChecked } = useShopCollapsible({
+        onUpdate,
+    });
+
+    const renderHeader = (isActive: boolean, section: DataItem) => (
+        <View style={styles.header}>
+            <Text style={styles.heading}>{section.heading}</Text>
+            <Image style={styles.chevron} source={getChevronIcon(isActive)} />
+        </View>
+    );
+
+    const renderCollapsable = (section: DataItem) => {
+        // always default to [] if there's no entry yet
+        const dayData: number[] = selectedData?.[section.heading] ?? [];
+
         return (
-            <View style={styles.header}>
-                <Text style={styles.heading}>{data.heading}</Text>
-                <Image style={styles.chevron} source={getChevronIcon(isActive)} />
+            <View style={styles.itemRowGap}>
+                {section.options.map((option) => {
+                    const { id, item, quantity, unit, otherQuantity, otherUnit } = option;
+                    const checked = isChecked(section.heading, id, dayData);
+
+                    return (
+                        <View style={styles.item} key={id}>
+                            <BouncyCheckbox
+                                style={styles.bouncyBox}
+                                isChecked={checked}
+                                size={hp('2.2%')}
+                                fillColor={primary}
+                                unFillColor={primary}
+                                iconImageStyle={styles.iconImageStyle}
+                                innerIconStyle={styles.innerIconStyle}
+                                onPress={() => onCheckBoxPress(section.heading, id, dayData)}
+                            />
+
+                            <Pressable
+                                onPress={() => {
+                                    AppLogger.trackEvent('shopping_item_checked', {
+                                        category: section.heading,
+                                        item,
+                                        position: id,
+                                    });
+                                    onCheckBoxPress(section.heading, id, dayData);
+                                }}
+                                style={styles.item}>
+                                <Text
+                                    style={[
+                                        styles.textQuantity,
+                                        checked && styles.textStrikeThough,
+                                    ]}>
+                                    {quantity}
+                                    {unit}
+                                    {otherQuantity &&
+                                        otherUnit &&
+                                        ` / ${otherQuantity}${otherUnit}`}
+                                </Text>
+                                <Text style={[styles.itemText, checked && styles.textStrikeThough]}>
+                                    {item}
+                                </Text>
+                            </Pressable>
+                        </View>
+                    );
+                })}
             </View>
         );
     };
-
-    const renderCollapsable = (data: DataItem) => (
-        <View style={styles.itemRowGap}>
-            {data.options.map((option, id) => {
-                const checked = isChecked(data.heading, id, selectedData);
-                return (
-                    <View style={[styles.item]} key={id}>
-                        <BouncyCheckbox
-                            style={styles.bouncyBox}
-                            isChecked={checked}
-                            size={hp('2.2%')}
-                            fillColor={primary}
-                            unFillColor={primary}
-                            iconImageStyle={styles.iconImageStyle}
-                            innerIconStyle={styles.innerIconStyle}
-                            onPress={() =>
-                                onCheckBoxPress(data.heading, id, selectedData[data.heading])
-                            }
-                        />
-                        <Pressable
-                            onPress={() => {
-                                AppLogger.trackEvent('shopping_item_checked', {
-                                    category: data.heading,
-                                    item: option.item,
-                                    position: id,
-                                });
-                                onCheckBoxPress(data.heading, id, selectedData[data.heading]);
-                            }}
-                            style={styles.item}>
-                            <Text style={[styles.textQuantity, checked && styles.textStrikeThough]}>
-                                {option.quantity}
-                                {option.unit}
-                                {option.otherQuantity &&
-                                    option.otherUnit &&
-                                    ` / ${option.otherQuantity}${option.otherUnit}`}
-                            </Text>
-                            <Text style={[styles.itemText, checked && styles.textStrikeThough]}>
-                                {option.item}
-                            </Text>
-                        </Pressable>
-                    </View>
-                );
-            })}
-        </View>
-    );
 
     return (
         <View style={styles.headerContainer}>
@@ -75,13 +88,13 @@ const ShopCollapsibles = ({ selectedData, onUpdate }: ShopCollapsibleProps) => {
                 check the items as you buy them while you're doing your weekly groceries.
             </Text>
             <View style={styles.collapsable}>
-                {mealsData?.map((data: any, index: number) => (
+                {todayShoppingList.map((section, idx) => (
                     <CollapsableView
-                        key={index}
-                        renderHeader={(c: any, i: number, isActive: boolean) =>
-                            renderHeader(isActive, data)
+                        key={idx}
+                        renderHeader={(_: any, __: any, isActive: boolean) =>
+                            renderHeader(isActive, section)
                         }
-                        renderCollapsable={() => renderCollapsable(data)}
+                        renderCollapsable={() => renderCollapsable(section)}
                     />
                 ))}
             </View>

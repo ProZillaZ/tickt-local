@@ -13,6 +13,11 @@ import { WeekMealPlan } from '@tickt-ltd/types';
 import { useAxios } from 'app/hooks/useAxios';
 import { useAuth } from 'app/contexts/auth/auth';
 import { useQuery } from '@tanstack/react-query';
+import moment from 'moment';
+import {
+    DataItem,
+    ShopOption,
+} from 'app/components/user-stack/home/shop-collapsibles/shop-collapsibles.props';
 
 const initialState = {
     toggleOption: 0,
@@ -106,8 +111,38 @@ export const useHome = () => {
 
     const getRecipesQuery = useQuery({
         queryKey: ['recipes'],
-        queryFn: () => axiosInstance.get(`/meal-plans/user/${user?.uid}`),
+        queryFn: () =>
+            axiosInstance
+                .get<WeekMealPlan[]>(`/meal-plans/user/${user?.uid}`)
+                .then((res) => res.data), // unwrap the array
     });
+    // once the query has data, pull out the dayPlans
+    const allDayPlans = getRecipesQuery.data?.[0]?.dayPlans ?? [];
+    // find the plan whose date is “today”
+    const todayPlan = allDayPlans.find(
+        (plan) => moment(plan.date).isoWeekday() - 1 === state.currentDay,
+    );
+    // if you just want the meals for today:
+    const todaysMeals = todayPlan?.meals ?? [];
+
+    const flatIngredients = todaysMeals.flatMap((meal) => meal.ingredients);
+
+    const options: ShopOption[] = flatIngredients.map((ing, idx) => ({
+        id: idx,
+        item: ing.name,
+        quantity: ing.amount,
+        unit: ing.unit,
+        // if you ever have otherQuantity/otherUnit you can add them here
+    }));
+
+    // wrap that single DataItem in an array, since your component
+    // does todayShoppingList?.map(...)
+    const todayShoppingList: DataItem[] = [
+        {
+            heading: 'heading',
+            options,
+        },
+    ];
 
     return {
         state,
@@ -140,8 +175,10 @@ export const useHome = () => {
         handleMealLog,
         onChatModalPress,
         setMealSwapModalOpen,
+        todaysMeals: todaysMeals,
         recipes: getRecipesQuery.data,
         loading: getRecipesQuery.isLoading,
         refetchRecipes: getRecipesQuery.refetch,
+        todayShoppingList,
     };
 };
