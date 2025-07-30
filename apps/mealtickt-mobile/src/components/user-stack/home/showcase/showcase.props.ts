@@ -1,5 +1,4 @@
-import { Meal } from '@tickt-ltd/diet-gen-lib';
-import { Recipe } from '@tickt-ltd/types';
+import { Meal, Recipe } from '@tickt-ltd/types';
 import { ImageSourcePropType } from 'react-native';
 
 export interface Slide {
@@ -8,6 +7,7 @@ export interface Slide {
     title: string;
     type: string;
     time: number;
+    mealDetails: Recipe | Meal;
 }
 
 export interface ShowCaseProps {

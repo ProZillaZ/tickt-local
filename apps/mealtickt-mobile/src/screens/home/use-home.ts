@@ -104,11 +104,6 @@ export const useHome = () => {
         else handleCarousel(false);
     }, [repeatDaysModalOpen, repeatRecipeModalOpen, chatModalOpen, mealSwapModalOpen]);
 
-    const getRecipes = async (): Promise<WeekMealPlan[]> => {
-        const res = await axiosInstance.get(`/meal-plans/user/${user?.uid}`);
-        return res.data;
-    };
-
     const getRecipesQuery = useQuery({
         queryKey: ['recipes'],
         queryFn: () =>

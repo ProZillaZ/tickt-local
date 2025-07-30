@@ -1,3 +1,5 @@
+import { Instruction } from '@tickt-ltd/types';
+
 export interface DirectionsProps {
-	data: string[];
+    data: Instruction[];
 }

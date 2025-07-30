@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useQueryClient } from '@tanstack/react-query';
 import { showSuccess } from 'app/utils/toast-config';
 
-const HOST_API = 'http://172.111.111.23:3000/api/v1';
+const HOST_API = 'http://172.101.101.87:3000/api/v1';
 
 export function useAxios() {
     const queryClient = useQueryClient();
@@ -25,7 +25,7 @@ export function useAxios() {
             return Promise.reject(error);
         },
     );
-    const successAndInvalidate = (queryKey: [string]) => {
+    const successAndInvalidate = (queryKey: string[]) => {
         showSuccess({
             text: 'Actioned successfully',
         });

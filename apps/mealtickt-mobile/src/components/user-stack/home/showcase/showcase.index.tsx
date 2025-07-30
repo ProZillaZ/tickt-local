@@ -64,7 +64,7 @@ const ShowCase = ({
         ) : (
             <Pressable
                 onPress={() => {
-                    onRecipePress();
+                    onRecipePress(item);
                     AppLogger.trackEvent('recipe_viewed', {
                         recipe_id: item.id,
                         from_screen: 'diet_plan',
