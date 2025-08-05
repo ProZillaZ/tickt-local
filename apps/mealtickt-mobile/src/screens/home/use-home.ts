@@ -9,7 +9,15 @@ import { useNavigation } from '@react-navigation/native';
 import { NavigationProp } from 'app/navigation/navigation.props';
 import { State } from './home.props';
 import { getCardIcon, getMonthWeeks } from 'utils/helpers.ts';
-import { WeekMealPlan } from '@tickt-ltd/types';
+import {
+    GoalPace,
+    UnitSystem,
+    WeekMealPlan,
+    DietGoal,
+    DietType,
+    ActivityLevel,
+    Gender,
+} from '@tickt-ltd/types';
 import { useAxios } from 'app/hooks/useAxios';
 import { useAuth } from 'app/contexts/auth/auth';
 import { useQuery } from '@tanstack/react-query';
@@ -18,6 +26,7 @@ import {
     DataItem,
     ShopOption,
 } from 'app/components/user-stack/home/shop-collapsibles/shop-collapsibles.props';
+import { TargetWeightService } from '@tickt-ltd/diet-gen-lib';
 
 const initialState = {
     toggleOption: 0,
@@ -139,6 +148,132 @@ export const useHome = () => {
         },
     ];
 
+    const estimateTime = () => {
+        const targetWeightService = new TargetWeightService();
+        return targetWeightService.calculateTimeToReachGoal(
+            Number(user?.weight),
+            Number(user?.targetWeight),
+            user?.pace as GoalPace,
+            user?.measurementSystem === 'cmKg' ? UnitSystem.METRIC : UnitSystem.IMPERIAL,
+        );
+    };
+
+    // Helper function to map app activity levels to service enum
+    const mapActivityLevel = (activityLevel?: string): ActivityLevel => {
+        switch (activityLevel?.toLowerCase()) {
+            case 'sedentary':
+                return ActivityLevel.SEDENTARY;
+            case 'light':
+                return ActivityLevel.LIGHTLY_ACTIVE;
+            case 'moderate':
+                return ActivityLevel.MODERATELY_ACTIVE;
+            case 'very active':
+                return ActivityLevel.VERY_ACTIVE;
+            default:
+                return ActivityLevel.LIGHTLY_ACTIVE;
+        }
+    };
+
+    const generateMealPlans = async (startDate?: Date, endDate?: Date): Promise<WeekMealPlan[]> => {
+        const userProfile = {
+            id: user?.uid || 'temp-user-id',
+            email: user?.email || 'temp@example.com',
+            age: Number(user?.age) || 25,
+            gender: user?.gender === 'male' ? Gender.MALE : Gender.FEMALE,
+            heightCm: Number(user?.height) || 170,
+            weightKg: Number(user?.weight) || 70,
+            activityLevel: mapActivityLevel(user?.activityLevel),
+            goal: (user?.goal as DietGoal) || DietGoal.WEIGHT_LOSS,
+            dietType: DietType.STANDARD,
+            unitSystem:
+                user?.measurementSystem === 'cmKg' ? UnitSystem.METRIC : UnitSystem.IMPERIAL,
+            dietFilters: {
+                pace: (user?.pace as GoalPace) || GoalPace.MODERATE,
+                mealCount: user?.mealCount || 3,
+                foodMeasurement: 'actualWeight',
+                favoriteCuisines: ['italian', 'mediterranean'],
+                allergies: user?.allergies || [],
+            },
+        };
+
+        const now = startDate || new Date();
+        const end = endDate || new Date(now);
+        if (!endDate) {
+            end.setDate(now.getDate() + 6); // 7 days including start
+        }
+
+        const res = await axiosInstance.post('/meal-plans/generate', {
+            userProfile,
+            startDate: now.toISOString().split('T')[0],
+            endDate: end.toISOString().split('T')[0],
+            options: {
+                includeRecipes: true,
+            },
+            name: `Meal Plan for ${user?.uid}`,
+            description: 'A meal plan generated based on user preferences and goals.',
+        });
+
+        // Invalidate and refetch recipes after generating new meal plans
+        getRecipesQuery.refetch();
+
+        return res.data;
+    };
+
+    // Check if we need to generate more meal plans for the current week
+    const checkAndGenerateMealPlans = async (currentWeek: number) => {
+        const recipes = getRecipesQuery.data;
+        const estimatedWeeks = estimateTime();
+
+        console.log('checkAndGenerateMealPlans called:', {
+            currentWeek,
+            recipesLength: recipes?.length,
+            estimatedWeeks,
+            recipes: recipes,
+        });
+
+        // If we don't have recipes or not enough weeks of data
+        if (!recipes || recipes.length === 0) {
+            console.log('No recipes found, generating initial meal plans...');
+            // Calculate the start date for week 0 (current week)
+            const today = new Date();
+            const weekStart = new Date(today);
+            weekStart.setDate(today.getDate() - today.getDay()); // Start of current week (Sunday)
+
+            const weekEnd = new Date(weekStart);
+            weekEnd.setDate(weekStart.getDate() + 6); // End of current week (Saturday)
+
+            await generateMealPlans(weekStart, weekEnd);
+            return;
+        }
+
+        // Check if we have enough weeks of data for the current week
+        if (currentWeek >= recipes.length) {
+            console.log(`Need more meal plans for week ${currentWeek + 1}, generating...`);
+
+            // Calculate the start date for the specific week that's needed
+            const firstRecipe = recipes[0];
+            const firstStartDate = new Date(firstRecipe.startDate);
+
+            // Calculate the start date for the missing week
+            const targetWeekStart = new Date(firstStartDate);
+            targetWeekStart.setDate(firstStartDate.getDate() + currentWeek * 7);
+
+            const targetWeekEnd = new Date(targetWeekStart);
+            targetWeekEnd.setDate(targetWeekStart.getDate() + 6);
+
+            console.log(`Generating meal plans for week ${currentWeek + 1}:`, {
+                startDate: targetWeekStart.toISOString().split('T')[0],
+                endDate: targetWeekEnd.toISOString().split('T')[0],
+            });
+
+            await generateMealPlans(targetWeekStart, targetWeekEnd);
+        } else {
+            console.log(
+                `No need to generate - week ${currentWeek + 1}, available weeks: ${recipes.length}`,
+            );
+        }
+    };
+
     return {
         state,
         toggleOptions: homeToggleOptions.options,
@@ -175,5 +310,8 @@ export const useHome = () => {
         loading: getRecipesQuery.isLoading,
         refetchRecipes: getRecipesQuery.refetch,
         todayShoppingList,
+        estimateTime: estimateTime(),
+        generateMealPlans,
+        checkAndGenerateMealPlans,
     };
 };

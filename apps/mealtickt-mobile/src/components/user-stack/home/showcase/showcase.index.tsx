@@ -50,6 +50,8 @@ const ShowCase = ({
     const { carouselRef, progressPercentage, onChangeIndex, onRecipePress, getSlides } =
         useShowcase();
     const bannerRef = useRef<BannerAd>(null);
+    const [isScrolling, setIsScrolling] = useState(false);
+    const [lastTouchTime, setLastTouchTime] = useState(0);
 
     // (iOS) WKWebView can terminate if app is in a "suspended state", resulting in an empty banner when app returns to foreground.
     // Therefore it's advised to "manually" request a new ad when the app is foregrounded (https://groups.google.com/g/google-admob-ads-sdk/c/rwBpqOUr8m8).
@@ -69,7 +71,10 @@ const ShowCase = ({
                         recipe_id: item.id,
                         from_screen: 'diet_plan',
                     });
-                }}>
+                }}
+                delayLongPress={200}
+                hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}
+                style={({ pressed }) => [{ opacity: pressed ? 0.9 : 1 }]}>
                 <ImageBackground
                     key={item.id}
                     source={item.image}
@@ -83,7 +88,8 @@ const ShowCase = ({
                         <View style={styles.cardHead}>
                             <TouchableOpacity
                                 onPress={onMealSwapPress}
-                                style={styles.cardOptContainer}>
+                                style={styles.cardOptContainer}
+                                hitSlop={{ top: 5, bottom: 5, left: 5, right: 5 }}>
                                 <Image
                                     style={styles.cardOptLogo}
                                     source={require('../../../../assets/icons/swap.png')}
@@ -91,7 +97,8 @@ const ShowCase = ({
                             </TouchableOpacity>
                             <TouchableOpacity
                                 onPress={() => onOptionsPress(true)}
-                                style={styles.cardOptContainer}>
+                                style={styles.cardOptContainer}
+                                hitSlop={{ top: 5, bottom: 5, left: 5, right: 5 }}>
                                 <Image
                                     style={styles.cardOptLogo}
                                     source={require('../../../../assets/icons/dots.png')}
@@ -112,7 +119,7 @@ const ShowCase = ({
                                         style={styles.icon}
                                         source={require('../../../../assets/icons/timer.png')}
                                     />
-                                    <Text style={styles.text}>{item.time}</Text>
+                                    <Text style={styles.text}>{item.time + ' mins'}</Text>
                                 </View>
                             </View>
                         </View>
@@ -214,7 +221,7 @@ const ShowCase = ({
                           : renderItem
                 }
                 loop={false}
-                onConfigurePanGesture={(panGesture) => panGesture.activeOffsetX([-10, 10])}
+                onConfigurePanGesture={(panGesture) => panGesture.activeOffsetX([-15, 15])}
             />
             <View style={styles.progressContainer}>
                 <View style={[styles.progressBar, { width: `${progressPercentage}%` }]} />

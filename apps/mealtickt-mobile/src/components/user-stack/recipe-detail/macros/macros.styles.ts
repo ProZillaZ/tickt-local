@@ -41,6 +41,7 @@ export const styles = StyleSheet.create({
         color: blackText,
         ...fts1_5,
         ...fontRegular,
+        marginBottom: 2,
     },
     MacrosOptionContainer: {
         marginTop: hp('2%'),
@@ -48,7 +49,7 @@ export const styles = StyleSheet.create({
     MacrosOption: {
         ...flexRow,
         ...alignItemsCenter,
-        columnGap: hp('0.5%'),
+        columnGap: hp('0.3%'),
     },
     icon: {
         height: hp('2.6%'),

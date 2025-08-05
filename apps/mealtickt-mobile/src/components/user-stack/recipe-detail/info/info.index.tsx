@@ -29,7 +29,7 @@ const RecipeInfo = (info: Slide) => {
             <Text style={styles.heading}>{info.title}</Text>
             <View style={styles.columnGap}>
                 <MealCard iconType={info.type} text={info.type} />
-                <MealCard iconType={'timer'} text={info.time.toString()} />
+                <MealCard iconType={'timer'} text={info.time.toString() + ' mins'} />
                 <MealCard
                     iconType={'fire'}
                     text={info.mealDetails?.nutritionalInfo?.calories?.toString() + ' calories'}
