@@ -3,8 +3,8 @@ import axios from 'axios';
 import { useQueryClient } from '@tanstack/react-query';
 import { showSuccess } from 'app/utils/toast-config';
 
-// const HOST_API = 'http://tickt.unitygrowth.co:7800/api/v1';
-const HOST_API = 'http://localhost:3000/api/v1';
+const HOST_API = 'http://tickt.unitygrowth.co:7800/api/v1';
+// const HOST_API = 'http://localhost:3000/api/v1';
 
 export function useAxios() {
     const queryClient = useQueryClient();

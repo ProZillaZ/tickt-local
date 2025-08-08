@@ -63,6 +63,7 @@ const Slide5: React.FC<SlideComponentProps> = ({
             updateStepData(updatedState);
             processNext(handleNext);
         }
+        console.log('onNextPress');
     };
 
     return (

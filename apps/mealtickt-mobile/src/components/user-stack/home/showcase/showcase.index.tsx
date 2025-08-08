@@ -50,8 +50,6 @@ const ShowCase = ({
     const { carouselRef, progressPercentage, onChangeIndex, onRecipePress, getSlides } =
         useShowcase();
     const bannerRef = useRef<BannerAd>(null);
-    const [isScrolling, setIsScrolling] = useState(false);
-    const [lastTouchTime, setLastTouchTime] = useState(0);
 
     // (iOS) WKWebView can terminate if app is in a "suspended state", resulting in an empty banner when app returns to foreground.
     // Therefore it's advised to "manually" request a new ad when the app is foregrounded (https://groups.google.com/g/google-admob-ads-sdk/c/rwBpqOUr8m8).
@@ -64,7 +62,7 @@ const ShowCase = ({
                 <NativeComponent item={item} />
             </View>
         ) : (
-            <Pressable
+            <TouchableOpacity
                 onPress={() => {
                     onRecipePress(item);
                     AppLogger.trackEvent('recipe_viewed', {
@@ -72,9 +70,9 @@ const ShowCase = ({
                         from_screen: 'diet_plan',
                     });
                 }}
-                delayLongPress={200}
+                activeOpacity={0.9}
                 hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}
-                style={({ pressed }) => [{ opacity: pressed ? 0.9 : 1 }]}>
+                style={styles.slide}>
                 <ImageBackground
                     key={item.id}
                     source={item.image}
@@ -130,7 +128,7 @@ const ShowCase = ({
                         style={styles.gradient}
                     />
                 </ImageBackground>
-            </Pressable>
+            </TouchableOpacity>
         );
 
     const renderSkipRepeatCard = ({ item }: { item: Slide }) => {
@@ -221,7 +219,7 @@ const ShowCase = ({
                           : renderItem
                 }
                 loop={false}
-                onConfigurePanGesture={(panGesture) => panGesture.activeOffsetX([-15, 15])}
+                onConfigurePanGesture={(panGesture) => panGesture.activeOffsetX([-20, 20])}
             />
             <View style={styles.progressContainer}>
                 <View style={[styles.progressBar, { width: `${progressPercentage}%` }]} />
